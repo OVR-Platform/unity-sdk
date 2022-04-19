@@ -39,65 +39,6 @@ _Fig 3.3: Create your token_
 ![Create new project](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-06.png)
 _Fig 3.4: Get and use your token_
 
-## Ovr Editor Interface
-1.	Main Window
-
-![Ovr Editor](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-07.png)
-_Fig 4.1: Ovr Editor_
-    - Token textbox
-    - Validate Button
-
-2.	Login Window
-
-![Login Window](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-08.png)
-_Fig 4.2: Login Window_
-    - Logout button
-    - User projects dropdown
-    - Create new project button
-    - Publish button
-
-3.	Create new project Window 
-
-![Create new project window](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-09.png)
-_Fig 4.3: Create new project window_
-    - Project name
-    - Project thumbnail path
-    - Load thumbnail button
-    - Create project button
-
-4.	Publish an experience to your OVRLand
-
-![Publish window](https://assets.ovr.ai/images/github-sdk/tut-01.png)
-_Fig 4.4: Publishing window_
-    - Prefab thumbnail path
-    - Prefab selection
-    - User lands dropdown
-    - Publish button
-    - Back button
-
-## Publish an experience to your OVRLand
-1.	Open Ovr Editor from the toolbar (or use Ctrl + Shift + O).
-
-![Unity toolbar](https://assets.ovr.ai/images/github-sdk/tut-02.png)
-_Fig 5.1: Unity toolbar_
-
-2.	Enter login token.
-
-3.	Click on Validate Token button.
-
-![Validate token](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-08.png)
-_Fig 5.2: Validate token_
-
-4.	Select the project from the dropdown or create a new project then click on Prepare Publish button.
-
-![Create/Select project](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-09.png)
-_Fig 5.3: Create/Select project_
-
-5.	Publish:
-    - Select prefab thumbnail
-    - Select the prefab
-    - Select the OVRLand
-    - Click on the Publish button
-
-![Publish prefab](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-10.png)
-_Fig 5.4: Publish prefab_
+# OVER SDK MANUAL
+[Visit SDK Manual](https://docs.overthereality.ai/over-sdk-manual/
+)
