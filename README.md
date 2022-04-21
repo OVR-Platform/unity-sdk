@@ -15,11 +15,11 @@ _Fig 1.3: Unity platforms_
 4.	Create new project in unity with the download version.
 
 
-## Install Ovr Editor Package
+## Install OVER Editor Package
 - You can download the unity package `OVR_SDK_0.0.1_Alpha.unitypackage` from this repository.
 
-## Create and use your Ovr API Keys
-1.	Login on the Ovr Web Builder https://builder.ovr.ai using your credentials or your Metamask wallet and click on "Api Keys" from the top menu.
+## Create and use your OVER API Keys
+1.	Login on the OVER Web Builder https://builder.ovr.ai using your credentials or your Metamask wallet and click on "Api Keys" from the top menu.
 
 ![Create new project](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-03.png)
 _Fig 3.1: Click on API Keys_
