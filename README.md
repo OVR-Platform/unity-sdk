@@ -16,7 +16,7 @@ _Fig 1.3: Unity platforms_
 
 
 ## Install OVER Editor Package
-- You can download the unity package `OVR_SDK_0.0.1_Alpha.unitypackage` from this repository.
+- You can download the unity package `OVR_SDK_0.0.2_Alpha.unitypackage` from this repository.
 
 ## Create and use your OVER API Keys
 1.	Login on the OVER Web Builder https://builder.ovr.ai using your credentials or your Metamask wallet and click on "Api Keys" from the top menu.
