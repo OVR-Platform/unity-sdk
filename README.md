@@ -1,4 +1,4 @@
-# OVR Unity SDK
+# OVER Unity SDK
 
 ## Unity Setup
 1. Go to Unity Hub, and download Unity Hub (not the beta version)
