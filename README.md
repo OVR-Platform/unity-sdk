@@ -7,16 +7,21 @@
 ![Unity Version](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-01.png)
 _Fig 1.2: Unity Version_
 
-3.	Select Android and iOS platforms.
+3.	{For Windows} Select Android, iOS and Mac platform.
 
 ![Unity platforms](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-02.png)
+_Fig 1.3: Unity platforms_
+
+3.	{For Mac) Select Android, iOS and Windows platform.
+
+![Unity platforms](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-02-2.png)
 _Fig 1.3: Unity platforms_
 
 4.	Create new project in unity with the download version.
 
 
 ## Install OVER Editor Package
-- You can download the unity package `OVR_SDK_0.0.3_Alpha.unitypackage` [here](https://github.com/OVR-Platform/unity-sdk/blob/main/OVR_SDK_0.0.3_Alpha.unitypackage).
+- You can download the last unity package [here](https://github.com/OVR-Platform/unity-sdk/releases).
 
 ## Create and use your OVER API Keys
 1.	Login on the OVER Web Builder https://builder.ovr.ai using your credentials or your Metamask wallet and click on "Api Keys" from the top menu.
