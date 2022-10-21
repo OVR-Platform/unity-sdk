@@ -9,7 +9,7 @@ _Fig 1.2: Unity Version_
 
 3.	{For Windows} Select Android, iOS and Mac platform.
 
-![Unity platforms](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-02.png)
+![Unity platforms](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-02-1.png)
 _Fig 1.3: Unity platforms_
 
 3.	{For Mac) Select Android, iOS and Windows platform.
