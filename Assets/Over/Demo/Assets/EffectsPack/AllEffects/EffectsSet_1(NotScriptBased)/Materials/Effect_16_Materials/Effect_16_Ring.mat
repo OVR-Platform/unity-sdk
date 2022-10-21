@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Effect_16_Ring
+  m_Shader: {fileID: 4800000, guid: 1d58a8e283100ea4f8435e923e54553e, type: 3}
+  m_ShaderKeywords: IS_NORMAL_ANIMATE IS_SOFT_PARTICLES IS_TEXTURE_BLEND IS_UNITY_PARTICLE_INSTANCING_ENABLED
+    _ALPHAPREMULTIPLY_ON
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FixedMaskTex:
+        m_Texture: {fileID: 2800000, guid: 72389a8f0765f984c9e63a00214df658, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LinePassTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 40c8687422fedad4c9aca90625710d37, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskDistortion:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseNormal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalTex:
+        m_Texture: {fileID: 2800000, guid: 9a9498ac1b0e2484dbe7cdeee7973e50, type: 3}
+        m_Scale: {x: 20, y: 20}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BlendDst: 1
+    - _BlendOp: 0
+    - _BlendSrc: 5
+    - _BumpScale: 1
+    - _CameraFadingEnabled: 0
+    - _CameraFarFadeDistance: 2
+    - _CameraNearFadeDistance: 1
+    - _ColorFactor: 4
+    - _ColorMode: 0
+    - _Cull: 2
+    - _Culling: 0
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DistortionBlend: 0.5
+    - _DistortionEnabled: 0
+    - _DistortionStrength: 1
+    - _DistortionStrengthScaled: 0
+    - _DstBlend: 10
+    - _EmissionEnabled: 0
+    - _FlipbookMode: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Impact: 0
+    - _ImpactSize: 0.5
+    - _InvFade: 1
+    - _Lighting: 0
+    - _LightingEnabled: 0
+    - _LinePass: 0
+    - _MaskAnimatedSpeed: 1
+    - _MaskCutOut: 1
+    - _MaskFade: 0
+    - _MaskOffsetFactor: 1
+    - _Metallic: 0
+    - _MixedMove: 0
+    - _Mode: 3
+    - _NoiseNormalFactor: 1
+    - _NoiseScale: 1
+    - _NormalAnimate: 1
+    - _NormalAnimateSpeed: 1
+    - _NormalDistortion: 0
+    - _NormalDistortionFactor: 0.01
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _ParticleInstancing: 1
+    - _RimLight: 0
+    - _RimScale: 1
+    - _RimStrength: 1
+    - _SmoothnessTextureChannel: 0
+    - _SoftParticle: 1
+    - _SoftParticlesEnabled: 0
+    - _SoftParticlesFarFadeDistance: 1
+    - _SoftParticlesNearFadeDistance: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _TexPath: 1
+    - _TexPosMove: 0.08
+    - _TexcoordMove: 0
+    - _TexcoordMoveStrength: 2
+    - _TextureAnimate: 0
+    - _TextureAnimateSpeed: 1
+    - _TextureAnimateStyle: 2
+    - _TextureBlend: 1
+    - _TextureNoise: 0
+    - _UVSec: 0
+    - _UseTexAnimation: 0
+    - _VertexAnimation: 0
+    - _ZTest1: 5
+    - _ZTest2: 2
+    - _ZWrite: 0
+    - _xTexcoordMove: 1
+    - _yTexcoordMove: 1
+    m_Colors:
+    - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
+    - _Color: {r: 3.9999995, g: 3.9999995, b: 3.9999995, a: 1}
+    - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _NoiseValue: {r: 1, g: 1, b: 1, a: 0}
+    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
+    - _TintColor: {r: 0.01543419, g: 0.09225852, b: 1.0906847, a: 1}
