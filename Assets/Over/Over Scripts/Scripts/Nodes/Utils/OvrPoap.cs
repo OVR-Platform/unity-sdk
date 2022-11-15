@@ -35,10 +35,13 @@ namespace Over
         [TextArea(5, 5)] public string url;
         public static Action<OvrPoap> OpenPoap = null;
 
+#if UNITY_EDITOR
+        private UnityEditor.EditorApplication.CallbackFunction callbackFunction;
+
         protected void OnValidate()
         {
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.CallbackFunction callbackFunction = null;
+            callbackFunction = null;
+
             callbackFunction = () =>
             {
                 if (Application.isPlaying)
@@ -47,7 +50,7 @@ namespace Over
                     return;
                 }
 
-                if (gameObject != null && !gameObject.IsAPrefabNotInScene() && !OvrUtils.PrefabModeEnabled())
+                if (this != null && gameObject != null && !gameObject.IsAPrefabNotInScene() && !OvrUtils.PrefabModeEnabled())
                 {
                     OvrAsset ovrAsset = GetComponentInParent<OvrAsset>();
 
@@ -75,13 +78,19 @@ namespace Over
                     }
                 }
             };
-            if (gameObject != null && !gameObject.IsAPrefabNotInScene())
+
+            if (this != null && gameObject != null && !gameObject.IsAPrefabNotInScene())
             {
                 UnityEditor.EditorApplication.delayCall -= callbackFunction;
                 UnityEditor.EditorApplication.delayCall += callbackFunction;
             }
-#endif           
         }
+
+        protected void OnDestroy()
+        {
+            UnityEditor.EditorApplication.delayCall -= callbackFunction;
+        }
+#endif           
 
         protected override void Execution()
         {
