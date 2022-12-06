@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.over.over-unity-sdk": "file:../OVER Unity SDK Package/OVER Unity SDK",
     "com.unity.collab-proxy": "1.7.1",
     "com.unity.ide.rider": "2.0.7",
     "com.unity.ide.visualstudio": "2.0.11",

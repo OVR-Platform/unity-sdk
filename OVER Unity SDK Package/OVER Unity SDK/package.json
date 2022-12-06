@@ -1,0 +1,27 @@
+{
+  "name": "com.over.over-unity-sdk",
+  "version": "0.0.7",
+  "displayName": "OVER Unity SDK",
+  "description": "Thanks to our plugin, you can take advantage of all the Unity Engine features as it is the same development environment used in the OVR app. You can integrate major 3D model formats like fbx, dae, 3ds, dxf and obj, create interactions, animations and take advantage of physics rules directly from Unity, activating them through triggers or buttons\u2026",
+  "unity": "2020.3",
+  "unityRelease": "16f1",
+  "documentationUrl": "https://github.com/OVR-Platform/unity-sdk/blob/main/README.md",
+  "changelogUrl": "https://github.com/OVR-Platform/unity-sdk/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/OVR-Platform/unity-sdk/blob/main/LICENSE.md",
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.6"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Over The Reality",
+    "email": "info@ovr.ai",
+    "url": "https://www.overthereality.ai/"
+  },
+  "samples": [
+    {
+      "displayName": "Demo",
+      "description": "Demo Assets to help you setup your first OVER Experience",
+      "path": "Samples~/Demo"
+    }
+  ]
+}
