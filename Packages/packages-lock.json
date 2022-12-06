@@ -1,5 +1,13 @@
 {
   "dependencies": {
+    "com.over.over-unity-sdk": {
+      "version": "file:../OVER Unity SDK Package/OVER Unity SDK",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.unity.textmeshpro": "3.0.6"
+      }
+    },
     "com.unity.collab-proxy": {
       "version": "1.7.1",
       "depth": 0,
