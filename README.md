@@ -25,7 +25,7 @@ _Fig 1.3: Unity platforms_
 
 - Open `Window > Package Manager`
 - Click the `+` button
-- You can either choose to install the package from a Git URL (Recommended), by pasting the following git url `https://github.com/OVR-Platform/unity-sdk.git`, or from a tarball file (You can download the last version [here](https://github.com/OVR-Platform/unity-sdk/releases)).
+- You can either choose to install the package from a Git URL (Recommended), by pasting the following git url `https://github.com/OVR-Platform/unity-sdk.git#upm`, or from a tarball file (You can download the last version [here](https://github.com/OVR-Platform/unity-sdk/releases)).
 
 ## Create and use your OVER API Keys
 1.	Login on the OVER Web Builder https://builder.ovr.ai using your credentials or your Metamask wallet and click on "Api Keys" from the top menu.
