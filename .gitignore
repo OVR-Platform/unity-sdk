@@ -65,3 +65,12 @@ crashlytics-build.properties
 
 # VS Code
 .vscode/
+
+
+#UPM Branch
+/OVER Unity SDK Package/
+/Assets/
+/Release/
+/Packages/
+/ProjectSettings/
+/UserSettings/
