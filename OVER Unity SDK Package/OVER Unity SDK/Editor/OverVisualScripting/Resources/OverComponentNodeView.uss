@@ -1,0 +1,16 @@
+.overComponentNodeView #title {
+    padding-left: 18px;
+    padding-right: 24px;
+}
+
+.overComponentNodeView #title {
+    background-color: #0081DD;
+}
+
+.overComponentNodeView #title > #icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 2px;
+    top: 3px;
+}

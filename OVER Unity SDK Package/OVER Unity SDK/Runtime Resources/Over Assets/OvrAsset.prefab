@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableOvrDefaultLight: 0
-  enableARLightSystem: 0
+  enableARLightSystem: 1
   customAmbientLight: 0
   ambientColorCorrection: {r: 1, g: 1, b: 1, a: 1}
   ambientIntensity: 1

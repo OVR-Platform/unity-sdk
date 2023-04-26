@@ -1,0 +1,17 @@
+.overOperationNodeView #title {
+    padding-left: 18px;
+    padding-right: 24px;
+}
+
+.overOperationNodeView #title {
+    padding-left: 0;
+    background-color: #C81D5E;
+}
+
+.overOperationNodeView #title > #icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 2px;
+    top: 3px;
+}

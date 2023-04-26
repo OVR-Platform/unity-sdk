@@ -1,0 +1,9 @@
+.overFlowNodeView #title {
+    padding-left: 18px;
+    padding-right: 24px;
+}
+
+.overFlowNodeView #title {
+    padding-left: 0;
+    background-color: #2A2266;
+}

@@ -123,75 +123,75 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &835318785
+--- !u!1001 &608065043
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 378391760447937918, guid: d907fdefff234d30916c2ca9607abe53,
-        type: 3}
-      propertyPath: m_Name
-      value: OvrDemoAsset
-      objectReference: {fileID: 0}
-    - target: {fileID: 378391760447937919, guid: d907fdefff234d30916c2ca9607abe53,
+    - target: {fileID: 5448009697505542932, guid: af45fe99498158847ad33acd78ac5a1b,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 378391760447937919, guid: d907fdefff234d30916c2ca9607abe53,
+    - target: {fileID: 5448009697505542932, guid: af45fe99498158847ad33acd78ac5a1b,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 378391760447937919, guid: d907fdefff234d30916c2ca9607abe53,
+    - target: {fileID: 5448009697505542932, guid: af45fe99498158847ad33acd78ac5a1b,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 378391760447937919, guid: d907fdefff234d30916c2ca9607abe53,
+    - target: {fileID: 5448009697505542932, guid: af45fe99498158847ad33acd78ac5a1b,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 378391760447937919, guid: d907fdefff234d30916c2ca9607abe53,
+    - target: {fileID: 5448009697505542932, guid: af45fe99498158847ad33acd78ac5a1b,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 378391760447937919, guid: d907fdefff234d30916c2ca9607abe53,
+    - target: {fileID: 5448009697505542932, guid: af45fe99498158847ad33acd78ac5a1b,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 378391760447937919, guid: d907fdefff234d30916c2ca9607abe53,
+    - target: {fileID: 5448009697505542932, guid: af45fe99498158847ad33acd78ac5a1b,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 378391760447937919, guid: d907fdefff234d30916c2ca9607abe53,
+    - target: {fileID: 5448009697505542932, guid: af45fe99498158847ad33acd78ac5a1b,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 378391760447937919, guid: d907fdefff234d30916c2ca9607abe53,
+    - target: {fileID: 5448009697505542932, guid: af45fe99498158847ad33acd78ac5a1b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 378391760447937919, guid: d907fdefff234d30916c2ca9607abe53,
+    - target: {fileID: 5448009697505542932, guid: af45fe99498158847ad33acd78ac5a1b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 378391760447937919, guid: d907fdefff234d30916c2ca9607abe53,
+    - target: {fileID: 5448009697505542932, guid: af45fe99498158847ad33acd78ac5a1b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5448009697505542933, guid: af45fe99498158847ad33acd78ac5a1b,
+        type: 3}
+      propertyPath: m_Name
+      value: OvrDemoAsset_VisualScripting
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d907fdefff234d30916c2ca9607abe53, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: af45fe99498158847ad33acd78ac5a1b, type: 3}
 --- !u!1001 &1786021358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -258,6 +258,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: OvrPlayerSimulator
+      objectReference: {fileID: 0}
+    - target: {fileID: 8441291277820570856, guid: f17530f1f8184938bcac3d5cdb659e59,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f17530f1f8184938bcac3d5cdb659e59, type: 3}

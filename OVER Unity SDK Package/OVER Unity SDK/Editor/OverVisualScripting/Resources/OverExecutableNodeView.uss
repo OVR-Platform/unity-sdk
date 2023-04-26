@@ -1,0 +1,110 @@
+﻿/**
+ * OVR Unity SDK License
+ *
+ * Copyright 2021 OVR
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * 1. The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * 2. All copies of substantial portions of the Software may only be used in connection
+ * with services provided by OVR.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+.overExecutableNodeView #title {
+    padding-right: 24px;
+}
+
+.overExecutionTriggerNodeView #title {
+    padding-left: 0;
+}
+
+.overExecutableNodeView #title > #icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 22px;
+    top: 2px;
+}
+
+.overExecutionTriggerNodeView #title > #icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 2px;
+    top: 2px;
+}
+
+/* Temporarily disabled - since we're placing a port over it */
+.overExecutableNodeView #title-button-container {
+    display: none;
+}
+
+.overExecutableNodeView .portView.port.type-OverExecutionFlowData {
+    --port-color: #ffffff;
+}
+
+.overExecutableNodeView .portView.port.execOutPortView #type {
+    visibility: hidden;
+    width: 1px;
+}
+
+.overExecutableNodeView .portView.port.execInPortView #type {
+    visibility: hidden;
+    width: 1px;
+}
+
+.overExecutableNodeView .portView.port.execInPortView {
+
+/* This is dumb and hacky but it lets us slap these ports into the 
+    header without having to move around the DOM */
+    
+    position: absolute;
+    top: -24px;
+    left: 0;
+}
+
+.overExecutableNodeView .portView.port.execOutPortView {
+    position: absolute;
+    top: -24px;
+    right: 0;
+}
+
+.overExecutableNodeView #output {
+    min-width: 30px;
+}
+
+
+.overExecutableNodeView #input {
+    min-width: 30px;
+}
+
+.portView.port.type-OverSDK-VisualScripting-OverExecutionFlowData #connector {
+    width: 10px;
+    height: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.portView.port.type-OverSDK-VisualScripting-OverExecutionFlowData #connector > #cap {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}

@@ -1,0 +1,17 @@
+.overDataNodeView #title {
+    padding-left: 18px;
+    padding-right: 24px;
+}
+
+.overDataNodeView #title {
+    padding-left: 0;
+    background-color: #E15F28;
+}
+
+.overDataNodeView #title > #icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 2px;
+    top: 3px;
+}

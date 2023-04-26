@@ -1,0 +1,17 @@
+.overARComponentNodeView #title {
+    padding-left: 18px;
+    padding-right: 24px;
+}
+
+.overARComponentNodeView #title {
+    padding-left: 0;
+    background-color: #6B32C1;
+}
+
+.overARComponentNodeView #title > #icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 2px;
+    top: 3px;
+}
