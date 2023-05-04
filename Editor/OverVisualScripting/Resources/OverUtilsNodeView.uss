@@ -1,0 +1,17 @@
+.overUtilsNodeView #title {
+    padding-left: 18px;
+    padding-right: 24px;
+}
+
+.overUtilsNodeView #title {
+    padding-left: 0;
+    background-color: #098566;
+}
+
+.overUtilsNodeView #title > #icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 2px;
+    top: 3px;
+}
