@@ -27,6 +27,15 @@ _Fig 1.3: Unity platforms_
 - Click the `+` button
 - You can either choose to install the package from a Git URL (Recommended), by pasting the following git url `https://github.com/OVR-Platform/unity-sdk.git#upm`, or from a tarball file (You can download the last version [here](https://github.com/OVR-Platform/unity-sdk/releases)).
 
+##### If you have problems downloading the package from git, try the following steps
+###### For Mac Users:
+- `brew install git` (https://git-scm.com/download/mac)
+- `brew install git-lfs`
+- `git lfs install`
+- `sudo git lfs install --system`
+- (Important) `sudo ln -s "$(which git-lfs)" /usr/local/bin/`
+- (Otherwise) `sudo ln -s "$(which git-lfs)" "$(git --exec-path)/git-lfs"`
+
 ## Create and use your OVER API Keys
 1.	Login on the OVER Web Builder https://builder.ovr.ai using your credentials or your Metamask wallet and click on "Api Keys" from the top menu.
 
