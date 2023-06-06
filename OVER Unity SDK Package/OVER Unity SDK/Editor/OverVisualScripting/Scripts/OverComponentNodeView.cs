@@ -44,6 +44,7 @@ namespace OverSDK.VisualScripting.Editor
     [CustomNodeView(typeof(OverRendererHandlerNode))]
     [CustomNodeView(typeof(OverLineRenderer))]
     [CustomNodeView(typeof(OverLineRendererHandlerNode))]
+    [CustomNodeView(typeof(OverParticleSystemHandlerNode))]
     [CustomNodeView(typeof(OverAnimator))]
     [CustomNodeView(typeof(OverAnimatorHandler))]
     [CustomNodeView(typeof(OverAudioSource))]

@@ -26,7 +26,6 @@
  */
 
 using BlueGraph;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -36,14 +35,16 @@ namespace OverSDK.VisualScripting
     [Node]
     public abstract class OverGetVariable : OverNode
     {
-        public string _id;
-        public abstract OverVariableType Type { get; }
+        public string guid;
+        public string _name;
 
-        public abstract object Value { get; set; }
+        public bool isGlobal;
+
+        public abstract OverVariableType Type { get; }
 
         public override void OnEnable()
         {
-            Name = $"{_id}";
+            Name = $"{_name}";
             base.OnEnable();
         }
     }
@@ -52,33 +53,17 @@ namespace OverSDK.VisualScripting
     [Output("Int", typeof(System.Single), Multiple = true)]
     public class OverGetVariableInt : OverGetVariable
     {
+        protected System.Single variable; 
         public override OverVariableType Type => OverVariableType.Int;
-
-        protected System.Single variable;
-        public virtual int TypedVariable { get => (int)variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (int)value; }
-
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.integerValue;
-                }
-            }
-
-            if (globalVariableDict.ContainsKey(_id))
-            {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.integerValue;
+                return variableData?.integerValue;
             }
 
             return 0;
@@ -91,34 +76,18 @@ namespace OverSDK.VisualScripting
     {
         protected float variable;
         public override OverVariableType Type => OverVariableType.Float;
-        public virtual float TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (float)value; }
-
-
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.floatValue;
-                }
+                return variableData?.floatValue;
             }
 
-            if (globalVariableDict.ContainsKey(_id))
-            {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.floatValue;
-            }
-
-            return 0.0f;
+            return 0f;
         }
     }
 
@@ -128,30 +97,15 @@ namespace OverSDK.VisualScripting
     {
         public bool variable;
         public override OverVariableType Type => OverVariableType.Bool;
-        public virtual bool TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (bool)value; }
-
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.boolValue;
-                }
-            }
-
-            if (globalVariableDict.ContainsKey(_id))
-            {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.boolValue;
+                return variableData?.boolValue;
             }
 
             return false;
@@ -164,30 +118,15 @@ namespace OverSDK.VisualScripting
     {
         public string variable;
         public override OverVariableType Type => OverVariableType.String;
-        public virtual string TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (string)value; }
-
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.stringValue;
-                }
-            }
-
-            if (globalVariableDict.ContainsKey(_id))
-            {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.stringValue;
+                return variableData?.stringValue;
             }
 
             return "";
@@ -200,30 +139,15 @@ namespace OverSDK.VisualScripting
     {
         public Vector2 variable;
         public override OverVariableType Type => OverVariableType.Vector2;
-        public virtual Vector2 TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (Vector2)value; }
-
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.vector2Value;
-                }
-            }
-
-            if (globalVariableDict.ContainsKey(_id))
-            {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.vector2Value;
+                return variableData?.vector2Value;
             }
 
             return Vector2.zero;
@@ -236,30 +160,15 @@ namespace OverSDK.VisualScripting
     {
         public Vector3 variable;
         public override OverVariableType Type => OverVariableType.Vector3;
-        public virtual Vector3 TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (Vector3)value; }
-
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.vector3Value;
-                }
-            }
-
-            if (globalVariableDict.ContainsKey(_id))
-            {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.vector3Value;
+                return variableData?.vector3Value;
             }
 
             return Vector3.zero;
@@ -272,30 +181,15 @@ namespace OverSDK.VisualScripting
     {
         public Quaternion variable;
         public override OverVariableType Type => OverVariableType.Quaternion;
-        public virtual Quaternion TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (Quaternion)value; }
-
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.QuaternionValue;
-                }
-            }
-
-            if (globalVariableDict.ContainsKey(_id))
-            {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.QuaternionValue;
+                return variableData?.QuaternionValue;
             }
 
             return Quaternion.identity;
@@ -309,30 +203,15 @@ namespace OverSDK.VisualScripting
     {
         public Transform variable;
         public override OverVariableType Type => OverVariableType.Transform;
-        public virtual Transform TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (Transform)value; }
-
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.transformValue;
-                }
-            }
-
-            if (globalVariableDict.ContainsKey(_id))
-            {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.transformValue;
+                return variableData?.transformValue;
             }
 
             return null;
@@ -347,30 +226,15 @@ namespace OverSDK.VisualScripting
     {
         public RectTransform variable;
         public override OverVariableType Type => OverVariableType.RectTransform;
-        public virtual RectTransform TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (RectTransform)value; }
-
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.rectTransform;
-                }
-            }
-
-            if (globalVariableDict.ContainsKey(_id))
-            {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.rectTransform;
+                return variableData?.rectTransform;
             }
 
             return null;
@@ -378,37 +242,42 @@ namespace OverSDK.VisualScripting
 
     }
 
-
     [Tags("Variable")]
     [Output("Rigidbody", typeof(Rigidbody), Multiple = true)]
     public class OverGetVariableRigidbody : OverGetVariable
     {
         public Rigidbody variable;
         public override OverVariableType Type => OverVariableType.Rigidbody;
-        public virtual Rigidbody TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (Rigidbody)value; }
-
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.rigidbodyValue;
-                }
+                return variableData?.rigidbodyValue;
             }
 
-            if (globalVariableDict.ContainsKey(_id))
+            return null;
+        }
+    }
+
+    [Tags("Variable")]
+    [Output("Collider", typeof(Collider), Multiple = true)]
+    public class OverGetVariableCollider : OverGetVariable
+    {
+        public Collider variable;
+        public override OverVariableType Type => OverVariableType.Collider;
+        public override object OnRequestNodeValue(Port port)
+        {
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
+
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.rigidbodyValue;
+                return variableData?.colliderValue;
             }
 
             return null;
@@ -421,30 +290,15 @@ namespace OverSDK.VisualScripting
     {
         public GameObject variable;
         public override OverVariableType Type => OverVariableType.Object;
-        public virtual GameObject TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (GameObject)value; }
-
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.gameObject;
-                }
-            }
-
-            if (globalVariableDict.ContainsKey(_id))
-            {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.gameObject;
+                return variableData?.gameObject;
             }
 
             return null;
@@ -459,30 +313,15 @@ namespace OverSDK.VisualScripting
     {
         public Renderer variable;
         public override OverVariableType Type => OverVariableType.Renderer;
-        public virtual Renderer TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (Renderer)value; }
-
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.renderer;
-                }
-            }
-
-            if (globalVariableDict.ContainsKey(_id))
-            {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.renderer;
+                return variableData?.renderer;
             }
 
             return null;
@@ -497,35 +336,61 @@ namespace OverSDK.VisualScripting
     {
         public LineRenderer variable;
         public override OverVariableType Type => OverVariableType.LineRenderer;
-        public virtual LineRenderer TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (LineRenderer)value; }
-
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.lineRenderer;
-                }
-            }
-
-            if (globalVariableDict.ContainsKey(_id))
-            {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.lineRenderer;
+                return variableData?.lineRenderer;
             }
 
             return null;
         }
+    }
 
+    [Tags("Variable")]
+    [Output("Material", typeof(Material), Multiple = true)]
+    public class OverGetVariableMaterial : OverGetVariable
+    {
+        public Material variable;
+        public override OverVariableType Type => OverVariableType.Material;
+        public override object OnRequestNodeValue(Port port)
+        {
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
+
+            if (variableDict.TryGetValue(guid, out var variableData))
+            {
+                return variableData?.material;
+            }
+
+            return null;
+        }
+    }
+
+    [Tags("Variable")]
+    [Output("ParticleSystem", typeof(ParticleSystem), Multiple = true)]
+    public class OverGetVariableParticleSystem : OverGetVariable
+    {
+        public ParticleSystem variable;
+        public override OverVariableType Type => OverVariableType.ParticleSystem;
+        public override object OnRequestNodeValue(Port port)
+        {
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
+
+            if (variableDict.TryGetValue(guid, out var variableData))
+            {
+                return variableData?.particleSystem;
+            }
+
+            return null;
+        }
     }
 
     [Tags("Variable")]
@@ -533,31 +398,38 @@ namespace OverSDK.VisualScripting
     public class OverGetVariableAudioSource : OverGetVariable
     {
         public AudioSource variable;
-        public override OverVariableType Type => OverVariableType.Audio;
-        public virtual AudioSource TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (AudioSource)value; }
-
-        public override object OnRequestValue(Port port)
+        public override OverVariableType Type => OverVariableType.AudioSource;
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.audioSource;
-                }
+                return variableData?.audioSource;
             }
 
-            if (globalVariableDict.ContainsKey(_id))
+            return null;
+        }
+    }
+
+    [Tags("Variable")]
+    [Output("AudioClip", typeof(AudioClip), Multiple = true)]
+    public class OverGetVariableAudioClip : OverGetVariable
+    {
+        public AudioClip variable;
+        public override OverVariableType Type => OverVariableType.AudioClip;
+
+        public override object OnRequestNodeValue(Port port)
+        {
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
+
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.audioSource;
+                return variableData?.audioClip;
             }
 
             return null;
@@ -570,36 +442,21 @@ namespace OverSDK.VisualScripting
     {
         public VideoPlayer variable;
         public override OverVariableType Type => OverVariableType.Video;
-        public virtual VideoPlayer TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (VideoPlayer)value; }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.videoPlayer;
-                }
-            }
-
-            if (globalVariableDict.ContainsKey(_id))
-            {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.videoPlayer;
+                return variableData?.videoPlayer;
             }
 
             return null;
         }
     }
-
 
     [Tags("Variable")]
     [Output("Animator", typeof(Animator), Multiple = true)]
@@ -607,30 +464,15 @@ namespace OverSDK.VisualScripting
     {
         public Animator variable;
         public override OverVariableType Type => OverVariableType.Animator;
-        public virtual Animator TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (Animator)value; }
-
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.animator;
-                }
-            }
-
-            if (globalVariableDict.ContainsKey(_id))
-            {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.animator;
+                return variableData?.animator;
             }
 
             return null;
@@ -643,30 +485,15 @@ namespace OverSDK.VisualScripting
     {
         public Light variable;
         public override OverVariableType Type => OverVariableType.Light;
-        public virtual Light TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (Light)value; }
-
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.light;
-                }
-            }
-
-            if (globalVariableDict.ContainsKey(_id))
-            {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.light;
+                return variableData?.light;
             }
 
             return null;
@@ -674,72 +501,21 @@ namespace OverSDK.VisualScripting
 
     }
 
-    //[Tags("Variable")]
-    //[Output("Button", typeof(Button), Multiple = true)]
-    //public class OverGetVariableButton : OverGetVariable
-    //{
-    //    public Button variable;
-    //    public override OverVariableType Type => OverVariableType.Button;
-    //    public virtual Button TypedVariable { get => variable; set => variable = value; }
-    //    public override object Value { get => variable; set => variable = (Button)value; }
-
-    //    public override object OnRequestValue(Port port)
-    //    {
-    //        OverGraph overGraph = Graph as OverGraph;
-
-    //        Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-    //        Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-    //        if (localVariableDict.ContainsKey(_id))
-    //        {
-    //            OverVariableData data = localVariableDict[_id];
-    //            if (data != null)
-    //            {
-    //                return data.button;
-    //            }
-    //        }
-
-    //        if (globalVariableDict.ContainsKey(_id))
-    //        {
-    //            OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-    //            if (global_data != null)
-    //                return global_data.button;
-    //        }
-
-    //        return null;
-    //    }
-    //}
-
     [Tags("Variable")]
     [Output("Text", typeof(Text), Multiple = true)]
     public class OverGetVariableText : OverGetVariable
     {
         public Text variable;
         public override OverVariableType Type => OverVariableType.Text;
-        public virtual Text TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (Text)value; }
-
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.text;
-                }
-            }
-
-            if (globalVariableDict.ContainsKey(_id))
-            {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.text;
+                return variableData?.text;
             }
 
             return null;
@@ -753,30 +529,15 @@ namespace OverSDK.VisualScripting
     {
         public TMPro.TextMeshProUGUI variable;
         public override OverVariableType Type => OverVariableType.TextTMP;
-        public virtual TMPro.TextMeshProUGUI TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (TMPro.TextMeshProUGUI)value; }
-
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.textTMP;
-                }
-            }
-
-            if (globalVariableDict.ContainsKey(_id))
-            {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.textTMP;
+                return variableData?.textTMP;
             }
 
             return null;
@@ -790,30 +551,15 @@ namespace OverSDK.VisualScripting
     {
         public Image variable;
         public override OverVariableType Type => OverVariableType.Image;
-        public virtual Image TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (Image)value; }
-
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.image;
-                }
-            }
-
-            if (globalVariableDict.ContainsKey(_id))
-            {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.image;
+                return variableData?.image;
             }
 
             return null;
@@ -827,68 +573,36 @@ namespace OverSDK.VisualScripting
     {
         public RawImage variable;
         public override OverVariableType Type => OverVariableType.RawImage;
-        public virtual RawImage TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (RawImage)value; }
-
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.rawImage;
-                }
-            }
-
-            if (globalVariableDict.ContainsKey(_id))
-            {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.rawImage;
+                return variableData?.rawImage;
             }
 
             return null;
         }
-
     }
 
     [Tags("Variable")]
     [Output("Color", typeof(Color), Multiple = true)]
     public class OverGetVariableColor : OverGetVariable
     {
-        public override OverVariableType Type => OverVariableType.Color;
-
         protected Color variable;
-        public virtual Color TypedVariable { get => variable; set => variable = value; }
-        public override object Value { get => variable; set => variable = (Color)value; }
-
-        public override object OnRequestValue(Port port)
+        public override OverVariableType Type => OverVariableType.Color;
+        public override object OnRequestNodeValue(Port port)
         {
-            OverGraph overGraph = Graph as OverGraph;
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
 
-            Dictionary<string, OverVariableData> localVariableDict = OverScriptManager.Main.overDataMappings[overGraph.GUID].overScript.data.VariableDict;
-            Dictionary<string, OverVariableData> globalVariableDict = OverScriptManager.Main.globalVariables.VariableDict;
-
-            if (localVariableDict.ContainsKey(_id))
+            if (variableDict.TryGetValue(guid, out var variableData))
             {
-                OverVariableData data = localVariableDict[_id];
-                if (data != null)
-                {
-                    return data.color;
-                }
-            }
-
-            if (globalVariableDict.ContainsKey(_id))
-            {
-                OverVariableData global_data = OverScriptManager.Main.globalVariables.VariableDict[_id];
-                if (global_data != null)
-                    return global_data.color;
+                return variableData?.color;
             }
 
             return Color.white;

@@ -27,6 +27,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace OverSDK.VisualScripting
@@ -55,7 +56,7 @@ namespace OverSDK.VisualScripting
 
             switch (error)
             {
-                case ScriptManagementError.MultipleScript: this.message = $"Multiple occurrences of {source.OverGraph.GraphName}[{source.OverGraph.GUID}]. Remove one to continue."; break;
+                case ScriptManagementError.MultipleScript: this.message = $"Multiple occurrences of {source.OverGraph.GraphName}[{source.GUID}]. Remove one to continue."; break;
                 default: break;
             }
         }
@@ -75,13 +76,55 @@ namespace OverSDK.VisualScripting
         }
 
         public Dictionary<string, OverDataMapping> overDataMappings = new Dictionary<string, OverDataMapping>();
-        [SerializeField] public List<OverScript> managerdScripts = new List<OverScript>();
+        [SerializeField] public List<OverScript> managedScripts = new List<OverScript>();
         public bool IsError => errors.Count > 0;
 
-        public OverScriptData globalVariables;
+        [SerializeField] OverScriptData data;
+        public OverScriptData Data
+        {
+            get
+            {
+                if (data == null) data = new OverScriptData();
+                return data;
+            }
+            set { data = value; }
+        }
+
+        [SerializeField][HideInInspector] List<OverGraphVariableData> ghostVariables = new List<OverGraphVariableData>();
 
         [Header("Debug")]
         [SerializeField] public List<ErrorScriptMessage> errors = new List<ErrorScriptMessage>();
+
+        private void OnValidate()
+        {
+            RefreshGlobals();
+        }
+
+        public void RefreshGlobals()
+        {
+            Dictionary<string, OverVariableData> dict = Data.VariableDict;
+            if (ghostVariables.Count != Data.variables.Count)
+            {
+                //Debug.LogError("MNGR - something has been added removed....");
+                foreach (OverScript managed in managedScripts)
+                {
+                    managed.OverGraph.ValidateInternalNodes();
+                }
+
+                ghostVariables = new List<OverGraphVariableData>(Data.variables.Select(x => x.ToGraphData()));
+            }
+        }
+
+        public void ApplyVariableChangesTo(OverVariableData variable)
+        {
+            //Debug.LogError("something has been changed....");
+            foreach(OverScript managed in managedScripts)
+            {
+                managed.OverGraph.ValidateInternalNodes();
+            }
+
+            ghostVariables = new List<OverGraphVariableData>(Data.variables.Select(x => x.ToGraphData()));
+        }
 
         private void Awake()
         {
@@ -106,7 +149,7 @@ namespace OverSDK.VisualScripting
         public void UpdateMappings()
         {
             overDataMappings.Clear();
-            managerdScripts.Clear();
+            managedScripts.Clear();
             errors.Clear();
 
             OverScript[] scripts = FindObjectsOfType<OverScript>();
@@ -117,9 +160,9 @@ namespace OverSDK.VisualScripting
             {
                 if (script.OverGraph != null)
                 {
-                    if (!guids.Contains(script.OverGraph.GUID))
+                    if (!guids.Contains(script.GUID))
                     {
-                        guids.Add(script.OverGraph.GUID);
+                        guids.Add(script.GUID);
                     }
                     else
                     {
@@ -140,37 +183,15 @@ namespace OverSDK.VisualScripting
                         overScript = script
                     };
 
-                    if (!overDataMappings.ContainsKey(mapping.overGraphAsset.GUID))
+                    if (!overDataMappings.ContainsKey(mapping.overScript.GUID))
                     {
-                        overDataMappings.Add(mapping.overGraphAsset.GUID, mapping);
-                        managerdScripts.Add(script);
+                        overDataMappings.Add(mapping.overScript.GUID, mapping);
+                        managedScripts.Add(script);
                     }
                     else
                     {
-                        overDataMappings[mapping.overGraphAsset.GUID] = mapping;
+                        overDataMappings[mapping.overScript.GUID] = mapping;
                     }
-                }
-            }
-        }
-
-        public void UpdateMapping(OverScript script)
-        {
-            if (script.OverGraph != null)
-            {
-                OverDataMapping mapping = new OverDataMapping()
-                {
-                    overGraphAsset = script.OverGraph,
-                    overScript = script
-                };
-
-                if (!overDataMappings.ContainsKey(mapping.overGraphAsset.GUID))
-                {
-                    overDataMappings.Add(mapping.overGraphAsset.GUID, mapping);
-                    managerdScripts.Add(script);
-                }
-                else
-                {
-                    overDataMappings[mapping.overGraphAsset.GUID] = mapping;
                 }
             }
         }

@@ -30,4 +30,5 @@ using UnityEngine;
 namespace OverSDK.VisualScripting
 {
     public class OverVariableListAttribute : PropertyAttribute { }
+    public class OverGraphVariableListAttribute : PropertyAttribute { }
 }

@@ -26,11 +26,44 @@
  */
 
 using BlueGraph;
+using System.Linq;
 
 namespace OverSDK.VisualScripting
 {
+    public struct OverContext
+    {
+        public string scriptGUID;
+    }
+
     public abstract class OverNode : Node
     {
-        public override object OnRequestValue(Port port) => null;
+        public OverContext sharedContext;
+
+        public override object OnRequestValue(Port port) 
+        {
+            PropagateContext(sharedContext);
+            return OnRequestNodeValue(port);
+        }
+
+        public virtual object OnRequestNodeValue(Port port) => null;
+
+        public void PropagateContext(OverContext context)
+        {
+            sharedContext = new OverContext()
+            {
+                scriptGUID = context.scriptGUID
+            };
+
+            foreach (var port in Ports.Values)
+            {
+                port.ConnectedPorts.ToList().ForEach(port => {
+                    OverNode node = port.Node as OverNode;
+                    if (node != null)
+                    {
+                        node.sharedContext = sharedContext;
+                    }
+                });
+            }
+        }
     }
 }

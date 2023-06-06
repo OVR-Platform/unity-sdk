@@ -49,7 +49,7 @@ namespace OverSDK.VisualScripting
         [Output("Material", Multiple = true)] public Material material;
         [Output("Shared Material", Multiple = true)] public Material sharedMaterial;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             LineRenderer _lineRenderer = GetInputValue("LineRenderer", lineRenderer);
             switch (port.Name)
@@ -65,7 +65,7 @@ namespace OverSDK.VisualScripting
                 case "Shared Material": sharedMaterial = _lineRenderer.sharedMaterial; return sharedMaterial;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -99,7 +99,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             LineRenderer _lineRenderer = GetInputValue("LineRenderer", lineRenderer);
             switch (port.Name)
@@ -107,7 +107,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _lineRenderer;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -136,7 +136,7 @@ namespace OverSDK.VisualScripting
 
             return base.Execute(data);
         }
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             LineRenderer _lineRenderer = GetInputValue("LineRenderer", lineRenderer);
             switch (port.Name)
@@ -144,7 +144,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _lineRenderer;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -167,7 +167,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             LineRenderer _lineRenderer = GetInputValue("LineRenderer", lineRenderer);
             switch (port.Name)
@@ -175,7 +175,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _lineRenderer;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -197,7 +197,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             LineRenderer _lineRenderer = GetInputValue("LineRenderer", lineRenderer);
             switch (port.Name)
@@ -205,7 +205,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _lineRenderer;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -236,7 +236,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             LineRenderer _lineRenderer = GetInputValue("LineRenderer", lineRenderer);
             switch (port.Name)
@@ -244,7 +244,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _lineRenderer;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -270,7 +270,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             LineRenderer _lineRenderer = GetInputValue("LineRenderer", lineRenderer);
             switch (port.Name)
@@ -278,7 +278,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _lineRenderer;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 }

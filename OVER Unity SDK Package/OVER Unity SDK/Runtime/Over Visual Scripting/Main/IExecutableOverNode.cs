@@ -30,6 +30,8 @@ namespace OverSDK.VisualScripting
     public interface IExecutableOverNode
     {
         IExecutableOverNode Execute(OverExecutionFlowData data);
+        public void PropagateFlowData(OverExecutionFlowData data);
+
     }
 
 }

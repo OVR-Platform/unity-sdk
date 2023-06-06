@@ -42,7 +42,7 @@ namespace OverSDK.VisualScripting
         [Input("A")] public string s;
         [Input("B")] public string s2;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _s = GetInputValue("A", s);
             var _s2 = GetInputValue("B", s2);
@@ -59,7 +59,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("String")] public string s;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _string = GetInputValue("String", s);
 
@@ -76,7 +76,7 @@ namespace OverSDK.VisualScripting
         [Input("String")] public string s;
         [Input("Substring")] public string substring;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _string = GetInputValue("String", s);
             var _substring = GetInputValue("Substring", substring);
@@ -91,7 +91,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("String")] public string s;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _s = GetInputValue("String", s);
 
@@ -106,7 +106,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("entity")] public object entity;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _entity = GetInputValue("entity", entity);
 

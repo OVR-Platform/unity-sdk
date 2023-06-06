@@ -42,7 +42,7 @@ namespace OverSDK.VisualScripting
 
         [Output("Transform", Multiple = true)] public Transform transform;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             GameObject _obj = GetInputValue("Object", obj);
 
@@ -61,7 +61,7 @@ namespace OverSDK.VisualScripting
                     return activeInScene;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -86,7 +86,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             GameObject _obj = GetInputValue("Object", obj);
 
@@ -96,7 +96,7 @@ namespace OverSDK.VisualScripting
                     return _obj;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -110,21 +110,21 @@ namespace OverSDK.VisualScripting
 
         public override IExecutableOverNode Execute(OverExecutionFlowData data)
         {
-            if(parent == null)
-            {
-                parent = GameObject.FindObjectOfType<OvrAsset>().transform;
-            }
             //read inputs
             GameObject prf = GetInputValue("Prefab", prefab);
             Transform trsf = GetInputValue("Parent", parent);
+            if(trsf == null)
+            {
+                trsf = GameObject.FindObjectOfType<OvrAsset>().transform;
+            }
 
             newObject = GameObject.Instantiate(prf, trsf);
-            newObject.layer = parent.gameObject.layer;
+            newObject.layer = trsf.gameObject.layer;
 
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             switch (port.Name)
             {
@@ -132,7 +132,7 @@ namespace OverSDK.VisualScripting
                     return newObject;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 

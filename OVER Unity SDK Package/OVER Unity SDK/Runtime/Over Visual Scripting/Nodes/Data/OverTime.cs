@@ -32,14 +32,14 @@ namespace OverSDK.VisualScripting
 {
     public enum OverTimeType { DeltaTime, Time, Fixed, FixedDeltaTime }
 
-    [Node(Path = "Utils", Name = "Time", Icon = "Utils/TIME")]
+    [Node(Path = "Utils/Time", Name = "Time", Icon = "Utils/TIME")]
     [Tags("Utils")]
     [Output("Value", typeof(float), Multiple = true)]
     public class OverTime : OverNode
     {
         [Editable("Time")] public OverTimeType timeType = OverTimeType.DeltaTime;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             switch (timeType)
             {
@@ -47,6 +47,47 @@ namespace OverSDK.VisualScripting
                 case OverTimeType.FixedDeltaTime: return Time.fixedDeltaTime;
                 case OverTimeType.Time: return Time.time;
                 case OverTimeType.Fixed: return Time.fixedTime;
+            }
+
+            return base.OnRequestNodeValue(port);
+        }
+    }
+
+    [Tags("Utils")]
+    public class OverTimeHandler : OverExecutionFlowNode { }
+
+    [Node(Path = "Utils/Time", Name = "Countdown", Icon = "Utils/TIME")]
+    [Output("On Time Still Remaining", typeof(OverExecutionFlowData), Multiple = false)]
+    public class OverCountdown : OverTimeHandler
+    {
+        [Input("Seconds")] public float seconds;
+
+        [Output("Time Remaining")] private float timeRemaining;
+
+        public override IExecutableOverNode Execute(OverExecutionFlowData data)
+        {
+            float _seconds = GetInputValue("Seconds", seconds);
+            IExecutableOverNode timeStillRemaining = GetNextExecutableNode("On Time Still Remaining");
+
+            float _secondsUpdated = _seconds - Time.deltaTime;
+            if (_secondsUpdated > 0)
+            {
+                timeRemaining = _secondsUpdated;
+                (Graph as OverGraph).Execute(timeStillRemaining, data);
+                return null;
+            }
+            
+            _secondsUpdated = 0;
+            timeRemaining = _secondsUpdated;
+            (Graph as OverGraph).Execute(timeStillRemaining, data);
+            return GetNextExecutableNode();
+        }
+
+        public override object OnRequestValue(Port port)
+        {
+            if (port.Name == "Time Remaining")
+            {
+                return timeRemaining;
             }
 
             return base.OnRequestValue(port);

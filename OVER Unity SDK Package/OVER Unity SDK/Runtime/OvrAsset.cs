@@ -34,8 +34,6 @@ namespace OverSDK
     [ExecuteInEditMode]
     public class OvrAsset : MonoBehaviour
     {
-        private readonly string SDKVersion = "0.1.1";
-
         public OvrLightSettings ovrLightModifierData;
         public OvrCanvas ovrCanvas;
         public OvrPoap ovrPoap;

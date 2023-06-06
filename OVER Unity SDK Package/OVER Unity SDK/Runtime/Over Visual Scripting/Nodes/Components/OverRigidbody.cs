@@ -46,7 +46,7 @@ namespace OverSDK.VisualScripting
         [Output("Velocity", Multiple = true)] public Vector3 velocity;
         [Output("Ang. Velocity", Multiple = true)] public Vector3 angularVelocity;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Rigidbody _rigidbody = GetInputValue("Rigidbody", rigidbody);
 
@@ -71,7 +71,7 @@ namespace OverSDK.VisualScripting
                     return centerOfMass;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -206,7 +206,7 @@ namespace OverSDK.VisualScripting
 
             return base.Execute(data);
         }
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Rigidbody _rigidbody = GetInputValue("Rigidbody", rigidbody);
 
@@ -216,7 +216,7 @@ namespace OverSDK.VisualScripting
                     return _rigidbody;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -237,7 +237,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Rigidbody _rigidbody = GetInputValue("Rigidbody", rigidbody);
 
@@ -247,7 +247,7 @@ namespace OverSDK.VisualScripting
                     return _rigidbody;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -265,6 +265,71 @@ namespace OverSDK.VisualScripting
 
             _target.angularVelocity = _angularVelocity;
 
+            return base.Execute(data);
+        }
+
+        public override object OnRequestNodeValue(Port port)
+        {
+            Rigidbody _rigidbody = GetInputValue("Rigidbody", rigidbody);
+
+            switch (port.Name)
+            {
+                case "Updated Component":
+                    return _rigidbody;
+            }
+
+            return base.OnRequestNodeValue(port);
+        }
+    }
+
+    //todo: find ways to better draw bools
+    [Node(Path = "Component/Rigidbody/Handlers", Name = "Set Constraints", Icon = "COMPONENT/RIGIDBODY")]
+    [Output("Updated Component", typeof(Rigidbody), Multiple = true)]
+    public class OverSetConstraints : OverRigidbodyHandlerNode
+    {
+        [Input("Rigidbody")] public Rigidbody rigidbody;
+        [Input("Position")] public Vector3 posn;
+        [Input("Rotation")] public Vector3 rot;
+
+        public override IExecutableOverNode Execute(OverExecutionFlowData data)
+        {
+            Rigidbody _target = GetInputValue("Rigidbody", rigidbody);
+            Vector3 _posn = GetInputValue("Position", posn);
+            Vector3 _rot = GetInputValue("Rotation", rot);
+
+            RigidbodyConstraints editedConstraints = new RigidbodyConstraints();
+
+            if(_posn.x > 0)
+            {
+                editedConstraints |= RigidbodyConstraints.FreezePositionX;
+            }
+
+            if(_posn.y > 0)
+            {
+                editedConstraints |= RigidbodyConstraints.FreezePositionY;
+            }
+
+            if(_posn.z > 0)
+            {
+                editedConstraints |= RigidbodyConstraints.FreezePositionZ;
+            }
+
+            if (_rot.x > 0)
+            {
+                editedConstraints |= RigidbodyConstraints.FreezeRotationX;
+            }
+
+            if (_rot.y > 0)
+            {
+                editedConstraints |= RigidbodyConstraints.FreezeRotationY;
+            }
+
+            if (_rot.z > 0)
+            {
+                editedConstraints |= RigidbodyConstraints.FreezeRotationZ;
+            }
+
+            _target.constraints = editedConstraints;
             return base.Execute(data);
         }
 

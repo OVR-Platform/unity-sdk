@@ -42,7 +42,7 @@ namespace OverSDK.VisualScripting
         [Output("Playback Time", Multiple = true)] public float playbackTime;
         [Output("Playback Speed", Multiple = true)] public float speed;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Animator _animator = GetInputValue("Animator", animator);
             switch (port.Name)
@@ -54,7 +54,7 @@ namespace OverSDK.VisualScripting
                 case "Playback Speed": speed = _animator.speed; return speed;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -190,7 +190,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Animator _animator = GetInputValue("Animator", animator);
             switch (port.Name)
@@ -198,7 +198,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _animator;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -222,7 +222,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Animator _animator = GetInputValue("Animator", animator);
             switch (port.Name)
@@ -230,7 +230,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _animator;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 }

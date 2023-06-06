@@ -35,6 +35,7 @@ using UnityEngine.UIElements;
 namespace OverSDK.VisualScripting.Editor
 {
     [CustomNodeView(typeof(OverTime))]
+    [CustomNodeView(typeof(OverTimeHandler))]
     public class OverUtilsNodeView : NodeView
     {
         protected override void OnInitialize()

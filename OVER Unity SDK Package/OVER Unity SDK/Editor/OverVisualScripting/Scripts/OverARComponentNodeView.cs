@@ -34,7 +34,7 @@ using UnityEditor;
 
 namespace OverSDK.VisualScripting.Editor
 {
-    [CustomNodeView(typeof(OverArCamera))]
+    [CustomNodeView(typeof(OvrCameraNode))]
     public class OverARComponentNodeView : NodeView
     {
         protected override void OnInitialize()

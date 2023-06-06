@@ -51,20 +51,17 @@ namespace OverSDK.VisualScripting
 
         private void OnTriggerEnter(Collider other)
         {
-            if (onTriggerEnter != null)
-                onTriggerEnter(other);
+            onTriggerEnter?.Invoke(other);
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (onTriggerExit != null)
-                onTriggerExit(other);
+            onTriggerExit?.Invoke(other);
         }
 
         private void OnTriggerStay(Collider other)
         {
-            if (onTriggerStay != null)
-                onTriggerStay(other);
+            onTriggerStay?.Invoke(other);
         }
     }
 }
