@@ -41,7 +41,7 @@ namespace OverSDK.VisualScripting
         [Output("Volume", Multiple = true)] public float volume;
         [Output("Is Playing", Multiple = true)] public bool isPlaying;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             AudioSource _audioSource = GetInputValue("Audio Source", audioSource);
 
@@ -59,7 +59,7 @@ namespace OverSDK.VisualScripting
                     return isPlaying;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -82,7 +82,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             AudioSource _source = GetInputValue("Audio Source", source);
             switch (port.Name)
@@ -90,7 +90,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _source;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -107,7 +107,7 @@ namespace OverSDK.VisualScripting
                 _source.Play();
             return base.Execute(data);
         }
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             AudioSource _source = GetInputValue("Audio Source", source);
             switch (port.Name)
@@ -115,7 +115,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _source;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -132,7 +132,7 @@ namespace OverSDK.VisualScripting
                 _source.Pause();
             return base.Execute(data);
         }
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             AudioSource _source = GetInputValue("Audio Source", source);
             switch (port.Name)
@@ -140,7 +140,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _source;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
     [Node(Path = "Component/Audio/Handlers", Name = "UnPause", Icon = "COMPONENT/AUDIO")]
@@ -157,7 +157,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             AudioSource _source = GetInputValue("Audio Source", source);
             switch (port.Name)
@@ -165,7 +165,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _source;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -182,7 +182,7 @@ namespace OverSDK.VisualScripting
                 _source.Stop();
             return base.Execute(data);
         }
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             AudioSource _source = GetInputValue("Audio Source", source);
             switch (port.Name)
@@ -190,7 +190,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _source;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -211,7 +211,7 @@ namespace OverSDK.VisualScripting
 
             return base.Execute(data);
         }
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             AudioSource _source = GetInputValue("Audio Source", source);
             switch (port.Name)
@@ -219,7 +219,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _source;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -259,7 +259,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             AudioSource _source = GetInputValue("Audio Source", source);
             switch (port.Name)
@@ -267,7 +267,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _source;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 }

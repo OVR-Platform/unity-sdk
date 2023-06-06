@@ -49,7 +49,7 @@ namespace OverSDK.VisualScripting
         [Output("Right", Multiple = true)] public Vector3 right;
         [Output("Up", Multiple = true)] public Vector3 up;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Transform _transform = GetInputValue("Transform", transform);
 
@@ -86,7 +86,7 @@ namespace OverSDK.VisualScripting
                     return up;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -117,7 +117,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Transform _rectTransform = GetInputValue("Transform", target);
             switch (port.Name)
@@ -125,7 +125,7 @@ namespace OverSDK.VisualScripting
                 case "Updated Component": return _rectTransform;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -152,7 +152,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Transform _rectTransform = GetInputValue("Transform", target);
             switch (port.Name)
@@ -160,7 +160,7 @@ namespace OverSDK.VisualScripting
                 case "Updated Component": return _rectTransform;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -181,7 +181,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Transform _rectTransform = GetInputValue("Transform", target);
             switch (port.Name)
@@ -189,7 +189,7 @@ namespace OverSDK.VisualScripting
                 case "Updated Component": return _rectTransform;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -209,7 +209,7 @@ namespace OverSDK.VisualScripting
 
             return base.Execute(data);
         }
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Transform _rectTransform = GetInputValue("Transform", target);
             switch (port.Name)
@@ -217,7 +217,7 @@ namespace OverSDK.VisualScripting
                 case "Updated Component": return _rectTransform;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
 
     }

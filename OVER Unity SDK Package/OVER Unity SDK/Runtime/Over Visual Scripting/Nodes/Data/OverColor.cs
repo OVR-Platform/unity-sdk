@@ -39,7 +39,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("")] public Color value;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             return value;
         }
@@ -59,7 +59,7 @@ namespace OverSDK.VisualScripting
         [Input("b")] public float b = 0;
         [Input("a")] public float a = 1;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             float _r = GetInputValue("r", r);
             float _g = GetInputValue("g", g);
@@ -82,7 +82,7 @@ namespace OverSDK.VisualScripting
         [Output("b", Multiple = true)] public float b = 0;
         [Output("a", Multiple = true)] public float a = 1;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Color _color = GetInputValue("Color", color);
 
@@ -94,7 +94,7 @@ namespace OverSDK.VisualScripting
                 case "a": return _color.a;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 }

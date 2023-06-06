@@ -29,23 +29,88 @@ using BlueGraph;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 namespace OverSDK.VisualScripting
 {
-    public class OverExecutionFlowData
+    public class OverExecutionFlowData 
     {
+        public string scritpGUID;
+    }
 
+    [Serializable]
+    public class OverGraphVariableData
+    {
+        public string GUID;
+        public string name;
+        public OverVariableType type;
+        public bool isGlobal;
+
+        public OverGraphVariableData Clone()
+        {
+            return new OverGraphVariableData()
+            {
+                GUID = GUID,
+                name = name,
+                type = type,
+                isGlobal = isGlobal,
+            };
+        }
+
+        public OverVariableData ToScriptData()
+        {
+            return new OverVariableData()
+            {
+                GUID = GUID,
+                name = name,
+                type = type,
+                isGlobal = isGlobal
+            };
+        }
+    }
+
+    /// <summary>
+    /// Data class holding values relative to the Graph, more specifically local variables used by the graph
+    /// </summary>
+    [Serializable]
+    public class OverGraphData
+    {
+        [OverGraphVariableList] public List<OverGraphVariableData> variables = new List<OverGraphVariableData>();
+        private Dictionary<string, OverGraphVariableData> variableDict = new Dictionary<string, OverGraphVariableData>();
+        public Dictionary<string, OverGraphVariableData> VariableDict
+        {
+            get
+            {
+                variableDict = new Dictionary<string, OverGraphVariableData>();
+                foreach (OverGraphVariableData data in variables)
+                {
+                    variableDict.Add(data.GUID, data);
+                }
+                return variableDict;
+            }
+        }
     }
 
     [CreateAssetMenu(
         menuName = "Over SDK/OverGraph",
         fileName = "New OverGraph"
     )]
-    [IncludeTags("Executable", "Monobehaviour", "Component", "Variable", "Data", "Common", "Event", "Utils", "Log")]
+    [IncludeTags("Executable", "Monobehaviour", "Component", "Variable", "Data", "Common", "Event", "Utils", "Web", "Log")]
     public class OverGraph : Graph, IExecutableOverGraph
     {
         [SerializeField, HideInInspector] public string GUID;
         [SerializeField] public string GraphName => name;
+
+        [SerializeField][ReadOnly] OverGraphData data;
+        public OverGraphData Data
+        {
+            get
+            {
+                if (data == null) data = new OverGraphData();
+                return data;
+            }
+            set { data = value; }
+        }
 
         OverUpdate overUpdate;
         OverFixedUpdate overFixedUpdate;
@@ -55,7 +120,7 @@ namespace OverSDK.VisualScripting
         public override string Title => GraphName;
 
         // MonoBehaviour Nodes
-        public void OnBehaviourAwake()
+        public void OnBehaviourAwake(OverScript script)
         {
             overUpdate = GetNode<OverUpdate>();
             overLateUpdate = GetNode<OverLateUpdate>();
@@ -63,13 +128,16 @@ namespace OverSDK.VisualScripting
             List<OverEventNode> nodes = GetGraphNodes<OverEventNode>();
             foreach (var node in nodes)
             {
-                node.Register();
+                node.Register(new OverExecutionFlowData
+                {
+                    scritpGUID = script.GUID
+                });
             }
 
             Execute(GetNode<OverAwake>(), new OverExecutionFlowData
             {
-
-            });
+                scritpGUID = script.GUID
+            }); ;
         }
 
         public List<T> GetGraphNodes<T>() where T : Node
@@ -77,58 +145,94 @@ namespace OverSDK.VisualScripting
             return GetNodes<T>().ToList();
         }
 
-        public void OnBehaviourStart()
+        public void OnBehaviourStart(OverScript script)
         {
             Execute(GetNode<OverStart>(), new OverExecutionFlowData
             {
-
+                scritpGUID = script.GUID
             });
         }
 
-        public void OnBehaviourEnable()
+        public void OnBehaviourEnable(OverScript script)
         {
             Execute(GetNode<OverEnable>(), new OverExecutionFlowData
             {
-
+                scritpGUID = script.GUID
             });
         }
 
-        public void OnBehaviourDisable()
+        public void OnBehaviourDisable(OverScript script)
         {
             Execute(GetNode<OverDisable>(), new OverExecutionFlowData
             {
-
+                scritpGUID = script.GUID
             });
         }
 
-        public void OnBehaviourDestroy()
+        public void OnBehaviourDestroy(OverScript script)
         {
             Execute(GetNode<OverDestroy>(), new OverExecutionFlowData
             {
-
+                scritpGUID = script.GUID
             });
         }
 
-        public void OnBehaviourUpdate()
+        public void OnBehaviourUpdate(OverScript script)
         {
             Execute(overUpdate, new OverExecutionFlowData
             {
-
+                scritpGUID = script.GUID
             });
         }
-        public void OnBehaviourLateUpdate()
+        public void OnBehaviourLateUpdate(OverScript script)
         {
             Execute(overLateUpdate, new OverExecutionFlowData
             {
-
+                scritpGUID = script.GUID
             });
         }
-        public void OnBehaviourFixedUpdate()
+        public void OnBehaviourFixedUpdate(OverScript script)
         {
             Execute(overFixedUpdate, new OverExecutionFlowData
             {
-
+                scritpGUID = script.GUID
             });
+        }
+
+        public override void OnGraphValidate()
+        {
+            List<OverGetVariable> getNodes = GetGraphNodes<OverGetVariable>();
+            List<OverSetVariable> setNodes = GetGraphNodes<OverSetVariable>();
+
+            foreach(var get in getNodes)
+            {
+                if (!Data.VariableDict.ContainsKey(get.guid) && get.Type != OverVariableType.None)
+                {
+                    Data.variables.Add(new OverGraphVariableData()
+                    {
+                        name = get.Name,
+                        GUID = get.guid,
+                        type = get.Type,
+                        isGlobal = get.isGlobal
+                    });
+                }
+            }
+
+            foreach (var set in setNodes)
+            {
+                if (!Data.VariableDict.ContainsKey(set.guid) && set.Type != OverVariableType.None)
+                {
+                    Data.variables.Add(new OverGraphVariableData()
+                    {
+                        name = set.Name,
+                        GUID = set.guid,
+                        type = set.Type,
+                        isGlobal = set.isGlobal
+                    });
+                }
+            }
+
+            base.OnGraphValidate();
         }
 
         //Interface
@@ -139,6 +243,7 @@ namespace OverSDK.VisualScripting
             int iterations = 0;
             while (next != null)
             {
+                next.PropagateFlowData(data);
                 next = next.Execute(data);
 
                 iterations++;
@@ -146,6 +251,140 @@ namespace OverSDK.VisualScripting
                 {
                     Debug.LogError("Potential infinite loop detected. Stopping early.", this);
                     break;
+                }
+            }
+        }
+
+        ///
+        public void UpdateDataFromScript(OverScript script)
+        {
+            this.Data.variables.Clear();
+            this.Data.variables.AddRange(script.Data.variables.Select(item => item.ToGraphData()));
+
+            //remove surplus
+            RemoveSurplusLocalVariables(script);
+
+            OverScriptManager scriptManager = OverScriptManager.Main;
+            string graphGuid = this.GUID;
+
+            if (scriptManager != null)
+            {
+                foreach(var overscript in scriptManager.managedScripts)
+                {
+                    if(overscript.OverGraph.GUID == graphGuid && overscript.GUID != script.GUID)
+                    {
+                        overscript.OnUpdateGraphData(Data);
+                    }
+                }
+            }
+
+            ValidateInternalNodes();
+        }
+
+        public void RemoveSurplusLocalVariables(OverScript script)
+        {
+            var variablesToRemove = Data.variables
+                .Where(variable => !script.Data.VariableDict.ContainsKey(variable.GUID))
+                .ToList();
+
+            foreach (var variable in variablesToRemove)
+            {
+                Data.variables.Remove(variable);
+            }
+        }
+
+        public void ValidateInternalNodes()
+        {
+            List<OverGetVariable> getNodes = GetGraphNodes<OverGetVariable>();
+            List<OverSetVariable> setNodes = GetGraphNodes<OverSetVariable>();
+
+            foreach (OverGetVariable node in getNodes)
+            {
+                if (node.Type == OverVariableType.None)
+                {
+                    Debug.LogError($"None Type not supported!\nSource: [GET] {node.Name} ({node.guid})\nTo fix this error you need to change the node type in OverScript.", this);
+                    node.Error = "[Error] None Type not supported!";
+                    continue;
+                }
+
+                if (Data.VariableDict.TryGetValue(node.guid, out var variable))
+                {
+                    if (node.Name != variable.name)
+                    {
+                        node.Name = variable.name;
+                    }
+
+                    if (node.Type != variable.type)
+                    {
+                        Debug.LogError($"Node Type change detected!\nSource:[GET] {node.Name} ({node.guid})\nTo fix this error you need to manually reimport it back.", this);
+                        node.Error = "[Error] Type mismatch. You need to reimport this variable";
+                    }
+                }
+                else
+                {
+                    if (OverScriptManager.Main.Data.VariableDict.TryGetValue(node.guid, out var globalVariable))
+                    {
+                        if (node.Name != globalVariable.name)
+                        {
+                            node.Name = globalVariable.name;
+                        }
+
+                        if (node.Type != globalVariable.type)
+                        {
+                            Debug.LogError($"Node Type change detected!\nSource: [GET] {node.Name} ({node.guid})\nTo fix this error you need to manually reimport it back.", this);
+                            node.Error = "[Error] Type mismatch. You need to reimport this variable";
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogError($"Node Removed!\nSource: [GET] {node.Name} ({node.guid})\nTo avoid inconsistencies erase this node from the OverGraph.", this);
+                        node.Error = "[Error] This node has been removed from the Graph (Node GUID mismatch)";
+                    }
+                }
+            }
+
+            foreach (OverSetVariable node in setNodes)
+            {
+                if (node.Type == OverVariableType.None)
+                {
+                    Debug.LogError($"None Type not supported!\nSource: [SET] {node.Name} ({node.guid})\nTo fix this error you need to change the node type in OverScript.", this);
+                    node.Error = "[Error] None Type not supported!";
+                    continue;
+                }
+
+                if (Data.VariableDict.TryGetValue(node.guid, out var variable))
+                {
+                    if (node.Name != variable.name)
+                    {
+                        node.Name = variable.name;
+                    }
+
+                    if (node.Type != variable.type)
+                    {
+                        Debug.LogError($"Node Type change detected!\nSource: [SET] {node.Name} ({node.guid})\nTo fix this error you need to manually reimport it back.", this);
+                        node.Error = "[Error] Type mismatch. You need to reimport this variable";
+                    }
+                }
+                else
+                {
+                    if(OverScriptManager.Main.Data.VariableDict.TryGetValue(node.guid, out var globalVariable))
+                    {
+                        if (node.Name != globalVariable.name)
+                        {
+                            node.Name = globalVariable.name;
+                        }
+
+                        if (node.Type != globalVariable.type)
+                        {
+                            Debug.LogError($"Node Type change detected!\nSource: [SET] {node.Name} ({node.guid})\nTo fix this error you need to manually reimport it back.", this);
+                            node.Error = "[Error] Type mismatch. You need to reimport this variable";
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogError($"Node Removed!\nSource: [SET] {node.Name} ({node.guid})\nTo avoid inconsistencies erase this node from the OverGraph.", this);
+                        node.Error = "[Error] This node has been removed from the Graph (Node GUID mismatch)";
+                    }
                 }
             }
         }

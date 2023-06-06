@@ -35,7 +35,7 @@ namespace OverSDK.VisualScripting
     [Output("Value", typeof(Sprite), Multiple = true)]
     public class OverSprite : OverSpritePreviewNode
     {
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             return spriteIn;
         }

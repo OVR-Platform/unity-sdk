@@ -43,7 +43,7 @@ namespace OverSDK.VisualScripting
         [Output("z")] public float z;
         [Output("w")] public float w;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Quaternion _quat = GetInputValue("Quaternion", quaternion);
 
@@ -68,7 +68,7 @@ namespace OverSDK.VisualScripting
                 return w;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -78,7 +78,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("From")] public Quaternion from;
         [Input("To")] public Quaternion to;
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Quaternion _from = GetInputValue("From", from);
             Quaternion _to = GetInputValue("To", to);
@@ -93,7 +93,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("Angle")] public float angle;
         [Input("Axis")] public Vector3 axis;
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             float _angle = GetInputValue("Angle", angle);
             Vector3 _axis = GetInputValue("Axis", axis);
@@ -108,7 +108,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("A")] public Quaternion a;
         [Input("B")] public Quaternion b;
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Quaternion _a = GetInputValue("A", a);
             Quaternion _b = GetInputValue("B", b);
@@ -122,7 +122,7 @@ namespace OverSDK.VisualScripting
     public class OverQuaternionEuler : OverQuaternionOperation
     {
         [Input("Euler")] public Vector3 a;
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Vector3 _a = GetInputValue("Euler", a);
 
@@ -139,7 +139,7 @@ namespace OverSDK.VisualScripting
 
         [Input("T")] public float t;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Quaternion _a = GetInputValue("Starting Rotation", a);
             Quaternion _b = GetInputValue("Target Rotation", b);
@@ -158,7 +158,7 @@ namespace OverSDK.VisualScripting
 
         [Input("T")] public float t;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Quaternion _a = GetInputValue("Starting Rotation", a);
             Quaternion _b = GetInputValue("Target Rotation", b);
@@ -176,7 +176,7 @@ namespace OverSDK.VisualScripting
         [Input("A")] public Quaternion a;
         [Input("B")] public Quaternion b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Quaternion _a = GetInputValue("A", a);
             Quaternion _b = GetInputValue("B", b);

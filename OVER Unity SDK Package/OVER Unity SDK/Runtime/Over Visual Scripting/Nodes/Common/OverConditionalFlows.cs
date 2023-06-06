@@ -41,14 +41,7 @@ namespace OverSDK.VisualScripting
         {
             var condition = GetInputValue("Condition", this.condition);
 
-            IExecutableOverNode _else = GetNextExecutableNode("Else");
-            if (!condition)
-            {
-                (Graph as OverGraph).Execute(_else, data);
-                return _else;
-            }
-
-            return GetNextExecutableNode();
+            return !condition ? GetNextExecutableNode("Else") : GetNextExecutableNode();
         }
     }
 }

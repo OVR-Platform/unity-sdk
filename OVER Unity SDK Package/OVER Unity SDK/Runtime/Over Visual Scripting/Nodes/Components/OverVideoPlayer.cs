@@ -41,7 +41,7 @@ namespace OverSDK.VisualScripting
         [Output("Is Playing", Multiple = true)] public bool isPlaying;
         [Output("Is Looping", Multiple = true)] public bool isLooping;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             VideoPlayer _videoPlayer = GetInputValue("Video Player", videoPlayer);
 
@@ -56,7 +56,7 @@ namespace OverSDK.VisualScripting
                     return isLooping;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -127,7 +127,7 @@ namespace OverSDK.VisualScripting
             }
             return base.Execute(data);
         }
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             if (port.Name == "Player Out")
             {
@@ -135,7 +135,7 @@ namespace OverSDK.VisualScripting
                 return playerOut;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -163,7 +163,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             if (port.Name == "Player Out")
             {
@@ -171,7 +171,7 @@ namespace OverSDK.VisualScripting
                 return playerOut;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 }

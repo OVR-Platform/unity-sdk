@@ -18,7 +18,7 @@ namespace UnityGuidRegenerator
                 try
                 {
                     AssetDatabase.StartAssetEditing();
-
+                    
                     string path = Path.GetFullPath(".") + Path.DirectorySeparatorChar + "Assets";
                     UnityGuidRegenerator regenerator = new UnityGuidRegenerator(path);
                     regenerator.RegenerateGuids();

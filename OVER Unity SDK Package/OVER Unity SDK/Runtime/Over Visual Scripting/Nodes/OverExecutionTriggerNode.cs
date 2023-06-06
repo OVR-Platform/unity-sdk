@@ -42,7 +42,9 @@ namespace OverSDK.VisualScripting
         public virtual IExecutableOverNode Execute(OverExecutionFlowData data)
         {
             // noop.
-            return GetNextExecutableNode();
+            IExecutableOverNode executableOverNode = GetNextExecutableNode();
+            //if(executableOverNode != null) executableOverNode.PropagateFlowData(data);
+            return executableOverNode;
         }
 
         /// <summary>
@@ -76,6 +78,27 @@ namespace OverSDK.VisualScripting
 
             return null;
 
+        }
+
+        public void PropagateFlowData(OverExecutionFlowData data)
+        {
+            //Debug.Log($"Inpecting {Name}: {data.scritpGUID}");
+            sharedContext = new OverContext()
+            {
+                scriptGUID = data.scritpGUID
+            };
+
+            foreach (var port in Ports.Values)
+            {
+                port.ConnectedPorts.ToList().ForEach(port => {
+                    OverNode node = port.Node as OverNode;
+                    if (node != null)
+                    {
+                        //Debug.Log($"Propag. to {node.Name}: {sharedContext.scriptGUID}");
+                        node.sharedContext = sharedContext;
+                    }
+                });
+            }
         }
     }
 }

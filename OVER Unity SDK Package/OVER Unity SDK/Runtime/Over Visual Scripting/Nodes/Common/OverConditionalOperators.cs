@@ -44,7 +44,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("a")] public bool a;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
 
@@ -59,7 +59,7 @@ namespace OverSDK.VisualScripting
         [Input("a")] public bool a;
         [Input("b")] public bool b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
             var _b = GetInputValue("b", b);
@@ -75,7 +75,7 @@ namespace OverSDK.VisualScripting
         [Input("a")] public bool a;
         [Input("b")] public bool b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
             var _b = GetInputValue("b", b);
@@ -90,7 +90,7 @@ namespace OverSDK.VisualScripting
         [Input("a")] public bool a;
         [Input("b")] public bool b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
             var _b = GetInputValue("b", b);
@@ -108,7 +108,7 @@ namespace OverSDK.VisualScripting
         [Input("a")] public object a;
         [Input("b")] public object b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
             var _b = GetInputValue("b", b);
@@ -148,7 +148,7 @@ namespace OverSDK.VisualScripting
         [Input("a")] public object a;
         [Input("b")] public object b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
             var _b = GetInputValue("b", b);
@@ -190,7 +190,7 @@ namespace OverSDK.VisualScripting
         [Input("a")] public object a;
         [Input("b")] public object b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
             var _b = GetInputValue("b", b);
@@ -216,7 +216,7 @@ namespace OverSDK.VisualScripting
         [Input("a")] public object a;
         [Input("b")] public object b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
             var _b = GetInputValue("b", b);
@@ -242,7 +242,7 @@ namespace OverSDK.VisualScripting
         [Input("a")] public object a;
         [Input("b")] public object b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
             var _b = GetInputValue("b", b);
@@ -267,7 +267,7 @@ namespace OverSDK.VisualScripting
         [Input("a")] public object a;
         [Input("b")] public object b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
             var _b = GetInputValue("b", b);

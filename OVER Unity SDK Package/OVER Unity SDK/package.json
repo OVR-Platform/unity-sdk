@@ -1,6 +1,6 @@
 {
   "name": "com.over.over-unity-sdk",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "displayName": "OVER Unity SDK",
   "description": "Thanks to our plugin, you can take advantage of all the Unity Engine features as it is the same development environment used in the OVR app. You can integrate major 3D model formats like fbx, dae, 3ds, dxf and obj, create interactions, animations and take advantage of physics rules directly from Unity, activating them through triggers or buttons\u2026",
   "unity": "2020.3",
@@ -22,6 +22,11 @@
       "displayName": "Demo",
       "description": "Demo Assets to help you setup your first OVER Experience",
       "path": "Samples~/Demo"
+    },
+    {
+      "displayName": "ShieldGame",
+      "description": "The ShieldGame asset is an example of how a game can be implemented using OVER's SDK",
+      "path": "Samples~/ShieldGame"
     }
   ]
 }

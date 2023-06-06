@@ -41,7 +41,7 @@ namespace OverSDK.VisualScripting
         [Output("Color", Multiple = true)] public Color color;
         [Output("Range", Multiple = true)] public float range;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Light _light = GetInputValue("Light", light);
 
@@ -60,7 +60,7 @@ namespace OverSDK.VisualScripting
                     return range;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
     [Tags("Component")]
@@ -83,7 +83,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Light _light = GetInputValue("Light", light);
 
@@ -92,7 +92,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _light;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -113,7 +113,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Light _light = GetInputValue("Light", light);
 
@@ -122,7 +122,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _light;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -143,7 +143,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Light _light = GetInputValue("Light", light);
 
@@ -152,7 +152,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _light;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 }

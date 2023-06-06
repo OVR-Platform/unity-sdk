@@ -42,7 +42,7 @@ namespace OverSDK.VisualScripting
         [Output("Color")] public Color color;
         [Output("Material")] public Material material;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             RawImage _image = GetInputValue("Image", image);
 
@@ -54,7 +54,7 @@ namespace OverSDK.VisualScripting
                 case "Material": material = _image.material; return material;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -78,7 +78,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             RawImage _image = GetInputValue("Image", image);
 
@@ -87,7 +87,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _image;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -111,7 +111,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             RawImage _image = GetInputValue("Image", image);
 
@@ -120,7 +120,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _image;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -144,7 +144,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             RawImage _image = GetInputValue("Image", image);
 
@@ -153,7 +153,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _image;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 }

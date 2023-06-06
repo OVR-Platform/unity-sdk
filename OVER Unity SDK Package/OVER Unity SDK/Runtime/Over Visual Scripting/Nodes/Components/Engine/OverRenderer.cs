@@ -43,7 +43,7 @@ namespace OverSDK.VisualScripting
         [Output("Materials", Multiple = true)] public Material[] materials;
         [Output("Shared Materials", Multiple = true)] public Material[] sharedMaterials;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Renderer _renderer = GetInputValue("Renderer", renderer);
 
@@ -56,7 +56,7 @@ namespace OverSDK.VisualScripting
                 case "Shared Materials": sharedMaterials = _renderer.sharedMaterials; return sharedMaterials;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -92,7 +92,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Renderer _renderer = GetInputValue("Renderer", renderer);
 
@@ -101,7 +101,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _renderer;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -139,7 +139,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Renderer _renderer = GetInputValue("Renderer", renderer);
 
@@ -148,7 +148,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _renderer;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 }

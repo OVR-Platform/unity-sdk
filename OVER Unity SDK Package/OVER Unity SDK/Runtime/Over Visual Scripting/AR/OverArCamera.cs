@@ -36,10 +36,15 @@ namespace OverSDK.VisualScripting
         public const string PLAYER_CAMERA_TAG = "PlayerCam";
     }
 
+
+    [Tags("Component")]
+    public class OvrCameraNode : OverNode { }
+
     [Node(Path = "AR", Icon = "AR/OverArCamera")]
     [Tags("Component")]
-    public class OverArCamera : OverNode
+    public class OverArCamera : OvrCameraNode
     {
+        [Output("Ref")] public Camera _camera;
         [Output("Position")] public Vector3 posn;
         [Output("Rotation")] public Quaternion rot;
         [Output("Forward")] public Vector3 fwd;
@@ -52,9 +57,7 @@ namespace OverSDK.VisualScripting
         public static Func<Vector3> GetArCameraUp = null;
         public static Func<Vector3> GetArCameraRight = null;
 
-        Camera _camera;
-
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
 #if !APP_MAIN
             try
@@ -79,6 +82,7 @@ namespace OverSDK.VisualScripting
             {
                 switch (port.Name)
                 {
+                    case "Ref": return _camera;
                     case "Position": posn = _camera.transform.position; return posn;
                     case "Rotation": rot = _camera.transform.rotation; return rot;
                     case "Forward": fwd = _camera.transform.forward; return fwd;
@@ -97,7 +101,45 @@ namespace OverSDK.VisualScripting
             case "Right": rgt = (GetArCameraRight != null) ? GetArCameraRight() : Vector3.right; return rgt;
         }
 #endif
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
+        }
+    }
+
+    [Tags("Component")]
+    [Node(Path = "AR/Camera", Name = "World to Screen", Icon = "AR/OverArCamera")]
+    [Output("Screen Position", Multiple = true, Type = typeof(Vector3))]
+    public class OverWorldToScreenPoint : OvrCameraNode
+    {
+        [Input("Camera")] public Camera camera;
+        [Input("World Position")] public Vector3 posn;
+
+        [Editable("Eye")] public Camera.MonoOrStereoscopicEye eye = Camera.MonoOrStereoscopicEye.Mono;
+
+        public override object OnRequestNodeValue(Port port)
+        {
+            Camera _camera = GetInputValue("Camera", camera);
+            Vector3 _posn = GetInputValue("World Position", posn);
+
+            return _camera.WorldToScreenPoint(_posn, eye);
+        }
+    }
+
+    [Tags("Component")]
+    [Node(Path = "AR/Camera", Name = "Screen to World", Icon = "AR/OverArCamera")]
+    [Output("World Position", Multiple = true, Type = typeof(Vector3))]
+    public class OverScreenToWorldPoint : OvrCameraNode
+    {
+        [Input("Camera")] public Camera camera;
+        [Input("Screen Position")] public Vector3 posn;
+
+        [Editable("Eye")] public Camera.MonoOrStereoscopicEye eye = Camera.MonoOrStereoscopicEye.Mono;
+
+        public override object OnRequestNodeValue(Port port)
+        {
+            Camera _camera = GetInputValue("Camera", camera);
+            Vector3 _posn = GetInputValue("Screen Position", posn);
+
+            return _camera.ScreenToWorldPoint(_posn, eye);
         }
     }
 }

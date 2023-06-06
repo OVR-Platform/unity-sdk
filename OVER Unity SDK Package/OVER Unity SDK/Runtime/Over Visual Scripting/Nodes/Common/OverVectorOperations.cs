@@ -42,7 +42,7 @@ namespace OverSDK.VisualScripting
         [Output("y")] public float y;
         [Output("z")] public float z;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Vector3 _vec = GetInputValue("Vector", vec);
 
@@ -62,9 +62,11 @@ namespace OverSDK.VisualScripting
                 return z;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
+
+    public enum VectorAngleMode { Unsigned, Signed, FullDegrees }
 
     [Node(Path = "Operations/Vector/Handlers/Base", Name = "Angle", Icon = "OPERATIONS/VECTOR")]
     [Output("Angle", Multiple = true, Type = typeof(float))]
@@ -72,12 +74,25 @@ namespace OverSDK.VisualScripting
     {
         [Input("From")] public Vector3 from;
         [Input("To")] public Vector3 to;
-        public override object OnRequestValue(Port port)
+        [Input("Axis")] public Vector3 axis;
+
+        [Editable("Mode")] public VectorAngleMode vectorAngleMode;
+        public override object OnRequestNodeValue(Port port)
         {
             Vector3 _from = GetInputValue("From", from);
             Vector3 _to = GetInputValue("To", to);
+            Vector3 _axis = GetInputValue("Axis", axis);
 
-            return Vector3.Angle(_from, _to);
+            switch (vectorAngleMode)
+            {
+                case VectorAngleMode.Unsigned: return Vector3.Angle(_from, _to);
+                case VectorAngleMode.Signed: return Vector3.SignedAngle(_from, _to, _axis);
+                case VectorAngleMode.FullDegrees: 
+                    float angle = Vector3.SignedAngle(_from, _to, _axis);
+                    return angle < 0 ? angle + 360f : angle;
+            }
+
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -87,7 +102,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("From")] public Vector3 from;
         [Input("To")] public Vector3 to;
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Vector3 _from = GetInputValue("From", from);
             Vector3 _to = GetInputValue("To", to);
@@ -102,7 +117,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("A")] public Vector3 a;
         [Input("B")] public Vector3 b;
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Vector3 _a = GetInputValue("A", a);
             Vector3 _b = GetInputValue("B", b);
@@ -116,7 +131,7 @@ namespace OverSDK.VisualScripting
     public class OverVectorNormalize : OverVectorOperation
     {
         [Input("Value")] public Vector3 value;
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Vector3 _value = GetInputValue("Value", value);
 
@@ -130,7 +145,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("A")] public Vector3 a;
         [Input("B")] public Vector3 b;
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Vector3 _a = GetInputValue("A", a);
             Vector3 _b = GetInputValue("B", b);
@@ -144,7 +159,7 @@ namespace OverSDK.VisualScripting
     public class OverVectorMagnitude : OverVectorOperation
     {
         [Input("Value")] public Vector3 value;
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Vector3 _value = GetInputValue("Value", value);
 
@@ -158,7 +173,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("A")] public Vector3 a;
         [Input("B")] public Vector3 b;
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Vector3 _a = GetInputValue("A", a);
             Vector3 _b = GetInputValue("B", b);
@@ -173,7 +188,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("A")] public Vector3 a;
         [Input("B")] public Vector3 b;
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Vector3 _a = GetInputValue("A", a);
             Vector3 _b = GetInputValue("B", b);
@@ -188,7 +203,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("A")] public Vector3 a;
         [Input("B")] public Vector3 b;
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Vector3 _a = GetInputValue("A", a);
             Vector3 _b = GetInputValue("B", b);
@@ -206,7 +221,7 @@ namespace OverSDK.VisualScripting
 
         [Input("T")] public float t;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Vector3 _a = GetInputValue("A", a);
             Vector3 _b = GetInputValue("B", b);
@@ -225,7 +240,7 @@ namespace OverSDK.VisualScripting
 
         [Input("T")] public float t;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Vector3 _a = GetInputValue("A", a);
             Vector3 _b = GetInputValue("B", b);
@@ -243,7 +258,7 @@ namespace OverSDK.VisualScripting
         [Input("A")] public Vector3 a;
         [Input("B")] public Vector3 b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Vector3 _a = GetInputValue("A", a);
             Vector3 _b = GetInputValue("B", b);
@@ -259,7 +274,7 @@ namespace OverSDK.VisualScripting
         [Input("A")] public Vector3 a;
         [Input("B")] public Vector3 b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Vector3 _a = GetInputValue("A", a);
             Vector3 _b = GetInputValue("B", b);
@@ -275,7 +290,7 @@ namespace OverSDK.VisualScripting
         [Input("A")] public Vector3 a;
         [Input("B")] public float b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Vector3 _a = GetInputValue("A", a);
             float _b = GetInputValue("B", b);
@@ -291,7 +306,7 @@ namespace OverSDK.VisualScripting
         [Input("A")] public Vector3 a;
         [Input("B")] public float b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Vector3 _a = GetInputValue("A", a);
             float _b = GetInputValue("B", b);
