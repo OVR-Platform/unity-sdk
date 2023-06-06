@@ -52,14 +52,14 @@ namespace OverSDK.VisualScripting
             return GetNextExecutableNode();
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             if (port.Name == "Current Step")
             {
                 return currentStep;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
 
     }

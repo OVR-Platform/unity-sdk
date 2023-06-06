@@ -64,7 +64,7 @@ namespace OverSDK
 
                     if (ovrAsset == null)
                     {
-                        ovrAsset = FindObjectOfType<OvrAsset>();
+                        ovrAsset = FindObjectOfType<OvrAsset>( includeInactive: true);
 
                         if (ovrAsset != null)
                         {

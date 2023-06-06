@@ -43,7 +43,7 @@ namespace OverSDK.VisualScripting
         [Output("Fill Amount")] public float fillAmount;
         [Output("Material")] public Material material;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Image _image = GetInputValue("Image", image);
 
@@ -56,7 +56,7 @@ namespace OverSDK.VisualScripting
                 case "Material": material = _image.material; return material;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -83,7 +83,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Image _image = GetInputValue("Image", image);
 
@@ -92,7 +92,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _image;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -115,7 +115,7 @@ namespace OverSDK.VisualScripting
 
             return base.Execute(data);
         }
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Image _image = GetInputValue("Image", image);
 
@@ -124,7 +124,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _image;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -147,7 +147,7 @@ namespace OverSDK.VisualScripting
 
             return base.Execute(data);
         }
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Image _image = GetInputValue("Image", image);
 
@@ -156,7 +156,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _image;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
     [Node(Path = "Component/UI/Image/Handlers", Name = "Set Image Fill Amount", Icon = "COMPONENT/UI/IMAGE")]
@@ -178,7 +178,7 @@ namespace OverSDK.VisualScripting
 
             return base.Execute(data);
         }
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Image _image = GetInputValue("Image", image);
 
@@ -187,7 +187,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _image;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 }

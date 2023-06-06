@@ -35,6 +35,47 @@ namespace OverSDK.VisualScripting
     [Tags("Common")]
     public abstract class OverMathOperationHandlerNode : OverExecutionFlowNode { }
 
+    //Const
+    [Node(Path = "Operations/Math/Const", Name = "Pi", Icon = "OPERATIONS/MATH")]
+    [Output("Value", Type = (typeof(System.Single)), Multiple = true)]
+    public class OverMathPI : OverMathOperation
+    {
+        public override object OnRequestNodeValue(Port port)
+        {
+            return Mathf.PI;
+        }
+    }
+
+    [Node(Path = "Operations/Math/Const", Name = "Epsilon", Icon = "OPERATIONS/MATH")]
+    [Output("Value", Type = (typeof(System.Single)), Multiple = true)]
+    public class OverMathEpsilon : OverMathOperation
+    {
+        public override object OnRequestNodeValue(Port port)
+        {
+            return Mathf.Epsilon;
+        }
+    }
+
+    [Node(Path = "Operations/Math/Const", Name = "Infinity", Icon = "OPERATIONS/MATH")]
+    [Output("Value", Type = (typeof(System.Single)), Multiple = true)]
+    public class OverMathInfinity : OverMathOperation
+    {
+        public override object OnRequestNodeValue(Port port)
+        {
+            return Mathf.Infinity;
+        }
+    }
+
+    [Node(Path = "Operations/Math/Const", Name = "Neg. Infinity", Icon = "OPERATIONS/MATH")]
+    [Output("Value", Type = (typeof(System.Single)), Multiple = true)]
+    public class OverMathNegInfinity : OverMathOperation
+    {
+        public override object OnRequestNodeValue(Port port)
+        {
+            return Mathf.NegativeInfinity;
+        }
+    }
+
     // Unary
 
     [Node(Path = "Operations/Math/Unary", Name = "Absolute", Icon = "OPERATIONS/MATH")]
@@ -43,7 +84,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("a")] public System.Single a;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
 
@@ -57,7 +98,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("a")] public System.Single a;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
 
@@ -65,8 +106,36 @@ namespace OverSDK.VisualScripting
         }
     }
 
-    [Node(Path = "Operations/Math/Unary", Name = "Random", Icon = "OPERATIONS/MATH")]
-    //[Output("Result", Type = (typeof(System.Single)), Multiple = true)]
+    [Node(Path = "Operations/Math/Unary", Name = "Deg to Rad", Icon = "OPERATIONS/MATH")]
+    [Output("Result", Type = (typeof(System.Single)), Multiple = true)]
+    public class OverMathDeg2Rad : OverMathOperation
+    {
+        [Input("a")] public System.Single a;
+
+        public override object OnRequestNodeValue(Port port)
+        {
+            var _a = GetInputValue("a", a);
+
+            return _a * Mathf.Deg2Rad;
+        }
+    }
+
+    [Node(Path = "Operations/Math/Unary", Name = "Rad to Deg", Icon = "OPERATIONS/MATH")]
+    [Output("Result", Type = (typeof(System.Single)), Multiple = true)]
+    public class OverMathRad2Deg : OverMathOperation
+    {
+        [Input("a")] public System.Single a;
+
+        public override object OnRequestNodeValue(Port port)
+        {
+            var _a = GetInputValue("a", a);
+
+            return _a * Mathf.Rad2Deg;
+        }
+    }
+
+    // Binary
+    [Node(Path = "Operations/Math/Binary", Name = "Random", Icon = "OPERATIONS/MATH")]
     public class OverMathRandom : OverMathOperationHandlerNode
     {
         [Input("Min")] public System.Single a;
@@ -84,18 +153,17 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             switch (port.Name)
             {
                 case "Result": return result;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
-    // Binary
 
     [Node(Path = "Operations/Math/Binary", Name = "Addition", Icon = "OPERATIONS/MATH")]
     [Output("Result", Type = (typeof(System.Single)), Multiple = true)]
@@ -104,7 +172,7 @@ namespace OverSDK.VisualScripting
         [Input("a")] public System.Single a;
         [Input("b")] public System.Single b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
             var _b = GetInputValue("b", b);
@@ -120,7 +188,7 @@ namespace OverSDK.VisualScripting
         [Input("a")] public System.Single a;
         [Input("b")] public System.Single b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
             var _b = GetInputValue("b", b);
@@ -136,7 +204,7 @@ namespace OverSDK.VisualScripting
         [Input("a")] public System.Single a;
         [Input("b")] public System.Single b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
             var _b = GetInputValue("b", b);
@@ -152,7 +220,7 @@ namespace OverSDK.VisualScripting
         [Input("a")] public System.Single a;
         [Input("b")] public System.Single b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
             var _b = GetInputValue("b", b);
@@ -168,7 +236,7 @@ namespace OverSDK.VisualScripting
         [Input("a")] public System.Single a;
         [Input("b")] public System.Single b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
             var _b = GetInputValue("b", b);
@@ -184,7 +252,7 @@ namespace OverSDK.VisualScripting
         [Input("a")] public System.Single a;
         [Input("n")] public System.Single n;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
             var _n = GetInputValue("n", n);
@@ -202,7 +270,7 @@ namespace OverSDK.VisualScripting
         [Input("a")] public System.Single a;
         [Input("b")] public System.Single b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
             var _b = GetInputValue("b", b);
@@ -218,7 +286,7 @@ namespace OverSDK.VisualScripting
         [Input("a")] public System.Single a;
         [Input("b")] public System.Single b;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
             var _b = GetInputValue("b", b);
@@ -233,7 +301,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("a")] public System.Single a;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
 
@@ -247,7 +315,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("a")] public System.Single a;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
 
@@ -264,7 +332,7 @@ namespace OverSDK.VisualScripting
         [Input("min")] public System.Single min;
         [Input("max")] public System.Single max;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
             var _min = GetInputValue("min", min);
@@ -282,7 +350,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("a")] public System.Single a;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
 
@@ -296,7 +364,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("a")] public System.Single a;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
 
@@ -310,7 +378,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("a")] public System.Single a;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
 
@@ -324,7 +392,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("a")] public System.Single a;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
 
@@ -338,7 +406,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("a")] public System.Single a;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
 
@@ -352,7 +420,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("a")] public System.Single a;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _a = GetInputValue("a", a);
 

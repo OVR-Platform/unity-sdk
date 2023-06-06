@@ -37,7 +37,7 @@ namespace OverSDK.VisualScripting
     {
         [Input("")] public bool value;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             return value;
         }

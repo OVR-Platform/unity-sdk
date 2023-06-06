@@ -40,7 +40,7 @@ namespace OverSDK.VisualScripting
 
         [Output("Content", Multiple = true)] public string content;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             TextMeshProUGUI _text = GetInputValue("Text", text);
 
@@ -52,7 +52,7 @@ namespace OverSDK.VisualScripting
                     return content;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -72,7 +72,7 @@ namespace OverSDK.VisualScripting
 
             return base.Execute(data);
         }
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             TextMeshProUGUI _text = GetInputValue("Text", source);
 
@@ -81,7 +81,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _text;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
 
     }
@@ -102,7 +102,7 @@ namespace OverSDK.VisualScripting
 
             return base.Execute(data);
         }
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             TextMeshProUGUI _text = GetInputValue("Text", source);
 
@@ -111,7 +111,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _text;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -131,7 +131,7 @@ namespace OverSDK.VisualScripting
 
             return base.Execute(data);
         }
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             TextMeshProUGUI _text = GetInputValue("Text", source);
 
@@ -140,7 +140,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _text;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 }

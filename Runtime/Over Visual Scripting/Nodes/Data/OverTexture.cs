@@ -35,7 +35,7 @@ namespace OverSDK.VisualScripting
     [Output("Value", typeof(Texture2D), Multiple = true)]
     public class OverTexture : OverTexturePreviewNode
     {
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             return texIn;
         }

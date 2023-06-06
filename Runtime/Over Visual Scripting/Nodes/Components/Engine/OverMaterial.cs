@@ -50,7 +50,7 @@ namespace OverSDK.VisualScripting
         [Output("Emission")] public Texture2D emissionMap;
         [Output("Emission Color")] public Color emissionColor;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Material _material = GetInputValue("Material", material);
 
@@ -71,7 +71,7 @@ namespace OverSDK.VisualScripting
                 case "Emission Color": emissionColor = _material.GetColor("_EmissionColor"); return emissionColor;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -106,7 +106,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Material _material = GetInputValue("Material", material);
 
@@ -115,7 +115,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _material;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -151,7 +151,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Material _material = GetInputValue("Material", material);
 
@@ -160,7 +160,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _material;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -187,7 +187,7 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Material _material = GetInputValue("Material", material);
 
@@ -196,7 +196,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _material;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -225,7 +225,7 @@ namespace OverSDK.VisualScripting
 
             return base.Execute(data);
         }
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Material _material = GetInputValue("Material", material);
 
@@ -234,7 +234,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _material;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -260,7 +260,7 @@ namespace OverSDK.VisualScripting
 
             return base.Execute(data);
         }
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Material _material = GetInputValue("Material", material);
 
@@ -269,7 +269,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _material;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -295,7 +295,7 @@ namespace OverSDK.VisualScripting
 
             return base.Execute(data);
         }
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Material _material = GetInputValue("Material", material);
 
@@ -304,7 +304,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _material;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -335,7 +335,7 @@ namespace OverSDK.VisualScripting
 
             return base.Execute(data);
         }
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Material _material = GetInputValue("Material", material);
 
@@ -344,7 +344,7 @@ namespace OverSDK.VisualScripting
                 case "Output": return _material;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -377,13 +377,13 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             if (port.Name == "Output")
             {
                 return material;
             }
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 }

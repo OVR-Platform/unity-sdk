@@ -37,7 +37,7 @@ namespace OverSDK.VisualScripting
     [Tags("Event")]
     public abstract class OverEventNode : OverExecutionTriggerNode
     {
-        public abstract void Register(Action specificEventToRegister = null);
+        public abstract void Register(OverExecutionFlowData flowData, Action specificEventToRegister = null);
         public abstract void Deregister();
     }
 
@@ -51,8 +51,9 @@ namespace OverSDK.VisualScripting
         {
         }
 
-        public override void Register(Action specificEventToRegister = null)
+        public override void Register(OverExecutionFlowData flowData, Action specificEventToRegister = null)
         {
+            PropagateFlowData(flowData);
             GameObject _obj = GetInputValue("Button", button);
 
             if (_obj != null)
@@ -62,7 +63,7 @@ namespace OverSDK.VisualScripting
                     _button = _obj.AddComponent<Button>();
 
                 _button.onClick.AddListener(() => {
-                    (Graph as OverGraph).Execute(GetNextExecutableNode(), new OverExecutionFlowData() { });
+                    (Graph as OverGraph).Execute(GetNextExecutableNode(), flowData);
                 });
             }
         }
@@ -82,8 +83,11 @@ namespace OverSDK.VisualScripting
 
         OverTriggerListener _triggerListener;
 
-        public override void Register(Action specificEventToRegister = null)
+        OverExecutionFlowData flowData;
+
+        public override void Register(OverExecutionFlowData flowData, Action specificEventToRegister = null)
         {
+            PropagateFlowData(flowData);
             GameObject _target = GetInputValue("Target", target);
 
             Collider _targetCollider = _target.GetComponent<Collider>();
@@ -101,6 +105,8 @@ namespace OverSDK.VisualScripting
                 case ColliderInteractionMode.Exit: _triggerListener.onTriggerExit += OnTriggerFired; break;
                 case ColliderInteractionMode.Stay: _triggerListener.onTriggerStay += OnTriggerFired; break;
             }
+
+            this.flowData = flowData;
         }
 
         public override void Deregister()
@@ -116,17 +122,17 @@ namespace OverSDK.VisualScripting
         public void OnTriggerFired(Collider collider)
         {
             other = collider;
-            (Graph as OverGraph).Execute(GetNextExecutableNode(), new OverExecutionFlowData { });
+            (Graph as OverGraph).Execute(GetNextExecutableNode(), flowData);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             if (port.Name == "Other")
             {
                 return other;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -140,7 +146,7 @@ namespace OverSDK.VisualScripting
 
         [Output("Object", Multiple = true)] public GameObject gmObject;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             Collider _collider = GetInputValue("Collider", collider);
 
@@ -152,7 +158,7 @@ namespace OverSDK.VisualScripting
                     return gmObject;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -172,9 +178,11 @@ namespace OverSDK.VisualScripting
         OverCollisionListener _collisionListener;
 
         Rigidbody _rigidbody;
+        OverExecutionFlowData flowData;
 
-        public override void Register(Action specificEventToRegister = null)
+        public override void Register(OverExecutionFlowData flowData, Action specificEventToRegister = null)
         {
+            PropagateFlowData(flowData);
             GameObject _target = GetInputValue("Target", target);
             Collider _targetCollider = _target.GetComponent<Collider>();
             if (_targetCollider == null) _targetCollider = _target.AddComponent<Collider>();
@@ -197,6 +205,7 @@ namespace OverSDK.VisualScripting
                 case ColliderInteractionMode.Exit: _collisionListener.onCollisionExit += OnTriggerFired; break;
                 case ColliderInteractionMode.Stay: _collisionListener.onCollisionStay += OnTriggerFired; break;
             }
+            this.flowData = flowData;
         }
 
         public override void Deregister()
@@ -216,10 +225,10 @@ namespace OverSDK.VisualScripting
             impulse = collision.impulse;
             relativeVelocity = collision.relativeVelocity;
 
-            (Graph as OverGraph).Execute(GetNextExecutableNode(), new OverExecutionFlowData { });
+            (Graph as OverGraph).Execute(GetNextExecutableNode(), flowData);
         }
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             if (port.Name == "Other")
             {
@@ -238,7 +247,7 @@ namespace OverSDK.VisualScripting
                 return impulse;
             }
 
-            return base.OnRequestValue(port);
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -254,6 +263,7 @@ namespace OverSDK.VisualScripting
 
         [Editable("Touch Mode")] public OverTouchMode mode;
         OverTouchListener _touchListener;
+        OverExecutionFlowData flowData;
 
         public override void Deregister()
         {
@@ -265,8 +275,9 @@ namespace OverSDK.VisualScripting
             }
         }
 
-        public override void Register(Action specificEventToRegister = null)
+        public override void Register(OverExecutionFlowData flowData, Action specificEventToRegister = null)
         {
+            PropagateFlowData(flowData);
             GameObject _target = GetInputValue("Target", target);
             Collider _targetCollider = _target.GetComponent<Collider>();
             if (_targetCollider == null) _targetCollider = _target.AddComponent<Collider>();
@@ -282,13 +293,15 @@ namespace OverSDK.VisualScripting
                 case OverTouchMode.Press: _touchListener.onPress += OnTriggerFired; break;
                 case OverTouchMode.LongPress: _touchListener.onLongPress += OnTriggerFired; break;
             }
+
+            this.flowData = flowData;
         }
 
         public void OnTriggerFired(RaycastHit hit)
         {
             other = hit.collider;
 
-            (Graph as OverGraph).Execute(GetNextExecutableNode(), new OverExecutionFlowData { });
+            (Graph as OverGraph).Execute(GetNextExecutableNode(), flowData);
         }
 
     }
@@ -302,8 +315,9 @@ namespace OverSDK.VisualScripting
         {
         }
 
-        public override void Register(Action specificEventToRegister = null)
+        public override void Register(OverExecutionFlowData flowData, Action specificEventToRegister = null)
         {
+            PropagateFlowData(flowData);
         }
 
         public void TriggerExecution(OverExecutionFlowData data)

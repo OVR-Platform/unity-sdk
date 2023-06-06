@@ -39,7 +39,7 @@ namespace OverSDK.VisualScripting
 
         [Output] public Vector2 result;
 
-        public override object OnRequestValue(Port port)
+        public override object OnRequestNodeValue(Port port)
         {
             var _x = GetInputValue("x", x);
             var _y = GetInputValue("y", y);

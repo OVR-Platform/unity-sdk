@@ -38,6 +38,9 @@ namespace OverSDK.VisualScripting.Editor
         private bool mRunningInEditor;
         private int currentPickerWindow;
 
+        private string inspectedOverScriptGUID;
+
+        //GUI
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
@@ -50,29 +53,46 @@ namespace OverSDK.VisualScripting.Editor
                 {
                     CreateNewOverGraph(overScript);
                 }
-                overScript.data.variableDatas.Clear();
+                overScript.Data.variables.Clear();
             }
 
             if (GUILayout.Button("Load Graph"))
             {
                 currentPickerWindow = EditorGUIUtility.GetControlID(FocusType.Passive) + 100;
                 EditorGUIUtility.ShowObjectPicker<OverGraph>(overScript.OverGraph, false, "", currentPickerWindow);
-
-
+                inspectedOverScriptGUID = overScript.GUID;
             }
             string commandName = Event.current.commandName;
             if (commandName == "ObjectSelectorUpdated")
             {
-                overScript.OverGraph = EditorGUIUtility.GetObjectPickerObject() as OverGraph;
-                Repaint();
+                if(inspectedOverScriptGUID == overScript.GUID)
+                {
+                    overScript.OverGraph = EditorGUIUtility.GetObjectPickerObject() as OverGraph;
+                    EditorUtility.SetDirty(overScript);
+                    if (OverScriptManager.Main != null) EditorUtility.SetDirty(OverScriptManager.Main);
+                    Repaint();
+                }
             }
             else if (commandName == "ObjectSelectorClosed")
             {
-                overScript.OverGraph = EditorGUIUtility.GetObjectPickerObject() as OverGraph;
+                if (inspectedOverScriptGUID == overScript.GUID)
+                {
+                    overScript.OverGraph = EditorGUIUtility.GetObjectPickerObject() as OverGraph;
+                    EditorUtility.SetDirty(overScript);
+                    if (OverScriptManager.Main != null) EditorUtility.SetDirty(OverScriptManager.Main);
+
+                    inspectedOverScriptGUID = null;
+                }
             }
 
+            if (overScript.MarkedAsDirty)
+            {
+                EditorUtility.SetDirty(overScript);
+                overScript.MarkedAsDirty = false;
+            }
         }
 
+        //MONO
         void Awake()
         {
             mRunningInEditor = Application.isEditor && !Application.isPlaying;
@@ -98,9 +118,7 @@ namespace OverSDK.VisualScripting.Editor
             }
         }
 
-        private void OnEnable()
-        {
-        }
+        private void OnEnable() { }
 
         public void OnDestroy()
         {
@@ -112,7 +130,10 @@ namespace OverSDK.VisualScripting.Editor
         }
 
 
-        // Create new Over Graph
+        /// <summary>
+        /// Create new Over Graph, given an OverScript
+        /// </summary>
+        /// <param name="overScript"></param>
         public void CreateNewOverGraph(OverScript overScript)
         {
             if (overScript.OverGraph == null)
