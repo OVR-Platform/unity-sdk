@@ -38,6 +38,9 @@ _Fig 1.3: Unity platforms_
 ###### For Windows Users:
 - install git (https://git-scm.com/download/win)
 
+##### For Glb and Gltf support in Unity
+- install glTFast package (https://github.com/atteneder/glTFast)
+
 ## Create and use your OVER API Keys
 1.	Login on the OVER Web Builder https://builder.ovr.ai using your credentials or your Metamask wallet and click on "Api Keys" from the top menu.
 
