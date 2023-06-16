@@ -25,6 +25,7 @@
  * THE SOFTWARE.
  */
 
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace OverSDK
@@ -32,6 +33,8 @@ namespace OverSDK
     [ExecuteInEditMode]
     public class OvrHexBounds : MonoBehaviour
     {
+        public Dictionary<string, Vector3> folderCenters = new Dictionary<string, Vector3>();
+
         protected void Update()
         {
             transform.position = Vector3.zero;

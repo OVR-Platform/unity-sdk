@@ -29,8 +29,8 @@ using UnityEngine;
 
 namespace OverSDK
 {
-    [RequireComponent(typeof(OvrLightSettings))]
-    [RequireComponent(typeof(OvrGeneralSettings))]
+    //[RequireComponent(typeof(OvrLightSettings))]
+    //[RequireComponent(typeof(OvrGeneralSettings))]
     [ExecuteInEditMode]
     public class OvrAsset : MonoBehaviour
     {
@@ -56,7 +56,12 @@ namespace OverSDK
         public void Init()
         {
             if (ovrLightModifierData == null)
+            {
                 ovrLightModifierData = GetComponent<OvrLightSettings>();
+                if (ovrLightModifierData == null)
+                    ovrLightModifierData = gameObject.AddComponent<OvrLightSettings>();
+            }
+
 
             if (ovrCanvas == null)
             {
@@ -75,7 +80,11 @@ namespace OverSDK
             }
 
             if (ovrGeneralSettings == null)
+            {
                 ovrGeneralSettings = GetComponent<OvrGeneralSettings>();
+                if (ovrGeneralSettings == null)
+                    ovrGeneralSettings = gameObject.AddComponent<OvrGeneralSettings>();
+            }
         }
 
     }

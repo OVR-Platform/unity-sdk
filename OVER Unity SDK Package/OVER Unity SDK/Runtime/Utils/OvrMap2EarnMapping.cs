@@ -61,6 +61,8 @@ namespace OverSDK
 
         public Action<OvrMap2EarnMappingInfo, Action<bool>> OnSaveMappingBtnClicked;
 
+        public Vector3 centerReferencePosition = Vector3.zero;
+
 #if !APP_MAIN
         private void Update()
         {
@@ -68,8 +70,10 @@ namespace OverSDK
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), -Mathf.Abs(transform.localScale.y), Mathf.Abs(transform.localScale.z));
         }
 
-        public void InitData(string uuid, RepositionData data)
+        public void InitData(string uuid, RepositionData data, Vector3 centerReference)
         {
+            centerReferencePosition = centerReference;
+
             tmpMappingInfo = new OvrMap2EarnMappingInfo();
             tmpMappingInfo.land_map_uuid = uuid;
 
@@ -85,7 +89,7 @@ namespace OverSDK
             if (!isSaving)
             {
                 tmpMappingInfo.reposition_data.hasData = true;
-                tmpMappingInfo.reposition_data.position = transform.localPosition;
+                tmpMappingInfo.reposition_data.position = transform.localPosition - centerReferencePosition;
                 tmpMappingInfo.reposition_data.rotation = transform.localRotation;
                 tmpMappingInfo.reposition_data.scale = new Vector3(Mathf.Abs(transform.localScale.x), -Mathf.Abs(transform.localScale.y), Mathf.Abs(transform.localScale.z));
 
@@ -101,7 +105,7 @@ namespace OverSDK
 
         private void SetRepositionData()
         {
-            transform.localPosition = tmpMappingInfo.reposition_data.position;
+            transform.localPosition = centerReferencePosition + tmpMappingInfo.reposition_data.position;
             transform.localRotation = tmpMappingInfo.reposition_data.rotation;
             transform.localScale = tmpMappingInfo.reposition_data.scale;
             Update();
