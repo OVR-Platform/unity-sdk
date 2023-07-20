@@ -166,7 +166,7 @@ namespace OverSDK
         public static bool PrefabModeEnabled()
         {
 #if UNITY_EDITOR
-            return UnityEditor.Experimental.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() != null;
+            return UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() != null;
 #else
         return false;
 #endif

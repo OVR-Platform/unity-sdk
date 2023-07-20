@@ -39,6 +39,7 @@ namespace OverSDK
         public GameObject ovrPlayerSimulator;
 
         public OvrArWorldCanvas ovrArWorldCanvas;
+        public OverScreenShareComponent ovrScreenShareComponent;
 
         public OvrClickableObject ovrClickableObject;
         public OvrColliderTrigger ovrColliderTrigger;

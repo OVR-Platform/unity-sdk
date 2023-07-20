@@ -56,7 +56,7 @@ namespace OverSDK.VisualScripting
     [Tags("Utils")]
     public class OverTimeHandler : OverExecutionFlowNode { }
 
-    [Node(Path = "Utils/Time", Name = "Countdown", Icon = "Utils/TIME")]
+    [Node(Path = "Utils/Time", Name = "Countdown Timer", Icon = "Utils/TIME")]
     [Output("On Time Still Remaining", typeof(OverExecutionFlowData), Multiple = false)]
     public class OverCountdown : OverTimeHandler
     {

@@ -66,6 +66,13 @@ namespace BlueGraph
             }
         }
 
+        protected Vector3 m_ZoomScale = Vector3.one;
+        public virtual Vector3 ZoomScale { get { return m_ZoomScale; } set { m_ZoomScale = value; } }
+
+        protected Vector3 m_ViewTransformLocalPosition = Vector3.zero;
+        public virtual Vector3 ViewTransformLocalPosition { get { return m_ViewTransformLocalPosition; } set { m_ViewTransformLocalPosition = value; } }
+
+
         /// <summary>
         /// Retrieve all nodes on this graph
         /// </summary>
