@@ -25,6 +25,7 @@
  * THE SOFTWARE.
  */
 
+using BlueGraph.Editor;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
@@ -54,6 +55,13 @@ namespace OverSDK.VisualScripting.Editor
                     CreateNewOverGraph(overScript);
                 }
                 overScript.Data.variables.Clear();
+            }
+            else
+            {
+                if(GUILayout.Button("Edit Graph"))
+                {
+                    GraphAssetHandler.OnOpenGraph(overScript.OverGraph);
+                }
             }
 
             if (GUILayout.Button("Load Graph"))
@@ -101,19 +109,7 @@ namespace OverSDK.VisualScripting.Editor
             {
                 if (OverScriptManager.Main == null)
                 {
-                    OverSDK.OvrAsset asset = FindObjectOfType<OverSDK.OvrAsset>();
-                    if (asset != null)
-                    {
-                        GameObject scriptManager = new GameObject("Scripting");
-                        scriptManager.transform.SetParent(asset.transform);
-                        scriptManager.transform.SetAsFirstSibling();
-                        scriptManager.AddComponent<OverScriptManager>();
-                    }
-                    else
-                    {
-                        Debug.LogError("You need an OvrAsset in order to add OverScripts to the scene");
-                        DestroyImmediate(this);
-                    }
+                    OverVisualScriptingInstantiator.InstantiateOverScriptManager();
                 }
             }
         }
@@ -138,35 +134,22 @@ namespace OverSDK.VisualScripting.Editor
         {
             if (overScript.OverGraph == null)
             {
-                OverGraph graph = ScriptableObject.CreateInstance<OverGraph>();
-                if (string.IsNullOrEmpty(graph.GUID))
-                    graph.GUID = System.Guid.NewGuid().ToString();
-
-                int i = 1;
-
-                string newFileName = "New OverGraph";
                 if (!Directory.Exists(dir))
                 {
                     Directory.CreateDirectory(dir);
+                    AssetDatabase.SaveAssets();
+                    AssetDatabase.Refresh();
                 }
 
-                string path = $"{dir}/{newFileName}.asset";
-                string filePath = path;
-
-                while (File.Exists(filePath))
-                {
-                    filePath = $"{dir}/{newFileName} {i}.asset";
-                    i++;
-                }
-                path = filePath;
-
-                AssetDatabase.SaveAssets();
-                AssetDatabase.Refresh();
-                ProjectWindowUtil.CreateAsset(graph, path);
-
-                //EditorGUIUtility.PingObject(graph);
-
-                overScript.OverGraph = graph;
+                AssetCreator.CreateAssetAtPath(
+                    dir,
+                    null,
+                    (OverGraph graph) => {
+                        if (string.IsNullOrEmpty(graph.GUID))
+                            graph.GUID = System.Guid.NewGuid().ToString();
+                        overScript.OverGraph = graph;
+                    },
+                    () => { overScript.OverGraph = null; });
 
                 if (OverScriptManager.Main != null)
                     OverScriptManager.Main.UpdateMappings();
