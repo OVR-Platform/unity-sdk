@@ -40,7 +40,8 @@ namespace OverSDK.VisualScripting
         [Output("Is Active", Multiple = true)] public bool active;
         [Output("Is Active in Scene", Multiple = true)] public bool activeInScene;
 
-        [Output("Transform", Multiple = true)] public Transform transform;
+        [Output("Name", Multiple = true)] public string objectName;
+        [Output("Transform", Multiple = true)] public Transform objectTransform;
 
         public override object OnRequestNodeValue(Port port)
         {
@@ -51,8 +52,11 @@ namespace OverSDK.VisualScripting
                 case "Ref":
                     return _obj;
                 case "Transform":
-                    transform = _obj.transform;
-                    return transform;
+                    objectTransform = _obj.transform;
+                    return objectTransform;
+                case "Name":
+                    objectName = _obj.name;
+                    return objectName;
                 case "Is Active":
                     active = _obj.activeSelf;
                     return active;
@@ -152,5 +156,44 @@ namespace OverSDK.VisualScripting
 
             return base.Execute(data);
         }
+    }
+
+    public enum OverCompareObjectNameType { Equal, NotEqual }
+
+    [Node(Path = "Component/Object/Handlers", Name = "Compare Name", Icon = "COMPONENT/OBJECT")]
+    public class OverCompareObjectName : OverObjectHandlerNode
+    {
+        [Input("Object A")] public GameObject obj;
+        [Input("Name")] public string objectName;
+
+        [Editable("Mode")] public OverCompareObjectNameType type;
+
+        [Output("Result")] public bool t;
+
+        public override IExecutableOverNode Execute(OverExecutionFlowData data)
+        {
+            //read inputs
+            GameObject prf = GetInputValue("Object A", obj);
+            string _name = GetInputValue("Name", objectName);
+
+            switch (type)
+            {
+                case OverCompareObjectNameType.Equal: t = prf.name == _name; break;
+                case OverCompareObjectNameType.NotEqual: t = prf.name != _name; break;
+            }           
+
+            return base.Execute(data);
+        }
+        public override object OnRequestNodeValue(Port port)
+        {
+            switch (port.Name)
+            {
+                case "Result":
+                    return t;
+            }
+
+            return base.OnRequestNodeValue(port);
+        }
+
     }
 }

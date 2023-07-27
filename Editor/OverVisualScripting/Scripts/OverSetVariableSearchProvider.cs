@@ -59,6 +59,10 @@ namespace OverSDK.VisualScripting.Editor
                 {
                     variableDict[item.Key] = allLocals[item.Key];
                 }
+                else
+                {
+                    variableDict[item.Key] = item.Value.ToScriptData();
+                }
             }
 
             foreach (var global in globals)

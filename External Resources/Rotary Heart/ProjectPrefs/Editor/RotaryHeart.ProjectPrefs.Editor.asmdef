@@ -1,0 +1,11 @@
+{
+    "name": "RotaryHeart.ProjectPrefs.Editor",
+    "references": [
+        "RotaryHeart.IniParser",
+        "RotaryHeart"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": []
+}

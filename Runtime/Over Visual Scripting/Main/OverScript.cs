@@ -253,11 +253,17 @@ namespace OverSDK.VisualScripting
 
         void Awake()
         {
-            if(OverScriptManager.Main != null && !OverScriptManager.Main.overDataMappings.ContainsKey(GUID)) 
+            if(OverScriptManager.Main != null) 
             {
-                GUID = Guid.NewGuid().ToString();
-                OverScriptManager.Main.UpdateMappings();
+                if (!OverScriptManager.Main.overDataMappings.ContainsKey(GUID) ||
+                    OverScriptManager.Main.overDataMappings[GUID].overGraphAsset.GUID == OverGraph.GUID)
+                {
+                    GUID = Guid.NewGuid().ToString();
+                    OverScriptManager.Main.UpdateMappings();
+                }
             }
+
+            overGraph = overGraph.Clone();
 
             if (OverGraph != null && !OverScriptManager.Main.IsError) OverGraph.OnBehaviourAwake(this);
         }

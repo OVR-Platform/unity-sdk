@@ -37,7 +37,8 @@ namespace OverSDK.VisualScripting
     {
         public override object OnRequestNodeValue(Port port)
         {
-            return spriteIn;
+            var _value = GetInputValue("", spriteIn);
+            return _value;
         }
     }
 }

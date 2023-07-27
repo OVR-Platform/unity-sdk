@@ -67,7 +67,7 @@ namespace BlueGraph.Editor
             canPasteSerializedData = OnTryPasteSerializedData;
             unserializeAndPaste = OnUnserializeAndPaste;
 
-            RegisterCallback<GeometryChangedEvent>(OnFirstResize);
+            //RegisterCallback<GeometryChangedEvent>(OnFirstResize);
 
             title = new Label("BLUEGRAPH");
             title.AddToClassList("canvasViewTitle");
@@ -85,6 +85,8 @@ namespace BlueGraph.Editor
         private void OnGraphMouseMove(MouseMoveEvent evt)
         {
             lastMousePosition = evt.mousePosition;
+            Graph.ZoomScale = viewTransform.scale;
+            Graph.ViewTransformLocalPosition = viewTransform.position;
         }
 
         /// <summary>
@@ -273,6 +275,8 @@ namespace BlueGraph.Editor
 
                 }
             }
+
+            UpdateViewTransform(Graph.ViewTransformLocalPosition, graph.ZoomScale);
         }
 
         /// <summary>
