@@ -8,18 +8,15 @@
 _Fig 1.2: Unity Version_
 
 3.	{For Windows} Select Android and iOS platform.
-3.1.	Select Mac platform for Over Console support. (Optional)
-3.2.	Select WebGL platform for Instant App support . (Optional)
+3.1	Select Mac platform for Over Console support. (Optional)
+3.2	Select WebGL platform for Instant App support . (Optional)
 
 ![Unity platforms](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-02-1-2.png)
 _Fig 1.3: Unity platforms_
 
-3.1	 Select also Mac platform for the Over Console support.
-
-	
 3.	{For Mac) Select Android and iOS platform.
-3.1.	Select Mac platform for Over Windows support. (Optional)
-3.2.	Select WebGL platform for Instant App support . (Optional)
+3.1	Select Mac platform for Over Windows support. (Optional)
+3.2	Select WebGL platform for Instant App support . (Optional)
 
 ![Unity platforms](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-02-2.png)
 _Fig 1.3: Unity platforms_
