@@ -2,17 +2,24 @@
 
 ## Unity Setup
 1. Go to Unity Hub, and download Unity Hub (not the beta version)
-2. After downloading Unity Hub, download Unity version 2022.3.1f1 from the Unity archive.
+2. After downloading Unity Hub, download Unity version 2022.3.13f1 from the Unity archive.
 
 ![Unity Version](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-01-2.png)
 _Fig 1.2: Unity Version_
 
-3.	{For Windows} Select Android, iOS and Mac platform.
+3.	{For Windows} Select Android and iOS platform.
+3.1.	Select Mac platform for Over Console support. (Optional)
+3.2.	Select WebGL platform for Instant App support . (Optional)
 
 ![Unity platforms](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-02-1-2.png)
 _Fig 1.3: Unity platforms_
 
-3.	{For Mac) Select Android, iOS and Windows platform.
+3.1	 Select also Mac platform for the Over Console support.
+
+	
+3.	{For Mac) Select Android and iOS platform.
+3.1.	Select Mac platform for Over Windows support. (Optional)
+3.2.	Select WebGL platform for Instant App support . (Optional)
 
 ![Unity platforms](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-02-2.png)
 _Fig 1.3: Unity platforms_

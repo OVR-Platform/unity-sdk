@@ -1,5 +1,5 @@
 /**
- * OVR Unity SDK License
+ * OVER Unity SDK License
  *
  * Copyright 2021 Over The Realty
  *
@@ -133,9 +133,21 @@ namespace OverSDK.VisualScripting
                 if (_a.GetType() == typeof(string))
                     return (string)_a == (string)_b;
 
+                if (_a is UnityEngine.Object) // This covers all UnityEngine types, including MonoBehaviour
+                {
+                    return _a == _b; // Reference comparison
+                }
+
                 //else
-                Comparer comparer = new Comparer(new System.Globalization.CultureInfo("en-US"));
-                return comparer.Compare(_a, _b) == 0;
+                try
+                {
+                    Comparer comparer = new Comparer(new System.Globalization.CultureInfo("en-US"));
+                    return comparer.Compare(_a, _b) == 0;
+                }
+                catch (System.ArgumentException)
+                {
+                    return false;
+                }
             }
             return false;
         }
@@ -173,9 +185,21 @@ namespace OverSDK.VisualScripting
                 if (_a.GetType() == typeof(string))
                     return (string)_a != (string)_b;
 
+                if (_a is UnityEngine.Object) // This covers all UnityEngine types, including MonoBehaviour
+                {
+                    return _a != _b; // Reference comparison
+                }
+
                 //else
-                Comparer comparer = new Comparer(new System.Globalization.CultureInfo("en-US"));
-                return comparer.Compare(_a, _b) != 0;
+                try
+                {
+                    Comparer comparer = new Comparer(new System.Globalization.CultureInfo("en-US"));
+                    return comparer.Compare(_a, _b) != 0;
+                }
+                catch (System.ArgumentException)
+                {
+                    return false;
+                }
             }
             return false;
         }

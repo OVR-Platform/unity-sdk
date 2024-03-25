@@ -63,7 +63,12 @@ namespace OverSDK.VisualScripting.Editor
 
             var preview = new VisualElement();
             preview.style.backgroundImage = new StyleBackground(previewTexture);
-            preview.style.unityBackgroundScaleMode = ScaleMode.ScaleToFit;
+
+            //preview.style.unityBackgroundScaleMode = ScaleMode.ScaleToFit;        <---------- DEPRECATED OLD CODE
+            preview.style.backgroundPositionX = new BackgroundPosition(BackgroundPositionKeyword.Center);
+            preview.style.backgroundPositionY = new BackgroundPosition(BackgroundPositionKeyword.Center);
+            preview.style.backgroundRepeat = new BackgroundRepeat(Repeat.NoRepeat, Repeat.NoRepeat);
+            preview.style.backgroundSize = new BackgroundSize(BackgroundSizeType.Contain);
 
             preview.style.minWidth = TEXTURE_SIZE;
             preview.style.minHeight = TEXTURE_SIZE;
@@ -81,14 +86,17 @@ namespace OverSDK.VisualScripting.Editor
         {
             base.OnPropertyChange();
 
-            if (Target is OverTexturePreviewNode previewTextureNode)
+            if (!Application.isPlaying)
             {
-                UpdateTexture(previewTextureNode.GetPort("TexIn").GetValue(previewTextureNode.texIn));
-            }
+                if (Target is OverTexturePreviewNode previewTextureNode)
+                {
+                    UpdateTexture(previewTextureNode.GetPort("TexIn").GetValue(previewTextureNode.texIn));
+                }
 
-            if (Target is OverSpritePreviewNode previewSpriteNode)
-            {
-                UpdateTexture(previewSpriteNode.GetPort("SpriteIn").GetValue(previewSpriteNode.spriteIn.texture));
+                if (Target is OverSpritePreviewNode previewSpriteNode)
+                {
+                    UpdateTexture(previewSpriteNode.GetPort("SpriteIn").GetValue(previewSpriteNode.spriteIn.texture));
+                }
             }
 
         }
@@ -97,16 +105,19 @@ namespace OverSDK.VisualScripting.Editor
         {
             base.OnUpdate();
 
-            if (Target is OverTexturePreviewNode previewNode)
+            if (!Application.isPlaying)
             {
-                UpdateTexture(previewNode.GetPort("TexIn").GetValue(previewNode.texIn));
-            }
-
-            if (Target is OverSpritePreviewNode previewSpriteNode)
-            {
-                if (previewSpriteNode.spriteIn != null)
+                if (Target is OverTexturePreviewNode previewNode)
                 {
-                    UpdateTexture(previewSpriteNode.GetPort("SpriteIn").GetValue(previewSpriteNode.spriteIn.texture));
+                    UpdateTexture(previewNode.GetPort("TexIn").GetValue(previewNode.texIn));
+                }
+
+                if (Target is OverSpritePreviewNode previewSpriteNode)
+                {
+                    if (previewSpriteNode.spriteIn != null)
+                    {
+                        UpdateTexture(previewSpriteNode.GetPort("SpriteIn").GetValue(previewSpriteNode.spriteIn.texture));
+                    }
                 }
             }
 

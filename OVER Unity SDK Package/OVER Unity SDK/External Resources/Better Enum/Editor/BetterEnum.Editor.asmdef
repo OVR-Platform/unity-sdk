@@ -1,0 +1,18 @@
+{
+    "name": "BetterEnum.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:42042643f40ae584dbca69c199c5119c"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

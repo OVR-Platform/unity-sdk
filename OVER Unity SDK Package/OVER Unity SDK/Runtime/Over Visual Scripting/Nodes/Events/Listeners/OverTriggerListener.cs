@@ -1,5 +1,5 @@
 /**
- * OVR Unity SDK License
+ * OVER Unity SDK License
  *
  * Copyright 2021 OVR
  *
@@ -37,16 +37,25 @@ namespace OverSDK.VisualScripting
         public Action<Collider> onTriggerStay = delegate { };
 
         OverOnTrigger node;
+        OverOnTriggerLazyLoad nodeLoop;
 
         public void Initialize(OverOnTrigger node)
         {
             this.node = node;
         }
 
+        public void Initialize(OverOnTriggerLazyLoad node)
+        {
+            this.nodeLoop = node;
+        }
+
         private void OnDestroy()
         {
             if (node != null)
                 node.Deregister();
+
+            if (nodeLoop != null)
+                nodeLoop.Deregister();
         }
 
         private void OnTriggerEnter(Collider other)

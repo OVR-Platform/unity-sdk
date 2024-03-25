@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ShadowCollector
+  m_Shader: {fileID: 4800000, guid: 739783aada2c4dba9e0199d983c44146, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - IS_SOFT_PARTICLES
+  - _ZWRITE_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FixedMaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LinePassTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskDistortion:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseNormal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BlendDst: 1
+    - _BlendSrc: 1
+    - _BumpScale: 1
+    - _ColorFactor: 1
+    - _Culling: 2
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Impact: 0
+    - _ImpactFactor: 1
+    - _ImpactSize: 0.5
+    - _InvFade: 1
+    - _LinePass: 0
+    - _MaskAnimatedSpeed: 1
+    - _MaskCutOut: 1
+    - _MaskFade: 0
+    - _MaskOffsetFactor: 1
+    - _MaxIndex: 2
+    - _Metallic: 0
+    - _MixedMove: 0
+    - _Mode: 0
+    - _NoiseNormalFactor: 1
+    - _NoiseScale: 1
+    - _NormalAnimate: 0
+    - _NormalAnimateSpeed: 1
+    - _NormalDistortion: 0
+    - _NormalDistortionFactor: 1
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _ParticleInstancing: 0
+    - _RimLight: 0
+    - _RimScale: 1
+    - _RimStrength: 1
+    - _SecondColor: 0
+    - _ShadowIntensity: 0.296
+    - _SmoothnessTextureChannel: 0
+    - _SoftParticle: 1
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _TexLength: 1
+    - _TexPosMove: 0
+    - _TexcoordMove: 0
+    - _TexcoordMoveStrength: 0
+    - _TexcoordMoveUsingCustom: 0
+    - _TextureAnimate: 0
+    - _TextureAnimateAdvanced: 0
+    - _TextureAnimateSpeed: 1
+    - _TextureAnimateStyle: 1
+    - _TextureBlend: 0
+    - _TextureNoise: 0
+    - _UVSec: 0
+    - _UseTexAnimation: 0
+    - _VertexAnimation: 0
+    - _ZTest2: 2
+    - _ZWrite: 1
+    - _xTexcoordMove: 0
+    - _yTexcoordMove: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _NoiseValue: {r: 1, g: 1, b: 1, a: 0}
+    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TintColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TintColor2: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []

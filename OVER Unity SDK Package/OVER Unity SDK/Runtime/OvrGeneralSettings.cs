@@ -29,29 +29,92 @@ using UnityEngine;
 
 namespace OverSDK
 {
+    public struct GeneralSettings
+    {
+        //AR Experience
+        public bool environmentOcclusionAR;
+        public bool automaticStartEnvironmentOcclusionAR;
+
+        public bool humanOcclusionAR;
+        public bool automaticStartHumanOcclusionAR;
+
+        public bool meshOcclusionAR;
+        public bool automaticStartMeshOcclusionAR;
+
+        //Remote Experience
+        public bool environmentOcclusionRemote;
+        public bool automaticStartEnvironmentOcclusionRemote;
+
+        public bool humanOcclusionRemote;
+        public bool automaticStartHumanOcclusionRemote;
+
+        public bool meshOcclusionRemote;
+        public bool automaticStartMeshOcclusionRemote;
+
+        public bool walkModeButton;
+        public bool automaticWalkModeButton;
+
+
+        public GeneralSettings(bool environmentOcclusionAR, bool automaticStartEnvironmentOcclusionAR, bool humanOcclusionAR, bool automaticStartHumanOcclusionAR, bool meshOcclusionAR, bool automaticStartMeshOcclusionAR, bool environmentOcclusionRemote, bool automaticStartEnvironmentOcclusionRemote, bool humanOcclusionRemote, bool automaticStartHumanOcclusionRemote, bool meshOcclusionRemote, bool automaticStartMeshOcclusionRemote, bool walkModeButton, bool automaticWalkModeButton)
+        {
+            this.environmentOcclusionAR = environmentOcclusionAR;
+            this.automaticStartEnvironmentOcclusionAR = automaticStartEnvironmentOcclusionAR;
+            this.humanOcclusionAR = humanOcclusionAR;
+            this.automaticStartHumanOcclusionAR = automaticStartHumanOcclusionAR;
+            this.meshOcclusionAR = meshOcclusionAR;
+            this.automaticStartMeshOcclusionAR = automaticStartMeshOcclusionAR;
+            this.environmentOcclusionRemote = environmentOcclusionRemote;
+            this.automaticStartEnvironmentOcclusionRemote = automaticStartEnvironmentOcclusionRemote;
+            this.humanOcclusionRemote = humanOcclusionRemote;
+            this.automaticStartHumanOcclusionRemote = automaticStartHumanOcclusionRemote;
+            this.meshOcclusionRemote = meshOcclusionRemote;
+            this.automaticStartMeshOcclusionRemote = automaticStartMeshOcclusionRemote;
+            this.walkModeButton = walkModeButton;
+            this.automaticWalkModeButton = automaticWalkModeButton;
+        }
+    }
+
     public class OvrGeneralSettings : MonoBehaviour
     {
         //AR Experience
-        public bool environmentOcclusionAR = false;
-        public bool automaticStartEnvironmentOcclusionAR = false;
+        public bool environmentOcclusionAR;
+        public bool automaticStartEnvironmentOcclusionAR;
 
-        public bool humanOcclusionAR = false;
-        public bool automaticStartHumanOcclusionAR = false;
+        public bool humanOcclusionAR;
+        public bool automaticStartHumanOcclusionAR;
 
-        public bool meshOcclusionAR = false;
-        public bool automaticStartMeshOcclusionAR = false;
+        public bool meshOcclusionAR;
+        public bool automaticStartMeshOcclusionAR;
 
         //Remote Experience
-        public bool environmentOcclusionRemote = false;
-        public bool automaticStartEnvironmentOcclusionRemote = false;        
-        
-        public bool humanOcclusionRemote = false;
-        public bool automaticStartHumanOcclusionRemote = false;
+        public bool environmentOcclusionRemote;
+        public bool automaticStartEnvironmentOcclusionRemote;
 
-        public bool meshOcclusionRemote = false;
-        public bool automaticStartMeshOcclusionRemote = false;
+        public bool humanOcclusionRemote;
+        public bool automaticStartHumanOcclusionRemote;
 
-        public bool walkModeButton = false;
-        //public bool automaticStartWalkMode = false;
+        public bool meshOcclusionRemote;
+        public bool automaticStartMeshOcclusionRemote;
+
+        public bool walkModeButton;
+        public bool automaticWalkModeButton;
+
+        public void ImportSettings(GeneralSettings generalSettings)
+        {
+            this.environmentOcclusionAR = generalSettings.environmentOcclusionAR;
+            this.automaticStartEnvironmentOcclusionAR = generalSettings.automaticStartEnvironmentOcclusionAR;
+            this.humanOcclusionAR = generalSettings.humanOcclusionAR;
+            this.automaticStartHumanOcclusionAR = generalSettings.automaticStartHumanOcclusionAR;
+            this.meshOcclusionAR = generalSettings.meshOcclusionAR;
+            this.automaticStartMeshOcclusionAR = generalSettings.automaticStartMeshOcclusionAR;
+            this.environmentOcclusionRemote = generalSettings.environmentOcclusionRemote;
+            this.automaticStartEnvironmentOcclusionRemote = generalSettings.automaticStartEnvironmentOcclusionRemote;
+            this.humanOcclusionRemote = generalSettings.humanOcclusionRemote;
+            this.automaticStartHumanOcclusionRemote = generalSettings.automaticStartHumanOcclusionRemote;
+            this.meshOcclusionRemote = generalSettings.meshOcclusionRemote;
+            this.automaticStartMeshOcclusionRemote = generalSettings.automaticStartMeshOcclusionRemote;
+            this.walkModeButton = generalSettings.walkModeButton;
+            this.automaticWalkModeButton = generalSettings.automaticWalkModeButton;
+        }
     }
 }

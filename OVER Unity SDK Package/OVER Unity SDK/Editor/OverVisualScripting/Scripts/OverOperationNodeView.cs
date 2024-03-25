@@ -1,5 +1,5 @@
 /**
- * OVR Unity SDK License
+ * OVER Unity SDK License
  *
  * Copyright 2021 OVR
  *
@@ -42,6 +42,8 @@ namespace OverSDK.VisualScripting.Editor
     [CustomNodeView(typeof(OverQuaternionOperation))]
     [CustomNodeView(typeof(OverStringOperation))]
     [CustomNodeView(typeof(OverColorOperationNode))]
+    [CustomNodeView(typeof(OverListCommon))]
+    [CustomNodeView(typeof(OverListOperation))]
 
     public class OverOperationNodeView : NodeView
     {

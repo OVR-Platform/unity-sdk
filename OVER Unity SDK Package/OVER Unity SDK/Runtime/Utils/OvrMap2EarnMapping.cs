@@ -66,7 +66,9 @@ namespace OverSDK
 #if !APP_MAIN
         private void Update()
         {
-            transform.SetParent(null);
+            if (transform.parent != null)
+                transform.SetParent(null);
+
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), -Mathf.Abs(transform.localScale.y), Mathf.Abs(transform.localScale.z));
         }
 

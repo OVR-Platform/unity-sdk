@@ -1,5 +1,5 @@
 /**
- * OVR Unity SDK License
+ * OVER Unity SDK License
  *
  * Copyright 2021 OVR
  *
@@ -59,9 +59,12 @@ namespace OverSDK.VisualScripting.Editor
     [CustomNodeView(typeof(OverImageHandlerNode))]
     [CustomNodeView(typeof(OverUIText))]
     [CustomNodeView(typeof(OverUITextTMP))]
+    [CustomNodeView(typeof(OverUITextTMP_3D))]
     [CustomNodeView(typeof(OverTextHandlerNode))]
     [CustomNodeView(typeof(OverMaterial))]
-    [CustomNodeView(typeof(OverMaterialHandlerNode))]
+    [CustomNodeView(typeof(OverMaterialHandlerNode))] 
+    [CustomNodeView(typeof(OverImageStreamerCommon))]
+    [CustomNodeView(typeof(OverImageStreamerHandler))] 
     public class OverComponentNodeView : NodeView
     {
         protected override void OnInitialize()
