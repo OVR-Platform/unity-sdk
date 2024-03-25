@@ -1,5 +1,5 @@
 /**
- * OVR Unity SDK License
+ * OVER Unity SDK License
  *
  * Copyright 2021 OVR
  *
@@ -26,6 +26,8 @@
  */
 
 using BlueGraph;
+using System;
+using System.Globalization;
 using UnityEngine;
 
 namespace OverSDK.VisualScripting
@@ -116,6 +118,61 @@ namespace OverSDK.VisualScripting
             }
 
             return _entity.ToString();
+        }
+    }
+
+    //
+    [Node(Path = "Operations/String", Name = "String To Int", Icon = "OPERATIONS/STRING")]
+    [Output("Result", Type = (typeof(int)), Multiple = true)]
+    public class OverStringToInt : OverStringOperation
+    {
+        [Input("entity")] public string entity;
+
+        public override object OnRequestNodeValue(Port port)
+        {
+            var _entity = GetInputValue("entity", entity);
+            if (int.TryParse(_entity, out int j))
+            {
+                return j;
+            }
+
+            return base.OnRequestNodeValue(port);
+        }
+    }
+
+    [Node(Path = "Operations/String", Name = "String To Float", Icon = "OPERATIONS/STRING")]
+    [Output("Result", Type = (typeof(float)), Multiple = true)]
+    public class OverStringToFloat : OverStringOperation
+    {
+        [Input("entity")] public string entity;
+
+        public override object OnRequestNodeValue(Port port)
+        {
+            var _entity = GetInputValue("entity", entity);
+            if (float.TryParse(_entity, out float j))
+            {
+                return j;
+            }
+
+            return base.OnRequestNodeValue(port);
+        }
+    }
+
+    [Node(Path = "Operations/String", Name = "String To Bool", Icon = "OPERATIONS/STRING")]
+    [Output("Result", Type = (typeof(float)), Multiple = true)]
+    public class OverStringToBool : OverStringOperation
+    {
+        [Input("entity")] public string entity;
+
+        public override object OnRequestNodeValue(Port port)
+        {
+            var _entity = GetInputValue("entity", entity);
+            if (bool.TryParse(_entity, out bool j))
+            {
+                return j;
+            }
+
+            return base.OnRequestNodeValue(port);
         }
     }
 }

@@ -52,7 +52,7 @@ namespace OverSDK
 
                 if (this != null && gameObject != null && !gameObject.IsAPrefabNotInScene() && !OvrUtils.PrefabModeEnabled())
                 {
-                    OvrAsset ovrAsset = GetComponentInParent<OvrAsset>();
+                    OvrAsset ovrAsset = FindObjectOfType<OvrAsset>();
 
                     if (ovrAsset != null)
                     {

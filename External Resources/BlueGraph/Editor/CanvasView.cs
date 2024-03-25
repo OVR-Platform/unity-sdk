@@ -583,15 +583,19 @@ namespace BlueGraph.Editor
                         var connectedNode = conn?.Node;
                         if (connectedNode == null)
                         {
-                            Debug.LogError(
-                                 $"Could not connect `{node.Value.title}:{port.Name}`: " +
-                                 $"Connected node no longer exists."
-                            );
+                            //Debug.LogError(
+                            //     $"Could not connect `{node.Value.title}:{port.Name}`: " +
+                            //     $"Connected node no longer exists."
+                            //);
+                            // TODO Support undo nodes undo redo
+                            Debug.LogWarning($"Node connections undo currently not supported. Please re-attach the nodes manually.");
+
+                            port.CleanConnections();
+
                             continue;
                         }
 
                         // Only add if the linked node is in the collection
-                        // TODO: This shouldn't be a problem
                         if (!nodeMap.ContainsKey(connectedNode))
                         {
                             Debug.LogError(

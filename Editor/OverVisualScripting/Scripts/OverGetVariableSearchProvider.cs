@@ -95,6 +95,7 @@ namespace OverSDK.VisualScripting.Editor
                     case OverVariableType.RectTransform: nodeType = typeof(OverGetVariableRectTransform); break;
                     case OverVariableType.Rigidbody: nodeType = typeof(OverGetVariableRigidbody); break;
                     case OverVariableType.Collider: nodeType = typeof(OverGetVariableCollider); break;
+                    case OverVariableType.CharacterController: nodeType = typeof(OverGetVariableCharacterController); break;
                     case OverVariableType.Object: nodeType = typeof(OverGetVariableGameObject); break;
                     case OverVariableType.Renderer: nodeType = typeof(OverGetVariableRenderer); break;
                     case OverVariableType.LineRenderer: nodeType = typeof(OverGetVariableLineRenderer); break;
@@ -103,13 +104,19 @@ namespace OverSDK.VisualScripting.Editor
                     case OverVariableType.AudioSource: nodeType = typeof(OverGetVariableAudioSource); break;
                     case OverVariableType.AudioClip: nodeType = typeof(OverGetVariableAudioClip); break;
                     case OverVariableType.Video: nodeType = typeof(OverGetVariableVideoPlayer); break;
+                    case OverVariableType.ImageStreamer: nodeType = typeof(OverGetVariableImageStreamer); break;
                     case OverVariableType.Animator: nodeType = typeof(OverGetVariableAnimator); break;
                     case OverVariableType.Light: nodeType = typeof(OverGetVariableLight); break;
+                    case OverVariableType.NavMeshAgent: nodeType = typeof(OverGetVariableNavMeshAgent); break;
+                    //case OverVariableType.NavMeshObstacle: nodeType = typeof(OverGetVariableNavMeshObstacle); break;
                     case OverVariableType.Text: nodeType = typeof(OverGetVariableText); break;
                     case OverVariableType.TextTMP: nodeType = typeof(OverGetVariableTextTMP); break;
+                    case OverVariableType.TextTMP_3D: nodeType = typeof(OverGetVariableTextTMP_3D); break;
                     case OverVariableType.Image: nodeType = typeof(OverGetVariableImage); break;
                     case OverVariableType.RawImage: nodeType = typeof(OverGetVariableRawImage); break;
                     case OverVariableType.Color: nodeType = typeof(OverGetVariableColor); break;
+                    case OverVariableType.List: nodeType = typeof(OverGetVariableOverDataList); break; 
+                    case OverVariableType.JSON: nodeType = typeof(OverGetVariableJSON); break; 
                     default: nodeType = null; break;
                 }
 
@@ -232,6 +239,13 @@ namespace OverSDK.VisualScripting.Editor
                     node_collider.Icon = result.Icon;
                     node_collider.isGlobal = variable.isGlobal;
                     return node_collider;
+                case OverVariableType.CharacterController:
+                    OverGetVariableCharacterController node_characterController = data.Item2.CreateInstance() as OverGetVariableCharacterController;
+                    node_characterController.guid = variable.GUID;
+                    node_characterController._name = variable.name;
+                    node_characterController.Icon = result.Icon;
+                    node_characterController.isGlobal = variable.isGlobal;
+                    return node_characterController;
                 case OverVariableType.Object:
                     OverGetVariableGameObject node_obj = data.Item2.CreateInstance() as OverGetVariableGameObject;
                     node_obj.guid = variable.GUID;
@@ -294,6 +308,13 @@ namespace OverSDK.VisualScripting.Editor
                     node_vd.Icon = result.Icon;
                     node_vd.isGlobal = variable.isGlobal;
                     return node_vd;
+                case OverVariableType.ImageStreamer:
+                    OverGetVariableImageStreamer node_is = data.Item2.CreateInstance() as OverGetVariableImageStreamer;
+                    node_is.guid = variable.GUID;
+                    node_is._name = variable.name;
+                    node_is.Icon = result.Icon;
+                    node_is.isGlobal = variable.isGlobal;
+                    return node_is;
                 case OverVariableType.Animator:
                     OverGetVariableAnimator node_anmtr = data.Item2.CreateInstance() as OverGetVariableAnimator;
                     node_anmtr.guid = variable.GUID;
@@ -308,6 +329,20 @@ namespace OverSDK.VisualScripting.Editor
                     node_lgt.Icon = result.Icon;
                     node_lgt.isGlobal = variable.isGlobal;
                     return node_lgt;
+                case OverVariableType.NavMeshAgent:
+                    OverGetVariableNavMeshAgent node_nmagt = data.Item2.CreateInstance() as OverGetVariableNavMeshAgent;
+                    node_nmagt.guid = variable.GUID;
+                    node_nmagt._name = variable.name;
+                    node_nmagt.Icon = result.Icon;
+                    node_nmagt.isGlobal = variable.isGlobal;
+                    return node_nmagt;
+                //case OverVariableType.NavMeshObstacle:
+                //    OverGetVariableNavMeshObstacle node_nmobs = data.Item2.CreateInstance() as OverGetVariableNavMeshObstacle;
+                //    node_nmobs.guid = variable.GUID;
+                //    node_nmobs._name = variable.name;
+                //    node_nmobs.Icon = result.Icon;
+                //    node_nmobs.isGlobal = variable.isGlobal;
+                //    return node_nmobs;
                 case OverVariableType.Text:
                     OverGetVariableText node_text = data.Item2.CreateInstance() as OverGetVariableText;
                     node_text.guid = variable.GUID;
@@ -322,6 +357,13 @@ namespace OverSDK.VisualScripting.Editor
                     node_textTMP.Icon = result.Icon;
                     node_textTMP.isGlobal = variable.isGlobal;
                     return node_textTMP;
+                case OverVariableType.TextTMP_3D:
+                    OverGetVariableTextTMP_3D node_textTMP_3D = data.Item2.CreateInstance() as OverGetVariableTextTMP_3D;
+                    node_textTMP_3D.guid = variable.GUID;
+                    node_textTMP_3D._name = variable.name;
+                    node_textTMP_3D.Icon = result.Icon;
+                    node_textTMP_3D.isGlobal = variable.isGlobal;
+                    return node_textTMP_3D;
                 case OverVariableType.Image:
                     OverGetVariableImage node_img = data.Item2.CreateInstance() as OverGetVariableImage;
                     node_img.guid = variable.GUID;
@@ -343,6 +385,20 @@ namespace OverSDK.VisualScripting.Editor
                     node_color.Icon = result.Icon;
                     node_color.isGlobal = variable.isGlobal;
                     return node_color;
+                case OverVariableType.List:
+                    OverGetVariableOverDataList node_list = data.Item2.CreateInstance() as OverGetVariableOverDataList;
+                    node_list.guid = variable.GUID;
+                    node_list._name = variable.name;
+                    node_list.Icon = result.Icon;
+                    node_list.isGlobal = variable.isGlobal;
+                    return node_list;
+                case OverVariableType.JSON:
+                    OverGetVariableJSON node_json= data.Item2.CreateInstance() as OverGetVariableJSON;
+                    node_json.guid = variable.GUID;
+                    node_json._name = variable.name;
+                    node_json.Icon = result.Icon;
+                    node_json.isGlobal = variable.isGlobal;
+                    return node_json;
                 default: return null;
             }
         }

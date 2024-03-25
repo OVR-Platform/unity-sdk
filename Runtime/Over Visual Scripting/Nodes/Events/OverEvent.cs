@@ -1,5 +1,5 @@
 /**
- * OVR Unity SDK License
+ * OVER Unity SDK License
  *
  * Copyright 2021 OVR
  *
@@ -29,11 +29,14 @@ using BlueGraph;
 using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
 namespace OverSDK.VisualScripting
 {
+
     [Tags("Event")]
     public abstract class OverEventNode : OverExecutionTriggerNode
     {
@@ -42,13 +45,51 @@ namespace OverSDK.VisualScripting
     }
 
     //Buttons
+    public enum ButtonInteractionMode { Down, Up }
     [Node(Path = "Flow/Event", Name = "Button Clicked", Icon = "FLOW/EVENT")]
     public class OverOnButtonClicked : OverEventNode
     {
         [Input("Button", Multiple = false)] public GameObject button;
 
+        [Editable("Mode")] public ButtonInteractionMode interactionMode;
+
+        private UnityAction buttonTriggerDelegate;
+
         public override void Deregister()
         {
+            if (button == null)
+                return;
+
+            GameObject _obj = GetInputValue("Button", button);
+
+            if (_obj != null)
+            {
+                switch (interactionMode)
+                {
+                    case ButtonInteractionMode.Down:
+                        {
+                            if (_obj.TryGetComponent<EventTrigger>(out var eventTrigger))
+                            {
+                                for (int i = eventTrigger.triggers.Count - 1; i >= 0; i--)
+                                {
+                                    if (eventTrigger.triggers[i].eventID == EventTriggerType.PointerDown)
+                                    {
+                                        eventTrigger.triggers.RemoveAt(i);
+                                    }
+                                }
+                            }
+
+                            break;
+                        }
+                    case ButtonInteractionMode.Up:
+                        {
+                            if (_obj.TryGetComponent<Button>(out var _button))
+                                _button.onClick.RemoveListener(buttonTriggerDelegate);
+
+                            break;
+                        }
+                }
+            }
         }
 
         public override void Register(OverExecutionFlowData flowData, Action specificEventToRegister = null)
@@ -58,13 +99,76 @@ namespace OverSDK.VisualScripting
 
             if (_obj != null)
             {
-                Button _button = _obj.GetComponent<Button>();
-                if (_button == null)
-                    _button = _obj.AddComponent<Button>();
+                if (!_obj.TryGetComponent<EventTrigger>(out var eventTrigger))
+                    eventTrigger = _obj.AddComponent<EventTrigger>();
 
-                _button.onClick.AddListener(() => {
-                    (Graph as OverGraph).Execute(GetNextExecutableNode(), flowData);
-                });
+                EventTrigger.Entry pointerEntry;
+
+                if (interactionMode == ButtonInteractionMode.Down)
+                {
+                    pointerEntry = new EventTrigger.Entry
+                    {
+                        eventID = EventTriggerType.PointerDown
+                    };
+                }
+                else
+                {
+                    pointerEntry = new EventTrigger.Entry
+                    {
+                        eventID = EventTriggerType.PointerUp
+                    };
+                }
+
+                pointerEntry.callback.AddListener((eventData) => ButtonTriggered());
+                eventTrigger.triggers.Add(pointerEntry);
+            }
+
+            void ButtonTriggered()
+            {
+                (Graph as OverGraph).Execute(GetNextExecutableNode(), flowData);
+            }
+        }
+    }
+
+    [Node(Path = "Flow/Event", Name = "Animation Event", Icon = "FLOW/EVENT")]
+    public class OverOnAnimationEvent : OverEventNode
+    {
+        [Input("Target", Multiple = false)] public Animator target;
+        [Input("Event Name", Multiple = false)] public string eventName;
+
+        OverAnimationEvent _overAnimationEvent;
+        OverExecutionFlowData _flowData;
+
+        string _eventId;
+
+        public override void Register(OverExecutionFlowData flowData, Action specificEventToRegister = null)
+        {
+            PropagateFlowData(flowData);
+            Animator _target = GetInputValue("Target", target);
+
+            if (_target == null)
+                return;
+
+            if (!_target.TryGetComponent(out _overAnimationEvent))
+                _overAnimationEvent = _target.gameObject.AddComponent<OverAnimationEvent>();
+
+            _overAnimationEvent.Initialize(this, eventName, out _eventId);
+            _overAnimationEvent.OnEventFired += OnEventFired;
+
+            this._flowData = flowData;
+        }
+
+        public override void Deregister()
+        {
+            if (_overAnimationEvent != null)
+                _overAnimationEvent.OnEventFired -= OnEventFired;
+        }
+
+        public void OnEventFired(string eventId)
+        {
+            if (_eventId.Equals(eventId))
+            {
+                (Graph as OverGraph).Execute(GetNextExecutableNode(), _flowData);
             }
         }
     }
@@ -74,7 +178,6 @@ namespace OverSDK.VisualScripting
     [Node(Path = "Flow/Event", Name = "Trigger", Icon = "FLOW/EVENT")]
     public class OverOnTrigger : OverEventNode
     {
-
         [Input("Target", Multiple = false)] public GameObject target;
 
         [Output("Other")] public Collider other;
@@ -90,12 +193,28 @@ namespace OverSDK.VisualScripting
             PropagateFlowData(flowData);
             GameObject _target = GetInputValue("Target", target);
 
-            Collider _targetCollider = _target.GetComponent<Collider>();
-            if (_targetCollider == null) _targetCollider = _target.AddComponent<Collider>();
+            if (_target == null)
+            {
+                Debug.LogWarning($"The trigger node is not connected to anything. Disabled for now.");
 
+                return;
+            }
 
-            _triggerListener = _target.GetComponent<OverTriggerListener>();
-            if (_triggerListener == null) _triggerListener = _target.AddComponent<OverTriggerListener>();
+            if (!_target.TryGetComponent(out Collider _targetCollider))
+            {
+                Debug.LogWarning($"Impossible to find a collider in the object assigned of the trigger. Adding a default one.");
+
+                _targetCollider = _target.AddComponent<BoxCollider>();
+            }
+
+            if (!_target.TryGetComponent(out Rigidbody _rigidbody))
+            {
+                _rigidbody = _target.AddComponent<Rigidbody>();
+                _rigidbody.isKinematic = true;
+            }
+
+            if (!_target.TryGetComponent(out _triggerListener))
+                _triggerListener = _target.AddComponent<OverTriggerListener>();
 
             _triggerListener.Initialize(this);
 
@@ -135,7 +254,6 @@ namespace OverSDK.VisualScripting
             return base.OnRequestNodeValue(port);
         }
     }
-
 
     [Node(Path = "Flow/Event", Name = "Collider Exposer", Icon = "FLOW/EVENT")]
     [Tags("Event")]
@@ -184,18 +302,18 @@ namespace OverSDK.VisualScripting
         {
             PropagateFlowData(flowData);
             GameObject _target = GetInputValue("Target", target);
-            Collider _targetCollider = _target.GetComponent<Collider>();
-            if (_targetCollider == null) _targetCollider = _target.AddComponent<Collider>();
 
-            _rigidbody = _target.GetComponent<Rigidbody>();
-            if (_rigidbody == null)
+            if (!_target.TryGetComponent(out Collider _targetCollider))
+                _targetCollider = _target.AddComponent<Collider>();
+
+            if (!_target.TryGetComponent(out _rigidbody))
             {
                 _rigidbody = _target.AddComponent<Rigidbody>();
-                _rigidbody.useGravity = false;
+                _rigidbody.isKinematic = true;
             }
 
-            _collisionListener = _target.GetComponent<OverCollisionListener>();
-            if (_collisionListener == null) _collisionListener = _target.AddComponent<OverCollisionListener>();
+            if (!_target.TryGetComponent(out _collisionListener))
+                _collisionListener = _target.AddComponent<OverCollisionListener>();
 
             _collisionListener.Initialize(this);
 
@@ -340,6 +458,84 @@ namespace OverSDK.VisualScripting
                 _event.TriggerExecution(data);
 
             return base.Execute(data);
+        }
+    }
+
+    [Tags("Common")]
+    [Node(Path = "Flow/Event", Name = "Trigger Lazy Load", Icon = "FLOW/EVENT")]
+    public class OverOnTriggerLazyLoad : OverExecutionFlowNode
+    {
+        [Input("Target", Multiple = false)] public GameObject target;
+
+        [Output("Other")] public Collider other;
+
+        [Editable("Mode")] public ColliderInteractionMode triggerMode;
+
+        OverTriggerListener _triggerListener;
+
+        OverExecutionFlowData flowData;
+
+        public void Register(OverExecutionFlowData flowData)
+        {
+            PropagateFlowData(flowData);
+            GameObject _target = GetInputValue("Target", target);
+
+            if (_target == null)
+            {
+                Debug.LogWarning($"The trigger node is not connected to anything. Disabled for now.");
+
+                return;
+            }
+
+            Collider _targetCollider = _target.GetComponent<Collider>();
+            if (_targetCollider == null) _targetCollider = _target.AddComponent<Collider>();
+
+            _triggerListener = _target.GetComponent<OverTriggerListener>();
+            if (_triggerListener == null) _triggerListener = _target.AddComponent<OverTriggerListener>();
+
+            _triggerListener.Initialize(this);
+
+            switch (triggerMode)
+            {
+                case ColliderInteractionMode.Enter: _triggerListener.onTriggerEnter += OnTriggerFired; break;
+                case ColliderInteractionMode.Exit: _triggerListener.onTriggerExit += OnTriggerFired; break;
+                case ColliderInteractionMode.Stay: _triggerListener.onTriggerStay += OnTriggerFired; break;
+            }
+
+            this.flowData = flowData;
+        }
+
+        public void Deregister()
+        {
+            if (_triggerListener != null)
+            {
+                _triggerListener.onTriggerEnter -= OnTriggerFired;
+                _triggerListener.onTriggerExit -= OnTriggerFired;
+                _triggerListener.onTriggerStay -= OnTriggerFired;
+            }
+        }
+
+        public void OnTriggerFired(Collider collider)
+        {
+            other = collider;
+            (Graph as OverGraph).Execute(GetNextExecutableNode(), flowData);
+        }
+
+        public override IExecutableOverNode Execute(OverExecutionFlowData data)
+        {
+            Register(data);
+
+            return null;
+        }
+
+        public override object OnRequestNodeValue(Port port)
+        {
+            if (port.Name == "Other")
+            {
+                return other;
+            }
+
+            return base.OnRequestNodeValue(port);
         }
     }
 }

@@ -1,5 +1,5 @@
 /**
- * OVR Unity SDK License
+ * OVER Unity SDK License
  *
  * Copyright 2021 OVR
  *
@@ -40,6 +40,41 @@ namespace OverSDK.VisualScripting
             IExecutableOverNode _else = GetNextExecutableNode("Body");
             if(_else != null)
                 (Graph as OverGraph).Execute(_else, data);
+
+            return GetNextExecutableNode();
+        }
+    }
+
+    [Node(Path = "Flow", Name = "Flow Controller", Icon = "FLOW/GROUP")]
+    [Tags("Common")]
+    [Output("Body", typeof(OverExecutionFlowData), Multiple = false)]
+    public class OverFlowController : OverExecutionFlowNode
+    {
+        public enum FlowControllerType { Normal, OnlyOnce, UseInputValue }
+        [Editable("Flow Controller Type")] public FlowControllerType flowControllerType;
+        [Input("Input Count", Multiple = false)] public int customCount;
+
+        protected float maxCount = 0;
+        protected int currentCount = 0;
+
+        public override IExecutableOverNode Execute(OverExecutionFlowData data)
+        {
+            switch (flowControllerType)
+            {
+                case FlowControllerType.Normal: maxCount = UnityEngine.Mathf.Infinity; break;
+                case FlowControllerType.OnlyOnce: maxCount = 1; break;
+                case FlowControllerType.UseInputValue:
+                    int _customCount = GetInputValue("Input Count", customCount);
+                    maxCount = _customCount;
+                    break;
+            }
+
+            IExecutableOverNode _else = GetNextExecutableNode("Body");
+            if (_else != null && currentCount < maxCount)
+            {
+                currentCount++;
+                (Graph as OverGraph).Execute(_else, data);
+            }
 
             return GetNextExecutableNode();
         }

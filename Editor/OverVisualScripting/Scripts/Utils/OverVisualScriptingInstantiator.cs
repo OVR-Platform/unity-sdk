@@ -1,5 +1,5 @@
 /**
- * OVR Unity SDK License
+ * OVER Unity SDK License
  *
  * Copyright 2021 OVR
  *
@@ -25,6 +25,7 @@
  * THE SOFTWARE.
  */
 
+using Over_Editor;
 using OverSDK.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -36,7 +37,7 @@ namespace OverSDK
     {
         static double renameTime;
 
-        [MenuItem("GameObject/OVER Visual Scripting/Over Script", isValidateFunction: false, priority: 1)]
+        [MenuItem("GameObject/OVER/Visual Scripting/Over Script", isValidateFunction: false, priority: 2)]
         public static OverScript InstantiateOverScript()
         {
             if (OverScriptManager.Main == null)
@@ -59,7 +60,7 @@ namespace OverSDK
             return newScript;
         }
 
-        [MenuItem("GameObject/OVER Visual Scripting/Over Script Manager", isValidateFunction: false, priority: 1)]
+        [MenuItem("GameObject/OVER/Visual Scripting/Over Script Manager", isValidateFunction: false, priority: 2)]
         public static OverScriptManager InstantiateOverScriptManager()
         {
             OverSDK.OvrAsset asset = FindObjectOfType<OverSDK.OvrAsset>() ?? OvrPrefabInstantiator.InstantiateOvrAsset();

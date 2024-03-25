@@ -1,15 +1,18 @@
 {
   "name": "com.over.over-unity-sdk",
-  "version": "0.1.4",
+  "version": "0.2.5",
   "displayName": "OVER Unity SDK",
   "description": "Thanks to our plugin, you can take advantage of all the Unity Engine features as it is the same development environment used in the OVR app. You can integrate major 3D model formats like fbx, dae, 3ds, dxf and obj, create interactions, animations and take advantage of physics rules directly from Unity, activating them through triggers or buttons\u2026",
   "unity": "2022.3",
-  "unityRelease": "1f1",
+  "unityRelease": "13f1",
   "documentationUrl": "https://github.com/OVR-Platform/unity-sdk/blob/main/README.md",
   "changelogUrl": "https://github.com/OVR-Platform/unity-sdk/blob/main/CHANGELOG.md",
   "licensesUrl": "https://github.com/OVR-Platform/unity-sdk/blob/main/LICENSE.md",
   "dependencies": {
-    "com.unity.textmeshpro": "3.0.6"
+    "com.unity.textmeshpro": "3.0.6",
+    "com.unity.burst": "1.8.8",
+    "com.unity.collections": "2.1.4",
+    "com.unity.mathematics": "1.2.6"
   },
   "keywords": [],
   "author": {
@@ -19,14 +22,24 @@
   },
   "samples": [
     {
-      "displayName": "Demo",
-      "description": "Demo Assets to help you setup your first OVER Experience",
-      "path": "Samples~/Demo"
+      "displayName": "BasketGame",
+      "description": "The BasketGame asset is an example of how a game can be implemented using OVER's SDK",
+      "path": "Samples~/BasketGame"
     },
     {
       "displayName": "ShieldGame",
       "description": "The ShieldGame asset is an example of how a game can be implemented using OVER's SDK",
       "path": "Samples~/ShieldGame"
+    },
+    {
+      "displayName": "WhacAMoleGame",
+      "description": "The WhacAMoleGame asset is an example of how a game can be implemented using OVER's SDK",
+      "path": "Samples~/WhacAMoleGame"
+    },
+    {
+      "displayName": "CarGame",
+      "description": "The CarGame asset is an example of how a game can be implemented using OVER's SDK",
+      "path": "Samples~/CarGame"
     }
   ]
 }

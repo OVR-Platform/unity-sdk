@@ -1,0 +1,315 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4176504535089217589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 788450676485048800}
+  - component: {fileID: 2402499616860939529}
+  m_Layer: 0
+  m_Name: TrackOneTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &788450676485048800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4176504535089217589}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 0.05, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4468084049896779467}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2402499616860939529
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4176504535089217589}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2045614, y: 0.64887756, z: 1.0945747}
+  m_Center: {x: 0.37513512, y: 0.15733418, z: 0.255818}
+--- !u!1 &7622416494832025241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4468084049896779467}
+  - component: {fileID: 5427072546501334150}
+  m_Layer: 0
+  m_Name: LapCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4468084049896779467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7622416494832025241}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 788450676485048800}
+  - {fileID: 6919876316348829805}
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5427072546501334150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7622416494832025241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f7a8275dc8bd841836b3776dc22c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GUID: fd44e1b6-886f-45a9-8193-9fd63b9a64c8
+  overGraph: {fileID: 11400000, guid: 3b689d8788f5f2d4e9ff038ae8fe99c6, type: 2}
+  data:
+    variables:
+    - GUID: 2413fe05-24aa-4745-a9bd-a6c4bb35495d
+      name: TrackOneTrigger
+      type: 21
+      isGlobal: 0
+      integerValue: 0
+      floatValue: 0
+      stringValue: 
+      boolValue: 0
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+      transformValue: {fileID: 0}
+      gameObject: {fileID: 0}
+      renderer: {fileID: 0}
+      rectTransform: {fileID: 0}
+      lineRenderer: {fileID: 0}
+      material: {fileID: 0}
+      particleSystem: {fileID: 0}
+      rigidbodyValue: {fileID: 0}
+      colliderValue: {fileID: 2402499616860939529}
+      characterController: {fileID: 0}
+      light: {fileID: 0}
+      navMeshAgent: {fileID: 0}
+      audioSource: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoPlayer: {fileID: 0}
+      imageStreamer: {fileID: 0}
+      animator: {fileID: 0}
+      text: {fileID: 0}
+      textTMP: {fileID: 0}
+      image: {fileID: 0}
+      rawImage: {fileID: 0}
+      color: {r: 0, g: 0, b: 0, a: 0}
+      list: {fileID: 0}
+      json: 
+    - GUID: d44a4d55-6218-4e7e-99a7-f65fccd84f99
+      name: TrackTwoTrigger
+      type: 21
+      isGlobal: 0
+      integerValue: 0
+      floatValue: 0
+      stringValue: 
+      boolValue: 0
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+      transformValue: {fileID: 0}
+      gameObject: {fileID: 0}
+      renderer: {fileID: 0}
+      rectTransform: {fileID: 0}
+      lineRenderer: {fileID: 0}
+      material: {fileID: 0}
+      particleSystem: {fileID: 0}
+      rigidbodyValue: {fileID: 0}
+      colliderValue: {fileID: 1258512801421228222}
+      characterController: {fileID: 0}
+      light: {fileID: 0}
+      navMeshAgent: {fileID: 0}
+      audioSource: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoPlayer: {fileID: 0}
+      imageStreamer: {fileID: 0}
+      animator: {fileID: 0}
+      text: {fileID: 0}
+      textTMP: {fileID: 0}
+      image: {fileID: 0}
+      rawImage: {fileID: 0}
+      color: {r: 0, g: 0, b: 0, a: 0}
+      list: {fileID: 0}
+      json: 
+    - GUID: 364ad0f5-abd3-4ced-8475-b9e03372e7be
+      name: IsFirstTimeTrackOne
+      type: 1
+      isGlobal: 0
+      integerValue: 0
+      floatValue: 0
+      stringValue: 
+      boolValue: 1
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+      transformValue: {fileID: 0}
+      gameObject: {fileID: 0}
+      renderer: {fileID: 0}
+      rectTransform: {fileID: 0}
+      lineRenderer: {fileID: 0}
+      material: {fileID: 0}
+      particleSystem: {fileID: 0}
+      rigidbodyValue: {fileID: 0}
+      colliderValue: {fileID: 0}
+      characterController: {fileID: 0}
+      light: {fileID: 0}
+      navMeshAgent: {fileID: 0}
+      audioSource: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoPlayer: {fileID: 0}
+      imageStreamer: {fileID: 0}
+      animator: {fileID: 0}
+      text: {fileID: 0}
+      textTMP: {fileID: 0}
+      image: {fileID: 0}
+      rawImage: {fileID: 0}
+      color: {r: 0, g: 0, b: 0, a: 0}
+      list: {fileID: 0}
+      json: 
+    - GUID: e5e9b254-7bfb-4aa6-ba5f-4f71fd5d2123
+      name: IsFirstTimeTrackTwo
+      type: 1
+      isGlobal: 0
+      integerValue: 0
+      floatValue: 0
+      stringValue: 
+      boolValue: 1
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+      transformValue: {fileID: 0}
+      gameObject: {fileID: 0}
+      renderer: {fileID: 0}
+      rectTransform: {fileID: 0}
+      lineRenderer: {fileID: 0}
+      material: {fileID: 0}
+      particleSystem: {fileID: 0}
+      rigidbodyValue: {fileID: 0}
+      colliderValue: {fileID: 0}
+      characterController: {fileID: 0}
+      light: {fileID: 0}
+      navMeshAgent: {fileID: 0}
+      audioSource: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoPlayer: {fileID: 0}
+      imageStreamer: {fileID: 0}
+      animator: {fileID: 0}
+      text: {fileID: 0}
+      textTMP: {fileID: 0}
+      image: {fileID: 0}
+      rawImage: {fileID: 0}
+      color: {r: 0, g: 0, b: 0, a: 0}
+      list: {fileID: 0}
+      json: 
+  ghostVariables:
+  - GUID: 2413fe05-24aa-4745-a9bd-a6c4bb35495d
+    name: TrackOneTrigger
+    type: 21
+    isGlobal: 0
+  - GUID: d44a4d55-6218-4e7e-99a7-f65fccd84f99
+    name: TrackTwoTrigger
+    type: 21
+    isGlobal: 0
+  - GUID: 364ad0f5-abd3-4ced-8475-b9e03372e7be
+    name: IsFirstTimeTrackOne
+    type: 1
+    isGlobal: 0
+  - GUID: e5e9b254-7bfb-4aa6-ba5f-4f71fd5d2123
+    name: IsFirstTimeTrackTwo
+    type: 1
+    isGlobal: 0
+--- !u!1 &8241770601825984479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6919876316348829805}
+  - component: {fileID: 1258512801421228222}
+  m_Layer: 0
+  m_Name: TrackTwoTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6919876316348829805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8241770601825984479}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.601, y: 0.05, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4468084049896779467}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1258512801421228222
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8241770601825984479}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2045614, y: 0.64887756, z: 1.0945747}
+  m_Center: {x: 0.37513512, y: 0.15733418, z: 0.255818}

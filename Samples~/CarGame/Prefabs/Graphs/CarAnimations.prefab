@@ -1,0 +1,207 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6647706641821964432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5101419911820247910}
+  - component: {fileID: 1689426591318639285}
+  m_Layer: 0
+  m_Name: CarAnimations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5101419911820247910
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6647706641821964432}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1689426591318639285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6647706641821964432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f7a8275dc8bd841836b3776dc22c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GUID: 400ceed2-c37a-475b-ab15-e8264417f391
+  overGraph: {fileID: 11400000, guid: 621ecaa40fc6d8b4bb9d9c99dc577518, type: 2}
+  data:
+    variables:
+    - GUID: 8cf99296-c102-48dd-b17b-e11c5e994e2b
+      name: CarOneAnimator
+      type: 52
+      isGlobal: 0
+      integerValue: 0
+      floatValue: 0
+      stringValue: 
+      boolValue: 0
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+      transformValue: {fileID: 0}
+      gameObject: {fileID: 0}
+      renderer: {fileID: 0}
+      rectTransform: {fileID: 0}
+      lineRenderer: {fileID: 0}
+      material: {fileID: 0}
+      particleSystem: {fileID: 0}
+      rigidbodyValue: {fileID: 0}
+      colliderValue: {fileID: 0}
+      characterController: {fileID: 0}
+      light: {fileID: 0}
+      navMeshAgent: {fileID: 0}
+      audioSource: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoPlayer: {fileID: 0}
+      imageStreamer: {fileID: 0}
+      animator: {fileID: 0}
+      text: {fileID: 0}
+      textTMP: {fileID: 0}
+      image: {fileID: 0}
+      rawImage: {fileID: 0}
+      color: {r: 0, g: 0, b: 0, a: 0}
+      list: {fileID: 0}
+      json: 
+    - GUID: c69fc48f-18ad-4ff5-b8a4-4283b5f6db07
+      name: LastCrashAnimation
+      type: 1
+      isGlobal: 0
+      integerValue: 0
+      floatValue: 0
+      stringValue: 
+      boolValue: 0
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+      transformValue: {fileID: 0}
+      gameObject: {fileID: 0}
+      renderer: {fileID: 0}
+      rectTransform: {fileID: 0}
+      lineRenderer: {fileID: 0}
+      material: {fileID: 0}
+      particleSystem: {fileID: 0}
+      rigidbodyValue: {fileID: 0}
+      colliderValue: {fileID: 0}
+      characterController: {fileID: 0}
+      light: {fileID: 0}
+      navMeshAgent: {fileID: 0}
+      audioSource: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoPlayer: {fileID: 0}
+      imageStreamer: {fileID: 0}
+      animator: {fileID: 0}
+      text: {fileID: 0}
+      textTMP: {fileID: 0}
+      image: {fileID: 0}
+      rawImage: {fileID: 0}
+      color: {r: 0, g: 0, b: 0, a: 0}
+      list: {fileID: 0}
+      json: 
+    - GUID: 0d68f2fd-c3fd-4971-b370-7bb8ac5c79c3
+      name: CrashCarParameter
+      type: 7
+      isGlobal: 0
+      integerValue: 0
+      floatValue: 0
+      stringValue: FlipCar
+      boolValue: 0
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+      transformValue: {fileID: 0}
+      gameObject: {fileID: 0}
+      renderer: {fileID: 0}
+      rectTransform: {fileID: 0}
+      lineRenderer: {fileID: 0}
+      material: {fileID: 0}
+      particleSystem: {fileID: 0}
+      rigidbodyValue: {fileID: 0}
+      colliderValue: {fileID: 0}
+      characterController: {fileID: 0}
+      light: {fileID: 0}
+      navMeshAgent: {fileID: 0}
+      audioSource: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoPlayer: {fileID: 0}
+      imageStreamer: {fileID: 0}
+      animator: {fileID: 0}
+      text: {fileID: 0}
+      textTMP: {fileID: 0}
+      image: {fileID: 0}
+      rawImage: {fileID: 0}
+      color: {r: 0, g: 0, b: 0, a: 0}
+      list: {fileID: 0}
+      json: 
+    - GUID: 76e93fe2-3e64-4c8d-9d4b-74144396266b
+      name: ResetCarParameter
+      type: 7
+      isGlobal: 0
+      integerValue: 0
+      floatValue: 0
+      stringValue: ResetCar
+      boolValue: 0
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+      transformValue: {fileID: 0}
+      gameObject: {fileID: 0}
+      renderer: {fileID: 0}
+      rectTransform: {fileID: 0}
+      lineRenderer: {fileID: 0}
+      material: {fileID: 0}
+      particleSystem: {fileID: 0}
+      rigidbodyValue: {fileID: 0}
+      colliderValue: {fileID: 0}
+      characterController: {fileID: 0}
+      light: {fileID: 0}
+      navMeshAgent: {fileID: 0}
+      audioSource: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoPlayer: {fileID: 0}
+      imageStreamer: {fileID: 0}
+      animator: {fileID: 0}
+      text: {fileID: 0}
+      textTMP: {fileID: 0}
+      image: {fileID: 0}
+      rawImage: {fileID: 0}
+      color: {r: 0, g: 0, b: 0, a: 0}
+      list: {fileID: 0}
+      json: 
+  ghostVariables:
+  - GUID: 8cf99296-c102-48dd-b17b-e11c5e994e2b
+    name: CarOneAnimator
+    type: 52
+    isGlobal: 0
+  - GUID: c69fc48f-18ad-4ff5-b8a4-4283b5f6db07
+    name: LastCrashAnimation
+    type: 1
+    isGlobal: 0
+  - GUID: 0d68f2fd-c3fd-4971-b370-7bb8ac5c79c3
+    name: CrashCarParameter
+    type: 7
+    isGlobal: 0
+  - GUID: 76e93fe2-3e64-4c8d-9d4b-74144396266b
+    name: ResetCarParameter
+    type: 7
+    isGlobal: 0

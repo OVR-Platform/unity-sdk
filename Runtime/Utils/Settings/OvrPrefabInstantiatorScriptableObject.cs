@@ -32,11 +32,12 @@ using UnityEngine.Video;
 
 namespace OverSDK
 {
+    //[CreateAssetMenu]
     public class OvrPrefabInstantiatorScriptableObject : ScriptableObject
     {
         public OvrAsset ovrAsset;
         public OvrCanvas ovrCanvas;
-        public GameObject ovrPlayerSimulator;
+        public OvrPlayerSimulator ovrPlayerSimulator;
 
         public OvrArWorldCanvas ovrArWorldCanvas;
         public OverScreenShareComponent ovrScreenShareComponent;
@@ -46,5 +47,8 @@ namespace OverSDK
         public OvrUIButton ovrUIButton;
 
         public VideoPlayer chromaKeyVideoPlayer;
+        public ImageStreamer imageStreamer;
+
+        public OvrPoap ovrPoap;
     }
 }

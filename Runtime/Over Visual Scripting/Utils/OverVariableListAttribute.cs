@@ -1,5 +1,5 @@
 /**
- * OVR Unity SDK License
+ * OVER Unity SDK License
  *
  * Copyright 2021 Over The Realty
  *
@@ -31,4 +31,5 @@ namespace OverSDK.VisualScripting
 {
     public class OverVariableListAttribute : PropertyAttribute { }
     public class OverGraphVariableListAttribute : PropertyAttribute { }
+    public class OverListDataListAttribute : PropertyAttribute { }
 }

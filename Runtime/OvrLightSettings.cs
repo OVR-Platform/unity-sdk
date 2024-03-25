@@ -26,9 +26,7 @@
  */
 
 using System;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace OverSDK
 {
@@ -40,21 +38,38 @@ namespace OverSDK
         Off = 2
     }
 
+    public struct LightSettings
+    {
+        public LightPreferenceSetting enableOvrDefaultLight;
+        public LightPreferenceSetting enableARLightSystem;
+
+        public LightPreferenceSetting customShadowSettings;
+        public bool setDistance;
+        public float shadowDistance;
+        public bool setProjection;
+        public ShadowProjection shadowProjection;
+        public bool setResolution;
+        public ShadowResolution shadowResolution;
+
+        public LightSettings(int enableOvrDefaultLight, int enableARLightSystem, int customShadowSettings, bool setDistance, float shadowDistance, bool setProjection, int shadowProjection, bool setResolution, int shadowResolution)
+        {
+            this.enableOvrDefaultLight = (LightPreferenceSetting) enableOvrDefaultLight;
+            this.enableARLightSystem = (LightPreferenceSetting) enableARLightSystem;
+            this.customShadowSettings = (LightPreferenceSetting) customShadowSettings;
+            this.setDistance = setDistance;
+            this.shadowDistance = shadowDistance;
+            this.setProjection = setProjection;
+            this.shadowProjection = (ShadowProjection) shadowProjection;
+            this.setResolution = setResolution;
+            this.shadowResolution = (ShadowResolution) shadowResolution;
+        }
+    }
+
     [Serializable]
     public class OvrLightSettings : MonoBehaviour
     {
-        [Header("Ovr Default")]
         public LightPreferenceSetting enableOvrDefaultLight = LightPreferenceSetting.Ignore;
-
-        [Header("AR Settings")]
         public LightPreferenceSetting enableARLightSystem = LightPreferenceSetting.Ignore;
-
-        [Header("Ambient")]
-        public LightPreferenceSetting customAmbientLight = LightPreferenceSetting.Ignore;
-        public Color ambientColorCorrection = Color.white;
-        public float ambientIntensity = 1;
-
-        [Header("Shadow")]
         public LightPreferenceSetting customShadowSettings = LightPreferenceSetting.Ignore;
         public bool setDistance;
         public float shadowDistance;
@@ -62,6 +77,18 @@ namespace OverSDK
         public ShadowProjection shadowProjection;
         public bool setResolution;
         public ShadowResolution shadowResolution;
-        
+
+        public void ImportSettings(LightSettings lightSettings)
+        {
+            this.enableOvrDefaultLight = lightSettings.enableOvrDefaultLight;
+            this.enableARLightSystem = lightSettings.enableARLightSystem;
+            this.customShadowSettings = lightSettings.customShadowSettings;
+            this.setDistance = lightSettings.setDistance;
+            this.shadowDistance = lightSettings.shadowDistance;
+            this.setProjection = lightSettings.setProjection;
+            this.shadowProjection = lightSettings.shadowProjection;
+            this.setResolution = lightSettings.setResolution;
+            this.shadowResolution = lightSettings.shadowResolution;
+        }
     }
 }
