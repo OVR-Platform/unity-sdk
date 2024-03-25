@@ -1,5 +1,5 @@
 /**
- * OVR Unity SDK License
+ * OVER Unity SDK License
  *
  * Copyright 2021 OVR
  *
@@ -25,6 +25,7 @@
  * THE SOFTWARE.
  */
 
+using Over_Editor;
 using OverSDK.VisualScripting;
 using UnityEditor;
 using UnityEngine;

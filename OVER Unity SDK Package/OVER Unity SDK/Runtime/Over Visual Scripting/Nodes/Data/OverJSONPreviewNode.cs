@@ -1,6 +1,6 @@
 
 /**
- * OVR Unity SDK License
+ * OVER Unity SDK License
  *
  * Copyright 2021 Over The Realty
  *
