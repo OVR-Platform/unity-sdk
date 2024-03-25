@@ -25,9 +25,12 @@
  * THE SOFTWARE.
  */
 
+using OverSimpleJSON;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using UnityEngine;
 
 namespace OverSDK.VisualScripting
@@ -95,6 +98,11 @@ namespace OverSDK.VisualScripting
         [Header("Debug")]
         [SerializeField] public List<ErrorScriptMessage> errors = new List<ErrorScriptMessage>();
 
+        public static Func<string> GetEnvironmentIndex = null;
+
+        public JSONNode SaveFileJSON { get; private set; }
+        [SerializeField][ReadOnly] string localSaveFilePath;
+
         private void OnValidate()
         {
             RefreshGlobals();
@@ -105,7 +113,6 @@ namespace OverSDK.VisualScripting
             Dictionary<string, OverVariableData> dict = Data.VariableDict;
             if (ghostVariables.Count != Data.variables.Count)
             {
-                //Debug.LogError("MNGR - something has been added removed....");
                 foreach (OverScript managed in managedScripts)
                 {
                     managed.OverGraph.ValidateInternalNodes();
@@ -117,8 +124,7 @@ namespace OverSDK.VisualScripting
 
         public void ApplyVariableChangesTo(OverVariableData variable)
         {
-            //Debug.LogError("something has been changed....");
-            foreach(OverScript managed in managedScripts)
+            foreach (OverScript managed in managedScripts)
             {
                 managed.OverGraph.ValidateInternalNodes();
             }
@@ -135,6 +141,8 @@ namespace OverSDK.VisualScripting
             }
 
             UpdateMappings();
+
+            GetOrCreateInternalSaveFile();
         }
 
 #if UNITY_EDITOR && !APP_MAIN  
@@ -166,7 +174,8 @@ namespace OverSDK.VisualScripting
                     }
                     else
                     {
-                        errors.Add(new ErrorScriptMessage(ScriptManagementError.MultipleScript, script));
+                        //errors.Add(new ErrorScriptMessage(ScriptManagementError.MultipleScript, script));
+                        script.GUID = Guid.NewGuid().ToString();
                     }
                 }
             }
@@ -196,12 +205,94 @@ namespace OverSDK.VisualScripting
             }
         }
 
+        public OverScript GetOverScript(string scriptGUID)
+        {
+            return managedScripts.Find(x => x.GUID.Equals(scriptGUID));
+        }
+
         public void DisplayErrors()
         {
             foreach (var error in errors)
             {
-                Debug.LogError($"ERROR: {error.message}");
+                Debug.LogError($"ERROR: {error.message}", error.source.gameObject);
             }
+        }
+
+        //save internal
+        public void GetOrCreateInternalSaveFile()
+        {
+            string saveDirectoryPath = "";
+#if !APP_MAIN
+            saveDirectoryPath = Path.Combine(Application.persistentDataPath, "SaveFiles");
+#elif APP_MAIN
+            if(GetEnvironmentIndex != null)
+            {
+                string environmentId = GetEnvironmentIndex();
+                saveDirectoryPath = Path.Combine(Application.persistentDataPath, "SaveFiles", environmentId);
+            }  
+            else
+            { 
+                return;
+            }
+#endif
+
+            if (!Directory.Exists(saveDirectoryPath))
+            {
+                Directory.CreateDirectory(saveDirectoryPath);
+            }
+
+            string fileName = "saveFileJson";
+            string fileExtension = "json";
+            localSaveFilePath = Path.Combine(saveDirectoryPath, $"{fileName}.{fileExtension}");
+
+            if (!File.Exists(localSaveFilePath))
+            {
+                using (FileStream fileStream = File.Create(localSaveFilePath))
+                {
+                    JSONObject newJson = new JSONObject();
+                    byte[] byteArray = Encoding.UTF8.GetBytes(newJson.ToString());
+                    fileStream.Write(byteArray, 0, byteArray.Length);
+                    fileStream.Close();
+                }
+            }
+
+            // Read all lines from the text file
+            string[] lines = File.ReadAllLines(localSaveFilePath);
+            string completeJson = string.Empty;
+            // Process each line
+            foreach (string line in lines)
+            {
+                completeJson += line;
+            }
+
+            try
+            {
+                SaveFileJSON = JSONNode.Parse(completeJson);
+            }
+            catch
+            {
+                SaveFileJSON = JSONNode.Parse("{}");
+            }
+        }
+
+        public bool SaveInternalSaveFile(string key, string value)
+        {
+            if (SaveFileJSON != null)
+            {
+                SaveFileJSON[key] = value;
+
+                if (File.Exists(localSaveFilePath))
+                {
+                    using (FileStream fileStream = File.OpenWrite(localSaveFilePath))
+                    {
+                        byte[] byteArray = Encoding.UTF8.GetBytes(SaveFileJSON.ToString());
+                        fileStream.Write(byteArray, 0, byteArray.Length);
+                        fileStream.Close();
+                    }
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

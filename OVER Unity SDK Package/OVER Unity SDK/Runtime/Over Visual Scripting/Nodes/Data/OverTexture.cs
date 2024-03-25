@@ -30,15 +30,19 @@ using UnityEngine;
 
 namespace OverSDK.VisualScripting
 {
-    [Node(Path = "Data/Multimedia", Name = "Texture Value", Icon = "DATA/MEDIA")]
-    [Tags("Data")]
+    [Node(Path = "Data/Multimedia", Name = "Sample Texture", Icon = "DATA/MEDIA")]
+    //[Tags("Data")]
     [Output("Value", typeof(Texture2D), Multiple = true)]
     public class OverTexture : OverTexturePreviewNode
     {
         public override object OnRequestNodeValue(Port port)
         {
-            var _value = GetInputValue("", texIn);
-            return _value;
+            var _value = GetInputValue("TexIn", texIn);
+            if (_value != null)
+            {
+                return _value;
+            }
+            return base.OnRequestNodeValue(port);
         }
     }
 }

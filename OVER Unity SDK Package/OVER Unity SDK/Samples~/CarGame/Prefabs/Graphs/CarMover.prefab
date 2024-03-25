@@ -1,0 +1,614 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &766168066326131536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7648622331602319268}
+  - component: {fileID: 8696803991059215139}
+  m_Layer: 0
+  m_Name: CarMover
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7648622331602319268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766168066326131536}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6079682147324354523}
+  - {fileID: 3048114044625644399}
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8696803991059215139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766168066326131536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f7a8275dc8bd841836b3776dc22c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GUID: c1d65daa-0380-4836-9da5-accad33e586d
+  overGraph: {fileID: 11400000, guid: 074337e189851654e8a51da7b7f45a2d, type: 2}
+  data:
+    variables:
+    - GUID: 41dd752c-c8cc-4699-9837-a08e10fae20b
+      name: CarOne
+      type: 10
+      isGlobal: 0
+      integerValue: 0
+      floatValue: 0
+      stringValue: 
+      boolValue: 0
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+      transformValue: {fileID: 6079682147324354523}
+      gameObject: {fileID: 0}
+      renderer: {fileID: 0}
+      rectTransform: {fileID: 0}
+      lineRenderer: {fileID: 0}
+      material: {fileID: 0}
+      particleSystem: {fileID: 0}
+      rigidbodyValue: {fileID: 0}
+      colliderValue: {fileID: 0}
+      characterController: {fileID: 0}
+      light: {fileID: 0}
+      navMeshAgent: {fileID: 0}
+      audioSource: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoPlayer: {fileID: 0}
+      imageStreamer: {fileID: 0}
+      animator: {fileID: 0}
+      text: {fileID: 0}
+      textTMP: {fileID: 0}
+      image: {fileID: 0}
+      rawImage: {fileID: 0}
+      color: {r: 0, g: 0, b: 0, a: 0}
+      list: {fileID: 0}
+      json: 
+    - GUID: 46520050-7d1d-4668-bf87-0cc874eb2567
+      name: CarTwo
+      type: 10
+      isGlobal: 0
+      integerValue: 0
+      floatValue: 0
+      stringValue: 
+      boolValue: 0
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+      transformValue: {fileID: 3048114044625644399}
+      gameObject: {fileID: 0}
+      renderer: {fileID: 0}
+      rectTransform: {fileID: 0}
+      lineRenderer: {fileID: 0}
+      material: {fileID: 0}
+      particleSystem: {fileID: 0}
+      rigidbodyValue: {fileID: 0}
+      colliderValue: {fileID: 0}
+      characterController: {fileID: 0}
+      light: {fileID: 0}
+      navMeshAgent: {fileID: 0}
+      audioSource: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoPlayer: {fileID: 0}
+      imageStreamer: {fileID: 0}
+      animator: {fileID: 0}
+      text: {fileID: 0}
+      textTMP: {fileID: 0}
+      image: {fileID: 0}
+      rawImage: {fileID: 0}
+      color: {r: 0, g: 0, b: 0, a: 0}
+      list: {fileID: 0}
+      json: 
+    - GUID: 672e9007-da66-434b-a1d8-4646eff99a11
+      name: CarOneCurrentSpeed
+      type: 3
+      isGlobal: 0
+      integerValue: 0
+      floatValue: 0
+      stringValue: 
+      boolValue: 0
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+      transformValue: {fileID: 0}
+      gameObject: {fileID: 0}
+      renderer: {fileID: 0}
+      rectTransform: {fileID: 0}
+      lineRenderer: {fileID: 0}
+      material: {fileID: 0}
+      particleSystem: {fileID: 0}
+      rigidbodyValue: {fileID: 0}
+      colliderValue: {fileID: 0}
+      characterController: {fileID: 0}
+      light: {fileID: 0}
+      navMeshAgent: {fileID: 0}
+      audioSource: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoPlayer: {fileID: 0}
+      imageStreamer: {fileID: 0}
+      animator: {fileID: 0}
+      text: {fileID: 0}
+      textTMP: {fileID: 0}
+      image: {fileID: 0}
+      rawImage: {fileID: 0}
+      color: {r: 0, g: 0, b: 0, a: 0}
+      list: {fileID: 0}
+      json: 
+    - GUID: e48a0420-f698-4f03-aa11-7954bb894f63
+      name: CarTwoCurrentSpeed
+      type: 3
+      isGlobal: 0
+      integerValue: 0
+      floatValue: 0
+      stringValue: 
+      boolValue: 0
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+      transformValue: {fileID: 0}
+      gameObject: {fileID: 0}
+      renderer: {fileID: 0}
+      rectTransform: {fileID: 0}
+      lineRenderer: {fileID: 0}
+      material: {fileID: 0}
+      particleSystem: {fileID: 0}
+      rigidbodyValue: {fileID: 0}
+      colliderValue: {fileID: 0}
+      characterController: {fileID: 0}
+      light: {fileID: 0}
+      navMeshAgent: {fileID: 0}
+      audioSource: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoPlayer: {fileID: 0}
+      imageStreamer: {fileID: 0}
+      animator: {fileID: 0}
+      text: {fileID: 0}
+      textTMP: {fileID: 0}
+      image: {fileID: 0}
+      rawImage: {fileID: 0}
+      color: {r: 0, g: 0, b: 0, a: 0}
+      list: {fileID: 0}
+      json: 
+    - GUID: 3c375f73-6bd9-4b3c-9363-2edeafa4617b
+      name: CarPlayerMaxSpeed
+      type: 3
+      isGlobal: 0
+      integerValue: 0
+      floatValue: 5
+      stringValue: 
+      boolValue: 0
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+      transformValue: {fileID: 0}
+      gameObject: {fileID: 0}
+      renderer: {fileID: 0}
+      rectTransform: {fileID: 0}
+      lineRenderer: {fileID: 0}
+      material: {fileID: 0}
+      particleSystem: {fileID: 0}
+      rigidbodyValue: {fileID: 0}
+      colliderValue: {fileID: 0}
+      characterController: {fileID: 0}
+      light: {fileID: 0}
+      navMeshAgent: {fileID: 0}
+      audioSource: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoPlayer: {fileID: 0}
+      imageStreamer: {fileID: 0}
+      animator: {fileID: 0}
+      text: {fileID: 0}
+      textTMP: {fileID: 0}
+      image: {fileID: 0}
+      rawImage: {fileID: 0}
+      color: {r: 0, g: 0, b: 0, a: 0}
+      list: {fileID: 0}
+      json: 
+    - GUID: d4fff193-1a02-44e8-9483-f1dcc1c8e109
+      name: CarAiMaxSpeed
+      type: 3
+      isGlobal: 0
+      integerValue: 0
+      floatValue: 1
+      stringValue: 
+      boolValue: 0
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+      transformValue: {fileID: 0}
+      gameObject: {fileID: 0}
+      renderer: {fileID: 0}
+      rectTransform: {fileID: 0}
+      lineRenderer: {fileID: 0}
+      material: {fileID: 0}
+      particleSystem: {fileID: 0}
+      rigidbodyValue: {fileID: 0}
+      colliderValue: {fileID: 0}
+      characterController: {fileID: 0}
+      light: {fileID: 0}
+      navMeshAgent: {fileID: 0}
+      audioSource: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoPlayer: {fileID: 0}
+      imageStreamer: {fileID: 0}
+      animator: {fileID: 0}
+      text: {fileID: 0}
+      textTMP: {fileID: 0}
+      image: {fileID: 0}
+      rawImage: {fileID: 0}
+      color: {r: 0, g: 0, b: 0, a: 0}
+      list: {fileID: 0}
+      json: 
+    - GUID: 5c0ac06d-c4d4-48c8-a88f-b7cf3cd22152
+      name: CarsRotationSpeed
+      type: 3
+      isGlobal: 0
+      integerValue: 0
+      floatValue: 10
+      stringValue: 
+      boolValue: 0
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+      transformValue: {fileID: 0}
+      gameObject: {fileID: 0}
+      renderer: {fileID: 0}
+      rectTransform: {fileID: 0}
+      lineRenderer: {fileID: 0}
+      material: {fileID: 0}
+      particleSystem: {fileID: 0}
+      rigidbodyValue: {fileID: 0}
+      colliderValue: {fileID: 0}
+      characterController: {fileID: 0}
+      light: {fileID: 0}
+      navMeshAgent: {fileID: 0}
+      audioSource: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoPlayer: {fileID: 0}
+      imageStreamer: {fileID: 0}
+      animator: {fileID: 0}
+      text: {fileID: 0}
+      textTMP: {fileID: 0}
+      image: {fileID: 0}
+      rawImage: {fileID: 0}
+      color: {r: 0, g: 0, b: 0, a: 0}
+      list: {fileID: 0}
+      json: 
+    - GUID: 6472a4c4-5c1f-4580-b248-0256f969a472
+      name: HasOneReachedWaypoint
+      type: 1
+      isGlobal: 0
+      integerValue: 0
+      floatValue: 5
+      stringValue: 
+      boolValue: 0
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+      transformValue: {fileID: 0}
+      gameObject: {fileID: 0}
+      renderer: {fileID: 0}
+      rectTransform: {fileID: 0}
+      lineRenderer: {fileID: 0}
+      material: {fileID: 0}
+      particleSystem: {fileID: 0}
+      rigidbodyValue: {fileID: 0}
+      colliderValue: {fileID: 0}
+      characterController: {fileID: 0}
+      light: {fileID: 0}
+      navMeshAgent: {fileID: 0}
+      audioSource: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoPlayer: {fileID: 0}
+      imageStreamer: {fileID: 0}
+      animator: {fileID: 0}
+      text: {fileID: 0}
+      textTMP: {fileID: 0}
+      image: {fileID: 0}
+      rawImage: {fileID: 0}
+      color: {r: 0, g: 0, b: 0, a: 0}
+      list: {fileID: 0}
+      json: 
+    - GUID: 1cfb4209-6d35-4b38-91d5-7d2a309b093c
+      name: HasTwoReachedWaypoint
+      type: 1
+      isGlobal: 0
+      integerValue: 0
+      floatValue: 5
+      stringValue: 
+      boolValue: 0
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+      transformValue: {fileID: 0}
+      gameObject: {fileID: 0}
+      renderer: {fileID: 0}
+      rectTransform: {fileID: 0}
+      lineRenderer: {fileID: 0}
+      material: {fileID: 0}
+      particleSystem: {fileID: 0}
+      rigidbodyValue: {fileID: 0}
+      colliderValue: {fileID: 0}
+      characterController: {fileID: 0}
+      light: {fileID: 0}
+      navMeshAgent: {fileID: 0}
+      audioSource: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoPlayer: {fileID: 0}
+      imageStreamer: {fileID: 0}
+      animator: {fileID: 0}
+      text: {fileID: 0}
+      textTMP: {fileID: 0}
+      image: {fileID: 0}
+      rawImage: {fileID: 0}
+      color: {r: 0, g: 0, b: 0, a: 0}
+      list: {fileID: 0}
+      json: 
+    - GUID: 1c0f0cd6-e8ff-486a-8eec-adba946a5aba
+      name: AccelerateButton
+      type: 11
+      isGlobal: 0
+      integerValue: 0
+      floatValue: 5
+      stringValue: 
+      boolValue: 0
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+      transformValue: {fileID: 0}
+      gameObject: {fileID: 0}
+      renderer: {fileID: 0}
+      rectTransform: {fileID: 0}
+      lineRenderer: {fileID: 0}
+      material: {fileID: 0}
+      particleSystem: {fileID: 0}
+      rigidbodyValue: {fileID: 0}
+      colliderValue: {fileID: 0}
+      characterController: {fileID: 0}
+      light: {fileID: 0}
+      navMeshAgent: {fileID: 0}
+      audioSource: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoPlayer: {fileID: 0}
+      imageStreamer: {fileID: 0}
+      animator: {fileID: 0}
+      text: {fileID: 0}
+      textTMP: {fileID: 0}
+      image: {fileID: 0}
+      rawImage: {fileID: 0}
+      color: {r: 0, g: 0, b: 0, a: 0}
+      list: {fileID: 0}
+      json: 
+    - GUID: 6e9dd682-7790-4517-afdb-b716561e2eb0
+      name: IsUserAccelerating
+      type: 1
+      isGlobal: 0
+      integerValue: 0
+      floatValue: 5
+      stringValue: 
+      boolValue: 0
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+      transformValue: {fileID: 0}
+      gameObject: {fileID: 0}
+      renderer: {fileID: 0}
+      rectTransform: {fileID: 0}
+      lineRenderer: {fileID: 0}
+      material: {fileID: 0}
+      particleSystem: {fileID: 0}
+      rigidbodyValue: {fileID: 0}
+      colliderValue: {fileID: 0}
+      characterController: {fileID: 0}
+      light: {fileID: 0}
+      navMeshAgent: {fileID: 0}
+      audioSource: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoPlayer: {fileID: 0}
+      imageStreamer: {fileID: 0}
+      animator: {fileID: 0}
+      text: {fileID: 0}
+      textTMP: {fileID: 0}
+      image: {fileID: 0}
+      rawImage: {fileID: 0}
+      color: {r: 0, g: 0, b: 0, a: 0}
+      list: {fileID: 0}
+      json: 
+  ghostVariables:
+  - GUID: 41dd752c-c8cc-4699-9837-a08e10fae20b
+    name: CarOne
+    type: 10
+    isGlobal: 0
+  - GUID: 46520050-7d1d-4668-bf87-0cc874eb2567
+    name: CarTwo
+    type: 10
+    isGlobal: 0
+  - GUID: 672e9007-da66-434b-a1d8-4646eff99a11
+    name: CarOneCurrentSpeed
+    type: 3
+    isGlobal: 0
+  - GUID: e48a0420-f698-4f03-aa11-7954bb894f63
+    name: CarTwoCurrentSpeed
+    type: 3
+    isGlobal: 0
+  - GUID: 3c375f73-6bd9-4b3c-9363-2edeafa4617b
+    name: CarPlayerMaxSpeed
+    type: 3
+    isGlobal: 0
+  - GUID: d4fff193-1a02-44e8-9483-f1dcc1c8e109
+    name: CarAiMaxSpeed
+    type: 3
+    isGlobal: 0
+  - GUID: 5c0ac06d-c4d4-48c8-a88f-b7cf3cd22152
+    name: CarsRotationSpeed
+    type: 3
+    isGlobal: 0
+  - GUID: 6472a4c4-5c1f-4580-b248-0256f969a472
+    name: HasOneReachedWaypoint
+    type: 1
+    isGlobal: 0
+  - GUID: 1cfb4209-6d35-4b38-91d5-7d2a309b093c
+    name: HasTwoReachedWaypoint
+    type: 1
+    isGlobal: 0
+  - GUID: 1c0f0cd6-e8ff-486a-8eec-adba946a5aba
+    name: AccelerateButton
+    type: 11
+    isGlobal: 0
+  - GUID: 6e9dd682-7790-4517-afdb-b716561e2eb0
+    name: IsUserAccelerating
+    type: 1
+    isGlobal: 0
+--- !u!1001 &598450970407393744
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7648622331602319268}
+    m_Modifications:
+    - target: {fileID: 2450816290186900159, guid: f0ab1bcf9b37afd41afc764894c6f204, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450816290186900159, guid: f0ab1bcf9b37afd41afc764894c6f204, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450816290186900159, guid: f0ab1bcf9b37afd41afc764894c6f204, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450816290186900159, guid: f0ab1bcf9b37afd41afc764894c6f204, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.309969
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450816290186900159, guid: f0ab1bcf9b37afd41afc764894c6f204, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450816290186900159, guid: f0ab1bcf9b37afd41afc764894c6f204, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450816290186900159, guid: f0ab1bcf9b37afd41afc764894c6f204, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.000031515952
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450816290186900159, guid: f0ab1bcf9b37afd41afc764894c6f204, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450816290186900159, guid: f0ab1bcf9b37afd41afc764894c6f204, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450816290186900159, guid: f0ab1bcf9b37afd41afc764894c6f204, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450816290186900159, guid: f0ab1bcf9b37afd41afc764894c6f204, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753821419227580417, guid: f0ab1bcf9b37afd41afc764894c6f204, type: 3}
+      propertyPath: m_Name
+      value: CarTwo
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f0ab1bcf9b37afd41afc764894c6f204, type: 3}
+--- !u!4 &3048114044625644399 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2450816290186900159, guid: f0ab1bcf9b37afd41afc764894c6f204, type: 3}
+  m_PrefabInstance: {fileID: 598450970407393744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1961388139911679570
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7648622331602319268}
+    m_Modifications:
+    - target: {fileID: 5721575577837949321, guid: 02148d5adb95e2b4484d4e077fd5e9a5, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721575577837949321, guid: 02148d5adb95e2b4484d4e077fd5e9a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.0120001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721575577837949321, guid: 02148d5adb95e2b4484d4e077fd5e9a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721575577837949321, guid: 02148d5adb95e2b4484d4e077fd5e9a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721575577837949321, guid: 02148d5adb95e2b4484d4e077fd5e9a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721575577837949321, guid: 02148d5adb95e2b4484d4e077fd5e9a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721575577837949321, guid: 02148d5adb95e2b4484d4e077fd5e9a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.000031515952
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721575577837949321, guid: 02148d5adb95e2b4484d4e077fd5e9a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721575577837949321, guid: 02148d5adb95e2b4484d4e077fd5e9a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721575577837949321, guid: 02148d5adb95e2b4484d4e077fd5e9a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721575577837949321, guid: 02148d5adb95e2b4484d4e077fd5e9a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254427017623768033, guid: 02148d5adb95e2b4484d4e077fd5e9a5, type: 3}
+      propertyPath: m_Name
+      value: CarOne
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 02148d5adb95e2b4484d4e077fd5e9a5, type: 3}
+--- !u!4 &6079682147324354523 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5721575577837949321, guid: 02148d5adb95e2b4484d4e077fd5e9a5, type: 3}
+  m_PrefabInstance: {fileID: 1961388139911679570}
+  m_PrefabAsset: {fileID: 0}

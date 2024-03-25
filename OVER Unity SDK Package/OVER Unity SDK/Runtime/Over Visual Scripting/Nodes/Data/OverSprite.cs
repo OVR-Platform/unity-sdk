@@ -30,15 +30,19 @@ using UnityEngine;
 
 namespace OverSDK.VisualScripting
 {
-    [Node(Path = "Data/Multimedia", Name = "Sprite Value", Icon = "DATA/MEDIA")]
-    [Tags("Data")]
+    [Node(Path = "Data/Multimedia", Name = "Sample Sprite", Icon = "DATA/MEDIA")]
+    //[Tags("Data")]
     [Output("Value", typeof(Sprite), Multiple = true)]
     public class OverSprite : OverSpritePreviewNode
     {
         public override object OnRequestNodeValue(Port port)
         {
-            var _value = GetInputValue("", spriteIn);
-            return _value;
+            var _value = GetInputValue("SpriteIn", spriteIn);
+            if( _value != null )
+            {
+                return _value;
+            }
+            return base.OnRequestNodeValue(port);
         }
     }
 }

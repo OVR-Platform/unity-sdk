@@ -31,7 +31,7 @@ using TMPro;
 
 namespace OverSDK.VisualScripting
 {
-    [Node(Path = "Component/UI/Text Mesh PRO", Name = "Text (TMP) Exposer", Icon = "COMPONENT/UI/TEXT_TMP")]
+    [Node(Path = "Component/UI/Text Mesh PRO", Name = "Text (TMP UGUI) Exposer", Icon = "COMPONENT/UI/TEXT_TMP")]
     [Tags("Component")]
     [Output("Ref", typeof(TextMeshProUGUI), Multiple = true)]
     public class OverUITextTMP : OverNode
@@ -56,7 +56,7 @@ namespace OverSDK.VisualScripting
         }
     }
 
-    [Node(Path = "Component/UI/Text Mesh PRO/Handlers", Name = "Set Text (TMP)", Icon = "COMPONENT/UI/TEXT_TMP")]
+    [Node(Path = "Component/UI/Text Mesh PRO/Handlers", Name = "Set Text (TMP UGUI)", Icon = "COMPONENT/UI/TEXT_TMP")]
     [Output("Output", typeof(TextMeshProUGUI), Multiple = true)]
     public class OverSetTextTMP : OverTextHandlerNode
     {
@@ -86,7 +86,7 @@ namespace OverSDK.VisualScripting
 
     }
 
-    [Node(Path = "Component/UI/Text Mesh PRO/Handlers", Name = "Set Color (TMP)", Icon = "COMPONENT/UI/TEXT_TMP")]
+    [Node(Path = "Component/UI/Text Mesh PRO/Handlers", Name = "Set Color (TMP UGUI)", Icon = "COMPONENT/UI/TEXT_TMP")]
     [Output("Output", typeof(TextMeshProUGUI), Multiple = true)]
     public class OverSetColorTMP : OverTextHandlerNode
     {
@@ -115,7 +115,7 @@ namespace OverSDK.VisualScripting
         }
     }
 
-    [Node(Path = "Component/UI/Text Mesh PRO/Handlers", Name = "Set Font Size (TMP)", Icon = "COMPONENT/UI/TEXT_TMP")]
+    [Node(Path = "Component/UI/Text Mesh PRO/Handlers", Name = "Set Font Size (TMP UGUI)", Icon = "COMPONENT/UI/TEXT_TMP")]
     [Output("Output", typeof(TextMeshProUGUI), Multiple = true)]
     public class OverSetFontSizeTMP : OverTextHandlerNode
     {

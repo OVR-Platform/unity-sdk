@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/BlueGraph/Runtime/Graph.cs.meta
+guid: 34710c8649a30be4994c3a8b92311ec5
+========
+guid: 33b3d4546f004268a13889d13a6d8cba
+>>>>>>>> Dev:OVER Unity SDK Package/OVER Unity SDK/Editor/Over Plugin/Other Scripts/SimpleJSON.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

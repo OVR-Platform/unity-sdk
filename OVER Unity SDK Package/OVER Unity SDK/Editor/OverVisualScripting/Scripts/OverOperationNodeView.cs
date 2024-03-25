@@ -42,6 +42,8 @@ namespace OverSDK.VisualScripting.Editor
     [CustomNodeView(typeof(OverQuaternionOperation))]
     [CustomNodeView(typeof(OverStringOperation))]
     [CustomNodeView(typeof(OverColorOperationNode))]
+    [CustomNodeView(typeof(OverListCommon))]
+    [CustomNodeView(typeof(OverListOperation))]
 
     public class OverOperationNodeView : NodeView
     {

@@ -41,6 +41,8 @@ namespace OverSDK.VisualScripting.Editor
 
         private string inspectedOverScriptGUID;
 
+        private bool hasSelectorCanceled;
+
         //GUI
         public override void OnInspectorGUI()
         {
@@ -58,7 +60,7 @@ namespace OverSDK.VisualScripting.Editor
             }
             else
             {
-                if(GUILayout.Button("Edit Graph"))
+                if (GUILayout.Button("Edit Graph"))
                 {
                     GraphAssetHandler.OnOpenGraph(overScript.OverGraph);
                 }
@@ -69,28 +71,46 @@ namespace OverSDK.VisualScripting.Editor
                 currentPickerWindow = EditorGUIUtility.GetControlID(FocusType.Passive) + 100;
                 EditorGUIUtility.ShowObjectPicker<OverGraph>(overScript.OverGraph, false, "", currentPickerWindow);
                 inspectedOverScriptGUID = overScript.GUID;
-            }
-            string commandName = Event.current.commandName;
-            if (commandName == "ObjectSelectorUpdated")
-            {
-                if(inspectedOverScriptGUID == overScript.GUID)
-                {
-                    overScript.OverGraph = EditorGUIUtility.GetObjectPickerObject() as OverGraph;
-                    EditorUtility.SetDirty(overScript);
-                    if (OverScriptManager.Main != null) EditorUtility.SetDirty(OverScriptManager.Main);
-                    Repaint();
-                }
-            }
-            else if (commandName == "ObjectSelectorClosed")
-            {
-                if (inspectedOverScriptGUID == overScript.GUID)
-                {
-                    overScript.OverGraph = EditorGUIUtility.GetObjectPickerObject() as OverGraph;
-                    EditorUtility.SetDirty(overScript);
-                    if (OverScriptManager.Main != null) EditorUtility.SetDirty(OverScriptManager.Main);
 
-                    inspectedOverScriptGUID = null;
-                }
+                hasSelectorCanceled = false;
+            }
+
+            string commandName = Event.current.commandName;
+            switch (commandName)
+            {
+                case "ObjectSelectorUpdated":
+                    {
+                        if (inspectedOverScriptGUID == overScript.GUID)
+                        {
+                            overScript.OverGraph = EditorGUIUtility.GetObjectPickerObject() as OverGraph;
+                            EditorUtility.SetDirty(overScript);
+                            if (OverScriptManager.Main != null) EditorUtility.SetDirty(OverScriptManager.Main);
+                            Repaint();
+                        }
+
+                        break;
+                    }
+                case "ObjectSelectorCanceled":
+                    {
+                        // Esc was pressed
+                        hasSelectorCanceled = true;
+
+                        break;
+                    }
+                case "ObjectSelectorClosed":
+                    {
+                        if (!hasSelectorCanceled &&
+                            inspectedOverScriptGUID == overScript.GUID)
+                        {
+                            overScript.OverGraph = EditorGUIUtility.GetObjectPickerObject() as OverGraph;
+                            EditorUtility.SetDirty(overScript);
+                            if (OverScriptManager.Main != null) EditorUtility.SetDirty(OverScriptManager.Main);
+
+                            inspectedOverScriptGUID = null;
+                        }
+
+                        break;
+                    }
             }
 
             if (overScript.MarkedAsDirty)
@@ -113,8 +133,6 @@ namespace OverSDK.VisualScripting.Editor
                 }
             }
         }
-
-        private void OnEnable() { }
 
         public void OnDestroy()
         {
@@ -144,7 +162,8 @@ namespace OverSDK.VisualScripting.Editor
                 AssetCreator.CreateAssetAtPath(
                     dir,
                     null,
-                    (OverGraph graph) => {
+                    (OverGraph graph) =>
+                    {
                         if (string.IsNullOrEmpty(graph.GUID))
                             graph.GUID = System.Guid.NewGuid().ToString();
                         overScript.OverGraph = graph;

@@ -46,6 +46,11 @@ namespace OverSDK.VisualScripting
         [Output("Velocity", Multiple = true)] public Vector3 velocity;
         [Output("Ang. Velocity", Multiple = true)] public Vector3 angularVelocity;
 
+        [Output("Automatic Center Of Mass", Multiple = true)] public bool automaticCenterOfMass;
+        [Output("Automatic Tensor", Multiple = true)] public bool automaticTensor;
+        [Output("Use Gravity", Multiple = true)] public bool useGravity;
+        [Output("Is Kinematic", Multiple = true)] public bool isKinematic;
+
         public override object OnRequestNodeValue(Port port)
         {
             Rigidbody _rigidbody = GetInputValue("Rigidbody", rigidbody);
@@ -69,6 +74,18 @@ namespace OverSDK.VisualScripting
                 case "Center of Mass":
                     centerOfMass = _rigidbody.centerOfMass;
                     return centerOfMass;
+                case "Automatic Center Of Mass":
+                    automaticCenterOfMass = _rigidbody.automaticCenterOfMass;
+                    return automaticCenterOfMass;
+                case "Automatic Tensor":
+                    automaticTensor = _rigidbody.automaticInertiaTensor;
+                    return automaticTensor;
+                case "Use Gravity":
+                    useGravity = _rigidbody.useGravity;
+                    return useGravity;
+                case "Is Kinematic":
+                    isKinematic = _rigidbody.isKinematic;
+                    return isKinematic;
             }
 
             return base.OnRequestNodeValue(port);
@@ -203,6 +220,36 @@ namespace OverSDK.VisualScripting
             bool _useGravity = GetInputValue("Use Gravity", useGravity);
 
             _target.useGravity = _useGravity;
+
+            return base.Execute(data);
+        }
+        public override object OnRequestNodeValue(Port port)
+        {
+            Rigidbody _rigidbody = GetInputValue("Rigidbody", rigidbody);
+
+            switch (port.Name)
+            {
+                case "Updated Component":
+                    return _rigidbody;
+            }
+
+            return base.OnRequestNodeValue(port);
+        }
+    }
+
+    [Node(Path = "Component/Rigidbody/Handlers", Name = "Set Is Kinematic", Icon = "COMPONENT/RIGIDBODY")]
+    [Output("Updated Component", typeof(Rigidbody), Multiple = true)]
+    public class OverSetIsKinematic : OverRigidbodyHandlerNode
+    {
+        [Input("Rigidbody")] public Rigidbody rigidbody;
+        [Input("Is Kinematic")] public bool isKinematic;
+
+        public override IExecutableOverNode Execute(OverExecutionFlowData data)
+        {
+            Rigidbody _target = GetInputValue("Rigidbody", rigidbody);
+            bool _isKinematic = GetInputValue("Is Kinematic", isKinematic);
+
+            _target.isKinematic = _isKinematic;
 
             return base.Execute(data);
         }

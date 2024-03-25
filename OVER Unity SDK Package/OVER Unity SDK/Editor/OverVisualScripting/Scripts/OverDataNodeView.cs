@@ -42,6 +42,7 @@ namespace OverSDK.VisualScripting.Editor
     [CustomNodeView(typeof(OverString))]
     [CustomNodeView(typeof(OverVector2))]
     [CustomNodeView(typeof(OverVector3))]
+    [CustomNodeView(typeof(OverSelf))]
 
     public class OverDataNodeView : NodeView
     {

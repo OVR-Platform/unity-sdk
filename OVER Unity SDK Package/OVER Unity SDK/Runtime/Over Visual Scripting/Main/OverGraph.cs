@@ -30,12 +30,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
+using OverSimpleJSON;
 
 namespace OverSDK.VisualScripting
 {
     public class OverExecutionFlowData 
     {
         public string scritpGUID;
+        public JSONNode others;
     }
 
     [Serializable]
@@ -92,7 +94,7 @@ namespace OverSDK.VisualScripting
     }
 
     [CreateAssetMenu(
-        menuName = "Over SDK/OverGraph",
+        menuName = "OVER Unity SDK/OverGraph",
         fileName = "New OverGraph"
     )]
     [IncludeTags("Executable", "Monobehaviour", "Component", "Variable", "Data", "Common", "Event", "Utils", "Web", "Log")]

@@ -31,4 +31,5 @@ namespace OverSDK.VisualScripting
 {
     public class OverVariableListAttribute : PropertyAttribute { }
     public class OverGraphVariableListAttribute : PropertyAttribute { }
+    public class OverListDataListAttribute : PropertyAttribute { }
 }

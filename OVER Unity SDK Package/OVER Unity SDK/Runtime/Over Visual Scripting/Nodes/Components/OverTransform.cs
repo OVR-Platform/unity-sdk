@@ -250,6 +250,38 @@ namespace OverSDK.VisualScripting
             return base.Execute(data);
         }
     }
+    
+    [Node(Path = "Component/Transform/Handlers", Name = "Look Rotation", Icon = "COMPONENT/TRANSFORM")]
+    public class OverLookRotation : OverTransformHandlerNode
+    {
+        [Input("Transform")] public Transform myTransform;
+
+        [Input("Target")] public Transform myTarget;
+
+        [Input("Rotation Speed")] public float rotationSpeed = 1.0f;
+
+        public override IExecutableOverNode Execute(OverExecutionFlowData data)
+        {
+            Transform _target = GetInputValue("Target", myTarget);
+
+            if (_target.GetType().IsAssignableFrom(typeof(Transform)))
+            {
+                Transform _transform = GetInputValue("Transform", myTransform);
+                float _rotationSpeed = GetInputValue("Rotation Speed", rotationSpeed);
+                
+                // Calculate the rotation direction towards the target.
+                Vector3 directionToTarget = _target.position - _transform.position;
+
+                // Calculate the desired rotation.
+                Quaternion targetRotation = directionToTarget != Vector3.zero ? Quaternion.LookRotation(directionToTarget) : Quaternion.identity;
+
+                // Slerp from the current rotation to the desired rotation.
+                _transform.rotation = Quaternion.Slerp(_transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
+            }
+
+            return base.Execute(data);
+        }
+    }
 
     [Node(Path = "Component/Transform/Handlers", Name = "Translate", Icon = "COMPONENT/TRANSFORM")]
     public class OverTranslate : OverTransformHandlerNode

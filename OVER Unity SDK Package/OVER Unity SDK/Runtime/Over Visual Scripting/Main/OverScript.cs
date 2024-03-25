@@ -25,12 +25,15 @@
  * THE SOFTWARE.
  */
 
+using OverSimpleJSON;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -57,6 +60,53 @@ namespace OverSDK.VisualScripting
 
         Rigidbody = 20,
         Collider = 21,
+        CharacterController = 22,
+
+        Light = 30,
+
+        NavMeshAgent = 40,
+        //NavMeshObstacle = 41,
+
+        AudioSource = 50,
+        Video = 51,
+        Animator = 52,
+        AudioClip = 53,
+        ImageStreamer = 54,
+
+        //Button = 100,
+        Text = 101,
+        TextTMP = 102,
+        TextTMP_3D = 106,
+        Image = 103,
+        RawImage = 104,
+        Color = 105,
+
+        List = 200,
+        JSON = 201
+    }
+
+    public enum OverListDataType
+    {
+        None = 0,
+        Bool = 1,
+        Int = 2,
+        Float = 3,
+        Vector2 = 4,
+        Vector3 = 5,
+        Quaternion = 6,
+        String = 7,
+
+        Transform = 10,
+        Object = 11,
+        Renderer = 12,
+        RectTransform = 13,
+        LineRenderer = 14,
+        Material = 15,
+        ParticleSystem = 16,
+
+        Rigidbody = 20,
+        Collider = 21,
+        CharacterController = 22,
 
         Light = 30,
 
@@ -68,9 +118,12 @@ namespace OverSDK.VisualScripting
         //Button = 100,
         Text = 101,
         TextTMP = 102,
-        Image = 103,
-        RawImage = 104,
-        Color = 105
+        TextTMP_3D = 103,
+        Image = 104,
+        RawImage = 105,
+        Color = 106,
+
+        List = 200
     }
 
     [Serializable]
@@ -102,20 +155,29 @@ namespace OverSDK.VisualScripting
 
         public Rigidbody rigidbodyValue;
         public Collider colliderValue;
+        public CharacterController characterController;
 
         public Light light;
+
+        public NavMeshAgent navMeshAgent;
+        //public NavMeshObstacle navMeshObstacle;
 
         public AudioSource audioSource;
         public AudioClip audioClip;
         public VideoPlayer videoPlayer;
+        public ImageStreamer imageStreamer;
         public Animator animator;
         
         public Text text;
         public TMPro.TextMeshProUGUI textTMP;
+        public TMPro.TextMeshPro textTMP_3D;
 
         public Image image;
         public RawImage rawImage;
         public Color color;
+
+        public OverList list;
+        public string json;
 
         public OverVariableData Clone()
         {
@@ -143,17 +205,25 @@ namespace OverSDK.VisualScripting
                 audioSource = audioSource,
                 audioClip = audioClip,
                 videoPlayer = videoPlayer,
+                imageStreamer = imageStreamer,
                 animator = animator,
 
                 rigidbodyValue = rigidbodyValue,
                 colliderValue = colliderValue,
+                characterController = characterController,
                 light = light,
+
+                navMeshAgent = navMeshAgent,
+                //navMeshObstacle = navMeshObstacle,
 
                 text = text,
                 textTMP = textTMP,
                 image = image,
                 rawImage = rawImage,
-                color = color
+                color = color,
+                
+                list = list,
+                json = json,
             };
         }
 
@@ -169,17 +239,25 @@ namespace OverSDK.VisualScripting
         }
     }
 
+    /// <summary>
+    /// Class encapsulating OverScript related data (variables for now)
+    /// </summary>
     [Serializable]
     public class OverScriptData
     {
+        /// <summary>
+        /// List of variables, to be edited and displayed in Editor
+        /// </summary>
         [OverVariableList] public List<OverVariableData> variables = new List<OverVariableData>();
 
-        private Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
+        /// <summary>
+        /// Dictionary of variables, useful for fast access of variables
+        /// </summary>
         public Dictionary<string, OverVariableData> VariableDict
         {
             get
             {
-                variableDict = new Dictionary<string, OverVariableData>();
+                Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
                 foreach (var data in variables)
                 {
                     if (string.IsNullOrEmpty(data.GUID) || variableDict.ContainsKey(data.GUID))
@@ -191,14 +269,110 @@ namespace OverSDK.VisualScripting
                 return variableDict;
             }
         }
+
+        [HideInInspector] public List<OverScriptSubListData> subLists = new List<OverScriptSubListData>();
+        public Dictionary<OverVariableData, int> lookupDictionary = new Dictionary<OverVariableData, int>();
+
+        public void AddToFullList(OverVariableData item)
+        {
+            if (!lookupDictionary.ContainsKey(item))
+            {
+                variables.Add(item);
+                lookupDictionary[item] = variables.Count - 1;
+            }
+        }
+
+        public void RemoveFromFullList(OverVariableData item)
+        {
+            if (lookupDictionary.TryGetValue(item, out int index))
+            {
+                // Remove item from fullList
+                variables.RemoveAt(index);
+
+                // Update indices in lookupDictionary
+                lookupDictionary.Remove(item);
+                for (int i = index; i < variables.Count; i++)
+                {
+                    lookupDictionary[variables[i]] = i;
+                }
+
+                // Remove item from all sublists
+                foreach (var sublist in subLists)
+                {
+                    sublist.variables.Remove(item);
+                }
+            }
+        }
+
+        public void AddSubList(OverScriptSubListData sublist)
+        {
+            // Ensure all elements in the sublist exist in the fullList
+            foreach (OverVariableData item in sublist.variables)
+            {
+                AddToFullList(item);
+            }
+            subLists.Add(sublist);
+        }
+
+        public void RemoveSubList(OverScriptSubListData sublist)
+        {
+            subLists.Remove(sublist);
+        }
+
+        public List<OverVariableData> GetFullList()
+        {
+            return variables;
+        }
+
+        public List<OverScriptSubListData> GetSubLists()
+        {
+            return subLists;
+        }
+
+        // Method to add an element to a specific sublist
+        public bool AddToSubList(int sublistIndex, OverVariableData item)
+        {
+            if (sublistIndex < 0 || sublistIndex >= subLists.Count)
+                return false;
+
+            if (!lookupDictionary.ContainsKey(item))
+                AddToFullList(item);
+
+            subLists[sublistIndex].variables.Add(item);
+            return true;
+        }
+
+        // Method to remove an element from a specific sublist
+        public bool RemoveFromSubList(int sublistIndex, OverVariableData item)
+        {
+            if (sublistIndex < 0 || sublistIndex >= subLists.Count)
+                return false;
+
+            return subLists[sublistIndex].variables.Remove(item);
+        }
+    }
+
+    [Serializable]
+    public class OverScriptSubListData
+    {
+        [OverVariableList] public List<OverVariableData> variables = new List<OverVariableData>();
     }
 
     public class OverScript : MonoBehaviour
     {
-        [SerializeField][ReadOnly] public string GUID;  
+        /// <summary>
+        /// Script Uniques UUID
+        /// </summary>
+        [SerializeField][ReadOnly] public string GUID; 
+        /// <summary>
+        /// OverGraph reference
+        /// </summary>
         [SerializeField][ReadOnly] OverGraph overGraph;
         public OverGraph OverGraph { get { return overGraph; } set { overGraph = value; OnOverGraphChanged(); } }
 
+        /// <summary>
+        /// Data
+        /// </summary>
         [SerializeField] OverScriptData data;
         public OverScriptData Data
         {
@@ -209,50 +383,24 @@ namespace OverSDK.VisualScripting
             }
             set { data = value; }
         }
-        public bool MarkedAsDirty { get; set; }
 
-
-        //inner
-        private bool isReloading = false;
+        /// <summary>
+        /// List of GHOST variables, used for detecting changes
+        /// </summary>
         [SerializeField][HideInInspector] List<OverGraphVariableData> ghostVariables = new List<OverGraphVariableData>();
+
+        public bool MarkedAsDirty { get; set; }
+        private bool isReloading = false;
 
         // MONOBEHAVIOURS
         private void OnValidate()
         {
-            Dictionary<string, OverVariableData> dict = Data.VariableDict;
-
-            if (string.IsNullOrEmpty(GUID))
-            {
-                GUID = Guid.NewGuid().ToString();
-            }
-
-            if (!isReloading && ghostVariables.Count != Data.variables.Count)
-            {
-                //Debug.LogError("something has been added removed....");
-                if (overGraph != null) overGraph.UpdateDataFromScript(this);
-                
-                ghostVariables = new List<OverGraphVariableData>(Data.variables.Select(x => x.ToGraphData()));
-            }
-
-            if (overGraph != null && Data.variables.Count == 0)
-            {
-                //Debug.LogError("SCR - Empty");
-                overGraph.Data.variables.Clear();
-            }
-
-            //bruttino
-            for (int i = 0; i < Data.variables.Count; i++)
-            {
-                if (Data.variables[i].name != ghostVariables[i].name || 
-                    Data.variables[i].type != ghostVariables[i].type)
-                {
-                    ApplyVariableChangesTo(Data.variables[i], OverGraph);
-                }
-            }
+            RefreshVariables();
         }
 
         void Awake()
         {
+            //updating mappings
             if(OverScriptManager.Main != null) 
             {
                 if (!OverScriptManager.Main.overDataMappings.ContainsKey(GUID) ||
@@ -415,6 +563,35 @@ namespace OverSDK.VisualScripting
             MarkedAsDirty = true;
         }
 
+        private void RefreshVariables()
+        {
+            // ! DO NOT REMOVE THIS!
+            Dictionary<string, OverVariableData> dict = Data.VariableDict;
+
+            if (string.IsNullOrEmpty(GUID))
+                GUID = Guid.NewGuid().ToString();
+
+            if (!isReloading && ghostVariables.Count != Data.variables.Count)
+            {
+                if (overGraph != null)
+                    overGraph.UpdateDataFromScript(this);
+
+                ghostVariables = new List<OverGraphVariableData>(Data.variables.Select(x => x.ToGraphData()));
+            }
+
+            if (overGraph != null && Data.variables.Count == 0)
+                overGraph.Data.variables.Clear();
+
+            for (int i = 0; i < Data.variables.Count; i++)
+            {
+                if (Data.variables[i].name != ghostVariables[i].name ||
+                    Data.variables[i].type != ghostVariables[i].type)
+                {
+                    ApplyVariableChangesTo(Data.variables[i], OverGraph);
+                }
+            }
+        }
+
         public void OnUpdateGraphData(OverGraphData graphData)
         {
             OverScriptData scriptData = new OverScriptData();
@@ -456,16 +633,9 @@ namespace OverSDK.VisualScripting
             MarkedAsDirty = true;
         }
 
-        //da riesumare
-        //public static Guid CreateGuidFromString(string input)
-        //{
-        //    using (SHA256 sha = SHA256.Create())
-        //    {
-        //        byte[] data = sha.ComputeHash(Encoding.UTF8.GetBytes(input));
-        //        byte[] b = new byte[16];
-        //        Array.Copy(data, b, 16);
-        //        return new Guid(b);
-        //    }
-        //}
+        public void SendWebRequest(IEnumerator webRequestCoroutine)
+        {
+            StartCoroutine(webRequestCoroutine);
+        }
     }
 }

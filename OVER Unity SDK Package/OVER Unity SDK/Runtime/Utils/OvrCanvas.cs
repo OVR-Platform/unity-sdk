@@ -68,7 +68,7 @@ namespace OverSDK
 
                         if (ovrAsset != null)
                         {
-                            transform.parent = ovrAsset.transform;
+                            transform.SetParent(ovrAsset.transform);
                         }
                         else
                         {

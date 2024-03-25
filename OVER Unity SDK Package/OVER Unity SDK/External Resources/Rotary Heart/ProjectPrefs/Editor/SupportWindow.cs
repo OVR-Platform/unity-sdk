@@ -26,7 +26,8 @@ namespace RotaryHeart.Lib.ProjectPreferences
             get { return VERSION; }
         }
         
-        [MenuItem("Tools/Rotary Heart/Project Preferences/About")]
+        // Over
+        //[MenuItem("Tools/Rotary Heart/Project Preferences/About")]
         public static void ShowWindow()
         {
             ShowWindow<SupportWindow>();

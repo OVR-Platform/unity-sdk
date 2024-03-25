@@ -26,9 +26,13 @@
  */
 
 using BlueGraph;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using OverSDK;
+using OverSimpleJSON;
+using UnityEngine.AI;
 
 namespace OverSDK.VisualScripting
 {
@@ -413,6 +417,38 @@ namespace OverSDK.VisualScripting
         }
     }
 
+    [Tags("Variable")]
+    [Output("Value", Type = typeof(CharacterController), Multiple = true)]
+    public class OverSetVariableCharacterController : OverSetVariable
+    {
+        [Input("CharacterController")] public CharacterController newVariable;
+
+        protected CharacterController _value;
+        public override object Value => _value;
+        public override OverVariableType Type => OverVariableType.CharacterController;
+
+        public override IExecutableOverNode Execute(OverExecutionFlowData data)
+        {
+            CharacterController newVariable = GetInputValue("CharacterController", this.newVariable);
+
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+
+            if (variableDict.TryGetValue(guid, out var variableData))
+            {
+                variableData.characterController = newVariable;
+                _value = variableData.characterController;
+            }
+
+            return base.Execute(data);
+        }
+
+        public override object OnRequestNodeValue(Port port)
+        {
+            return port.Name == "Value" ? _value : base.OnRequestNodeValue(port);
+        }
+    }
 
     [Tags("Variable")]
     [Output("Value", Type = typeof(GameObject), Multiple = true)]
@@ -679,6 +715,39 @@ namespace OverSDK.VisualScripting
     }
 
     [Tags("Variable")]
+    [Output("Value", Type = typeof(ImageStreamer), Multiple = true)]
+    public class OverSetVariableImageStreamer : OverSetVariable
+    {
+        [Input("ImageStreamer")] public ImageStreamer newVariable;
+
+        protected ImageStreamer _value;
+        public override object Value => _value;
+        public override OverVariableType Type => OverVariableType.ImageStreamer;
+
+        public override IExecutableOverNode Execute(OverExecutionFlowData data)
+        {
+            ImageStreamer newVariable = GetInputValue("ImageStreamer", this.newVariable);
+
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+
+            if (variableDict.TryGetValue(guid, out var variableData))
+            {
+                variableData.imageStreamer = newVariable;
+                _value = variableData.imageStreamer;
+            }
+
+            return base.Execute(data);
+        }
+
+        public override object OnRequestNodeValue(Port port)
+        {
+            return port.Name == "Value" ? _value : base.OnRequestNodeValue(port);
+        }
+    }
+
+    [Tags("Variable")]
     [Output("Value", Type = typeof(Animator), Multiple = true)]
     public class OverSetVariableAnimator : OverSetVariable
     {
@@ -746,6 +815,72 @@ namespace OverSDK.VisualScripting
     }
 
     [Tags("Variable")]
+    [Output("Value", Type = typeof(NavMeshAgent), Multiple = true)]
+    public class OverSetVariableNavMeshAgent : OverSetVariable
+    {
+        [Input("NavMeshAgent")] public NavMeshAgent newVariable;
+
+        protected NavMeshAgent _value;
+        public override object Value => _value;
+        public override OverVariableType Type => OverVariableType.NavMeshAgent;
+
+        public override IExecutableOverNode Execute(OverExecutionFlowData data)
+        {
+            NavMeshAgent newVariable = GetInputValue("NavMeshAgent", this.newVariable);
+
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+
+            if (variableDict.TryGetValue(guid, out var variableData))
+            {
+                variableData.navMeshAgent = newVariable;
+                _value = variableData.navMeshAgent;
+            }
+
+            return base.Execute(data);
+        }
+
+        public override object OnRequestNodeValue(Port port)
+        {
+            return port.Name == "NavMeshAgent" ? _value : base.OnRequestNodeValue(port);
+        }
+    }
+
+    //[Tags("Variable")]
+    //[Output("Value", Type = typeof(NavMeshObstacle), Multiple = true)]
+    //public class OverSetVariableNavMeshObstacle : OverSetVariable
+    //{
+    //    [Input("NavMeshObstacle")] public NavMeshObstacle newVariable;
+
+    //    protected NavMeshObstacle _value;
+    //    public override object Value => _value;
+    //    public override OverVariableType Type => OverVariableType.NavMeshAgent;
+
+    //    public override IExecutableOverNode Execute(OverExecutionFlowData data)
+    //    {
+    //        NavMeshObstacle newVariable = GetInputValue("NavMeshObstacle", this.newVariable);
+
+    //        var variableDict = isGlobal
+    //            ? OverScriptManager.Main.Data.VariableDict
+    //            : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+
+    //        if (variableDict.TryGetValue(guid, out var variableData))
+    //        {
+    //            variableData.navMeshObstacle = newVariable;
+    //            _value = variableData.navMeshObstacle;
+    //        }
+
+    //        return base.Execute(data);
+    //    }
+
+    //    public override object OnRequestNodeValue(Port port)
+    //    {
+    //        return port.Name == "NavMeshObstacle" ? _value : base.OnRequestNodeValue(port);
+    //    }
+    //}
+
+    [Tags("Variable")]
     [Output("Value", Type = typeof(Text), Multiple = true)]
     public class OverSetVariableText : OverSetVariable
     {
@@ -782,7 +917,7 @@ namespace OverSDK.VisualScripting
     [Output("Value", Type = typeof(TMPro.TextMeshProUGUI), Multiple = true)]
     public class OverSetVariableTextTMP : OverSetVariable
     {
-        [Input("Text (TMP)")] public TMPro.TextMeshProUGUI newVariable;
+        [Input("Text (TMP UGUI)")] public TMPro.TextMeshProUGUI newVariable;
          
         protected TMPro.TextMeshProUGUI _value;
         public override object Value => _value;
@@ -790,7 +925,7 @@ namespace OverSDK.VisualScripting
 
         public override IExecutableOverNode Execute(OverExecutionFlowData data)
         {
-            TMPro.TextMeshProUGUI newVariable = GetInputValue("Text (TMP)", this.newVariable);
+            TMPro.TextMeshProUGUI newVariable = GetInputValue("Text (TMP UGUI)", this.newVariable);
 
             var variableDict = isGlobal
                 ? OverScriptManager.Main.Data.VariableDict
@@ -800,6 +935,39 @@ namespace OverSDK.VisualScripting
             {
                 variableData.textTMP = newVariable;
                 _value = variableData.textTMP;
+            }
+
+            return base.Execute(data);
+        }
+
+        public override object OnRequestNodeValue(Port port)
+        {
+            return port.Name == "Value" ? _value : base.OnRequestNodeValue(port);
+        }
+    }
+
+    [Tags("Variable")]
+    [Output("Value", Type = typeof(TMPro.TextMeshPro), Multiple = true)]
+    public class OverSetVariableTextTMP_3D : OverSetVariable
+    {
+        [Input("Text (TMP)")] public TMPro.TextMeshPro newVariable;
+
+        protected TMPro.TextMeshPro _value;
+        public override object Value => _value;
+        public override OverVariableType Type => OverVariableType.TextTMP_3D;
+
+        public override IExecutableOverNode Execute(OverExecutionFlowData data)
+        {
+            TMPro.TextMeshPro newVariable = GetInputValue("Text (TMP)", this.newVariable);
+
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+
+            if (variableDict.TryGetValue(guid, out var variableData))
+            {
+                variableData.textTMP_3D = newVariable;
+                _value = variableData.textTMP_3D;
             }
 
             return base.Execute(data);
@@ -900,6 +1068,129 @@ namespace OverSDK.VisualScripting
             {
                 variableData.color = newVariable;
                 _value = variableData.color;
+            }
+
+            return base.Execute(data);
+        }
+
+        public override object OnRequestNodeValue(Port port)
+        {
+            return port.Name == "Value" ? _value : base.OnRequestNodeValue(port);
+        }
+    }
+
+    [Tags("Variable")]
+    [Output("Value", Type = typeof(IList), Multiple = true)]
+    public class OverSetVariableOverDataList : OverSetVariable
+    {
+        [Input("List")] public IList newVariable;
+
+        protected IList _value;
+        public override OverVariableType Type => OverVariableType.List;
+
+        public override object Value => _value;
+
+        public override IExecutableOverNode Execute(OverExecutionFlowData data)
+        {
+            IList newVariable = GetInputValue("List", this.newVariable);
+
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+
+            if (variableDict.TryGetValue(guid, out var variableData))
+            {
+                //variableData.list.GenericElements = newVariable;
+
+                variableData.list.Elements = new System.Collections.Generic.List<OverListData>();
+                foreach( var item in newVariable)
+                {
+                    OverListData d = new OverListData();
+                    d.type = (OverListDataType)variableData.list.Type;
+                    d.SetValue(item);
+                    variableData.list.Elements.Add(d);
+                }
+
+
+                IList result = OverList.GetList(OverList.ResolveType(variableData.list));
+                foreach (var element in variableData.list.Elements)
+                {
+                    var item = element.GetValue((OverListDataType)variableData.list.Type);
+                    if (item != null)
+                    {
+                        result.Add(item);
+                    }
+                }
+                _value = result;
+
+                //_value = variableData.list.GenericElements;
+            }
+
+            return base.Execute(data);
+        }
+
+        public override object OnRequestNodeValue(Port port)
+        {
+            return port.Name == "Value" ? _value : base.OnRequestNodeValue(port);
+        }
+    }
+
+    [Tags("Variable")]
+    [Output("Value", Type = typeof(OverList), Multiple = true)]
+    public class OverSetVariableOverList : OverSetVariable
+    {
+        [Input("Image")] public OverList newVariable;
+
+        protected OverList _value;
+        public override object Value => _value;
+        public override OverVariableType Type => OverVariableType.List;
+
+        public override IExecutableOverNode Execute(OverExecutionFlowData data)
+        {
+            OverList newVariable = GetInputValue("OverList", this.newVariable);
+
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+
+            if (variableDict.TryGetValue(guid, out var variableData))
+            {
+                variableData.list = newVariable;
+                _value = variableData.list;
+            }
+
+            return base.Execute(data);
+        }
+
+        public override object OnRequestNodeValue(Port port)
+        {
+            return port.Name == "Value" ? _value : base.OnRequestNodeValue(port);
+        }
+    }
+
+    [Tags("Variable")]
+    [Output("Value", Type = typeof(JSONNode), Multiple = true)]
+    public class OverSetVariableJSON : OverSetVariable
+    {
+        [Input("JSON")] public JSONNode newVariable;
+
+        protected JSONNode _value;
+        public override OverVariableType Type => OverVariableType.JSON;
+
+        public override object Value => _value;
+
+        public override IExecutableOverNode Execute(OverExecutionFlowData data)
+        {
+            JSONNode newVariable = GetInputValue("JSON", this.newVariable);
+
+            var variableDict = isGlobal
+                ? OverScriptManager.Main.Data.VariableDict
+                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+
+            if (variableDict.TryGetValue(guid, out var variableData))
+            {
+                variableData.json = newVariable.ToString();
+                _value = newVariable;
             }
 
             return base.Execute(data);

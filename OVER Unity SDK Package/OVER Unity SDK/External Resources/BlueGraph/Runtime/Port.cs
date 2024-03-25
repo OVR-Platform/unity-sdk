@@ -334,6 +334,19 @@ namespace BlueGraph
             hasLoadedConnections = true;
         }
 
+        public void CleanConnections()
+        {
+            for (int i = 0; i < connections.Count; i++)
+            {
+                var connection = connections[i];
+                if (connection.Port == null)
+                {
+                    connections.RemoveAt(i);
+                    i--;
+                }
+            }
+        }
+
         // Explicit non-serialized so that editor reloads wipe it
         [NonSerialized] private bool hasLoadedConnections;
         public bool HasLoadedConnections { get { return hasLoadedConnections; } }

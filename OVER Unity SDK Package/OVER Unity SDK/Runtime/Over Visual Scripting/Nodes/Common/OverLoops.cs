@@ -26,6 +26,7 @@
  */
 
 using BlueGraph;
+using System.Collections;
 using UnityEngine;
 
 namespace OverSDK.VisualScripting
@@ -84,6 +85,45 @@ namespace OverSDK.VisualScripting
             }
 
             return GetNextExecutableNode();
+        }
+    }
+
+    [Node(Path = "Flow/Loops", Name = "List Iterate", Icon = "FLOW/LOOP")]
+    [Tags("Common")]
+    [Output("Body", typeof(OverExecutionFlowData), Multiple = false)]
+    public class OverListIterate : OverExecutionFlowNode
+    {
+        [Input("List")] public IList list;
+        [Output("Current Index")] private int index;
+        [Output("Current Element")] private object element;
+
+        public override IExecutableOverNode Execute(OverExecutionFlowData data)
+        {
+            var _list = GetInputValue("List", list);
+
+            // Execution does not leave this node until the loop completes
+            IExecutableOverNode next = GetNextExecutableNode("Body");
+            for (index = 0; index < (int)_list.Count; index++)
+            {
+                element = _list[index];
+                (Graph as OverGraph).Execute(next, data);
+            }
+
+            return GetNextExecutableNode();
+        }
+
+        public override object OnRequestNodeValue(Port port)
+        {
+            if (port.Name == "Current Index")
+            {
+                return index;
+            }
+            if (port.Name == "Current Element")
+            {
+                return element;
+            }
+
+            return base.OnRequestNodeValue(port);
         }
     }
 }

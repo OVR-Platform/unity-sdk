@@ -18,16 +18,19 @@
     flex: 100 0 auto;
     background-color: var(--bluegraph-node-inputs-background-color);
     opacity: 0.95;
+    max-width: 300px
 }
 
 .nodeView #output {
     flex: 1 0 auto;
     background-color: var(--bluegraph-node-outputs-background-color);
     opacity: 0.95;
+    max-width: 200px
 }
 
 .nodeView #contents {
     flex-direction: column;
+    max-width: 500px
 }
 
 .nodeView #extension .unity-property-field__label {

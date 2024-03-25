@@ -29,8 +29,6 @@ using UnityEngine;
 
 namespace OverSDK
 {
-    //[RequireComponent(typeof(OvrLightSettings))]
-    //[RequireComponent(typeof(OvrGeneralSettings))]
     [ExecuteInEditMode]
     public class OvrAsset : MonoBehaviour
     {
@@ -47,21 +45,25 @@ namespace OverSDK
         protected void Update()
         {
 #if !APP_MAIN
-            transform.position = Vector3.zero;
-            transform.rotation = Quaternion.identity;
+            transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
             transform.localScale = Vector3.one;
 #endif
         }
 
         public void Init()
         {
-            if (ovrLightModifierData == null)
-            {
-                ovrLightModifierData = GetComponent<OvrLightSettings>();
-                if (ovrLightModifierData == null)
-                    ovrLightModifierData = gameObject.AddComponent<OvrLightSettings>();
-            }
+            #region Legacy old code
+            //if (ovrLightModifierData == null)
+            //{
+            //    ovrLightModifierData = GetComponent<OvrLightSettings>();
+            //    if (ovrLightModifierData == null)
+            //        ovrLightModifierData = gameObject.AddComponent<OvrLightSettings>();
+            //}
 
+
+            //if (ovrGeneralSettings == null)
+            //    ovrGeneralSettings = GetComponent<OvrGeneralSettings>();
+            #endregion
 
             if (ovrCanvas == null)
             {
@@ -79,13 +81,14 @@ namespace OverSDK
 #endif
             }
 
-            if (ovrGeneralSettings == null)
-            {
-                ovrGeneralSettings = GetComponent<OvrGeneralSettings>();
-                if (ovrGeneralSettings == null)
-                    ovrGeneralSettings = gameObject.AddComponent<OvrGeneralSettings>();
-            }
+            #region Legacy old code
+            //if (ovrGeneralSettings == null)
+            //{
+            //    ovrGeneralSettings = GetComponent<OvrGeneralSettings>();
+            //    if (ovrGeneralSettings == null)
+            //        ovrGeneralSettings = gameObject.AddComponent<OvrGeneralSettings>();
+            //} 
+            #endregion
         }
-
     }
 }
