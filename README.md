@@ -11,14 +11,14 @@ _Fig 1.2: Unity Version_
 3.1	Select Mac platform for Over Console support. (Optional)
 3.2	Select WebGL platform for Instant App support . (Optional)
 
-![Unity platforms](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-02-1-2.png)
+![Unity platforms](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-02-1-2___.png)
 _Fig 1.3: Unity platforms_
 
 3.	{For Mac) Select Android and iOS platform.
 3.1	Select Mac platform for Over Windows support. (Optional)
 3.2	Select WebGL platform for Instant App support . (Optional)
 
-![Unity platforms](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-02-2.png)
+![Unity platforms](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-02-2___.png)
 _Fig 1.3: Unity platforms_
 
 4.	Create new project in unity with the download version.
@@ -48,7 +48,7 @@ _Fig 1.3: Unity platforms_
 ## Create and use your OVER API Keys
 1.	Login on the OVER Web Builder https://builder.ovr.ai using your credentials or your Metamask wallet and click on "Api Keys" from the top menu.
 
-![Create new project](https://assets.ovr.ai/images/github-sdk/sdk1-tutorial-2.png)
+![Create new project](https://assets.ovr.ai/images/github-sdk/sdk1-tutorial-2___.png)
 _Fig 3.1: Click on API Keys_
 
 2. Click on the the button "Create token".
@@ -58,12 +58,12 @@ _Fig 3.2: Click on Create token_
 
 3.	Type a name as a reference and select an expiration date.
 
-![Create new project](https://assets.ovr.ai/images/github-sdk/sdk3-tutorial-2.png)
+![Create new project](https://assets.ovr.ai/images/github-sdk/sdk3-tutorial-2___.png)
 _Fig 3.3: Create your token_
 
 4.	Select and copy the newly created token to use it in Unity .
 
-![Create new project](https://assets.ovr.ai/images/github-sdk/sdk4-tutorial.png)
+![Create new project](https://assets.ovr.ai/images/github-sdk/sdk4-tutorial___.png)
 _Fig 3.4: Get and use your token_
 
 # OVER SDK MANUAL
