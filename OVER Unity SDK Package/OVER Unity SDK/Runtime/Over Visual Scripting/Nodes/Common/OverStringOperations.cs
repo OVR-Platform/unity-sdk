@@ -135,6 +135,11 @@ namespace OverSDK.VisualScripting
             {
                 return j;
             }
+            else
+            {
+                var overScript = OverScriptManager.Main.GetOverScript(sharedContext.scriptGUID);
+                Debug.LogError($"[Over] Cannot convert {_entity} to a int value.", overScript);
+            }
 
             return base.OnRequestNodeValue(port);
         }
@@ -153,6 +158,11 @@ namespace OverSDK.VisualScripting
             {
                 return j;
             }
+            else
+            {
+                var overScript = OverScriptManager.Main.GetOverScript(sharedContext.scriptGUID);
+                Debug.LogError($"[Over] Cannot convert {_entity} to a float value.", overScript);
+            }
 
             return base.OnRequestNodeValue(port);
         }
@@ -170,6 +180,11 @@ namespace OverSDK.VisualScripting
             if (bool.TryParse(_entity, out bool j))
             {
                 return j;
+            }
+            else
+            {
+                var overScript = OverScriptManager.Main.GetOverScript(sharedContext.scriptGUID);
+                Debug.LogError($"[Over] Cannot convert {_entity} to a boolean value.", overScript);
             }
 
             return base.OnRequestNodeValue(port);

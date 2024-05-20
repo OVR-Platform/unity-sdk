@@ -133,11 +133,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5448009697505542932, guid: af45fe99498158847ad33acd78ac5a1b,
         type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5448009697505542932, guid: af45fe99498158847ad33acd78ac5a1b,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -190,11 +185,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BasketGame_VisualScripting
-      objectReference: {fileID: 0}
-    - target: {fileID: 5448009697505542933, guid: af45fe99498158847ad33acd78ac5a1b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -107,7 +107,7 @@ namespace OverSDK.VisualScripting
 
             if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
             {
-                OverScript overScript = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript;
+                OverScript overScript = OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript;
                 switch (type)
                 {
                     case OverWebServiceNodeRequestType.GET:
@@ -144,7 +144,6 @@ namespace OverSDK.VisualScripting
 
         private IEnumerator GetRequestAsync(string url, Dictionary<string, string> header, UnityAction onComplete)
         {
-            Debug.Log(url);
             using (UnityWebRequest webRequest = UnityWebRequest.Get(url))
             {
                 if (header != null)
@@ -218,22 +217,33 @@ namespace OverSDK.VisualScripting
         }
     }
 
-    [Node(Path = "Operations/Web", Icon = "OPERATIONS/WEB", Name = "Open Url")]
+    [Node(Path = "Operations/Web", Name = "Open Url", Icon = "OPERATIONS/WEB")]
     public class OverOpenURL : OverWebHandlerNode
     {
         [Input("URL")] public string url;
+
+        readonly string urlPattern = @"^https?:\/\/(?:www\.)?[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.(?:[a-zA-Z]{2,6}\.?){1,2}(?:\/[^\s]*)?$";
 
         public override IExecutableOverNode Execute(OverExecutionFlowData data)
         {
             string _url = GetInputValue("URL", url);
 
-            if(!string.IsNullOrEmpty(_url))
+            if(!string.IsNullOrEmpty(_url) && ValidateURL(url))
             {
                 Application.OpenURL(_url);
+            }
+            else
+            {
+                Debug.LogError($"[Over] Sorry, the link you provided cannot be opened because it does not appear to be a valid URL. Please check the link and try again.");
             }
 
             return base.Execute(data);
         }
-    }
 
+        // Function to validate URL
+        public bool ValidateURL(string url)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(url, urlPattern);
+        }
+    }
 }

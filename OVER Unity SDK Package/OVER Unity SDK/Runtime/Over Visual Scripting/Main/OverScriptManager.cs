@@ -31,12 +31,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using UnityEditor;
 using UnityEngine;
 
 namespace OverSDK.VisualScripting
 {
     [Serializable]
-    public class OverDataMapping
+    public class OverScriptReference
     {
         public OverScript overScript;
         public OverGraph overGraphAsset;
@@ -73,12 +74,16 @@ namespace OverSDK.VisualScripting
             get
             {
                 if (main == null)
-                    main = (OverScriptManager)FindObjectOfType(typeof(OverScriptManager));
+                {
+                    OverScriptManager overScriptManager = (OverScriptManager)FindObjectOfType(typeof(OverScriptManager));
+                    if (overScriptManager != null && !overScriptManager.IsError)
+                        main = overScriptManager;
+                }
                 return main;
             }
         }
 
-        public Dictionary<string, OverDataMapping> overDataMappings = new Dictionary<string, OverDataMapping>();
+        public Dictionary<string, OverScriptReference> overScriptsReferences = new Dictionary<string, OverScriptReference>();
         [SerializeField] public List<OverScript> managedScripts = new List<OverScript>();
         public bool IsError => errors.Count > 0;
 
@@ -93,10 +98,8 @@ namespace OverSDK.VisualScripting
             set { data = value; }
         }
 
-        [SerializeField][HideInInspector] List<OverGraphVariableData> ghostVariables = new List<OverGraphVariableData>();
-
         [Header("Debug")]
-        [SerializeField] public List<ErrorScriptMessage> errors = new List<ErrorScriptMessage>();
+        public List<ErrorScriptMessage> errors = new List<ErrorScriptMessage>();
 
         public static Func<string> GetEnvironmentIndex = null;
 
@@ -105,31 +108,9 @@ namespace OverSDK.VisualScripting
 
         private void OnValidate()
         {
-            RefreshGlobals();
-        }
-
-        public void RefreshGlobals()
-        {
-            Dictionary<string, OverVariableData> dict = Data.VariableDict;
-            if (ghostVariables.Count != Data.variables.Count)
-            {
-                foreach (OverScript managed in managedScripts)
-                {
-                    managed.OverGraph.ValidateInternalNodes();
-                }
-
-                ghostVariables = new List<OverGraphVariableData>(Data.variables.Select(x => x.ToGraphData()));
-            }
-        }
-
-        public void ApplyVariableChangesTo(OverVariableData variable)
-        {
-            foreach (OverScript managed in managedScripts)
-            {
-                managed.OverGraph.ValidateInternalNodes();
-            }
-
-            ghostVariables = new List<OverGraphVariableData>(Data.variables.Select(x => x.ToGraphData()));
+            bool isInActualScene = gameObject != null && !string.IsNullOrEmpty(gameObject.scene.name) && gameObject.scene.name.Equals(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+            if (isInActualScene)
+                ConvertOldVariablesToNewList(alsoMangedScript: false);
         }
 
         private void Awake()
@@ -137,12 +118,21 @@ namespace OverSDK.VisualScripting
             if (IsError)
             {
                 DisplayErrors();
+                if (main == this)
+                    main = null;
+                Destroy(this);
                 return;
             }
 
-            UpdateMappings();
+            UpdateScriptReferences();
+
+            //After updating references to scripts
+            //Centralized because there may be variables in common between scripts
+            ConvertOldVariablesToNewList();
 
             GetOrCreateInternalSaveFile();
+
+            Data.RebuildLookupDictionary();
         }
 
 #if UNITY_EDITOR && !APP_MAIN  
@@ -150,13 +140,13 @@ namespace OverSDK.VisualScripting
         private static void DidReloadScripts()
         {
             if (OverScriptManager.Main != null)
-                OverScriptManager.Main.UpdateMappings();
+                OverScriptManager.Main.UpdateScriptReferences();
         }
 #endif
 
-        public void UpdateMappings()
+        public void UpdateScriptReferences()
         {
-            overDataMappings.Clear();
+            overScriptsReferences.Clear();
             managedScripts.Clear();
             errors.Clear();
 
@@ -174,7 +164,6 @@ namespace OverSDK.VisualScripting
                     }
                     else
                     {
-                        //errors.Add(new ErrorScriptMessage(ScriptManagementError.MultipleScript, script));
                         script.GUID = Guid.NewGuid().ToString();
                     }
                 }
@@ -186,23 +175,25 @@ namespace OverSDK.VisualScripting
             {
                 if (script.OverGraph != null)
                 {
-                    OverDataMapping mapping = new OverDataMapping()
+                    OverScriptReference reference = new OverScriptReference() 
                     {
                         overGraphAsset = script.OverGraph,
                         overScript = script
                     };
 
-                    if (!overDataMappings.ContainsKey(mapping.overScript.GUID))
+                    if (!overScriptsReferences.ContainsKey(reference.overScript.GUID))
                     {
-                        overDataMappings.Add(mapping.overScript.GUID, mapping);
+                        overScriptsReferences.Add(reference.overScript.GUID, reference);
                         managedScripts.Add(script);
                     }
                     else
                     {
-                        overDataMappings[mapping.overScript.GUID] = mapping;
+                        overScriptsReferences[reference.overScript.GUID] = reference;
                     }
                 }
             }
+
+            ConvertOldVariablesToNewList(alsoMangedScript: false);
         }
 
         public OverScript GetOverScript(string scriptGUID)
@@ -294,5 +285,92 @@ namespace OverSDK.VisualScripting
             }
             return false;
         }
+
+        public void UpdateVariableChangedSubscription(bool subscribe)
+        {
+            if (Data != null)
+            {
+                bool isSubscribed = Data.IsDelegateSubscribed(OverScriptData_OnVariablesListChanged);
+
+                if (subscribe is true &&
+                    isSubscribed is false)
+                {
+                    // Subscribe to the event
+                    Data.OnVariablesListChanged -= OverScriptData_OnVariablesListChanged;
+                    Data.OnVariablesListChanged += OverScriptData_OnVariablesListChanged;
+                }
+                else if (subscribe is false &&
+                         isSubscribed is true)
+                {
+                    // Unsubscribe from the event
+                    Data.OnVariablesListChanged -= OverScriptData_OnVariablesListChanged;
+                }
+            }
+        }
+
+        private void OverScriptData_OnVariablesListChanged(OverScriptData.VariableListType variableListType, OverVariableData overVariableData)
+        {
+            foreach (var script in managedScripts)
+            {
+                if (script != null && script.OverGraph != null)
+                {
+                    // Non so se servono entrambi, boh... buona fortuna nuovo responsabile dell'SDK
+                    script.OverGraph.UpdateDataFromManager();
+                    //script.OverGraph.ValidateInternalNodes();
+                }
+            }
+        }
+        public void ApplyVariableChangesTo(OverVariableData variable)
+        {           
+            foreach (OverScript script in managedScripts)
+            {
+                if (script != null && script.OverGraph != null)
+                {
+                    script.OverGraph.UpdateDataFromManager();
+                }
+            }
+        }
+
+        /******************** Managed scripts public ********************/
+
+        public void AddManagedScript(OverScript scriptToAdd)
+        {
+            if (!managedScripts.Contains(scriptToAdd))
+                managedScripts.Add(scriptToAdd);
+        }
+
+        public void RemoveManagedScript(OverScript scriptToAdd) => managedScripts.Remove(scriptToAdd);
+
+       
+
+        public void ConvertOldVariablesToNewList(bool alsoMangedScript = true)
+        {
+            // Manager variables
+            int totalVariablesConverted = Data.UpdateOldVariableDataList();
+            // script.OverGraph.UpdateDataFromManager();  This is done automatically after 
+
+            if (alsoMangedScript)
+            {
+#if UNITY_EDITOR
+                if (!Application.isPlaying)
+                    EditorUtility.SetDirty(this);
+#endif
+
+                // Scripts variables
+                foreach (OverScript script in managedScripts)
+                {
+                    script.UpdateOldVariableList();
+#if UNITY_EDITOR
+                    if (!Application.isPlaying)
+                        EditorUtility.SetDirty(script);
+#endif     
+                }
+#if UNITY_EDITOR
+                if (!Application.isPlaying)
+                    AssetDatabase.SaveAssets();               
+#endif
+            }
+        }
+
     }
 }

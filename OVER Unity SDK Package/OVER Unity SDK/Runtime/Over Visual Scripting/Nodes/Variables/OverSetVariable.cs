@@ -40,6 +40,9 @@ namespace OverSDK.VisualScripting
     public abstract class OverSetVariable : OverExecutionFlowNode
     {
         public string guid;
+
+        public int sublistIndex;
+
         public string _name;
 
         public bool isGlobal;
@@ -68,14 +71,14 @@ namespace OverSDK.VisualScripting
         {
             int newVariable = (int)GetInputValue("Int", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.integerValue = newVariable;
-                _value = variableData.integerValue;
+                varaibleFound.integerValue = newVariable;
+                _value = varaibleFound.integerValue;
             }
 
             return base.Execute(data);
@@ -101,14 +104,14 @@ namespace OverSDK.VisualScripting
         {
             float newVariable = GetInputValue("Float", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.floatValue = newVariable;
-                _value = variableData.floatValue;
+                varaibleFound.floatValue = newVariable;
+                _value = varaibleFound.floatValue;
             }
 
             return base.Execute(data);
@@ -134,14 +137,14 @@ namespace OverSDK.VisualScripting
         {
             bool newVariable = GetInputValue("Bool", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.boolValue = newVariable;
-                _value = variableData.boolValue;
+                varaibleFound.boolValue = newVariable;
+                _value = varaibleFound.boolValue;
             }
 
             return base.Execute(data);
@@ -167,14 +170,14 @@ namespace OverSDK.VisualScripting
         {
             string newVariable = GetInputValue("String", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.stringValue = newVariable;
-                _value = variableData.stringValue;
+                varaibleFound.stringValue = newVariable;
+                _value = varaibleFound.stringValue;
             }
 
             return base.Execute(data);
@@ -200,14 +203,14 @@ namespace OverSDK.VisualScripting
         {
             Vector2 newVariable = GetInputValue("Vector 2D", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.vector2Value = newVariable;
-                _value = variableData.vector2Value;
+                varaibleFound.vector2Value = newVariable;
+                _value = varaibleFound.vector2Value;
             }
 
             return base.Execute(data);
@@ -233,14 +236,14 @@ namespace OverSDK.VisualScripting
         {
             Vector3 newVariable = GetInputValue("Vector 3D", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.vector3Value = newVariable;
-                _value = variableData.vector3Value;
+                varaibleFound.vector3Value = newVariable;
+                _value = varaibleFound.vector3Value;
             }
 
             return base.Execute(data);
@@ -266,14 +269,14 @@ namespace OverSDK.VisualScripting
         {
             Quaternion newVariable = GetInputValue("Quaternion", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.QuaternionValue = newVariable;
-                _value = variableData.QuaternionValue;
+                varaibleFound.QuaternionValue = newVariable;
+                _value = varaibleFound.QuaternionValue;
             }
 
             return base.Execute(data);
@@ -299,14 +302,14 @@ namespace OverSDK.VisualScripting
         {
             Transform newVariable = GetInputValue("Transform", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.transformValue = newVariable;
-                _value = variableData.transformValue;
+                varaibleFound.transformValue = newVariable;
+                _value = varaibleFound.transformValue;
             }
 
             return base.Execute(data);
@@ -332,14 +335,14 @@ namespace OverSDK.VisualScripting
         {
             RectTransform newVariable = GetInputValue("RectTransform", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.rectTransform = newVariable;
-                _value = variableData.rectTransform;
+                varaibleFound.rectTransform = newVariable;
+                _value = varaibleFound.rectTransform;
             }
 
             return base.Execute(data);
@@ -365,14 +368,14 @@ namespace OverSDK.VisualScripting
         {
             Rigidbody newVariable = GetInputValue("Rigidbody", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.rigidbodyValue = newVariable;
-                _value = variableData.rigidbodyValue;
+                varaibleFound.rigidbodyValue = newVariable;
+                _value = varaibleFound.rigidbodyValue;
             }
 
             return base.Execute(data);
@@ -398,14 +401,14 @@ namespace OverSDK.VisualScripting
         {
             Collider newVariable = GetInputValue("Collider", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.colliderValue = newVariable;
-                _value = variableData.colliderValue;
+                varaibleFound.colliderValue = newVariable;
+                _value = varaibleFound.colliderValue;
             }
 
             return base.Execute(data);
@@ -431,14 +434,14 @@ namespace OverSDK.VisualScripting
         {
             CharacterController newVariable = GetInputValue("CharacterController", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.characterController = newVariable;
-                _value = variableData.characterController;
+                varaibleFound.characterController = newVariable;
+                _value = varaibleFound.characterController;
             }
 
             return base.Execute(data);
@@ -464,14 +467,14 @@ namespace OverSDK.VisualScripting
         {
             GameObject newVariable = GetInputValue("GameObject", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.gameObject = newVariable;
-                _value = variableData.gameObject;
+                varaibleFound.gameObject = newVariable;
+                _value = varaibleFound.gameObject;
             }
 
             return base.Execute(data);
@@ -497,14 +500,14 @@ namespace OverSDK.VisualScripting
         {
             Renderer newVariable = GetInputValue("Renderer", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.renderer = newVariable;
-                _value = variableData.renderer;
+                varaibleFound.renderer = newVariable;
+                _value = varaibleFound.renderer;
             }
 
             return base.Execute(data);
@@ -530,14 +533,14 @@ namespace OverSDK.VisualScripting
         {
             LineRenderer newVariable = GetInputValue("LineRenderer", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.lineRenderer = newVariable;
-                _value = variableData.lineRenderer;
+                varaibleFound.lineRenderer = newVariable;
+                _value = varaibleFound.lineRenderer;
             }
 
             return base.Execute(data);
@@ -563,14 +566,14 @@ namespace OverSDK.VisualScripting
         {
             Material newVariable = GetInputValue("Material", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.material = newVariable;
-                _value = variableData.material;
+                varaibleFound.material = newVariable;
+                _value = varaibleFound.material;
             }
 
             return base.Execute(data);
@@ -596,14 +599,14 @@ namespace OverSDK.VisualScripting
         {
             ParticleSystem newVariable = GetInputValue("ParticleSystem", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.particleSystem = newVariable;
-                _value = variableData.particleSystem;
+                varaibleFound.particleSystem = newVariable;
+                _value = varaibleFound.particleSystem;
             }
 
             return base.Execute(data);
@@ -629,14 +632,14 @@ namespace OverSDK.VisualScripting
         {
             AudioSource newVariable = GetInputValue("AudioSource", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.audioSource = newVariable;
-                _value = variableData.audioSource;
+                varaibleFound.audioSource = newVariable;
+                _value = varaibleFound.audioSource;
             }
 
             return base.Execute(data);
@@ -662,14 +665,14 @@ namespace OverSDK.VisualScripting
         {
             AudioClip newVariable = GetInputValue("AudioClip", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.audioClip = newVariable;
-                _value = variableData.audioClip;
+                varaibleFound.audioClip = newVariable;
+                _value = varaibleFound.audioClip;
             }
 
             return base.Execute(data);
@@ -695,14 +698,14 @@ namespace OverSDK.VisualScripting
         {
             VideoPlayer newVariable = GetInputValue("VideoPlayer", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.videoPlayer = newVariable;
-                _value = variableData.videoPlayer;
+                varaibleFound.videoPlayer = newVariable;
+                _value = varaibleFound.videoPlayer;
             }
 
             return base.Execute(data);
@@ -728,14 +731,14 @@ namespace OverSDK.VisualScripting
         {
             ImageStreamer newVariable = GetInputValue("ImageStreamer", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.imageStreamer = newVariable;
-                _value = variableData.imageStreamer;
+                varaibleFound.imageStreamer = newVariable;
+                _value = varaibleFound.imageStreamer;
             }
 
             return base.Execute(data);
@@ -761,14 +764,14 @@ namespace OverSDK.VisualScripting
         {
             Animator newVariable = GetInputValue("Animator", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.animator = newVariable;
-                _value = variableData.animator;
+                varaibleFound.animator = newVariable;
+                _value = varaibleFound.animator;
             }
 
             return base.Execute(data);
@@ -795,14 +798,14 @@ namespace OverSDK.VisualScripting
         {
             Light newVariable = GetInputValue("Light", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.light = newVariable;
-                _value = variableData.light;
+                varaibleFound.light = newVariable;
+                _value = varaibleFound.light;
             }
 
             return base.Execute(data);
@@ -828,14 +831,14 @@ namespace OverSDK.VisualScripting
         {
             NavMeshAgent newVariable = GetInputValue("NavMeshAgent", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.navMeshAgent = newVariable;
-                _value = variableData.navMeshAgent;
+                varaibleFound.navMeshAgent = newVariable;
+                _value = varaibleFound.navMeshAgent;
             }
 
             return base.Execute(data);
@@ -894,14 +897,14 @@ namespace OverSDK.VisualScripting
         {
             Text newVariable = GetInputValue("Text", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.text = newVariable;
-                _value = variableData.text;
+                varaibleFound.text = newVariable;
+                _value = varaibleFound.text;
             }
 
             return base.Execute(data);
@@ -927,14 +930,14 @@ namespace OverSDK.VisualScripting
         {
             TMPro.TextMeshProUGUI newVariable = GetInputValue("Text (TMP UGUI)", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.textTMP = newVariable;
-                _value = variableData.textTMP;
+                varaibleFound.textTMP = newVariable;
+                _value = varaibleFound.textTMP;
             }
 
             return base.Execute(data);
@@ -960,14 +963,14 @@ namespace OverSDK.VisualScripting
         {
             TMPro.TextMeshPro newVariable = GetInputValue("Text (TMP)", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.textTMP_3D = newVariable;
-                _value = variableData.textTMP_3D;
+                varaibleFound.textTMP_3D = newVariable;
+                _value = varaibleFound.textTMP_3D;
             }
 
             return base.Execute(data);
@@ -993,14 +996,14 @@ namespace OverSDK.VisualScripting
         {
             Image newVariable = GetInputValue("Image", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.image = newVariable;
-                _value = variableData.image;
+                varaibleFound.image = newVariable;
+                _value = varaibleFound.image;
             }
 
             return base.Execute(data);
@@ -1026,14 +1029,14 @@ namespace OverSDK.VisualScripting
         {
             RawImage newVariable = GetInputValue("RawImage", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.rawImage = newVariable;
-                _value = variableData.rawImage;
+                varaibleFound.rawImage = newVariable;
+                _value = varaibleFound.rawImage;
             }
 
             return base.Execute(data);
@@ -1060,14 +1063,14 @@ namespace OverSDK.VisualScripting
         {
             Color newVariable = GetInputValue("Color", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.color = newVariable;
-                _value = variableData.color;
+                varaibleFound.color = newVariable;
+                _value = varaibleFound.color;
             }
 
             return base.Execute(data);
@@ -1094,36 +1097,32 @@ namespace OverSDK.VisualScripting
         {
             IList newVariable = GetInputValue("List", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                //variableData.list.GenericElements = newVariable;
-
-                variableData.list.Elements = new System.Collections.Generic.List<OverListData>();
-                foreach( var item in newVariable)
+                varaibleFound.list.Elements = new System.Collections.Generic.List<OverListData>();
+                foreach (var item in newVariable)
                 {
                     OverListData d = new OverListData();
-                    d.type = (OverListDataType)variableData.list.Type;
+                    d.type = (OverListDataType)varaibleFound.list.Type;
                     d.SetValue(item);
-                    variableData.list.Elements.Add(d);
+                    varaibleFound.list.Elements.Add(d);
                 }
 
 
-                IList result = OverList.GetList(OverList.ResolveType(variableData.list));
-                foreach (var element in variableData.list.Elements)
+                IList result = OverList.GetList(OverList.ResolveType(varaibleFound.list));
+                foreach (var element in varaibleFound.list.Elements)
                 {
-                    var item = element.GetValue((OverListDataType)variableData.list.Type);
+                    var item = element.GetValue((OverListDataType)varaibleFound.list.Type);
                     if (item != null)
                     {
                         result.Add(item);
                     }
                 }
                 _value = result;
-
-                //_value = variableData.list.GenericElements;
             }
 
             return base.Execute(data);
@@ -1139,7 +1138,7 @@ namespace OverSDK.VisualScripting
     [Output("Value", Type = typeof(OverList), Multiple = true)]
     public class OverSetVariableOverList : OverSetVariable
     {
-        [Input("Image")] public OverList newVariable;
+        [Input("List")] public OverList newVariable;
 
         protected OverList _value;
         public override object Value => _value;
@@ -1149,14 +1148,14 @@ namespace OverSDK.VisualScripting
         {
             OverList newVariable = GetInputValue("OverList", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                variableData.list = newVariable;
-                _value = variableData.list;
+                varaibleFound.list = newVariable;
+                _value = varaibleFound.list;
             }
 
             return base.Execute(data);
@@ -1183,13 +1182,13 @@ namespace OverSDK.VisualScripting
         {
             JSONNode newVariable = GetInputValue("JSON", this.newVariable);
 
-            var variableDict = isGlobal
-                ? OverScriptManager.Main.Data.VariableDict
-                : OverScriptManager.Main.overDataMappings[data.scritpGUID].overScript.Data.VariableDict;
+            OverScriptData scriptData = isGlobal ?
+                           OverScriptManager.Main.Data :
+                           OverScriptManager.Main.overScriptsReferences[data.scritpGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (scriptData.TryGetVariable(guid, out OverVariableData variableFound))
             {
-                variableData.json = newVariable.ToString();
+                variableFound.json = newVariable.ToString();
                 _value = newVariable;
             }
 

@@ -49,9 +49,12 @@ namespace OverSDK.VisualScripting
     [Node(Path = "Flow/Event", Name = "Button Clicked", Icon = "FLOW/EVENT")]
     public class OverOnButtonClicked : OverEventNode
     {
-        [Input("Button", Multiple = false)] public GameObject button;
+        [Input("Button", Multiple = false)]
+        public GameObject button;
 
         [Editable("Mode")] public ButtonInteractionMode interactionMode;
+
+        [Output("Has Clicked", Multiple = true)] public bool hasClicked;
 
         private UnityAction buttonTriggerDelegate;
 
@@ -125,8 +128,20 @@ namespace OverSDK.VisualScripting
 
             void ButtonTriggered()
             {
+                hasClicked = interactionMode == ButtonInteractionMode.Down;
+
                 (Graph as OverGraph).Execute(GetNextExecutableNode(), flowData);
             }
+        }
+
+        public override object OnRequestNodeValue(Port port)
+        {
+            if (port.Name == "Has Clicked")
+            {
+                return hasClicked;
+            }
+
+            return base.OnRequestNodeValue(port);
         }
     }
 
@@ -178,7 +193,7 @@ namespace OverSDK.VisualScripting
     [Node(Path = "Flow/Event", Name = "Trigger", Icon = "FLOW/EVENT")]
     public class OverOnTrigger : OverEventNode
     {
-        [Input("Target", Multiple = false)] public GameObject target;
+        [Input("Target", Multiple = false)] public Collider target;
 
         [Output("Other")] public Collider other;
 
@@ -190,19 +205,39 @@ namespace OverSDK.VisualScripting
 
         public override void Register(OverExecutionFlowData flowData, Action specificEventToRegister = null)
         {
+            GameObject _target = null;
+
             PropagateFlowData(flowData);
-            GameObject _target = GetInputValue("Target", target);
+
+            // Retrocompatibility support
+            var port = GetPort("Target");
+            if (port.Type == typeof(GameObject))
+            {
+                _target = GetInputValue<GameObject>("Target");
+            }
+            else
+            {
+                var _colliderTarget = GetInputValue("Target", target);
+
+                if (_colliderTarget == null)
+                {
+                    Debug.LogWarning($"The trigger node is not connected to anything. Disabled for now.", OverScriptManager.Main.GetOverScript(flowData.scritpGUID));
+                    return;
+                }
+
+                _target = _colliderTarget.gameObject;
+            }
 
             if (_target == null)
             {
-                Debug.LogWarning($"The trigger node is not connected to anything. Disabled for now.");
+                Debug.LogWarning($"The trigger node is not connected to anything. Disabled for now.", OverScriptManager.Main.GetOverScript(flowData.scritpGUID));
 
                 return;
             }
 
             if (!_target.TryGetComponent(out Collider _targetCollider))
             {
-                Debug.LogWarning($"Impossible to find a collider in the object assigned of the trigger. Adding a default one.");
+                Debug.LogWarning($"Impossible to find a collider in the object assigned of the trigger. Adding a default one.", _target);
 
                 _targetCollider = _target.AddComponent<BoxCollider>();
             }

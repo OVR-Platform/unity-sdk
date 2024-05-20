@@ -33,7 +33,7 @@ namespace OverSDK.VisualScripting
     [Tags("Common")]
     public abstract class OverQuaternionOperation : OverNode { }
 
-    [Node(Path = "Operations/Quaternion", Icon = "OPERATIONS/QUATERNION", Name = "Quaternion Exposer")]
+    [Node(Path = "Operations/Quaternion", Name = "Quaternion Exposer", Icon = "OPERATIONS/QUATERNION")]
     public class OverQuaternionExposer : OverQuaternionOperation
     {
         [Input("Quaternion")] public Quaternion quaternion;
