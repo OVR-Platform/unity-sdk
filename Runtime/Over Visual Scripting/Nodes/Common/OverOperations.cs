@@ -165,7 +165,7 @@ namespace OverSDK.VisualScripting
     }
 
 
-    [Node(Path = "Operations/Math/Binary", Name = "Addition", Icon = "OPERATIONS/MATH")]
+    [Node(Path = "Operations/Math/Binary", Name = "Sum", Icon = "OPERATIONS/MATH")]
     [Output("Result", Type = (typeof(System.Single)), Multiple = true)]
     public class OverMathSum : OverMathOperation
     {

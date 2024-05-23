@@ -106,7 +106,7 @@ namespace OverSDK.VisualScripting
         }
     }
 
-    [Node(Path = "Component/Object/Handlers", Name = "Create", Icon = "COMPONENT/OBJECT")]
+    [Node(Path = "Component/Object/Handlers", Name = "Instantiate", Icon = "COMPONENT/OBJECT")]
     public class OverInstantiateObject : OverObjectHandlerNode
     {
         [Input("Prefab")] public GameObject prefab;

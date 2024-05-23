@@ -1078,769 +1078,713 @@ MonoBehaviour:
   GUID: 5eb795c4-40e2-4d26-bec2-b3a5f3cfce0a
   overGraph: {fileID: 11400000, guid: ce9e9b6ac04346046908d03016b308e9, type: 2}
   data:
-    variables:
-    - GUID: 2bd5bd5f-1892-4478-8ffa-2763e4cf51c5
-      name: MoleReference
-      type: 11
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 0
-      stringValue: PaddleTrigger
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: a8e7cca7-70c0-4175-8b62-1184a494cfeb
-      name: IsMoleDead
-      type: 1
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 0
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 62922859-037d-470f-8bdd-8122359df7ae
-      name: PaddleTriggerReference
-      type: 11
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4071201883414300316}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 0167de76-47ad-409a-9000-9a22d542028f
-      name: MolePoints
-      type: 2
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: e4e98d44-4dec-4bd0-b5cb-f49490defa40
-      name: PaddleName
-      type: 7
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 0
-      stringValue: PaddleTrigger
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: e8e54c63-4cc4-4fe4-8a93-1d06fa6b207e
-      name: MoleLifeSpan
-      type: 3
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 5
-      stringValue: PaddleTrigger
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 5c0276f0-b1ce-4b05-8d06-5e58fe77ad1a
-      name: CurrMoleLifeSpan
-      type: 3
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 0
-      stringValue: PaddleTrigger
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: d0794340-b129-48bd-a4ae-16cf150794ea
-      name: GoodMoleName
-      type: 7
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 0
-      stringValue: GoodMole
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: a024dd6c-bb0c-498c-bef2-dee72ba6e77a
-      name: BadMoleName
-      type: 7
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 0
-      stringValue: BadMole
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: a772e5ae-a25b-4010-902c-c6127860bc0c
-      name: IsMoleSpawned
-      type: 1
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 0
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 4a9edc79-8988-466c-a7cf-523322fe1648
-      name: IsSpawnCheckExecuted
-      type: 1
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 0
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 2237d1be-1209-4a93-a31c-c4f8543b9114
-      name: HitParticle
-      type: 16
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 0
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 9220009270486040644}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: a3ad4e4b-909c-473b-804c-de1d600a8730
-      name: ParticleTime
-      type: 3
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 1
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: cf5e0aa3-5152-4ba7-99e5-060117f0c11c
-      name: PortalTime
-      type: 3
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 1
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: b9323228-fef4-43cc-8be4-64560e435517
-      name: CanMoleBeHit
-      type: 1
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 1
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 32c5b79c-73a7-42c6-9e53-851355d245b0
-      name: MoleLaughSfx
-      type: 53
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 1
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 8300000, guid: d7960d969e5443b4689d6f4273936374, type: 3}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 7fb77ac1-3a4b-4387-9dda-ae0caf93eb4c
-      name: MolePortalSfx
-      type: 53
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 1
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 8300000, guid: ed381be701961d444aebc284a8a4f3f9, type: 3}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: a9ee567a-56ca-45ab-b461-db8e49af6071
-      name: MoleHitSfx
-      type: 53
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 1
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 8300000, guid: 947cd93267eea0c42a741cc11f4e9fbe, type: 3}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 5d27fbe2-8a04-47c9-8934-86a31a27d447
-      name: HasMoleLaughed
-      type: 1
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 1
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 8300000, guid: 947cd93267eea0c42a741cc11f4e9fbe, type: 3}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    subLists: []
-  ghostVariables:
-  - GUID: 2bd5bd5f-1892-4478-8ffa-2763e4cf51c5
-    name: MoleReference
-    type: 11
-    isGlobal: 0
-  - GUID: a8e7cca7-70c0-4175-8b62-1184a494cfeb
-    name: IsMoleDead
-    type: 1
-    isGlobal: 0
-  - GUID: 62922859-037d-470f-8bdd-8122359df7ae
-    name: PaddleTriggerReference
-    type: 11
-    isGlobal: 0
-  - GUID: 0167de76-47ad-409a-9000-9a22d542028f
-    name: MolePoints
-    type: 2
-    isGlobal: 0
-  - GUID: e4e98d44-4dec-4bd0-b5cb-f49490defa40
-    name: PaddleName
-    type: 7
-    isGlobal: 0
-  - GUID: e8e54c63-4cc4-4fe4-8a93-1d06fa6b207e
-    name: MoleLifeSpan
-    type: 3
-    isGlobal: 0
-  - GUID: 5c0276f0-b1ce-4b05-8d06-5e58fe77ad1a
-    name: CurrMoleLifeSpan
-    type: 3
-    isGlobal: 0
-  - GUID: d0794340-b129-48bd-a4ae-16cf150794ea
-    name: GoodMoleName
-    type: 7
-    isGlobal: 0
-  - GUID: a024dd6c-bb0c-498c-bef2-dee72ba6e77a
-    name: BadMoleName
-    type: 7
-    isGlobal: 0
-  - GUID: a772e5ae-a25b-4010-902c-c6127860bc0c
-    name: IsMoleSpawned
-    type: 1
-    isGlobal: 0
-  - GUID: 4a9edc79-8988-466c-a7cf-523322fe1648
-    name: IsSpawnCheckExecuted
-    type: 1
-    isGlobal: 0
-  - GUID: 2237d1be-1209-4a93-a31c-c4f8543b9114
-    name: HitParticle
-    type: 16
-    isGlobal: 0
-  - GUID: a3ad4e4b-909c-473b-804c-de1d600a8730
-    name: ParticleTime
-    type: 3
-    isGlobal: 0
-  - GUID: cf5e0aa3-5152-4ba7-99e5-060117f0c11c
-    name: PortalTime
-    type: 3
-    isGlobal: 0
-  - GUID: b9323228-fef4-43cc-8be4-64560e435517
-    name: CanMoleBeHit
-    type: 1
-    isGlobal: 0
-  - GUID: 32c5b79c-73a7-42c6-9e53-851355d245b0
-    name: MoleLaughSfx
-    type: 53
-    isGlobal: 0
-  - GUID: 7fb77ac1-3a4b-4387-9dda-ae0caf93eb4c
-    name: MolePortalSfx
-    type: 53
-    isGlobal: 0
-  - GUID: a9ee567a-56ca-45ab-b461-db8e49af6071
-    name: MoleHitSfx
-    type: 53
-    isGlobal: 0
-  - GUID: 5d27fbe2-8a04-47c9-8934-86a31a27d447
-    name: HasMoleLaughed
-    type: 1
-    isGlobal: 0
+    variables: []
+    subLists:
+    - groupName: Sub List Group
+      variables:
+      - GUID: 2bd5bd5f-1892-4478-8ffa-2763e4cf51c5
+        sublistIndex: 0
+        name: MoleReference
+        type: 11
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 0
+        stringValue: PaddleTrigger
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: a8e7cca7-70c0-4175-8b62-1184a494cfeb
+        sublistIndex: 0
+        name: IsMoleDead
+        type: 1
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 0
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 62922859-037d-470f-8bdd-8122359df7ae
+        sublistIndex: 0
+        name: PaddleTriggerReference
+        type: 11
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4071201883414300316}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 0167de76-47ad-409a-9000-9a22d542028f
+        sublistIndex: 0
+        name: MolePoints
+        type: 2
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: e4e98d44-4dec-4bd0-b5cb-f49490defa40
+        sublistIndex: 0
+        name: PaddleName
+        type: 7
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 0
+        stringValue: PaddleTrigger
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: e8e54c63-4cc4-4fe4-8a93-1d06fa6b207e
+        sublistIndex: 0
+        name: MoleLifeSpan
+        type: 3
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 5
+        stringValue: PaddleTrigger
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 5c0276f0-b1ce-4b05-8d06-5e58fe77ad1a
+        sublistIndex: 0
+        name: CurrMoleLifeSpan
+        type: 3
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 0
+        stringValue: PaddleTrigger
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: d0794340-b129-48bd-a4ae-16cf150794ea
+        sublistIndex: 0
+        name: GoodMoleName
+        type: 7
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 0
+        stringValue: GoodMole
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: a024dd6c-bb0c-498c-bef2-dee72ba6e77a
+        sublistIndex: 0
+        name: BadMoleName
+        type: 7
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 0
+        stringValue: BadMole
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: a772e5ae-a25b-4010-902c-c6127860bc0c
+        sublistIndex: 0
+        name: IsMoleSpawned
+        type: 1
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 0
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 4a9edc79-8988-466c-a7cf-523322fe1648
+        sublistIndex: 0
+        name: IsSpawnCheckExecuted
+        type: 1
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 0
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 2237d1be-1209-4a93-a31c-c4f8543b9114
+        sublistIndex: 0
+        name: HitParticle
+        type: 16
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 0
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 9220009270486040644}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: a3ad4e4b-909c-473b-804c-de1d600a8730
+        sublistIndex: 0
+        name: ParticleTime
+        type: 3
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 1
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: cf5e0aa3-5152-4ba7-99e5-060117f0c11c
+        sublistIndex: 0
+        name: PortalTime
+        type: 3
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 1
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: b9323228-fef4-43cc-8be4-64560e435517
+        sublistIndex: 0
+        name: CanMoleBeHit
+        type: 1
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 1
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 32c5b79c-73a7-42c6-9e53-851355d245b0
+        sublistIndex: 0
+        name: MoleLaughSfx
+        type: 53
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 1
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 8300000, guid: d7960d969e5443b4689d6f4273936374, type: 3}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 7fb77ac1-3a4b-4387-9dda-ae0caf93eb4c
+        sublistIndex: 0
+        name: MolePortalSfx
+        type: 53
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 1
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 8300000, guid: ed381be701961d444aebc284a8a4f3f9, type: 3}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: a9ee567a-56ca-45ab-b461-db8e49af6071
+        sublistIndex: 0
+        name: MoleHitSfx
+        type: 53
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 1
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 8300000, guid: 947cd93267eea0c42a741cc11f4e9fbe, type: 3}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 5d27fbe2-8a04-47c9-8934-86a31a27d447
+        sublistIndex: 0
+        name: HasMoleLaughed
+        type: 1
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 1
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 8300000, guid: 947cd93267eea0c42a741cc11f4e9fbe, type: 3}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
 --- !u!114 &3264040924247160361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1953,769 +1897,713 @@ MonoBehaviour:
   GUID: 5eb795c4-40e2-4d26-bec2-b3a5f3cfce0a
   overGraph: {fileID: 11400000, guid: ce9e9b6ac04346046908d03016b308e9, type: 2}
   data:
-    variables:
-    - GUID: 2bd5bd5f-1892-4478-8ffa-2763e4cf51c5
-      name: MoleReference
-      type: 11
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 0
-      stringValue: PaddleTrigger
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960935349055}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: a8e7cca7-70c0-4175-8b62-1184a494cfeb
-      name: IsMoleDead
-      type: 1
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 0
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 62922859-037d-470f-8bdd-8122359df7ae
-      name: PaddleTriggerReference
-      type: 11
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4071201883414300316}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 0167de76-47ad-409a-9000-9a22d542028f
-      name: MolePoints
-      type: 2
-      isGlobal: 0
-      integerValue: -1
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: e4e98d44-4dec-4bd0-b5cb-f49490defa40
-      name: PaddleName
-      type: 7
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 0
-      stringValue: PaddleTrigger
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: e8e54c63-4cc4-4fe4-8a93-1d06fa6b207e
-      name: MoleLifeSpan
-      type: 3
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 5
-      stringValue: PaddleTrigger
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 5c0276f0-b1ce-4b05-8d06-5e58fe77ad1a
-      name: CurrMoleLifeSpan
-      type: 3
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 0
-      stringValue: PaddleTrigger
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: d0794340-b129-48bd-a4ae-16cf150794ea
-      name: GoodMoleName
-      type: 7
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 0
-      stringValue: GoodMole
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: a024dd6c-bb0c-498c-bef2-dee72ba6e77a
-      name: BadMoleName
-      type: 7
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 0
-      stringValue: BadMole
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: a772e5ae-a25b-4010-902c-c6127860bc0c
-      name: IsMoleSpawned
-      type: 1
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 0
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 4a9edc79-8988-466c-a7cf-523322fe1648
-      name: IsSpawnCheckExecuted
-      type: 1
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 0
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 2237d1be-1209-4a93-a31c-c4f8543b9114
-      name: HitParticle
-      type: 16
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 0
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 9220009270005101137}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: a3ad4e4b-909c-473b-804c-de1d600a8730
-      name: ParticleTime
-      type: 3
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 1
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: cf5e0aa3-5152-4ba7-99e5-060117f0c11c
-      name: PortalTime
-      type: 3
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 1
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: b9323228-fef4-43cc-8be4-64560e435517
-      name: CanMoleBeHit
-      type: 1
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 1
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 32c5b79c-73a7-42c6-9e53-851355d245b0
-      name: MoleLaughSfx
-      type: 53
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 1
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 8300000, guid: d7960d969e5443b4689d6f4273936374, type: 3}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 7fb77ac1-3a4b-4387-9dda-ae0caf93eb4c
-      name: MolePortalSfx
-      type: 53
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 1
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 8300000, guid: ed381be701961d444aebc284a8a4f3f9, type: 3}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: a9ee567a-56ca-45ab-b461-db8e49af6071
-      name: MoleHitSfx
-      type: 53
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 1
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 8300000, guid: 947cd93267eea0c42a741cc11f4e9fbe, type: 3}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 5d27fbe2-8a04-47c9-8934-86a31a27d447
-      name: HasMoleLaughed
-      type: 1
-      isGlobal: 0
-      integerValue: 1
-      floatValue: 1
-      stringValue: BadMole(Clone)
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 8300000, guid: 947cd93267eea0c42a741cc11f4e9fbe, type: 3}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    subLists: []
-  ghostVariables:
-  - GUID: 2bd5bd5f-1892-4478-8ffa-2763e4cf51c5
-    name: MoleReference
-    type: 11
-    isGlobal: 0
-  - GUID: a8e7cca7-70c0-4175-8b62-1184a494cfeb
-    name: IsMoleDead
-    type: 1
-    isGlobal: 0
-  - GUID: 62922859-037d-470f-8bdd-8122359df7ae
-    name: PaddleTriggerReference
-    type: 11
-    isGlobal: 0
-  - GUID: 0167de76-47ad-409a-9000-9a22d542028f
-    name: MolePoints
-    type: 2
-    isGlobal: 0
-  - GUID: e4e98d44-4dec-4bd0-b5cb-f49490defa40
-    name: PaddleName
-    type: 7
-    isGlobal: 0
-  - GUID: e8e54c63-4cc4-4fe4-8a93-1d06fa6b207e
-    name: MoleLifeSpan
-    type: 3
-    isGlobal: 0
-  - GUID: 5c0276f0-b1ce-4b05-8d06-5e58fe77ad1a
-    name: CurrMoleLifeSpan
-    type: 3
-    isGlobal: 0
-  - GUID: d0794340-b129-48bd-a4ae-16cf150794ea
-    name: GoodMoleName
-    type: 7
-    isGlobal: 0
-  - GUID: a024dd6c-bb0c-498c-bef2-dee72ba6e77a
-    name: BadMoleName
-    type: 7
-    isGlobal: 0
-  - GUID: a772e5ae-a25b-4010-902c-c6127860bc0c
-    name: IsMoleSpawned
-    type: 1
-    isGlobal: 0
-  - GUID: 4a9edc79-8988-466c-a7cf-523322fe1648
-    name: IsSpawnCheckExecuted
-    type: 1
-    isGlobal: 0
-  - GUID: 2237d1be-1209-4a93-a31c-c4f8543b9114
-    name: HitParticle
-    type: 16
-    isGlobal: 0
-  - GUID: a3ad4e4b-909c-473b-804c-de1d600a8730
-    name: ParticleTime
-    type: 3
-    isGlobal: 0
-  - GUID: cf5e0aa3-5152-4ba7-99e5-060117f0c11c
-    name: PortalTime
-    type: 3
-    isGlobal: 0
-  - GUID: b9323228-fef4-43cc-8be4-64560e435517
-    name: CanMoleBeHit
-    type: 1
-    isGlobal: 0
-  - GUID: 32c5b79c-73a7-42c6-9e53-851355d245b0
-    name: MoleLaughSfx
-    type: 53
-    isGlobal: 0
-  - GUID: 7fb77ac1-3a4b-4387-9dda-ae0caf93eb4c
-    name: MolePortalSfx
-    type: 53
-    isGlobal: 0
-  - GUID: a9ee567a-56ca-45ab-b461-db8e49af6071
-    name: MoleHitSfx
-    type: 53
-    isGlobal: 0
-  - GUID: 5d27fbe2-8a04-47c9-8934-86a31a27d447
-    name: HasMoleLaughed
-    type: 1
-    isGlobal: 0
+    variables: []
+    subLists:
+    - groupName: Sub List Group
+      variables:
+      - GUID: 2bd5bd5f-1892-4478-8ffa-2763e4cf51c5
+        sublistIndex: 0
+        name: MoleReference
+        type: 11
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 0
+        stringValue: PaddleTrigger
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960935349055}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: a8e7cca7-70c0-4175-8b62-1184a494cfeb
+        sublistIndex: 0
+        name: IsMoleDead
+        type: 1
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 0
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 62922859-037d-470f-8bdd-8122359df7ae
+        sublistIndex: 0
+        name: PaddleTriggerReference
+        type: 11
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4071201883414300316}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 0167de76-47ad-409a-9000-9a22d542028f
+        sublistIndex: 0
+        name: MolePoints
+        type: 2
+        isGlobal: 0
+        integerValue: -1
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: e4e98d44-4dec-4bd0-b5cb-f49490defa40
+        sublistIndex: 0
+        name: PaddleName
+        type: 7
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 0
+        stringValue: PaddleTrigger
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: e8e54c63-4cc4-4fe4-8a93-1d06fa6b207e
+        sublistIndex: 0
+        name: MoleLifeSpan
+        type: 3
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 5
+        stringValue: PaddleTrigger
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 5c0276f0-b1ce-4b05-8d06-5e58fe77ad1a
+        sublistIndex: 0
+        name: CurrMoleLifeSpan
+        type: 3
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 0
+        stringValue: PaddleTrigger
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: d0794340-b129-48bd-a4ae-16cf150794ea
+        sublistIndex: 0
+        name: GoodMoleName
+        type: 7
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 0
+        stringValue: GoodMole
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: a024dd6c-bb0c-498c-bef2-dee72ba6e77a
+        sublistIndex: 0
+        name: BadMoleName
+        type: 7
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 0
+        stringValue: BadMole
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: a772e5ae-a25b-4010-902c-c6127860bc0c
+        sublistIndex: 0
+        name: IsMoleSpawned
+        type: 1
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 0
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 4a9edc79-8988-466c-a7cf-523322fe1648
+        sublistIndex: 0
+        name: IsSpawnCheckExecuted
+        type: 1
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 0
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 2237d1be-1209-4a93-a31c-c4f8543b9114
+        sublistIndex: 0
+        name: HitParticle
+        type: 16
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 0
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 9220009270005101137}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: a3ad4e4b-909c-473b-804c-de1d600a8730
+        sublistIndex: 0
+        name: ParticleTime
+        type: 3
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 1
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: cf5e0aa3-5152-4ba7-99e5-060117f0c11c
+        sublistIndex: 0
+        name: PortalTime
+        type: 3
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 1
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: b9323228-fef4-43cc-8be4-64560e435517
+        sublistIndex: 0
+        name: CanMoleBeHit
+        type: 1
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 1
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 32c5b79c-73a7-42c6-9e53-851355d245b0
+        sublistIndex: 0
+        name: MoleLaughSfx
+        type: 53
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 1
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 8300000, guid: d7960d969e5443b4689d6f4273936374, type: 3}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 7fb77ac1-3a4b-4387-9dda-ae0caf93eb4c
+        sublistIndex: 0
+        name: MolePortalSfx
+        type: 53
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 1
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 8300000, guid: ed381be701961d444aebc284a8a4f3f9, type: 3}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: a9ee567a-56ca-45ab-b461-db8e49af6071
+        sublistIndex: 0
+        name: MoleHitSfx
+        type: 53
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 1
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 8300000, guid: 947cd93267eea0c42a741cc11f4e9fbe, type: 3}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 5d27fbe2-8a04-47c9-8934-86a31a27d447
+        sublistIndex: 0
+        name: HasMoleLaughed
+        type: 1
+        isGlobal: 0
+        integerValue: 1
+        floatValue: 1
+        stringValue: BadMole(Clone)
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 8300000, guid: 947cd93267eea0c42a741cc11f4e9fbe, type: 3}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
 --- !u!1 &4703760235263863874
 GameObject:
   m_ObjectHideFlags: 0
@@ -2994,449 +2882,417 @@ MonoBehaviour:
   - {fileID: 6817032423971873729}
   - {fileID: 6817032423994911087}
   data:
-    variables:
-    - GUID: 4eea15a2-35f5-4518-9d4a-b235d09ddaff
-      name: CurrentScore
-      type: 2
-      isGlobal: 1
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: a5733eb9-83da-4c61-b4bf-c0054b213002
-      name: shouldBallMove
-      type: 1
-      isGlobal: 1
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 77e734b8-2415-4c77-8cf3-3a27056702ad
-      name: shouldBallMove
-      type: 1
-      isGlobal: 1
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: fbfb2eb7-9a55-4fef-8f53-087f00a13704
-      name: shouldBallMove
-      type: 1
-      isGlobal: 1
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: e433d67c-0055-4c07-b166-fce25dd70c9b
-      name: MaxMolesCount
-      type: 2
-      isGlobal: 1
-      integerValue: 10
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 5924941b-55d3-46e0-9645-1a86a0e7a3c5
-      name: currMolesCount
-      type: 2
-      isGlobal: 1
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: d75597c1-259b-45a2-9382-d16e61e508ae
-      name: PaddleTriggerObject
-      type: 11
-      isGlobal: 1
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4071201883414300316}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 9bf9eb2e-f60e-4ea9-862e-3cf3b933836d
-      name: MaxGameTimer
-      type: 3
-      isGlobal: 1
-      integerValue: 0
-      floatValue: 60
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4071201883414300316}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 26ad07de-b853-410c-ba9f-09fba8b87d98
-      name: CurrGameTimer
-      type: 3
-      isGlobal: 1
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4071201883414300316}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 3730179c-aaa4-43f3-89d4-9383f2a72e63
-      name: IsGameStarted
-      type: 1
-      isGlobal: 1
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4071201883414300316}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 0c545f55-b4c0-43ee-8613-f190bc5e0677
-      name: IsGameOver
-      type: 1
-      isGlobal: 1
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4071201883414300316}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    subLists: []
-  ghostVariables:
-  - GUID: 4eea15a2-35f5-4518-9d4a-b235d09ddaff
-    name: CurrentScore
-    type: 2
-    isGlobal: 1
-  - GUID: a5733eb9-83da-4c61-b4bf-c0054b213002
-    name: shouldBallMove
-    type: 1
-    isGlobal: 1
-  - GUID: 77e734b8-2415-4c77-8cf3-3a27056702ad
-    name: shouldBallMove
-    type: 1
-    isGlobal: 1
-  - GUID: fbfb2eb7-9a55-4fef-8f53-087f00a13704
-    name: shouldBallMove
-    type: 1
-    isGlobal: 1
-  - GUID: e433d67c-0055-4c07-b166-fce25dd70c9b
-    name: MaxMolesCount
-    type: 2
-    isGlobal: 1
-  - GUID: 5924941b-55d3-46e0-9645-1a86a0e7a3c5
-    name: currMolesCount
-    type: 2
-    isGlobal: 1
-  - GUID: d75597c1-259b-45a2-9382-d16e61e508ae
-    name: PaddleTriggerObject
-    type: 11
-    isGlobal: 1
-  - GUID: 9bf9eb2e-f60e-4ea9-862e-3cf3b933836d
-    name: MaxGameTimer
-    type: 3
-    isGlobal: 1
-  - GUID: 26ad07de-b853-410c-ba9f-09fba8b87d98
-    name: CurrGameTimer
-    type: 3
-    isGlobal: 1
-  - GUID: 3730179c-aaa4-43f3-89d4-9383f2a72e63
-    name: IsGameStarted
-    type: 1
-    isGlobal: 1
-  - GUID: 0c545f55-b4c0-43ee-8613-f190bc5e0677
-    name: IsGameOver
-    type: 1
-    isGlobal: 1
+    variables: []
+    subLists:
+    - groupName: Sub List Group
+      variables:
+      - GUID: 4eea15a2-35f5-4518-9d4a-b235d09ddaff
+        sublistIndex: 0
+        name: CurrentScore
+        type: 2
+        isGlobal: 1
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: a5733eb9-83da-4c61-b4bf-c0054b213002
+        sublistIndex: 0
+        name: shouldBallMove
+        type: 1
+        isGlobal: 1
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 77e734b8-2415-4c77-8cf3-3a27056702ad
+        sublistIndex: 0
+        name: shouldBallMove
+        type: 1
+        isGlobal: 1
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: fbfb2eb7-9a55-4fef-8f53-087f00a13704
+        sublistIndex: 0
+        name: shouldBallMove
+        type: 1
+        isGlobal: 1
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: e433d67c-0055-4c07-b166-fce25dd70c9b
+        sublistIndex: 0
+        name: MaxMolesCount
+        type: 2
+        isGlobal: 1
+        integerValue: 10
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 5924941b-55d3-46e0-9645-1a86a0e7a3c5
+        sublistIndex: 0
+        name: currMolesCount
+        type: 2
+        isGlobal: 1
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: d75597c1-259b-45a2-9382-d16e61e508ae
+        sublistIndex: 0
+        name: PaddleTriggerObject
+        type: 11
+        isGlobal: 1
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4071201883414300316}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 9bf9eb2e-f60e-4ea9-862e-3cf3b933836d
+        sublistIndex: 0
+        name: MaxGameTimer
+        type: 3
+        isGlobal: 1
+        integerValue: 0
+        floatValue: 60
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4071201883414300316}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 26ad07de-b853-410c-ba9f-09fba8b87d98
+        sublistIndex: 0
+        name: CurrGameTimer
+        type: 3
+        isGlobal: 1
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4071201883414300316}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 3730179c-aaa4-43f3-89d4-9383f2a72e63
+        sublistIndex: 0
+        name: IsGameStarted
+        type: 1
+        isGlobal: 1
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4071201883414300316}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 0c545f55-b4c0-43ee-8613-f190bc5e0677
+        sublistIndex: 0
+        name: IsGameOver
+        type: 1
+        isGlobal: 1
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4071201883414300316}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
   errors: []
   localSaveFilePath: 
 --- !u!1 &6817032423971873735
@@ -3486,331 +3342,308 @@ MonoBehaviour:
   GUID: ba0265e4-fc2a-4b85-9d99-d2eee7ba70c4
   overGraph: {fileID: 11400000, guid: b5175384225bebb47be00f2c7399320d, type: 2}
   data:
-    variables:
-    - GUID: 88bf40fc-a65d-4dc4-80c9-e64826e857f3
-      name: ButtonReference
-      type: 11
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 6817032424059150632}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 7f8c141e-a641-423d-9ceb-18bcaa564fe1
-      name: AnimatorReference
-      type: 52
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 6817032424059150632}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 7414374510652414355}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 7c824cd7-a450-440f-b3e4-2311813b00af
-      name: AnimParameterName
-      type: 7
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: WhacPaddle
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 6817032424059150632}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: ca098f98-f6a5-4340-89f1-7f2526efa311
-      name: PaddleTriggerReference
-      type: 11
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: WhacPaddle
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4071201883414300316}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: d3153487-ceca-48fd-a02b-4c8982aafcea
-      name: WhacAnimationLenght
-      type: 3
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0.5
-      stringValue: WhacPaddle
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4071201883414300316}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: ba8d6ec2-83bc-497c-861c-f98d972f5aa4
-      name: WhacAnimationTimer
-      type: 3
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: WhacPaddle
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4071201883414300316}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: d3847c2e-e264-45f5-a4b6-f971e4e16a00
-      name: HitParticle
-      type: 16
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: WhacPaddle
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4071201883414300316}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 7907696742133708755, guid: c14955aac43ee394c87ef12a5a69fea8,
-        type: 3}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 39615645-a145-4821-b685-4db7bd8cab4e
-      name: PaddleWhooshSfx
-      type: 53
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: WhacPaddle
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4071201883414300316}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 7907696742133708755, guid: c14955aac43ee394c87ef12a5a69fea8,
-        type: 3}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 8300000, guid: c3a02c704c598b048832a7148d09ab93, type: 3}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    subLists: []
-  ghostVariables:
-  - GUID: 88bf40fc-a65d-4dc4-80c9-e64826e857f3
-    name: ButtonReference
-    type: 11
-    isGlobal: 0
-  - GUID: 7f8c141e-a641-423d-9ceb-18bcaa564fe1
-    name: AnimatorReference
-    type: 52
-    isGlobal: 0
-  - GUID: 7c824cd7-a450-440f-b3e4-2311813b00af
-    name: AnimParameterName
-    type: 7
-    isGlobal: 0
-  - GUID: ca098f98-f6a5-4340-89f1-7f2526efa311
-    name: PaddleTriggerReference
-    type: 11
-    isGlobal: 0
-  - GUID: d3153487-ceca-48fd-a02b-4c8982aafcea
-    name: WhacAnimationLenght
-    type: 3
-    isGlobal: 0
-  - GUID: ba8d6ec2-83bc-497c-861c-f98d972f5aa4
-    name: WhacAnimationTimer
-    type: 3
-    isGlobal: 0
-  - GUID: d3847c2e-e264-45f5-a4b6-f971e4e16a00
-    name: HitParticle
-    type: 16
-    isGlobal: 0
-  - GUID: 39615645-a145-4821-b685-4db7bd8cab4e
-    name: PaddleWhooshSfx
-    type: 53
-    isGlobal: 0
+    variables: []
+    subLists:
+    - groupName: Sub List Group
+      variables:
+      - GUID: 88bf40fc-a65d-4dc4-80c9-e64826e857f3
+        sublistIndex: 0
+        name: ButtonReference
+        type: 11
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 6817032424059150632}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 7f8c141e-a641-423d-9ceb-18bcaa564fe1
+        sublistIndex: 0
+        name: AnimatorReference
+        type: 52
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 6817032424059150632}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 7414374510652414355}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 7c824cd7-a450-440f-b3e4-2311813b00af
+        sublistIndex: 0
+        name: AnimParameterName
+        type: 7
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: WhacPaddle
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 6817032424059150632}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: ca098f98-f6a5-4340-89f1-7f2526efa311
+        sublistIndex: 0
+        name: PaddleTriggerReference
+        type: 11
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: WhacPaddle
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4071201883414300316}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: d3153487-ceca-48fd-a02b-4c8982aafcea
+        sublistIndex: 0
+        name: WhacAnimationLenght
+        type: 3
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0.5
+        stringValue: WhacPaddle
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4071201883414300316}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: ba8d6ec2-83bc-497c-861c-f98d972f5aa4
+        sublistIndex: 0
+        name: WhacAnimationTimer
+        type: 3
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: WhacPaddle
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4071201883414300316}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: d3847c2e-e264-45f5-a4b6-f971e4e16a00
+        sublistIndex: 0
+        name: HitParticle
+        type: 16
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: WhacPaddle
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4071201883414300316}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 7907696742133708755, guid: c14955aac43ee394c87ef12a5a69fea8,
+          type: 3}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 39615645-a145-4821-b685-4db7bd8cab4e
+        sublistIndex: 0
+        name: PaddleWhooshSfx
+        type: 53
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: WhacPaddle
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4071201883414300316}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 7907696742133708755, guid: c14955aac43ee394c87ef12a5a69fea8,
+          type: 3}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 8300000, guid: c3a02c704c598b048832a7148d09ab93, type: 3}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
 --- !u!1 &6817032423994911085
 GameObject:
   m_ObjectHideFlags: 0
@@ -3859,89 +3692,84 @@ MonoBehaviour:
   GUID: 699a293b-474d-4fca-92f4-15ed7ce55ddc
   overGraph: {fileID: 11400000, guid: 31025423558aa0346b9c4a66b9efba85, type: 2}
   data:
-    variables:
-    - GUID: a109b7b9-084e-4061-9a1d-0816c4158352
-      name: PaddleReference
-      type: 10
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 6817032424897324569}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 9b6c6495-bf6d-4f84-bc85-366817f638d4
-      name: PaddleOffset
-      type: 5
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 1
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0.5, y: -0.4, z: -0.25}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    subLists: []
-  ghostVariables:
-  - GUID: a109b7b9-084e-4061-9a1d-0816c4158352
-    name: PaddleReference
-    type: 10
-    isGlobal: 0
-  - GUID: 9b6c6495-bf6d-4f84-bc85-366817f638d4
-    name: PaddleOffset
-    type: 5
-    isGlobal: 0
+    variables: []
+    subLists:
+    - groupName: Sub List Group
+      variables:
+      - GUID: a109b7b9-084e-4061-9a1d-0816c4158352
+        sublistIndex: 0
+        name: PaddleReference
+        type: 10
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 6817032424897324569}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 9b6c6495-bf6d-4f84-bc85-366817f638d4
+        sublistIndex: 0
+        name: PaddleOffset
+        type: 5
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 1
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0.5, y: -0.4, z: -0.25}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
 --- !u!1 &6817032424059150632
 GameObject:
   m_ObjectHideFlags: 0
@@ -4223,129 +4051,121 @@ MonoBehaviour:
   GUID: 703e49e1-9fbb-4469-81d3-5bffbf90d56d
   overGraph: {fileID: 11400000, guid: ce009d0cf9328244e8f1d0871392571c, type: 2}
   data:
-    variables:
-    - GUID: be13157c-2dc2-416c-aef5-a0f8c20836d4
-      name: ScoreTextReference
-      type: 101
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 8838568556842680824}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 6cda92f5-f551-4a9c-9c86-f67e2c037aaf
-      name: LastTextValue
-      type: 7
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 8838568556842680824}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 9040d6cb-32bf-41bb-89e1-9dbd6bab58dd
-      name: GameOverScoreTextReference
-      type: 101
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 6075461040741215452}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    subLists: []
-  ghostVariables:
-  - GUID: be13157c-2dc2-416c-aef5-a0f8c20836d4
-    name: ScoreTextReference
-    type: 101
-    isGlobal: 0
-  - GUID: 6cda92f5-f551-4a9c-9c86-f67e2c037aaf
-    name: LastTextValue
-    type: 7
-    isGlobal: 0
-  - GUID: 9040d6cb-32bf-41bb-89e1-9dbd6bab58dd
-    name: GameOverScoreTextReference
-    type: 101
-    isGlobal: 0
+    variables: []
+    subLists:
+    - groupName: Sub List Group
+      variables:
+      - GUID: be13157c-2dc2-416c-aef5-a0f8c20836d4
+        sublistIndex: 0
+        name: ScoreTextReference
+        type: 101
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 8838568556842680824}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 6cda92f5-f551-4a9c-9c86-f67e2c037aaf
+        sublistIndex: 0
+        name: LastTextValue
+        type: 7
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 8838568556842680824}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 9040d6cb-32bf-41bb-89e1-9dbd6bab58dd
+        sublistIndex: 0
+        name: GameOverScoreTextReference
+        type: 101
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 6075461040741215452}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
 --- !u!1 &7414374510652414353
 GameObject:
   m_ObjectHideFlags: 0
@@ -4448,413 +4268,384 @@ MonoBehaviour:
   GUID: 1da21e8c-79cf-4313-be66-4c446c35cce9
   overGraph: {fileID: 11400000, guid: 715835c5c76ed3649a169666b64d757b, type: 2}
   data:
-    variables:
-    - GUID: 1fa06c45-de01-4a4a-9e89-fe746f422aeb
-      name: SpawnTimer
-      type: 3
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: a86197d7-5b99-4b74-8492-4c10f29ff96d
-      name: MoleSpawnRate
-      type: 3
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0.6
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 6f8fa990-846c-4a26-b612-e5bc3ca18e8c
-      name: GoodMoleSpawnRate
-      type: 3
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0.8
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: -0.6, z: 2}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 3518140548313685703, guid: b1b97d110e5df884cabbc9a11d9bc28b,
-        type: 3}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 22a127c5-aef3-4fc2-87a8-3e6dc1adb3bd
-      name: MoleMaxSpawnRange
-      type: 3
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 1
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 76035abb-64f9-4690-bd71-c9b2d7823053
-      name: MoleMinSpawnRange
-      type: 3
-      isGlobal: 0
-      integerValue: 0
-      floatValue: -1
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 87e8c273-9e2a-4190-a884-b758fac79448
-      name: MoleParentReference
-      type: 10
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 3
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 7414374510923790891}
-      gameObject: {fileID: 3518140548313685703, guid: 9bd57ab04ea2ed541b6c2dbb35b56c12,
-        type: 3}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 63b1eba0-38ef-4c34-9782-101b8a8b00d2
-      name: GoodMolePrefab
-      type: 11
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 3
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960714495645}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: d29a6c3a-6326-4e0e-984e-dda633ac1442
-      name: BadMolePrefab
-      type: 11
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 3
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 4217629960935349055}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 038556d7-c5b2-44d2-9157-c314dc3f4fa5
-      name: SpawnOffset
-      type: 4
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 3
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0.5, y: -0.6}
-      vector3Value: {x: 0, y: -0.6, z: 0.5}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 3518140548313685703, guid: b1b97d110e5df884cabbc9a11d9bc28b,
-        type: 3}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 2d50383f-852a-4c54-af3d-8b1183989a5f
-      name: MolesSpawnPoint
-      type: 5
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 3
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 3518140548313685703, guid: b1b97d110e5df884cabbc9a11d9bc28b,
-        type: 3}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    subLists: []
-  ghostVariables:
-  - GUID: 1fa06c45-de01-4a4a-9e89-fe746f422aeb
-    name: SpawnTimer
-    type: 3
-    isGlobal: 0
-  - GUID: a86197d7-5b99-4b74-8492-4c10f29ff96d
-    name: MoleSpawnRate
-    type: 3
-    isGlobal: 0
-  - GUID: 6f8fa990-846c-4a26-b612-e5bc3ca18e8c
-    name: GoodMoleSpawnRate
-    type: 3
-    isGlobal: 0
-  - GUID: 22a127c5-aef3-4fc2-87a8-3e6dc1adb3bd
-    name: MoleMaxSpawnRange
-    type: 3
-    isGlobal: 0
-  - GUID: 76035abb-64f9-4690-bd71-c9b2d7823053
-    name: MoleMinSpawnRange
-    type: 3
-    isGlobal: 0
-  - GUID: 87e8c273-9e2a-4190-a884-b758fac79448
-    name: MoleParentReference
-    type: 10
-    isGlobal: 0
-  - GUID: 63b1eba0-38ef-4c34-9782-101b8a8b00d2
-    name: GoodMolePrefab
-    type: 11
-    isGlobal: 0
-  - GUID: d29a6c3a-6326-4e0e-984e-dda633ac1442
-    name: BadMolePrefab
-    type: 11
-    isGlobal: 0
-  - GUID: 038556d7-c5b2-44d2-9157-c314dc3f4fa5
-    name: SpawnOffset
-    type: 4
-    isGlobal: 0
-  - GUID: 2d50383f-852a-4c54-af3d-8b1183989a5f
-    name: MolesSpawnPoint
-    type: 5
-    isGlobal: 0
+    variables: []
+    subLists:
+    - groupName: Sub List Group
+      variables:
+      - GUID: 1fa06c45-de01-4a4a-9e89-fe746f422aeb
+        sublistIndex: 0
+        name: SpawnTimer
+        type: 3
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: a86197d7-5b99-4b74-8492-4c10f29ff96d
+        sublistIndex: 0
+        name: MoleSpawnRate
+        type: 3
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0.6
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 6f8fa990-846c-4a26-b612-e5bc3ca18e8c
+        sublistIndex: 0
+        name: GoodMoleSpawnRate
+        type: 3
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0.8
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: -0.6, z: 2}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 3518140548313685703, guid: b1b97d110e5df884cabbc9a11d9bc28b,
+          type: 3}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 22a127c5-aef3-4fc2-87a8-3e6dc1adb3bd
+        sublistIndex: 0
+        name: MoleMaxSpawnRange
+        type: 3
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 1
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 76035abb-64f9-4690-bd71-c9b2d7823053
+        sublistIndex: 0
+        name: MoleMinSpawnRange
+        type: 3
+        isGlobal: 0
+        integerValue: 0
+        floatValue: -1
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 87e8c273-9e2a-4190-a884-b758fac79448
+        sublistIndex: 0
+        name: MoleParentReference
+        type: 10
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 3
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 7414374510923790891}
+        gameObject: {fileID: 3518140548313685703, guid: 9bd57ab04ea2ed541b6c2dbb35b56c12,
+          type: 3}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 63b1eba0-38ef-4c34-9782-101b8a8b00d2
+        sublistIndex: 0
+        name: GoodMolePrefab
+        type: 11
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 3
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960714495645}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: d29a6c3a-6326-4e0e-984e-dda633ac1442
+        sublistIndex: 0
+        name: BadMolePrefab
+        type: 11
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 3
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 4217629960935349055}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 038556d7-c5b2-44d2-9157-c314dc3f4fa5
+        sublistIndex: 0
+        name: SpawnOffset
+        type: 4
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 3
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0.5, y: -0.6}
+        vector3Value: {x: 0, y: -0.6, z: 0.5}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 3518140548313685703, guid: b1b97d110e5df884cabbc9a11d9bc28b,
+          type: 3}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 2d50383f-852a-4c54-af3d-8b1183989a5f
+        sublistIndex: 0
+        name: MolesSpawnPoint
+        type: 5
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 3
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 3518140548313685703, guid: b1b97d110e5df884cabbc9a11d9bc28b,
+          type: 3}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
 --- !u!1 &8221465311328956844
 GameObject:
   m_ObjectHideFlags: 0
@@ -4981,169 +4772,158 @@ MonoBehaviour:
   GUID: 6779f304-ffc7-419f-a292-ea205fd90918
   overGraph: {fileID: 11400000, guid: 8ee58a8d5e2f62b47b478fc25cb62c69, type: 2}
   data:
-    variables:
-    - GUID: 3ea1e72e-7d2b-4fd8-a2cf-d6f32ef1a922
-      name: StartButtonReference
-      type: 11
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 8221465312421635162}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: b3f435c8-9461-4e8e-8e29-be23a104e71f
-      name: ScoreTextReference
-      type: 11
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 8221465312421635162}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 0737900f-ee62-4fb0-bfcc-a8401ee389d0
-      name: GameOverReference
-      type: 11
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 631066490}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 4456d9a6-334a-4ea2-b5a6-7c2ed6883e0d
-      name: WhacReference
-      type: 11
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 6817032424059150632}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    subLists: []
-  ghostVariables:
-  - GUID: 3ea1e72e-7d2b-4fd8-a2cf-d6f32ef1a922
-    name: StartButtonReference
-    type: 11
-    isGlobal: 0
-  - GUID: b3f435c8-9461-4e8e-8e29-be23a104e71f
-    name: ScoreTextReference
-    type: 11
-    isGlobal: 0
-  - GUID: 0737900f-ee62-4fb0-bfcc-a8401ee389d0
-    name: GameOverReference
-    type: 11
-    isGlobal: 0
-  - GUID: 4456d9a6-334a-4ea2-b5a6-7c2ed6883e0d
-    name: WhacReference
-    type: 11
-    isGlobal: 0
+    variables: []
+    subLists:
+    - groupName: Sub List Group
+      variables:
+      - GUID: 3ea1e72e-7d2b-4fd8-a2cf-d6f32ef1a922
+        sublistIndex: 0
+        name: StartButtonReference
+        type: 11
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 8221465312421635162}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: b3f435c8-9461-4e8e-8e29-be23a104e71f
+        sublistIndex: 0
+        name: ScoreTextReference
+        type: 11
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 8221465312421635162}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 0737900f-ee62-4fb0-bfcc-a8401ee389d0
+        sublistIndex: 0
+        name: GameOverReference
+        type: 11
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 631066490}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 4456d9a6-334a-4ea2-b5a6-7c2ed6883e0d
+        sublistIndex: 0
+        name: WhacReference
+        type: 11
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 6817032424059150632}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
 --- !u!1 &8221465312055018454
 GameObject:
   m_ObjectHideFlags: 0
@@ -5191,89 +4971,84 @@ MonoBehaviour:
   GUID: 1cf6bc5b-09be-41cd-b753-bff1f9f4f134
   overGraph: {fileID: 11400000, guid: b3573643c8ec8f744b038acbeb7e7ced, type: 2}
   data:
-    variables:
-    - GUID: 6986c50f-7565-4d6a-9505-ba8bdc121852
-      name: ButtonStartReference
-      type: 11
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 8221465312421635162}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: b92f2842-a51e-4f02-9cd5-3d42d4d17557
-      name: ButtonRetryReference
-      type: 11
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 1633619291}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    subLists: []
-  ghostVariables:
-  - GUID: 6986c50f-7565-4d6a-9505-ba8bdc121852
-    name: ButtonStartReference
-    type: 11
-    isGlobal: 0
-  - GUID: b92f2842-a51e-4f02-9cd5-3d42d4d17557
-    name: ButtonRetryReference
-    type: 11
-    isGlobal: 0
+    variables: []
+    subLists:
+    - groupName: Sub List Group
+      variables:
+      - GUID: 6986c50f-7565-4d6a-9505-ba8bdc121852
+        sublistIndex: 0
+        name: ButtonStartReference
+        type: 11
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 8221465312421635162}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: b92f2842-a51e-4f02-9cd5-3d42d4d17557
+        sublistIndex: 0
+        name: ButtonRetryReference
+        type: 11
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 1633619291}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
 --- !u!1 &8221465312370149881
 GameObject:
   m_ObjectHideFlags: 0
@@ -5323,7 +5098,6 @@ MonoBehaviour:
   data:
     variables: []
     subLists: []
-  ghostVariables: []
 --- !u!1 &8221465312421635162
 GameObject:
   m_ObjectHideFlags: 0
@@ -5491,49 +5265,47 @@ MonoBehaviour:
   GUID: 77653c7f-e015-498e-a9f0-3a6a7d3c0954
   overGraph: {fileID: 11400000, guid: 445664e01349e564586607258304ff05, type: 2}
   data:
-    variables:
-    - GUID: e6676755-4fb8-4333-8716-d7381ea22dd9
-      name: TimerUIReference
-      type: 101
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 8221465311328956846}
-      textTMP: {fileID: 0}
-      textTMP_3D: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    subLists: []
-  ghostVariables:
-  - GUID: e6676755-4fb8-4333-8716-d7381ea22dd9
-    name: TimerUIReference
-    type: 101
-    isGlobal: 0
+    variables: []
+    subLists:
+    - groupName: Sub List Group
+      variables:
+      - GUID: e6676755-4fb8-4333-8716-d7381ea22dd9
+        sublistIndex: 0
+        name: TimerUIReference
+        type: 101
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 8221465311328956846}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
 --- !u!1 &8527105855326743480
 GameObject:
   m_ObjectHideFlags: 0
@@ -5586,7 +5358,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1

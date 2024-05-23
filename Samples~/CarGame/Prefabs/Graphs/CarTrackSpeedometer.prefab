@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367192739572737008}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5949751741008638909
 MonoBehaviour:
@@ -47,200 +47,192 @@ MonoBehaviour:
   GUID: 1a075db1-4e6b-4815-9557-8ad01f3c9a6e
   overGraph: {fileID: 11400000, guid: 01411a9f64e8b854cb941de94c7984b7, type: 2}
   data:
-    variables:
-    - GUID: 420a03e1-36c9-4702-9049-b8b117476297
-      name: CollidersList
-      type: 200
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 6316ade9-76b1-4a20-a1cf-42f229233067
-      name: CarColliderReference
-      type: 11
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 5b214aff-c9f8-436b-9b55-43e4a54be59f
-      name: CrashCurrentTime
-      type: 3
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 312aeb83-992e-4a7e-9c8f-a668e10c065e
-      name: CrashMaxTime
-      type: 3
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 2
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: d496a996-9c81-45bc-af2b-6f547f29d88f
-      name: TurnMaxSpeed
-      type: 3
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 3.5
-      stringValue: 
-      boolValue: 0
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-  ghostVariables:
-  - GUID: 420a03e1-36c9-4702-9049-b8b117476297
-    name: CollidersList
-    type: 200
-    isGlobal: 0
-  - GUID: 6316ade9-76b1-4a20-a1cf-42f229233067
-    name: CarColliderReference
-    type: 11
-    isGlobal: 0
-  - GUID: 5b214aff-c9f8-436b-9b55-43e4a54be59f
-    name: CrashCurrentTime
-    type: 3
-    isGlobal: 0
-  - GUID: 312aeb83-992e-4a7e-9c8f-a668e10c065e
-    name: CrashMaxTime
-    type: 3
-    isGlobal: 0
-  - GUID: d496a996-9c81-45bc-af2b-6f547f29d88f
-    name: TurnMaxSpeed
-    type: 3
-    isGlobal: 0
+    variables: []
+    subLists:
+    - groupName: Sub List Group
+      variables:
+      - GUID: 420a03e1-36c9-4702-9049-b8b117476297
+        sublistIndex: 0
+        name: CollidersList
+        type: 200
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 6316ade9-76b1-4a20-a1cf-42f229233067
+        sublistIndex: 0
+        name: CarColliderReference
+        type: 11
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 5b214aff-c9f8-436b-9b55-43e4a54be59f
+        sublistIndex: 0
+        name: CrashCurrentAnimationTime
+        type: 3
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 312aeb83-992e-4a7e-9c8f-a668e10c065e
+        sublistIndex: 0
+        name: CrashMaxAnimationTime
+        type: 3
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 2
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: d496a996-9c81-45bc-af2b-6f547f29d88f
+        sublistIndex: 0
+        name: TurnMaxSpeed
+        type: 3
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 3.5
+        stringValue: 
+        boolValue: 0
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 

@@ -30,7 +30,7 @@ using UnityEngine;
 
 namespace OverSDK.VisualScripting
 {
-    public enum AnchorType { Position, Min, Max }
+    public enum AnchorType { AnchoredPosition, AnchoredMin, AnchoredMax }
 
     [Node(Path = "Component/UI/RectTransform", Name = "RectTransform Exposer", Icon = "COMPONENT/TRANSFORM")]
     [Tags("Component")]
@@ -192,9 +192,9 @@ namespace OverSDK.VisualScripting
 
             switch (anchorType)
             {
-                case AnchorType.Position: _target.anchoredPosition = _anchor; break;
-                case AnchorType.Min: _target.anchorMin = _anchor; break;
-                case AnchorType.Max: _target.anchorMax = _anchor; break;
+                case AnchorType.AnchoredPosition: _target.anchoredPosition = _anchor; break;
+                case AnchorType.AnchoredMin: _target.anchorMin = _anchor; break;
+                case AnchorType.AnchoredMax: _target.anchorMax = _anchor; break;
             }
             return base.Execute(data);
         }

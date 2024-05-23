@@ -39,32 +39,38 @@ namespace OverSDK.VisualScripting.Editor
 
         public IEnumerable<SearchResult> GetSearchResults(SearchFilter filter)
         {
-            OverScriptManager.Main.UpdateMappings();
-            var globals = OverScriptManager.Main.Data.VariableDict.Values;
             Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
             Dictionary<string, OverVariableData> allLocals = new Dictionary<string, OverVariableData>();
 
+            OverScriptManager.Main.UpdateScriptReferences();
+
+            // Save all variables of all scripts
             foreach (OverScript script in OverScriptManager.Main.managedScripts)
             {
-                foreach (var variable in script.Data.VariableDict)
+                List<OverVariableData> variablesList = script.Data.GetVariablesList();
+                foreach (var variable in variablesList)
                 {
-                    if (!allLocals.ContainsKey(variable.Key))
-                        allLocals.Add(variable.Key, variable.Value);
+                    if (!allLocals.ContainsKey(variable.GUID))
+                        allLocals.Add(variable.GUID, variable);
                 }
             }
 
-            foreach (var item in graph.Data.VariableDict)
+            // For each variable in the graph, save all variables that are not in the variable list, otherwise update their GUID
+            var variablesGraphList = graph.Data.GetVariablesList();
+            foreach (var item in variablesGraphList)
             {
-                if (allLocals.ContainsKey(item.Key))
+                if (allLocals.ContainsKey(item.GUID))
                 {
-                    variableDict[item.Key] = allLocals[item.Key];
+                    variableDict[item.GUID] = allLocals[item.GUID];
                 }
                 else
                 {
-                    variableDict[item.Key] = item.Value.ToScriptData();
+                    variableDict.Add(item.GUID, item.ToScriptData());
                 }
             }
 
+            // Add global variables that are not there to the list of graph variables
+            List<OverVariableData> globals = OverScriptManager.Main.Data.GetVariablesList();
             foreach (var global in globals)
             {
                 if (!variableDict.Keys.Contains(global.GUID))
@@ -74,8 +80,8 @@ namespace OverSDK.VisualScripting.Editor
                 }
             }
 
+            // Build the variable node for the graph
             var variables = variableDict.Values;
-
             foreach (var variable in variables)
             {
                 Type nodeType;
@@ -100,10 +106,10 @@ namespace OverSDK.VisualScripting.Editor
                     case OverVariableType.LineRenderer: nodeType = typeof(OverSetVariableLineRenderer); break;
                     case OverVariableType.Material: nodeType = typeof(OverSetVariableMaterial); break;
                     case OverVariableType.ParticleSystem: nodeType = typeof(OverSetVariableParticleSystem); break;
-                    case OverVariableType.AudioSource: nodeType = typeof(OverSetVariableAudioSource); break; 
-                    case OverVariableType.AudioClip: nodeType = typeof(OverSetVariableAudioClip); break; 
-                    case OverVariableType.Video: nodeType = typeof(OverSetVariableVideoPlayer); break; 
-                    case OverVariableType.ImageStreamer: nodeType = typeof(OverGetVariableImageStreamer); break; 
+                    case OverVariableType.AudioSource: nodeType = typeof(OverSetVariableAudioSource); break;
+                    case OverVariableType.AudioClip: nodeType = typeof(OverSetVariableAudioClip); break;
+                    case OverVariableType.Video: nodeType = typeof(OverSetVariableVideoPlayer); break;
+                    case OverVariableType.ImageStreamer: nodeType = typeof(OverGetVariableImageStreamer); break;
                     case OverVariableType.Animator: nodeType = typeof(OverSetVariableAnimator); break;
                     case OverVariableType.Light: nodeType = typeof(OverSetVariableLight); break;
                     case OverVariableType.NavMeshAgent: nodeType = typeof(OverSetVariableNavMeshAgent); break;
@@ -125,10 +131,8 @@ namespace OverSDK.VisualScripting.Editor
                     var node = entry;
                     Tuple<OverVariableData, NodeReflectionData> tuple = new Tuple<OverVariableData, NodeReflectionData>(variable, node);
 
-                    if (
-                        IsCompatible(filter.SourcePort, node) &&
-                        IsInSupportedTags(filter.IncludeTags, node.Tags)
-                        )
+                    if (IsCompatible(filter.SourcePort, node) &&
+                        IsInSupportedTags(filter.IncludeTags, node.Tags))
                     {
                         string label = variable.isGlobal ? "Global" : "Local";
                         string icon = variable.isGlobal ? "VARIABLES/GLOBAL" : "VARIABLES/LOCAL";
@@ -176,7 +180,7 @@ namespace OverSDK.VisualScripting.Editor
                     return node_b;
                 case OverVariableType.String:
                     OverSetVariableString node_s = data.Item2.CreateInstance() as OverSetVariableString;
-                        node_s.guid = variable.GUID;
+                    node_s.guid = variable.GUID;
                     node_s._name = variable.name;
                     node_s.Icon = result.Icon;
                     node_s.isGlobal = variable.isGlobal;
@@ -299,7 +303,7 @@ namespace OverSDK.VisualScripting.Editor
                     node_is._name = variable.name;
                     node_is.Icon = result.Icon;
                     node_is.isGlobal = variable.isGlobal;
-                    return node_is; 
+                    return node_is;
                 case OverVariableType.Animator:
                     OverSetVariableAnimator node_anmtr = data.Item2.CreateInstance() as OverSetVariableAnimator;
                     node_anmtr.guid = variable.GUID;
@@ -391,7 +395,7 @@ namespace OverSDK.VisualScripting.Editor
         public bool IsSupported(IGraph graph)
         {
             this.graph = graph as OverGraph;
-            return this.graph.Data.VariableDict.Count > 0 || OverScriptManager.Main.Data.VariableDict.Count > 0;
+            return this.graph.Data.TotalVariablesCount > 0 || OverScriptManager.Main.Data.TotalVariablesCount > 0;
         }
 
         /// <summary>
