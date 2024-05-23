@@ -481,6 +481,9 @@ namespace BlueGraph.Editor
         /// </summary>
         public static NodeReflectionData GetNodeType(Type type)
         {
+            if (type == null)
+                return null;
+
             var types = GetNodeTypes();
             types.TryGetValue(type.FullName, out NodeReflectionData result);
             return result;

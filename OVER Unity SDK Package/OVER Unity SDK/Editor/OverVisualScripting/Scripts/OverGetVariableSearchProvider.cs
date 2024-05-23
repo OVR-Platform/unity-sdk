@@ -39,33 +39,35 @@ namespace OverSDK.VisualScripting.Editor
 
         public IEnumerable<SearchResult> GetSearchResults(SearchFilter filter)
         {
-            OverScriptManager.Main.UpdateMappings();
-            var globals = OverScriptManager.Main.Data.VariableDict.Values;
-
             Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
             Dictionary<string, OverVariableData> allLocals = new Dictionary<string, OverVariableData>();
 
+            OverScriptManager.Main.UpdateScriptReferences();
+
             foreach (OverScript script in OverScriptManager.Main.managedScripts)
             {
-                foreach (var variable in script.Data.VariableDict)
+                List<OverVariableData> variablesList = script.Data.GetVariablesList();
+                foreach (var variable in variablesList)
                 {
-                    if (!allLocals.ContainsKey(variable.Key))
-                        allLocals.Add(variable.Key, variable.Value);
+                    if (!variable.isGlobal && !allLocals.ContainsKey(variable.GUID))
+                        allLocals.Add(variable.GUID, variable);
                 }
             }
 
-            foreach (var item in graph.Data.VariableDict)
+            var variablesGraphList = graph.Data.GetVariablesList();
+            foreach (OverGraphVariableData item in variablesGraphList)
             {
-                if (allLocals.ContainsKey(item.Key))
+                if (!item.isGlobal && allLocals.ContainsKey(item.GUID))
                 {
-                    variableDict[item.Key] = allLocals[item.Key];
+                    variableDict[item.GUID] = allLocals[item.GUID];
                 }
                 else
                 {
-                    variableDict[item.Key] = item.Value.ToScriptData();
+                    variableDict[item.GUID] = item.ToScriptData();
                 }
             }
 
+            List<OverVariableData> globals = OverScriptManager.Main.Data.GetVariablesList();
             foreach (var global in globals)
             {
                 if (!variableDict.Keys.Contains(global.GUID))
@@ -115,10 +117,11 @@ namespace OverSDK.VisualScripting.Editor
                     case OverVariableType.Image: nodeType = typeof(OverGetVariableImage); break;
                     case OverVariableType.RawImage: nodeType = typeof(OverGetVariableRawImage); break;
                     case OverVariableType.Color: nodeType = typeof(OverGetVariableColor); break;
-                    case OverVariableType.List: nodeType = typeof(OverGetVariableOverDataList); break; 
-                    case OverVariableType.JSON: nodeType = typeof(OverGetVariableJSON); break; 
+                    case OverVariableType.List: nodeType = typeof(OverGetVariableOverDataList); break;
+                    case OverVariableType.JSON: nodeType = typeof(OverGetVariableJSON); break;
                     default: nodeType = null; break;
                 }
+
 
                 var entry = NodeReflection.GetNodeType(nodeType);
                 if (entry != null)
@@ -156,6 +159,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.Int:
                     OverGetVariableInt node_i = data.Item2.CreateInstance() as OverGetVariableInt;
                     node_i.guid = variable.GUID;
+                    node_i.sublistIndex = variable.sublistIndex;
                     node_i._name = variable.name;
                     node_i.Icon = result.Icon;
                     node_i.isGlobal = variable.isGlobal;
@@ -163,6 +167,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.Float:
                     OverGetVariableFloat node_f = data.Item2.CreateInstance() as OverGetVariableFloat;
                     node_f.guid = variable.GUID;
+                    node_f.sublistIndex = variable.sublistIndex;
                     node_f._name = variable.name;
                     //node_f.TypedVariable = variable.floatValue;
                     node_f.Icon = result.Icon;
@@ -171,6 +176,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.Bool:
                     OverGetVariableBool node_b = data.Item2.CreateInstance() as OverGetVariableBool;
                     node_b.guid = variable.GUID;
+                    node_b.sublistIndex = variable.sublistIndex;
                     node_b._name = variable.name;
                     //node_b.TypedVariable = variable.boolValue;
                     node_b.Icon = result.Icon;
@@ -179,6 +185,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.String:
                     OverGetVariableString node_s = data.Item2.CreateInstance() as OverGetVariableString;
                     node_s.guid = variable.GUID;
+                    node_s.sublistIndex = variable.sublistIndex;
                     node_s._name = variable.name;
                     //node_s.TypedVariable = variable.stringValue;
                     node_s.Icon = result.Icon;
@@ -187,6 +194,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.Vector2:
                     OverGetVariableVector2 node_v2 = data.Item2.CreateInstance() as OverGetVariableVector2;
                     node_v2.guid = variable.GUID;
+                    node_v2.sublistIndex = variable.sublistIndex;
                     node_v2._name = variable.name;
                     //node_v2.TypedVariable = variable.vector2Value;
                     node_v2.Icon = result.Icon;
@@ -195,6 +203,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.Vector3:
                     OverGetVariableVector3 node_v3 = data.Item2.CreateInstance() as OverGetVariableVector3;
                     node_v3.guid = variable.GUID;
+                    node_v3.sublistIndex = variable.sublistIndex;
                     node_v3._name = variable.name;
                     //node_v3.TypedVariable = variable.vector3Value;
                     node_v3.Icon = result.Icon;
@@ -203,6 +212,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.Quaternion:
                     OverGetVariableQuaternion node_q = data.Item2.CreateInstance() as OverGetVariableQuaternion;
                     node_q.guid = variable.GUID;
+                    node_q.sublistIndex = variable.sublistIndex;
                     node_q._name = variable.name;
                     //node_q.TypedVariable = variable.QuaternionValue;
                     node_q.Icon = result.Icon;
@@ -211,6 +221,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.Transform:
                     OverGetVariableTransform node_tr = data.Item2.CreateInstance() as OverGetVariableTransform;
                     node_tr.guid = variable.GUID;
+                    node_tr.sublistIndex = variable.sublistIndex;
                     node_tr._name = variable.name;
                     //node_tr.TypedVariable = variable.transformValue;
                     node_tr.Icon = result.Icon;
@@ -219,6 +230,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.RectTransform:
                     OverGetVariableRectTransform node_rtr = data.Item2.CreateInstance() as OverGetVariableRectTransform;
                     node_rtr.guid = variable.GUID;
+                    node_rtr.sublistIndex = variable.sublistIndex;
                     node_rtr._name = variable.name;
                     //node_rtr.TypedVariable = variable.rectTransform;
                     node_rtr.Icon = result.Icon;
@@ -227,6 +239,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.Rigidbody:
                     OverGetVariableRigidbody node_rb = data.Item2.CreateInstance() as OverGetVariableRigidbody;
                     node_rb.guid = variable.GUID;
+                    node_rb.sublistIndex = variable.sublistIndex;
                     node_rb._name = variable.name;
                     //node_rb.TypedVariable = variable.rigidbodyValue;
                     node_rb.Icon = result.Icon;
@@ -235,6 +248,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.Collider:
                     OverGetVariableCollider node_collider = data.Item2.CreateInstance() as OverGetVariableCollider;
                     node_collider.guid = variable.GUID;
+                    node_collider.sublistIndex = variable.sublistIndex;
                     node_collider._name = variable.name;
                     node_collider.Icon = result.Icon;
                     node_collider.isGlobal = variable.isGlobal;
@@ -242,6 +256,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.CharacterController:
                     OverGetVariableCharacterController node_characterController = data.Item2.CreateInstance() as OverGetVariableCharacterController;
                     node_characterController.guid = variable.GUID;
+                    node_characterController.sublistIndex = variable.sublistIndex;
                     node_characterController._name = variable.name;
                     node_characterController.Icon = result.Icon;
                     node_characterController.isGlobal = variable.isGlobal;
@@ -249,6 +264,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.Object:
                     OverGetVariableGameObject node_obj = data.Item2.CreateInstance() as OverGetVariableGameObject;
                     node_obj.guid = variable.GUID;
+                    node_obj.sublistIndex = variable.sublistIndex;
                     node_obj._name = variable.name;
                     //node_obj.TypedVariable = variable.gameObject;
                     node_obj.Icon = result.Icon;
@@ -257,6 +273,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.Renderer:
                     OverGetVariableRenderer node_renderer = data.Item2.CreateInstance() as OverGetVariableRenderer;
                     node_renderer.guid = variable.GUID;
+                    node_renderer.sublistIndex = variable.sublistIndex;
                     node_renderer._name = variable.name;
                     //node_renderer.TypedVariable = variable.renderer;
                     node_renderer.Icon = result.Icon;
@@ -265,6 +282,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.LineRenderer:
                     OverGetVariableLineRenderer node_line_renderer = data.Item2.CreateInstance() as OverGetVariableLineRenderer;
                     node_line_renderer.guid = variable.GUID;
+                    node_line_renderer.sublistIndex = variable.sublistIndex;
                     node_line_renderer._name = variable.name;
                     //node_line_renderer.TypedVariable = variable.lineRenderer;
                     node_line_renderer.Icon = result.Icon;
@@ -273,6 +291,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.Material:
                     OverGetVariableMaterial node_material = data.Item2.CreateInstance() as OverGetVariableMaterial;
                     node_material.guid = variable.GUID;
+                    node_material.sublistIndex = variable.sublistIndex;
                     node_material._name = variable.name;
                     node_material.Icon = result.Icon;
                     node_material.isGlobal = variable.isGlobal;
@@ -280,6 +299,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.ParticleSystem:
                     OverGetVariableParticleSystem node_particleSystem = data.Item2.CreateInstance() as OverGetVariableParticleSystem;
                     node_particleSystem.guid = variable.GUID;
+                    node_particleSystem.sublistIndex = variable.sublistIndex;
                     node_particleSystem._name = variable.name;
                     node_particleSystem.Icon = result.Icon;
                     node_particleSystem.isGlobal = variable.isGlobal;
@@ -287,6 +307,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.AudioSource:
                     OverGetVariableAudioSource node_as = data.Item2.CreateInstance() as OverGetVariableAudioSource;
                     node_as.guid = variable.GUID;
+                    node_as.sublistIndex = variable.sublistIndex;
                     node_as._name = variable.name;
                     //node_as.TypedVariable = variable.audioSource;
                     node_as.Icon = result.Icon;
@@ -295,6 +316,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.AudioClip:
                     OverGetVariableAudioClip node_ac = data.Item2.CreateInstance() as OverGetVariableAudioClip;
                     node_ac.guid = variable.GUID;
+                    node_ac.sublistIndex = variable.sublistIndex;
                     node_ac._name = variable.name;
                     //node_as.TypedVariable = variable.audioSource;
                     node_ac.Icon = result.Icon;
@@ -303,6 +325,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.Video:
                     OverGetVariableVideoPlayer node_vd = data.Item2.CreateInstance() as OverGetVariableVideoPlayer;
                     node_vd.guid = variable.GUID;
+                    node_vd.sublistIndex = variable.sublistIndex;
                     node_vd._name = variable.name;
                     //node_vd.TypedVariable = variable.videoPlayer;
                     node_vd.Icon = result.Icon;
@@ -311,6 +334,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.ImageStreamer:
                     OverGetVariableImageStreamer node_is = data.Item2.CreateInstance() as OverGetVariableImageStreamer;
                     node_is.guid = variable.GUID;
+                    node_is.sublistIndex = variable.sublistIndex;
                     node_is._name = variable.name;
                     node_is.Icon = result.Icon;
                     node_is.isGlobal = variable.isGlobal;
@@ -318,6 +342,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.Animator:
                     OverGetVariableAnimator node_anmtr = data.Item2.CreateInstance() as OverGetVariableAnimator;
                     node_anmtr.guid = variable.GUID;
+                    node_anmtr.sublistIndex = variable.sublistIndex;
                     node_anmtr._name = variable.name;
                     node_anmtr.Icon = result.Icon;
                     node_anmtr.isGlobal = variable.isGlobal;
@@ -325,6 +350,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.Light:
                     OverGetVariableLight node_lgt = data.Item2.CreateInstance() as OverGetVariableLight;
                     node_lgt.guid = variable.GUID;
+                    node_lgt.sublistIndex = variable.sublistIndex;
                     node_lgt._name = variable.name;
                     node_lgt.Icon = result.Icon;
                     node_lgt.isGlobal = variable.isGlobal;
@@ -332,6 +358,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.NavMeshAgent:
                     OverGetVariableNavMeshAgent node_nmagt = data.Item2.CreateInstance() as OverGetVariableNavMeshAgent;
                     node_nmagt.guid = variable.GUID;
+                    node_nmagt.sublistIndex = variable.sublistIndex;
                     node_nmagt._name = variable.name;
                     node_nmagt.Icon = result.Icon;
                     node_nmagt.isGlobal = variable.isGlobal;
@@ -346,6 +373,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.Text:
                     OverGetVariableText node_text = data.Item2.CreateInstance() as OverGetVariableText;
                     node_text.guid = variable.GUID;
+                    node_text.sublistIndex = variable.sublistIndex;
                     node_text._name = variable.name;
                     node_text.Icon = result.Icon;
                     node_text.isGlobal = variable.isGlobal;
@@ -353,6 +381,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.TextTMP:
                     OverGetVariableTextTMP node_textTMP = data.Item2.CreateInstance() as OverGetVariableTextTMP;
                     node_textTMP.guid = variable.GUID;
+                    node_textTMP.sublistIndex = variable.sublistIndex;
                     node_textTMP._name = variable.name;
                     node_textTMP.Icon = result.Icon;
                     node_textTMP.isGlobal = variable.isGlobal;
@@ -360,6 +389,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.TextTMP_3D:
                     OverGetVariableTextTMP_3D node_textTMP_3D = data.Item2.CreateInstance() as OverGetVariableTextTMP_3D;
                     node_textTMP_3D.guid = variable.GUID;
+                    node_textTMP_3D.sublistIndex = variable.sublistIndex;
                     node_textTMP_3D._name = variable.name;
                     node_textTMP_3D.Icon = result.Icon;
                     node_textTMP_3D.isGlobal = variable.isGlobal;
@@ -367,6 +397,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.Image:
                     OverGetVariableImage node_img = data.Item2.CreateInstance() as OverGetVariableImage;
                     node_img.guid = variable.GUID;
+                    node_img.sublistIndex = variable.sublistIndex;
                     node_img._name = variable.name;
                     node_img.Icon = result.Icon;
                     node_img.isGlobal = variable.isGlobal;
@@ -374,6 +405,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.RawImage:
                     OverGetVariableRawImage node_rawImg = data.Item2.CreateInstance() as OverGetVariableRawImage;
                     node_rawImg.guid = variable.GUID;
+                    node_rawImg.sublistIndex = variable.sublistIndex;
                     node_rawImg._name = variable.name;
                     node_rawImg.Icon = result.Icon;
                     node_rawImg.isGlobal = variable.isGlobal;
@@ -381,6 +413,7 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.Color:
                     OverGetVariableColor node_color = data.Item2.CreateInstance() as OverGetVariableColor;
                     node_color.guid = variable.GUID;
+                    node_color.sublistIndex = variable.sublistIndex;
                     node_color._name = variable.name;
                     node_color.Icon = result.Icon;
                     node_color.isGlobal = variable.isGlobal;
@@ -388,13 +421,15 @@ namespace OverSDK.VisualScripting.Editor
                 case OverVariableType.List:
                     OverGetVariableOverDataList node_list = data.Item2.CreateInstance() as OverGetVariableOverDataList;
                     node_list.guid = variable.GUID;
+                    node_list.sublistIndex = variable.sublistIndex;
                     node_list._name = variable.name;
                     node_list.Icon = result.Icon;
                     node_list.isGlobal = variable.isGlobal;
                     return node_list;
                 case OverVariableType.JSON:
-                    OverGetVariableJSON node_json= data.Item2.CreateInstance() as OverGetVariableJSON;
+                    OverGetVariableJSON node_json = data.Item2.CreateInstance() as OverGetVariableJSON;
                     node_json.guid = variable.GUID;
+                    node_json.sublistIndex = variable.sublistIndex;
                     node_json._name = variable.name;
                     node_json.Icon = result.Icon;
                     node_json.isGlobal = variable.isGlobal;
@@ -415,7 +450,7 @@ namespace OverSDK.VisualScripting.Editor
             //{
             //    return true;
             //}
-            return this.graph.Data.VariableDict.Count > 0 || OverScriptManager.Main.Data.VariableDict.Count > 0;
+            return this.graph.Data.TotalVariablesCount > 0 || OverScriptManager.Main.Data.TotalVariablesCount > 0;
         }
 
         /// <summary>

@@ -41,6 +41,9 @@ namespace OverSDK.VisualScripting
     public abstract class OverGetVariable : OverNode
     {
         public string guid;
+
+        public int sublistIndex;
+
         public string _name;
 
         public bool isGlobal;
@@ -62,22 +65,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.Int;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.integerValue;
+                return varaibleFound.integerValue;
             }
 
             return 0;
@@ -92,22 +86,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.Float;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.floatValue;
+                return varaibleFound.floatValue;
             }
 
             return 0f;
@@ -122,22 +107,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.Bool;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.boolValue;
+                return varaibleFound.boolValue;
             }
 
             return false;
@@ -152,22 +128,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.String;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.stringValue;
+                return varaibleFound.stringValue;
             }
 
             return "";
@@ -182,22 +149,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.Vector2;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.vector2Value;
+                return varaibleFound.vector2Value;
             }
 
             return Vector2.zero;
@@ -212,22 +170,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.Vector3;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.vector3Value;
+                return varaibleFound.vector3Value;
             }
 
             return Vector3.zero;
@@ -242,22 +191,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.Quaternion;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.QuaternionValue;
+                return varaibleFound.QuaternionValue;
             }
 
             return Quaternion.identity;
@@ -273,22 +213,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.Transform;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.transformValue;
+                return varaibleFound.transformValue;
             }
 
             return null;
@@ -305,22 +236,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.RectTransform;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.rectTransform;
+                return varaibleFound.rectTransform;
             }
 
             return null;
@@ -336,22 +258,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.Rigidbody;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.rigidbodyValue;
+                return varaibleFound.rigidbodyValue;
             }
 
             return null;
@@ -366,22 +279,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.Collider;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.colliderValue;
+                return varaibleFound.colliderValue;
             }
 
             return null;
@@ -396,22 +300,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.CharacterController;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.characterController;
+                return varaibleFound.characterController;
             }
 
             return null;
@@ -427,22 +322,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.Object;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.gameObject;
+                return varaibleFound.gameObject;
             }
 
             return null;
@@ -459,22 +345,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.Renderer;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.renderer;
+                return varaibleFound.renderer;
             }
 
             return null;
@@ -491,22 +368,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.LineRenderer;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.lineRenderer;
+                return varaibleFound.lineRenderer;
             }
 
             return null;
@@ -521,22 +389,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.Material;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.material;
+                return varaibleFound.material;
             }
 
             return null;
@@ -551,22 +410,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.ParticleSystem;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.particleSystem;
+                return varaibleFound.particleSystem;
             }
 
             return null;
@@ -581,22 +431,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.AudioSource;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.audioSource;
+                return varaibleFound.audioSource;
             }
 
             return null;
@@ -612,22 +453,13 @@ namespace OverSDK.VisualScripting
 
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.audioClip;
+                return varaibleFound.audioClip;
             }
 
             return null;
@@ -643,22 +475,13 @@ namespace OverSDK.VisualScripting
 
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.videoPlayer;
+                return varaibleFound.videoPlayer;
             }
 
             return null;
@@ -674,22 +497,13 @@ namespace OverSDK.VisualScripting
 
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.imageStreamer;
+                return varaibleFound.imageStreamer;
             }
 
             return null;
@@ -704,22 +518,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.Animator;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.animator;
+                return varaibleFound.animator;
             }
 
             return null;
@@ -734,22 +539,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.Light;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.light;
+                return varaibleFound.light;
             }
 
             return null;
@@ -765,28 +561,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.NavMeshAgent;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-                else
-                {
-                    Debug.LogWarning($"ATTENTION! Application is not in PLAY Mode, the values you see on screen may be incorrectly calculated.");
-                    OverScript script = OverScriptManager.Main.managedScripts.Where(x => x.Data.VariableDict.ContainsKey(guid)).FirstOrDefault();
-                    variableDict = script.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.navMeshAgent;
+                return varaibleFound.navMeshAgent;
             }
 
             return null;
@@ -839,22 +620,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.Text;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.text;
+                return varaibleFound.text;
             }
 
             return null;
@@ -870,22 +642,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.TextTMP;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.textTMP;
+                return varaibleFound.textTMP;
             }
 
             return null;
@@ -900,22 +663,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.TextTMP_3D;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.textTMP_3D;
+                return varaibleFound.textTMP_3D;
             }
 
             return null;
@@ -930,22 +684,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.Image;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.image;
+                return varaibleFound.image;
             }
 
             return null;
@@ -960,22 +705,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.RawImage;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.rawImage;
+                return varaibleFound.rawImage;
             }
 
             return null;
@@ -990,22 +726,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.Color;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.color;
+                return varaibleFound.color;
             }
 
             return Color.white;
@@ -1020,22 +747,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.List;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return CreateListFromOverListData(variableData.list);
+                return CreateListFromOverListData(varaibleFound.list);
             }
 
             return null;
@@ -1070,22 +788,13 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.List;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                return variableData?.list;
+                return varaibleFound.list;
             }
 
             return null;
@@ -1100,24 +809,15 @@ namespace OverSDK.VisualScripting
         public override OverVariableType Type => OverVariableType.JSON;
         public override object OnRequestNodeValue(Port port)
         {
-            Dictionary<string, OverVariableData> variableDict = new Dictionary<string, OverVariableData>();
-            if (isGlobal)
-            {
-                variableDict = OverScriptManager.Main.Data.VariableDict;
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(sharedContext.scriptGUID))
-                {
-                    variableDict = OverScriptManager.Main.overDataMappings[sharedContext.scriptGUID].overScript.Data.VariableDict;
-                }
-            }
+            OverScriptData data = isGlobal ?
+                                  OverScriptManager.Main.Data :
+                                  OverScriptManager.Main.overScriptsReferences[sharedContext.scriptGUID].overScript.Data;
 
-            if (variableDict.TryGetValue(guid, out var variableData))
+            if (data.TryGetVariable(guid, out OverVariableData varaibleFound))
             {
-                string jsonData = variableData.json;
+                string jsonData = varaibleFound.json;
 
-                if (variableData != null &&
+                if (varaibleFound != null &&
                     !string.IsNullOrEmpty(jsonData) &&
                     !string.IsNullOrWhiteSpace(jsonData))
                 {

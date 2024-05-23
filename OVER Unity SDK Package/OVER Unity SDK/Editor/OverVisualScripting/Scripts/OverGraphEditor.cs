@@ -35,7 +35,7 @@ namespace OverSDK.VisualScripting.Editor
     {
         public override GraphEditorWindow CreateEditorWindow()
         {
-            OverScriptManager.Main.UpdateMappings();
+            OverScriptManager.Main.UpdateScriptReferences();
 
             var window = base.CreateEditorWindow();
             return window;

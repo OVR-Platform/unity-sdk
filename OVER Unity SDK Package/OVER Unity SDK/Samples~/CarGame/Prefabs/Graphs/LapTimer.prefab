@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7639211522993934418}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5891424585419959426
 MonoBehaviour:
@@ -47,356 +47,340 @@ MonoBehaviour:
   GUID: 56a6806e-7c9c-4b18-8db3-f7287ef4c481
   overGraph: {fileID: 11400000, guid: 5dc0941c99016754e9e0fc220ce91b52, type: 2}
   data:
-    variables:
-    - GUID: 97ff0e32-a717-4bdb-8101-79f100d6f41d
-      name: IsFirstTime
-      type: 1
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 1
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 4790aa34-d742-498a-a89f-d3e49ddd111f
-      name: UiCurrentIndex
-      type: 2
-      isGlobal: 0
-      integerValue: -1
-      floatValue: 0
-      stringValue: 
-      boolValue: 1
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 86eca8bc-4e99-4961-9add-a2d0a4c55040
-      name: LastLapSaved
-      type: 2
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 1
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 93cd7c1d-a5c2-4097-846e-0e6de6c612b0
-      name: totalMilliseconds
-      type: 2
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 1
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 948be004-f2f6-4fdc-a4a6-30ffa010d882
-      name: currentMinutes
-      type: 2
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 1
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 57cab440-0936-4a05-a6de-eedce60608c0
-      name: currentSeconds
-      type: 2
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 1
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 6c730b09-0a3b-40f8-ac60-1ba81573b0dc
-      name: currentMilliseconds
-      type: 2
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 1
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: 24c162f5-1916-43af-b675-3f12de94266d
-      name: currentMilliseconds
-      type: 2
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: 
-      boolValue: 1
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-    - GUID: f6bbd034-d52b-4ff9-9f7c-9d6d234601fb
-      name: DefaultTimerValue
-      type: 7
-      isGlobal: 0
-      integerValue: 0
-      floatValue: 0
-      stringValue: --/--/--
-      boolValue: 1
-      vector2Value: {x: 0, y: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
-      transformValue: {fileID: 0}
-      gameObject: {fileID: 0}
-      renderer: {fileID: 0}
-      rectTransform: {fileID: 0}
-      lineRenderer: {fileID: 0}
-      material: {fileID: 0}
-      particleSystem: {fileID: 0}
-      rigidbodyValue: {fileID: 0}
-      colliderValue: {fileID: 0}
-      characterController: {fileID: 0}
-      light: {fileID: 0}
-      navMeshAgent: {fileID: 0}
-      audioSource: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoPlayer: {fileID: 0}
-      imageStreamer: {fileID: 0}
-      animator: {fileID: 0}
-      text: {fileID: 0}
-      textTMP: {fileID: 0}
-      image: {fileID: 0}
-      rawImage: {fileID: 0}
-      color: {r: 0, g: 0, b: 0, a: 0}
-      list: {fileID: 0}
-      json: 
-  ghostVariables:
-  - GUID: 97ff0e32-a717-4bdb-8101-79f100d6f41d
-    name: IsFirstTime
-    type: 1
-    isGlobal: 0
-  - GUID: 4790aa34-d742-498a-a89f-d3e49ddd111f
-    name: UiCurrentIndex
-    type: 2
-    isGlobal: 0
-  - GUID: 86eca8bc-4e99-4961-9add-a2d0a4c55040
-    name: LastLapSaved
-    type: 2
-    isGlobal: 0
-  - GUID: 93cd7c1d-a5c2-4097-846e-0e6de6c612b0
-    name: totalMilliseconds
-    type: 2
-    isGlobal: 0
-  - GUID: 948be004-f2f6-4fdc-a4a6-30ffa010d882
-    name: currentMinutes
-    type: 2
-    isGlobal: 0
-  - GUID: 57cab440-0936-4a05-a6de-eedce60608c0
-    name: currentSeconds
-    type: 2
-    isGlobal: 0
-  - GUID: 6c730b09-0a3b-40f8-ac60-1ba81573b0dc
-    name: currentMilliseconds
-    type: 2
-    isGlobal: 0
-  - GUID: 24c162f5-1916-43af-b675-3f12de94266d
-    name: currentMilliseconds
-    type: 2
-    isGlobal: 0
-  - GUID: f6bbd034-d52b-4ff9-9f7c-9d6d234601fb
-    name: DefaultTimerValue
-    type: 7
-    isGlobal: 0
+    variables: []
+    subLists:
+    - groupName: Sub List Group
+      variables:
+      - GUID: 97ff0e32-a717-4bdb-8101-79f100d6f41d
+        sublistIndex: 0
+        name: IsFirstTime
+        type: 1
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 1
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 4790aa34-d742-498a-a89f-d3e49ddd111f
+        sublistIndex: 0
+        name: UiCurrentIndex
+        type: 2
+        isGlobal: 0
+        integerValue: -1
+        floatValue: 0
+        stringValue: 
+        boolValue: 1
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 86eca8bc-4e99-4961-9add-a2d0a4c55040
+        sublistIndex: 0
+        name: LastLapSaved
+        type: 2
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 1
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 93cd7c1d-a5c2-4097-846e-0e6de6c612b0
+        sublistIndex: 0
+        name: totalMilliseconds
+        type: 2
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 1
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 948be004-f2f6-4fdc-a4a6-30ffa010d882
+        sublistIndex: 0
+        name: currentMinutes
+        type: 2
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 1
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 57cab440-0936-4a05-a6de-eedce60608c0
+        sublistIndex: 0
+        name: currentSeconds
+        type: 2
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 1
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 6c730b09-0a3b-40f8-ac60-1ba81573b0dc
+        sublistIndex: 0
+        name: currentMilliseconds
+        type: 2
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 1
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: 9740544e-01f8-429a-bf54-79dba21c1ecb
+        sublistIndex: 0
+        name: HasReset
+        type: 1
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: 
+        boolValue: 1
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 
+      - GUID: f6bbd034-d52b-4ff9-9f7c-9d6d234601fb
+        sublistIndex: 0
+        name: DefaultTimerValue
+        type: 7
+        isGlobal: 0
+        integerValue: 0
+        floatValue: 0
+        stringValue: --/--/--
+        boolValue: 1
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        QuaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        transformValue: {fileID: 0}
+        gameObject: {fileID: 0}
+        renderer: {fileID: 0}
+        rectTransform: {fileID: 0}
+        lineRenderer: {fileID: 0}
+        material: {fileID: 0}
+        particleSystem: {fileID: 0}
+        rigidbodyValue: {fileID: 0}
+        colliderValue: {fileID: 0}
+        characterController: {fileID: 0}
+        light: {fileID: 0}
+        navMeshAgent: {fileID: 0}
+        audioSource: {fileID: 0}
+        audioClip: {fileID: 0}
+        videoPlayer: {fileID: 0}
+        imageStreamer: {fileID: 0}
+        animator: {fileID: 0}
+        text: {fileID: 0}
+        textTMP: {fileID: 0}
+        textTMP_3D: {fileID: 0}
+        image: {fileID: 0}
+        rawImage: {fileID: 0}
+        color: {r: 0, g: 0, b: 0, a: 0}
+        list: {fileID: 0}
+        json: 

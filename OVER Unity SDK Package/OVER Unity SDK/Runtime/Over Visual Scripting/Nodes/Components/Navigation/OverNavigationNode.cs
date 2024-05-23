@@ -92,7 +92,7 @@ namespace OverSDK.VisualScripting
         }
     }
 
-    [Node(Path = "Component/Navigation/Handlers", Name = "Warp to", Icon = "COMPONENT/NAVIGATION")]
+    [Node(Path = "Component/Navigation/Handlers", Name = "Warp To", Icon = "COMPONENT/NAVIGATION")]
     [Output("Agent", typeof(NavMeshAgent), Multiple = true)]
     public class OverWarp : OverNavigationHandlerNode
     {
@@ -147,6 +147,5 @@ namespace OverSDK.VisualScripting
             return base.OnRequestNodeValue(port);
         }
     }
-
 }
 

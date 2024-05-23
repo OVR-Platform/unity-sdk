@@ -636,7 +636,6 @@ MonoBehaviour:
   data:
     variables: []
     subLists: []
-  ghostVariables: []
   errors: []
   localSaveFilePath: 
 --- !u!1 &8298435356923346455
@@ -688,7 +687,6 @@ MonoBehaviour:
   data:
     variables: []
     subLists: []
-  ghostVariables: []
 --- !u!1 &9075372817350038568
 GameObject:
   m_ObjectHideFlags: 0
