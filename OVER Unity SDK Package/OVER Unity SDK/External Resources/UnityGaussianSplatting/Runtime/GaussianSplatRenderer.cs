@@ -548,6 +548,17 @@ namespace GaussianSplatting.Runtime
             var tr = transform;
 
             Matrix4x4 matView = cam.worldToCameraMatrix;
+
+            //OVER
+            if (cam.cameraType == CameraType.Game && cam.CompareTag("PlayerCam"))
+            {
+                matView.m10 *= -1;
+                matView.m11 *= -1;
+                matView.m12 *= -1;
+                matView.m13 *= -1;
+            }
+            //OVER
+
             Matrix4x4 matProj = GL.GetGPUProjectionMatrix(cam.projectionMatrix, true);
             Matrix4x4 matO2W = tr.localToWorldMatrix;
             Matrix4x4 matW2O = tr.worldToLocalMatrix;
