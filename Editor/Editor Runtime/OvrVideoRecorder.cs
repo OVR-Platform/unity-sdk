@@ -25,30 +25,44 @@
  * THE SOFTWARE.
  */
 
-using System.Collections;
-using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
-using UnityEngine.Video;
+using UnityEngine.Rendering;
 
 namespace OverSDK
 {
-    //[CreateAssetMenu]
-    public class OvrPrefabInstantiatorScriptableObject : ScriptableObject
+    public class OvrVideoRecorder : MonoBehaviour
     {
-        public OvrAsset ovrAsset;
-        public OvrCanvas ovrCanvas;
-        public OvrPlayerSimulator ovrPlayerSimulator;
+        public CinemachinePath path;
+        public CinemachineDollyCart dollyCart;
+        public CinemachineDollyCart dollyCartSkybox;
 
-        public OvrArWorldCanvas ovrArWorldCanvas;
-        public OverScreenShareComponent ovrScreenShareComponent;
+        public Material skyboxMaterial;
 
-        public OvrClickableObject ovrClickableObject;
-        public OvrColliderTrigger ovrColliderTrigger;
-        public OvrUIButton ovrUIButton;
+        [HideInInspector]
+        public Material oldSkyboxMaterial;
+        [HideInInspector]
+        public AmbientMode ambientMode;
+        [HideInInspector]        
+        public Color ambientSkyColor;
+        [HideInInspector]        
+        public Color ambientEquatorColor;
+        [HideInInspector]
+        public Color ambientGroundColor;
 
-        public VideoPlayer chromaKeyVideoPlayer;
-        public ImageStreamer imageStreamer;
+        //public RecorderControllerSettingsPreset preset;
 
-        public OvrPoap ovrPoap;
+
+        private void OnValidate()
+        {
+            if (RenderSettings.skybox != skyboxMaterial)
+            {
+                oldSkyboxMaterial = RenderSettings.skybox;
+            }
+        }
+
     }
+
+    
+
 }

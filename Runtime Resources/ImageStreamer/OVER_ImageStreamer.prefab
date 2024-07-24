@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2068210396943996969}
   - component: {fileID: 6553946598101952039}
   m_Layer: 0
-  m_Name: OverImageStreamer
+  m_Name: OVER_ImageStreamer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

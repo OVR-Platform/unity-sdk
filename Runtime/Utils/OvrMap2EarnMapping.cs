@@ -26,6 +26,7 @@
  */
 
 using System;
+//using UnityEditor;
 using UnityEngine;
 
 namespace OverSDK
@@ -56,7 +57,7 @@ namespace OverSDK
         [ReadOnly]
         public Vector3 mapRelativeScale;
 
-        private OvrMap2EarnMappingInfo tmpMappingInfo;
+        public OvrMap2EarnMappingInfo tmpMappingInfo;
         private bool isSaving;
 
         public Action<OvrMap2EarnMappingInfo, Action<bool>> OnSaveMappingBtnClicked;
@@ -88,6 +89,13 @@ namespace OverSDK
 
         public void SaveMappingData()
         {
+            if (OnSaveMappingBtnClicked == null)
+            {
+                Debug.LogError("For security reasons the Over Editor popup must be open in order to save changes correctly");
+                //EditorUtility.DisplayDialog("Attention!", "For security reasons the Over Editor popup must be open in order to save changes correctly", "Ok");
+                return;
+            }
+            
             if (!isSaving)
             {
                 tmpMappingInfo.reposition_data.hasData = true;
@@ -135,6 +143,11 @@ namespace OverSDK
         public bool IsDataSaved()
         {
             return (transform.position == mapRelativePosition) && (transform.rotation == mapRelativeRotation) && (transform.localScale == mapRelativeScale);
+        }
+
+        public void ResetMappingData()
+        {
+            SetRepositionData();
         }
 #endif
 

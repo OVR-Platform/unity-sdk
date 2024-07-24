@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 1789230389595356327}
   - component: {fileID: 6383305665619458208}
   m_Layer: 5
-  m_Name: OvrCanvas
+  m_Name: OVER_Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

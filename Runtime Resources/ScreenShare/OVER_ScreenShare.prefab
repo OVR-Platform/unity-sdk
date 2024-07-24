@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4634119211611867532}
   - component: {fileID: -2113573738338432115}
   m_Layer: 0
-  m_Name: OvrScreenShare
+  m_Name: OVER_ScreenShare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
