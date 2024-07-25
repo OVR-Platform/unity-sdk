@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 6576673237775137844}
   - component: {fileID: 7571589498752060002}
   m_Layer: 0
-  m_Name: OvrPoap
+  m_Name: OVER_Poap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

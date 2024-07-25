@@ -198,23 +198,38 @@ namespace OverSDK.VisualScripting
 
             overVariableData.GUID = GUID;
             overVariableData.sublistIndex = sublistIndex;
+
             overVariableData.name = name;
             overVariableData.type = type;
+
             overVariableData.isGlobal = isGlobal;
+
             overVariableData.integerValue = integerValue;
             overVariableData.floatValue = floatValue;
             overVariableData.stringValue = stringValue;
             overVariableData.boolValue = boolValue;
+
             overVariableData.vector2Value = vector2Value;
             overVariableData.vector3Value = vector3Value;
             overVariableData.QuaternionValue = QuaternionValue;
+
             overVariableData.transformValue = transformValue;
             overVariableData.gameObject = gameObject;
             overVariableData.renderer = renderer;
             overVariableData.rectTransform = rectTransform;
             overVariableData.lineRenderer = lineRenderer;
+
             overVariableData.material = material;
             overVariableData.particleSystem = particleSystem;
+
+
+            overVariableData.rigidbodyValue = rigidbodyValue;
+            overVariableData.colliderValue = colliderValue;
+            overVariableData.characterController = characterController;
+
+            overVariableData.light = light;
+
+            overVariableData.navMeshAgent = navMeshAgent;
 
             overVariableData.audioSource = audioSource;
             overVariableData.audioClip = audioClip;
@@ -222,15 +237,10 @@ namespace OverSDK.VisualScripting
             overVariableData.imageStreamer = imageStreamer;
             overVariableData.animator = animator;
 
-            overVariableData.rigidbodyValue = rigidbodyValue;
-            overVariableData.colliderValue = colliderValue;
-            overVariableData.characterController = characterController;
-            overVariableData.light = light;
-
-            overVariableData.navMeshAgent = navMeshAgent;
-
             overVariableData.text = text;
             overVariableData.textTMP = textTMP;
+            overVariableData.textTMP_3D = textTMP_3D;
+
             overVariableData.image = image;
             overVariableData.rawImage = rawImage;
             overVariableData.color = color;
@@ -609,8 +619,11 @@ namespace OverSDK.VisualScripting
         // MONOBEHAVIOURS
         private void OnValidate()
         {
-            CheckIfUpdateReferenceAndOldVariables();
-            SetVariablesToGraph();
+            if(!Application.isPlaying)
+            {
+                CheckIfUpdateReferenceAndOldVariables();
+                SetVariablesToGraph();
+            }      
         }
 
         void Awake()
@@ -635,6 +648,8 @@ namespace OverSDK.VisualScripting
                     OverScriptManager.Main.UpdateScriptReferences();
                     UpdateOldVariableList();
                 }
+
+                UpdateOldVariableList(); //Lo faccio lo stesso perche non capisco più se l'ha gia fatto o no
 
 
                 // Because Unity reselialize when changing play mode
@@ -796,7 +811,10 @@ namespace OverSDK.VisualScripting
         {
             if (Data.HasSomeOldVariable)
             {
-                if (gameObject != null && !string.IsNullOrEmpty(gameObject.scene.name) && gameObject.scene.name.Equals(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name))
+                if (gameObject != null 
+                    && !string.IsNullOrEmpty(gameObject.scene.name)
+                    && (Application.isPlaying || gameObject.scene.name.Equals(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name))
+                    )
                 {
                     if (forceRestoreOverScriptManager)
                         OverScriptManager.Main.UpdateScriptReferences();
@@ -822,7 +840,7 @@ namespace OverSDK.VisualScripting
             Data.ClearLists();
         }
 
-        public void OnUpdateGraphData(OverGraphData graphData)
+        public void OnUpdateFromGraphData(OverGraphData graphData)
         {
             Data.ClearLists();
 

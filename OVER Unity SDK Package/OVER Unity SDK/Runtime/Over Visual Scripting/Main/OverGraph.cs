@@ -498,21 +498,24 @@ namespace OverSDK.VisualScripting
             //Reset all globals as well.
             UpdateDataFromManager();
 
-
-            //Notify to other scripts that use the same graph
-            OverScriptManager scriptManager = OverScriptManager.Main;
-            string graphGuid = GUID;
-
-            if (scriptManager != null)
+            //Notify to other scripts that use the same graph (serve quando vengono aggiunte variabili)
+            if(Application.isEditor && !Application.isPlaying)
             {
-                foreach (OverScript overscript in scriptManager.managedScripts)
+                OverScriptManager scriptManager = OverScriptManager.Main;
+                string graphGuid = GUID;
+
+                if (scriptManager != null)
                 {
-                    if (overscript.OverGraph.GUID == graphGuid && overscript.GUID != script.GUID)
+                    foreach (OverScript overscript in scriptManager.managedScripts)
                     {
-                        overscript.OnUpdateGraphData(Data);
+                        if (overscript.OverGraph.GUID == graphGuid && overscript.GUID != script.GUID)
+                        {
+                            overscript.OnUpdateFromGraphData(Data);
+                        }
                     }
                 }
-            }
+            }          
+
             Data.RebuildLookupDictionary();
 
             ValidateInternalNodes();
@@ -572,6 +575,14 @@ namespace OverSDK.VisualScripting
 
         private void ValidateInternalNodes()
         {
+            if (Application.isPlaying)
+            {
+                if (Application.isEditor)
+                    Debug.Log("Non needed in play, but commment return for debug");
+
+                return;
+            }
+
             List<OverGetVariable> getNodes = GetGraphNodes<OverGetVariable>();
             List<OverSetVariable> setNodes = GetGraphNodes<OverSetVariable>();
 

@@ -25,45 +25,37 @@
  * THE SOFTWARE.
  */
 
+using OverSDK;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
-namespace OverSDK
+
+namespace Over_Editor
 {
-    public class OvrNftSupportedExtensionsScriptableObject : ScriptableObject
+    //[CreateAssetMenu]
+    public class OvrPrefabInstantiatorScriptableObject : ScriptableObject
     {
-        public List<string> Image;
-        public List<string> Audio;
-        public List<string> AssetBundle;
-        public List<string> Glb;
-        public List<string> Video;
+        public OvrAsset ovrAsset;
+        public OvrCanvas ovrCanvas;
+        public OvrPlayerSimulator ovrPlayerSimulator;
 
-        public OvrNftSupportedExtensionsScriptableObject()
-        {
-            Image = new List<string>();
-            Audio = new List<string>();
-            AssetBundle = new List<string>();
-            Glb = new List<string>();
-            Video = new List<string>();
+        public OvrArWorldCanvas ovrArWorldCanvas;
+        public OverScreenShareComponent ovrScreenShareComponent;
 
-            InitSupportExtensions();
-        }
+        public OvrClickableObject ovrClickableObject;
+        public OvrColliderTrigger ovrColliderTrigger;
+        public OvrUIButton ovrUIButton;
 
-        private void InitSupportExtensions()
-        {
-            Image.Add("png");
-            Image.Add("jpg");
-            Image.Add("jpeg");
+        public VideoPlayer chromaKeyVideoPlayer;
+        public ImageStreamer imageStreamer;
 
-            Audio.Add("mp3");
+        public OvrPoap ovrPoap;
 
-            AssetBundle.Add("unity3d");
+        public OvrRemoteSpawnPoint ovrRemoteSpawnPoint;
+        public OvrConsoleSpawnPoint ovrConsoleSpawnPoint;
 
-            Glb.Add("glb");
-            Glb.Add("gltf");
-
-            Video.Add("mp4");
-        }
+        public OvrVideoRecorder ovrVideoRecorder;
     }
 }

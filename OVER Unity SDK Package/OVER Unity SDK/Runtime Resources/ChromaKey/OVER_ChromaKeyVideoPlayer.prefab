@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7426250001640926147}
   - component: {fileID: 7426250001640926144}
   m_Layer: 0
-  m_Name: ChromaKeyVideoPlayer
+  m_Name: OVER_ChromaKeyVideoPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
