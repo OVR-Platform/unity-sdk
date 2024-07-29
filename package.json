@@ -15,7 +15,8 @@
     "com.unity.mathematics": "1.2.6",
     "com.unity.cloud.gltfast": "6.2.0",
     "com.unity.recorder": "4.0.3",
-    "com.unity.cinemachine": "2.9.7"
+    "com.unity.cinemachine": "2.9.7",
+    "com.unity.editorcoroutines": "1.0.0"
   },
   "keywords": [],
   "author": {
