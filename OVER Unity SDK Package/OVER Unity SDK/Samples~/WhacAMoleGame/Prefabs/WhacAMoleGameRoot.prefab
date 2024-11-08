@@ -559,8 +559,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1369126589289661734}
   - component: {fileID: 1369126589289661735}
-  - component: {fileID: 1369126589289661728}
-  - component: {fileID: -3468667697402967873}
   m_Layer: 0
   m_Name: WhacAMoleGameRoot
   m_TagString: Untagged
@@ -599,57 +597,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f928b02eb93414191b9684d3f1f2ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ovrLightModifierData: {fileID: 1369126589289661728}
+  ovrLightModifierData: {fileID: 0}
   ovrCanvas: {fileID: 435996431758977069}
   ovrPoap: {fileID: 0}
-  ovrGeneralSettings: {fileID: -3468667697402967873}
---- !u!114 &1369126589289661728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369126589289661729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e99ac2828b89481ba75725f8c708aa3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableOvrDefaultLight: 0
-  enableARLightSystem: 1
-  customShadowSettings: 0
-  setDistance: 1
-  shadowDistance: 20
-  setProjection: 0
-  shadowProjection: 0
-  setResolution: 0
-  shadowResolution: 0
---- !u!114 &-3468667697402967873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369126589289661729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12438727adf74acb9327214a2efb698b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  environmentOcclusionAR: 0
-  automaticStartEnvironmentOcclusionAR: 0
-  humanOcclusionAR: 0
-  automaticStartHumanOcclusionAR: 0
-  meshOcclusionAR: 0
-  automaticStartMeshOcclusionAR: 0
-  environmentOcclusionRemote: 0
-  automaticStartEnvironmentOcclusionRemote: 0
-  humanOcclusionRemote: 0
-  automaticStartHumanOcclusionRemote: 0
-  meshOcclusionRemote: 0
-  automaticStartMeshOcclusionRemote: 0
-  walkModeButton: 0
-  automaticWalkModeButton: 0
+  ovrGeneralSettings: {fileID: 0}
 --- !u!1 &2645440734717156112
 GameObject:
   m_ObjectHideFlags: 0

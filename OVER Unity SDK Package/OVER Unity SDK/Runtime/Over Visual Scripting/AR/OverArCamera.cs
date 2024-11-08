@@ -64,10 +64,9 @@ namespace OverSDK.VisualScripting
             {
                 if (_camera == null)
                 {
-                    GameObject obj = GameObject.FindGameObjectWithTag(OvrConst.PLAYER_CAMERA_TAG);
-
+                    OvrPlayerSimulator obj = GameObject.FindObjectOfType<OvrPlayerSimulator>();
                     if (obj != null)
-                        _camera = obj.transform.GetChild(0).GetComponent<Camera>();
+                        _camera = obj.mainCamera;
                     else
                         _camera = Camera.main;
                 }

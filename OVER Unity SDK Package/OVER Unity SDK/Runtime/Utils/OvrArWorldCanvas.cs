@@ -40,11 +40,14 @@ namespace OverSDK
 #if APP_MAIN
             SetArWorldCanvas?.Invoke(transform);
 #else
-            GameObject cameraObj = GameObject.FindGameObjectWithTag(OvrConst.PLAYER_CAMERA_TAG);
+            //GameObject cameraObj = GameObject.FindGameObjectWithTag(OvrConst.PLAYER_CAMERA_TAG);
+            OvrPlayerSimulator cameraObj = GameObject.FindObjectOfType<OvrPlayerSimulator>();
+
             if (cameraObj != null)
             {
                 Canvas canvas = GetComponent<Canvas>();
-                canvas.worldCamera = cameraObj.GetComponentInChildren<Camera>(true);
+                //canvas.worldCamera = cameraObj.GetComponentInChildren<Camera>(true);
+                canvas.worldCamera = cameraObj.mainCamera;
             }
             else
             {
