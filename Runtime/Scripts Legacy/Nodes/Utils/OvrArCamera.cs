@@ -69,10 +69,13 @@ namespace OverSDK
                 {
                     try
                     {
-                        GameObject obj = GameObject.FindGameObjectWithTag(OvrConst.PLAYER_CAMERA_TAG);
-
+                        OvrPlayerSimulator obj = GameObject.FindObjectOfType<OvrPlayerSimulator>();
                         if (obj != null)
-                            fakeCameraInEditor = obj.transform.GetChild(0);
+                            fakeCameraInEditor = obj.mainCamera.transform;
+                        else
+                            fakeCameraInEditor = Camera.main.transform;
+                        //if (obj != null)
+                        //    fakeCameraInEditor = obj.transform.GetChild(0);
                     }
                     catch
                     {

@@ -79,10 +79,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef98a86bb6b4ac4e95851baca085966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startRecordingSeconds: 0
+  endRecordingSeconds: 10
+  captureImageAtSecond: 7
+  skyboxMaterial: {fileID: 2100000, guid: c7b96f7fcceb4a944a236bcbce0caa92, type: 2}
   path: {fileID: 4494517541383443533}
   dollyCart: {fileID: 773600377595431199}
   dollyCartSkybox: {fileID: 2465317799749570945}
-  skyboxMaterial: {fileID: 2100000, guid: c7b96f7fcceb4a944a236bcbce0caa92, type: 2}
   oldSkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   ambientMode: 0
   ambientSkyColor: {r: 0, g: 0, b: 0, a: 0}

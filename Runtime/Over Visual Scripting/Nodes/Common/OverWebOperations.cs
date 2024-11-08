@@ -222,13 +222,13 @@ namespace OverSDK.VisualScripting
     {
         [Input("URL")] public string url;
 
-        readonly string urlPattern = @"^https?:\/\/(?:www\.)?[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.(?:[a-zA-Z]{2,6}\.?){1,2}(?:\/[^\s]*)?$";
+        //readonly string urlPattern = @"^https?:\/\/(?:www\.)?[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.(?:[a-zA-Z]{2,6}\.?){1,2}(?:\/[^\s]*)?$";
 
         public override IExecutableOverNode Execute(OverExecutionFlowData data)
         {
             string _url = GetInputValue("URL", url);
 
-            if(!string.IsNullOrEmpty(_url) && ValidateURL(url))
+            if(!string.IsNullOrEmpty(_url))//&& ValidateURL(url))
             {
                 Application.OpenURL(_url);
             }
@@ -241,9 +241,11 @@ namespace OverSDK.VisualScripting
         }
 
         // Function to validate URL
+        /*
         public bool ValidateURL(string url)
         {
             return System.Text.RegularExpressions.Regex.IsMatch(url, urlPattern);
         }
+        */
     }
 }

@@ -73,6 +73,11 @@ namespace GaussianSplatting.Runtime
         {
             if (cam.cameraType == CameraType.Preview)
                 return false;
+
+            if(cam.cameraType == CameraType.Game && cam.tag != "PlayerCam")
+            {
+                return false;
+            }
             // gather all active & valid splat objects
             m_ActiveSplats.Clear();
             foreach (var kvp in m_Splats)
