@@ -33,11 +33,16 @@ namespace OverSDK
 {
     public class OvrVideoRecorder : MonoBehaviour
     {
+        [Header("Thumbnail Settings")]
+        public bool needToCustomize = false;
+
+        [Header("Skybox")]
+        public Material skyboxMaterial;
+
+        [Header("Camera Path Scripts")]
         public CinemachinePath path;
         public CinemachineDollyCart dollyCart;
         public CinemachineDollyCart dollyCartSkybox;
-
-        public Material skyboxMaterial;
 
         [HideInInspector]
         public Material oldSkyboxMaterial;

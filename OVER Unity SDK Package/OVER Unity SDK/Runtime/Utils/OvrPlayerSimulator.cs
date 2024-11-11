@@ -34,5 +34,61 @@ namespace OverSDK
 	public class OvrPlayerSimulator : MonoBehaviour
 	{
 		// This script is a placeholder
-	}
+		public Camera skyBoxCamera;
+        public Camera mainCamera;
+
+        private void OnValidate()
+        {
+            if (skyBoxCamera == null)
+            {
+                foreach (Transform child in transform)
+                {
+                    if (child.name == "SkyBoxCamera")
+                    {
+                        this.skyBoxCamera = child.GetComponent<Camera>();
+                        return;
+                    }
+                }
+            }
+
+            if (mainCamera == null)
+            {
+                foreach (Transform child in transform)
+                {
+                    if (child.name == "Camera")
+                    {
+                        this.mainCamera = child.GetComponent<Camera>();
+                        return;
+                    }
+                }
+            }
+        }
+
+        private void Awake()
+        {
+            if (skyBoxCamera == null)
+            {
+                foreach (Transform child in transform)
+                {
+                    if (child.name == "SkyBoxCamera")
+                    {
+                        this.skyBoxCamera = child.GetComponent<Camera>();
+                        return;
+                    }
+                }
+            }
+
+            if (mainCamera == null)
+            {
+                foreach (Transform child in transform)
+                {
+                    if (child.name == "Camera")
+                    {
+                        this.mainCamera = child.GetComponent<Camera>();
+                        return;
+                    }
+                }
+            }
+        }
+    }
 }

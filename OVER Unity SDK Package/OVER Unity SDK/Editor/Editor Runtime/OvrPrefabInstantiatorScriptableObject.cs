@@ -57,5 +57,7 @@ namespace Over_Editor
         public OvrConsoleSpawnPoint ovrConsoleSpawnPoint;
 
         public OvrVideoRecorder ovrVideoRecorder;
+
+        public OvrControllableObject ovrControllableObject;
     }
 }

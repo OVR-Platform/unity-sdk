@@ -32,7 +32,7 @@ using UnityEngine;
 namespace OverSDK
 {
     [Serializable]
-    public struct OvrMap2EarnMappingInfo
+    public struct OvrMapInfo
     {
         public string land_map_uuid;
         public RepositionData reposition_data;
@@ -48,7 +48,7 @@ namespace OverSDK
     }
 
     [ExecuteInEditMode]
-    public class OvrMap2EarnMapping : MonoBehaviour
+    public class OVRMap : MonoBehaviour
     {
         [ReadOnly]
         public Vector3 mapRelativePosition;
@@ -57,10 +57,10 @@ namespace OverSDK
         [ReadOnly]
         public Vector3 mapRelativeScale;
 
-        public OvrMap2EarnMappingInfo tmpMappingInfo;
+        public OvrMapInfo tmpMappingInfo;
         private bool isSaving;
 
-        public Action<OvrMap2EarnMappingInfo, Action<bool>> OnSaveMappingBtnClicked;
+        public Action<OvrMapInfo, Action<bool>> OnSaveMappingBtnClicked;
 
         public Vector3 centerReferencePosition = Vector3.zero;
 
@@ -77,7 +77,7 @@ namespace OverSDK
         {
             centerReferencePosition = centerReference;
 
-            tmpMappingInfo = new OvrMap2EarnMappingInfo();
+            tmpMappingInfo = new OvrMapInfo();
             tmpMappingInfo.land_map_uuid = uuid;
 
             if (data.hasData)

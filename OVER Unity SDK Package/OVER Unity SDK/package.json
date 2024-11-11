@@ -1,6 +1,6 @@
 {
   "name": "com.over.over-unity-sdk",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "displayName": "OVER Unity SDK",
   "description": "Thanks to our plugin, you can take advantage of all the Unity Engine features as it is the same development environment used in the OVR app. You can integrate major 3D model formats like fbx, dae, 3ds, dxf and obj, create interactions, animations and take advantage of physics rules directly from Unity, activating them through triggers or buttons\u2026",
   "unity": "2022.3",
@@ -10,6 +10,8 @@
   "licensesUrl": "https://github.com/OVR-Platform/unity-sdk/blob/main/LICENSE.md",
   "dependencies": {
     "com.unity.textmeshpro": "3.0.6",
+    "com.unity.ai.navigation": "1.1.5",
+    "com.unity.nuget.newtonsoft-json": "3.2.1",
     "com.unity.burst": "1.8.8",
     "com.unity.collections": "2.1.4",
     "com.unity.mathematics": "1.2.6",
