@@ -74,7 +74,7 @@ namespace GaussianSplatting.Runtime
             if (cam.cameraType == CameraType.Preview)
                 return false;
 
-            if(cam.cameraType == CameraType.Game && cam.tag != "PlayerCam")
+            if(cam.cameraType == CameraType.Game && !cam.CompareTag("PlayerCam") && !cam.CompareTag("RecCam"))
             {
                 return false;
             }
@@ -555,13 +555,13 @@ namespace GaussianSplatting.Runtime
             Matrix4x4 matView = cam.worldToCameraMatrix;
 
             //OVER
-            if (cam.cameraType == CameraType.Game && cam.CompareTag("PlayerCam"))
-            {
-                matView.m10 *= -1;
-                matView.m11 *= -1;
-                matView.m12 *= -1;
-                matView.m13 *= -1;
-            }
+            //if (cam.cameraType == CameraType.Game && (cam.CompareTag("PlayerCam") || cam.CompareTag("RecCam")))
+            //{
+            //    matView.m10 *= -1;
+            //    matView.m11 *= -1;
+            //    matView.m12 *= -1;
+            //    matView.m13 *= -1;
+            //}
             //OVER
 
             Matrix4x4 matProj = GL.GetGPUProjectionMatrix(cam.projectionMatrix, true);
