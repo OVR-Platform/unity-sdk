@@ -41,7 +41,7 @@ namespace OverSDK.VisualScripting
 
         [DoNotSerialize]
         [PortLabel("Output")]
-        //public ValueOutput Ref;
+        public ValueOutput Ref;
         public ValueOutput Position;
         public ValueOutput Rotation;
         public ValueOutput Forward;
@@ -58,7 +58,7 @@ namespace OverSDK.VisualScripting
 
         protected override void Definition()
         {
-            //Ref = ValueOutput<Camera>("Camera", GetCamera);
+            Ref = ValueOutput<Camera>("Camera", GetCamera);
             Position = ValueOutput<Vector3>("Position", GetPosition);
             Rotation = ValueOutput<Quaternion>("Rotation", GetRotation);
             Forward = ValueOutput<Vector3>("Forward", GetForward);

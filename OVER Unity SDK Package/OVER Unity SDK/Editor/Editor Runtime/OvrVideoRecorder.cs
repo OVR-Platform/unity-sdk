@@ -38,11 +38,11 @@ namespace OverSDK
 
         [Header("Skybox")]
         public Material skyboxMaterial;
+        public Camera skyboxCamera;
 
         [Header("Camera Path Scripts")]
         public CinemachinePath path;
         public CinemachineDollyCart dollyCart;
-        public CinemachineDollyCart dollyCartSkybox;
 
         [HideInInspector]
         public Material oldSkyboxMaterial;
