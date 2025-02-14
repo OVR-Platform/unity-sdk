@@ -19,6 +19,12 @@ public class OvrInfoCanvas : MonoBehaviour
 {
     public List<Infos> infos;
     public int autoHideTime = 5;
+    
+    public void Start()
+    {
+        ShowInfo(OvrInfoCanvasType.Controls);
+    }
+
     public void ShowInfo(OvrInfoCanvasType type)
     {
         foreach (var info in infos)

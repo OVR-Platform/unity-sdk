@@ -5,7 +5,7 @@ using UnityEngine;
 public class OvrPlayerSimulatorController : MonoBehaviour
 {
     public CharacterController characterController;
-    public float speed;
+    public float speed = 2;
     private Vector3 camRotation;
     public Camera PlayerCamera;
 
@@ -16,6 +16,9 @@ public class OvrPlayerSimulatorController : MonoBehaviour
     [Range(50, 500)]
     public int sensitivity = 200;
 
+    [Range(3, 20)]
+    public int runSpeed = 5;
+
     void Update()
     {
         Move();
@@ -23,13 +26,17 @@ public class OvrPlayerSimulatorController : MonoBehaviour
     }
 
     private void Rotate()
-    {
-        transform.Rotate(Vector3.up * sensitivity * Time.deltaTime * Input.GetAxis("Mouse X"));
+    {        
+        if (Input.GetKey(KeyCode.Space))
+        {
 
-        camRotation.x -= Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
-        camRotation.x = Mathf.Clamp(camRotation.x, minAngle, maxAngle);
+            transform.Rotate(Vector3.up * sensitivity * Time.deltaTime * Input.GetAxis("Mouse X"));
 
-        PlayerCamera.transform.localEulerAngles = camRotation;
+            camRotation.x -= Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+            camRotation.x = Mathf.Clamp(camRotation.x, minAngle, maxAngle);
+
+            PlayerCamera.transform.localEulerAngles = camRotation;
+        }
     }
 
     private void Move()
@@ -41,7 +48,13 @@ public class OvrPlayerSimulatorController : MonoBehaviour
         // Create a movement vector
         Vector3 move = transform.right * horizontal + transform.forward * vertical;
 
-        // Move the character
-        characterController.Move(move * speed * Time.deltaTime);
+        var currentSpeed = speed;
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        {
+            currentSpeed = runSpeed;
+        }
+
+            // Move the character
+            characterController.Move(move * currentSpeed * Time.deltaTime);
     }
 }

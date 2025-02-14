@@ -59,5 +59,9 @@ namespace Over_Editor
         public OvrVideoRecorder ovrVideoRecorder;
 
         public OvrControllableObject ovrControllableObject;
+        public GameObject opaqueObjectsMask;
+        public GameObject transparentsObjectsMask;
+
+        public OverARImageTarget overARImageTarget;
     }
 }

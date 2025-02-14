@@ -74,7 +74,7 @@ namespace GaussianSplatting.Runtime
             if (cam.cameraType == CameraType.Preview)
                 return false;
 
-            if(cam.cameraType == CameraType.Game && !cam.CompareTag("PlayerCam") && !cam.CompareTag("RecCam"))
+            if(cam.cameraType == CameraType.Game && !cam.tag.Contains("PlayerCam") && !cam.tag.Contains("RecCam"))
             {
                 return false;
             }
@@ -555,7 +555,7 @@ namespace GaussianSplatting.Runtime
             Matrix4x4 matView = cam.worldToCameraMatrix;
 
             //OVER
-            //if (cam.cameraType == CameraType.Game && (cam.CompareTag("PlayerCam") || cam.CompareTag("RecCam")))
+            //if (cam.cameraType == CameraType.Game && (cam.tag.Contains("PlayerCam") || !cam.tag.Contains("RecCam"))) 
             //{
             //    matView.m10 *= -1;
             //    matView.m11 *= -1;
