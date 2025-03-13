@@ -25,13 +25,45 @@
  * THE SOFTWARE.
  */
 
-using BlueGraph;
+using System;
 using UnityEngine;
 
-namespace OverSDK.VisualScripting
+namespace OverSDK
 {
-    public abstract class OverExecutionFlowNode : OverExecutionTriggerNode
+    [RequireComponent(typeof(Light))]
+    public class OverArLight : MonoBehaviour
     {
-        [Input("ExecIn", Multiple = true)] public OverExecutionFlowData execIn;
+        [SerializeField]
+        protected new Light light;
+        public Light Light { get => light; set => light = value; }
+
+#if APP_MAIN
+        public static Action<OverArLight> SetThisAsOverArLight = null;
+#endif
+        protected void OnValidate()
+        {
+            if (light == null)
+                light = GetComponent<Light>();            
+        }
+
+        protected void Awake()
+        {
+            if (light == null)
+                light = GetComponent<Light>();
+
+            if (light == null)
+            {
+                Debug.LogError("No Light Reference");
+                return;
+            }
+        }
+
+        private void Start()
+        {
+#if APP_MAIN
+            if (light != null)
+                SetThisAsOverArLight?.Invoke(this);
+#endif
+        }
     }
 }

@@ -25,13 +25,48 @@
  * THE SOFTWARE.
  */
 
-using BlueGraph;
+using System;
 using UnityEngine;
 
-namespace OverSDK.VisualScripting
+namespace OverSDK
 {
-    public abstract class OverExecutionFlowNode : OverExecutionTriggerNode
+    [RequireComponent(typeof(ReflectionProbe))]
+    public class OverReflectionProbeArLightListener : MonoBehaviour
     {
-        [Input("ExecIn", Multiple = true)] public OverExecutionFlowData execIn;
+        [SerializeField]
+        protected new ReflectionProbe reflectionProbe;
+        public ReflectionProbe ReflectionProbe { get => reflectionProbe; set => reflectionProbe = value; }
+
+        public float minIntensity = 0;
+        public float maxIntensity = 1;
+
+#if APP_MAIN
+        public static Action<OverReflectionProbeArLightListener> SetThisAsOverReflectionProbeArLightListener = null;
+#endif
+        protected void OnValidate()
+        {
+            if (reflectionProbe == null)
+                reflectionProbe = GetComponent<ReflectionProbe>();
+        }
+
+        protected void Awake()
+        {
+            if (reflectionProbe == null)
+                reflectionProbe = GetComponent<ReflectionProbe>();
+
+            if (reflectionProbe == null)
+            {
+                Debug.LogError("No ReflectionProbe Reference");
+                return;
+            }
+        }
+
+        private void Start()
+        {
+#if APP_MAIN
+            if (reflectionProbe != null)
+                SetThisAsOverReflectionProbeArLightListener?.Invoke(this);
+#endif
+        }
     }
 }

@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5400097349837969716}
   - component: {fileID: 846460103061086708}
-  - component: {fileID: 5962108817005973115}
-  - component: {fileID: 1677310283620672333}
+  - component: {fileID: 3457538807604469129}
   m_Layer: 0
   m_Name: AR Directional Light
   m_TagString: Untagged
@@ -96,7 +95,7 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &5962108817005973115
+--- !u!114 &3457538807604469129
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,29 +104,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2966879216985306679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f1729b7a45d4cd7a8afe3b9e01d70db, type: 3}
+  m_Script: {fileID: 11500000, guid: fd21f1fa321429840b83fcce72615f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodeId: 
-  preExecutionNodes: []
-  postExecutionNodes: []
   light: {fileID: 846460103061086708}
-  arLightIntensityMultiplier: {fileID: 1677310283620672333}
---- !u!114 &1677310283620672333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2966879216985306679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f8cd847c0d94e72ab533945b71a2443, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  variableType: 3
-  id: ArLight Intensity Multiplier
-  variable: -1
 --- !u!1 &5592041090442090037
 GameObject:
   m_ObjectHideFlags: 0
