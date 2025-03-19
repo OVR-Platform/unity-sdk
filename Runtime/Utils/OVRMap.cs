@@ -39,7 +39,7 @@ namespace OverSDK
     }
 
     [Serializable]
-    public struct RepositionData
+    public class RepositionData
     {
         public bool hasData;
         public Vector3 position;
