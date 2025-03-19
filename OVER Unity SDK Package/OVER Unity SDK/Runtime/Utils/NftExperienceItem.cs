@@ -44,12 +44,28 @@ namespace OverSDK
 
         public bool IsControllable { get => isControllable; set => isControllable = value; }
         [Space] [SerializeField] private bool isControllable;
+        
+        public bool IsNetObject { get => isNetObject; set => isNetObject = value; }
+        [Space] [SerializeField] private bool isNetObject = true;
 
         public void UpdateNftData(string newId, string newName, string newAddress)
         {
             NftId = newId;
             NftName = newName;
             NftAddress = newAddress;
+        }
+
+        [Space]
+        [SerializeField] private string objectID;
+        public string ObjectID { get => objectID; set => objectID = value; }
+
+        private void OnValidate()
+        {
+            if (string.IsNullOrEmpty(ObjectID))
+            {
+                //Genera guid
+                ObjectID = System.Guid.NewGuid().ToString();
+            }
         }
     } 
 }

@@ -14,7 +14,7 @@
  * all copies or substantial portions of the Software.
  *
  * 2. All copies of substantial portions of the Software may only be used in connection
- * with services provided by OVR.
+ * with services provided by OVER.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
