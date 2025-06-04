@@ -24,46 +24,53 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-using UnityEngine;
-using Unity.VisualScripting;
+
+
+using OverSDK.VisualScripting;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.Events;
 
-namespace OverSDK.VisualScripting
+namespace OverSDK
 {
-    [UnitTitle("Has Saved Value")]
-    [UnitCategory("Over")]
-    [TypeIcon(typeof(OverBaseType))]
-
-
-    public class OverHasInternalValueVS : Unit
+    public class OverARImageTargetEventListenerUVS : MonoBehaviour
     {
-        [DoNotSerialize]
-        public ControlInput inputTrigger;
-        public ControlOutput outputTrigger;
+        public static event Action<string> TargetImageFound = delegate { };
+        public static event Action<string> TargetImageLost = delegate { };
 
-        [DoNotSerialize]
-        public ValueInput key;
-        public ValueOutput value;
+        public enum ImageTargetEventType { Found, Lost }
 
-        public bool resultValue;
-        protected override void Definition()
+#if APP_MAIN
+        public static void InvokeTargetImageFound(string id)
         {
-            key = ValueInput<string>("Key", "");
+            OnTargetImageFound(id);
+        }
 
-            inputTrigger = ControlInput("", (flow) =>
-            {
-                string _key = flow.GetValue<string>(key);
+        public static void InvokeTargetImageLost(string id)
+        {
+            OnTargetImageLost(id);
+        }
+#endif
 
+        [HideInInspector]
+        public ImageTargetEventType testImageTargetEventType;
 
-                    resultValue = OverUtilityUVS.Main.SaveFileJSON.HasKey(_key);
+        public void Awake()
+        {
+            TargetImageFound += OnTargetImageFound;
+            TargetImageLost += OnTargetImageLost;
+        }
 
-
-                return outputTrigger;
-            });
-
-            outputTrigger = ControlOutput("");
-            value = ValueOutput<bool>("value", (flow) => resultValue);
-
+        public static void OnTargetImageFound(string idImageTarget)
+        {
+            EventBus.Trigger(EventNames.OverArImageTargetFoundEvent, idImageTarget);
+        }
+        public static void OnTargetImageLost(string idImageTarget)
+        {
+            EventBus.Trigger(EventNames.OverArImageTargetLostEvent, idImageTarget);
         }
     }
 }
