@@ -25,17 +25,112 @@
  * THE SOFTWARE.
  */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace OverSDK
 {
+    public enum OvrControllableObjectType { Idle, Walk };
+    [RequireComponent(typeof(Animation))]
+
     public class OvrControllableObject : MonoBehaviour
     {
+        public OvrControllableObjectType BehaviourType;
+
+
+        private string[] IDLE_ANIMATION_NAMES = { "idle", "01 idle", "idle 01" };
+        private string[] WALK_ANIMATION_NAMES = { "walk", "01 walk", "walk 01" };
+
         [Space]
         [SerializeField] private bool isControllable = true;
         public bool IsControllable { get => isControllable; set => isControllable = value; }
+
+        [Space]
+        [SerializeField] private AnimationClip animationIdle = null;
+        
+        public AnimationClip AnimationIdle
+        {
+            get
+            {
+                if (animationIdle == null)
+                {
+                    Animation ObjectAnimation = gameObject.GetComponentInChildren<Animation>();
+                    if (ObjectAnimation != null)
+                    {
+                        foreach (AnimationState state in ObjectAnimation)
+                        {
+                            string animNameToCheck = state.name.ToLower();
+                            foreach (string IDLE_ANIMATION_NAME in IDLE_ANIMATION_NAMES)
+                            {
+                                if (animNameToCheck.Contains(IDLE_ANIMATION_NAME))
+                                {
+                                    animationIdle = state.clip;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+                return animationIdle;
+            }
+            set
+            {
+                animationIdle = value;
+                gameObject.GetComponent<Animation>().AddClip(animationIdle, animationIdle.name);
+
+            }
+        }
+        
+        [Space]
+        [SerializeField] private AnimationClip animationWalk = null;
+        
+        public AnimationClip AnimationWalk
+        {
+            get
+            {
+                //find walk animation
+
+                if (animationWalk == null)
+                {
+                    Animation ObjectAnimation = gameObject.GetComponentInChildren<Animation>();
+                    if (ObjectAnimation != null)
+                    {
+                        foreach (AnimationState state in ObjectAnimation)
+                        {
+                            string animNameToCheck = state.name.ToLower();
+                            foreach (string WALK_ANIMATION_NAME in WALK_ANIMATION_NAMES)
+                            {
+                                if (animNameToCheck.Contains(WALK_ANIMATION_NAME))
+                                {
+                                    animationWalk = state.clip;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return animationWalk;
+            }
+            set { 
+                animationWalk = value;
+                gameObject.GetComponent<Animation>().AddClip(AnimationWalk, AnimationWalk.name);
+            }
+        }
+        
+
+        [Space]
+        [SerializeField] private int walkMoveSpeed = -1;
+        public int WalkMoveSpeed { get => walkMoveSpeed; set => walkMoveSpeed = value; }
+
+        [Space]
+        [SerializeField] private int walkAnimationSpeedMultiplier = -1;
+        public int WalkAnimationSpeedMultiplier { get => walkAnimationSpeedMultiplier; set => walkAnimationSpeedMultiplier = value; }
+
 
         [Space]
         [SerializeField] private bool isNetObject = true;
@@ -47,11 +142,23 @@ namespace OverSDK
 
         private void OnValidate()
         {
-            if(string.IsNullOrEmpty(ObjectID))
+            Guid instanceID = GenerateGuidFromInt(GetInstanceID());
+
+            if (string.IsNullOrEmpty(ObjectID) || objectID != instanceID.ToString())
             {
                 //Genera guid
-                ObjectID = System.Guid.NewGuid().ToString();
+                ObjectID = instanceID.ToString();
             }
+
+            _ = AnimationIdle;
+            _ = AnimationWalk;
+        }
+
+        public static Guid GenerateGuidFromInt(int value)
+        {
+            byte[] bytes = new byte[16];
+            BitConverter.GetBytes(value).CopyTo(bytes, 0);
+            return new Guid(bytes);
         }
     }
 }

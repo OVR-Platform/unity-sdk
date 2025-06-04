@@ -137,7 +137,7 @@ VideoPlayer:
   - {fileID: 5422245268400639204}
   m_DirectAudioVolumes:
   - 1
-  m_Url: https://assets.ovr.ai/videos/Green_Screen.mp4
+  m_Url: https://ovr-assets.s3.eu-central-1.amazonaws.com/marketplace/lands/map-preview/local/ombpvaagzdndim5i87i5iuoo0mj8
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
