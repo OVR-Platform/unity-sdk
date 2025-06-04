@@ -24,45 +24,41 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
+using OverSDK;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using Unity.VisualScripting;
-using System;
-namespace OverSDK.VisualScripting
+using UnityEngine.Events;
+
+namespace OverSDK
 {
-    [UnitTitle("Save Value")]
-    [UnitCategory("Over")]
-    [TypeIcon(typeof(OverBaseType))]
+    [RequireComponent(typeof(Collider))]
 
-    public class OverSaveInternalValueUVS : Unit
+    public class OverClickableObjectUVS : MonoBehaviour
     {
-        [DoNotSerialize]
-        public ControlInput inputTrigger;
-        //public ControlOutput outputTrigger;
+        public enum ClickableEventType { Press, LongPress, Click }
 
-        [DoNotSerialize]
-        public ValueInput key;
-        public ValueInput value;
+        public UnityEvent EventPress;
+        public UnityEvent EventLongPress;
+        public UnityEvent EventClick;
 
-        protected override void Definition()
+        [HideInInspector]
+        public ClickableEventType testClickableType;
+        public void Press(RaycastHit raycastHit)
         {
-            key = ValueInput<string>("Key", "");
-            value = ValueInput<string>("Value", "");
-
-            inputTrigger = ControlInput("", (flow) =>
-            {
-                string _key = flow.GetValue<string>(key);
-                string _value = flow.GetValue<string>(value);
-
-
-                    bool allOk = OverUtilityUVS.Main.SaveInternalSaveFile(_key, _value);
-                    if (!allOk)
-                    {
-                        Debug.LogError($"Unable to save {_key}! File is not available");
-                    }
-
-
-                return null;
-            }); 
+            if (EventPress != null)
+                EventPress.Invoke();
+        }
+        public void LongPress(RaycastHit raycastHit)
+        {
+            if (EventLongPress != null)
+                EventLongPress.Invoke();
+        }
+        public void Click(RaycastHit raycastHit)
+        {
+            if (EventClick != null)
+                EventClick.Invoke();
         }
     }
 }

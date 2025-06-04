@@ -24,50 +24,45 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
-using OverSDK;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Video;
-
-
-namespace Over_Editor
+using Unity.VisualScripting;
+using System;
+namespace OverSDK.VisualScripting
 {
-    //[CreateAssetMenu]
-    public class OvrPrefabInstantiatorScriptableObject : ScriptableObject
+    [UnitTitle("Save Local Value")]
+    [UnitCategory("Over/Local Storage")]
+    [TypeIcon(typeof(OverBaseType))]
+
+    public class OverSaveInternalValueUVS : Unit
     {
-        public OvrAsset ovrAsset;
-        public OvrCanvas ovrCanvas;
-        public OvrPlayerSimulator ovrPlayerSimulator;
+        [DoNotSerialize]
+        public ControlInput inputTrigger;
+        //public ControlOutput outputTrigger;
 
-        public OvrArWorldCanvas ovrArWorldCanvas;
-        public OverScreenShareComponent ovrScreenShareComponent;
+        [DoNotSerialize]
+        public ValueInput key;
+        public ValueInput value;
 
-        public OvrClickableObject ovrClickableObject;
-        public OvrColliderTrigger ovrColliderTrigger;
-        public OvrUIButton ovrUIButton;
+        protected override void Definition()
+        {
+            key = ValueInput<string>("Key", "");
+            value = ValueInput<string>("Value", "");
 
-        public VideoPlayer chromaKeyVideoPlayer;
-        public ImageStreamer imageStreamer;
+            inputTrigger = ControlInput("", (flow) =>
+            {
+                string _key = flow.GetValue<string>(key);
+                string _value = flow.GetValue<string>(value);
 
-        public OvrPoap ovrPoap;
 
-        public OvrRemoteSpawnPoint ovrRemoteSpawnPoint;
-        public OvrConsoleSpawnPoint ovrConsoleSpawnPoint;
+                    bool allOk = OverUtilityUVS.Main.SaveInternalSaveFile(_key, _value);
+                    if (!allOk)
+                    {
+                        Debug.LogError($"Unable to save {_key}! File is not available");
+                    }
 
-        public OvrVideoRecorder ovrVideoRecorder;
 
-        public OvrControllableObject ovrControllableObject;
-        public GameObject opaqueObjectsMask;
-        public GameObject transparentsObjectsMask;
-
-        public OverARImageTarget overARImageTarget;
-
-        public OverARImageTargetEventListenerUVS overARImageTargetListener;
-
-        public OverClickableObjectUVS overClickableObjectUVS;
-
-        public OverArLight overArLight;
+                return null;
+            }); 
+        }
     }
 }

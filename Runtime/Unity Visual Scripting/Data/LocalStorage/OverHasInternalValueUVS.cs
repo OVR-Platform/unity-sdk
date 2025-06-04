@@ -24,18 +24,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 using UnityEngine;
 using Unity.VisualScripting;
 using System;
 
 namespace OverSDK.VisualScripting
 {
-    [UnitTitle("Get Saved Value")]
-    [UnitCategory("Over")]
+    [UnitTitle("Has Local Value")]
+    [UnitCategory("Over/Local Storage")]
     [TypeIcon(typeof(OverBaseType))]
 
 
-    public class OverGetInternalValueUVS : Unit
+    public class OverHasInternalValueUVS : Unit
     {
         [DoNotSerialize]
         public ControlInput inputTrigger;
@@ -45,7 +46,7 @@ namespace OverSDK.VisualScripting
         public ValueInput key;
         public ValueOutput value;
 
-        private string resultValue;
+        public bool resultValue;
         protected override void Definition()
         {
             key = ValueInput<string>("Key", "");
@@ -53,31 +54,17 @@ namespace OverSDK.VisualScripting
             inputTrigger = ControlInput("", (flow) =>
             {
                 string _key = flow.GetValue<string>(key);
-                
 
-                    if (OverUtilityUVS.Main.SaveFileJSON.HasKey(_key))
-                    {
-                        string s = OverUtilityUVS.Main.SaveFileJSON[_key].ToString();
-                        if (s.Length > 2)
-                        {
-                            resultValue = s.Substring(1, s.Length - 2);
-                        }
-                        else
-                        {
-                            resultValue = string.Empty;
-                        }
-                    }
-                    else
-                    {
-                        Debug.LogError($"Key {_key} was not found...");
-                    }
 
-                
+                    resultValue = OverUtilityUVS.Main.SaveFileJSON.HasKey(_key);
+
+
                 return outputTrigger;
             });
 
             outputTrigger = ControlOutput("");
-            value = ValueOutput<string>("value", (flow) => resultValue);
+            value = ValueOutput<bool>("value", (flow) => resultValue);
+
         }
     }
 }
