@@ -32,7 +32,7 @@ using UnityEngine;
 namespace OverSDK
 {
     [Serializable]
-    public struct OvrMapInfo
+    public class OvrMapInfo
     {
         public string land_map_uuid;
         public RepositionData reposition_data;
@@ -58,6 +58,8 @@ namespace OverSDK
         public Vector3 mapRelativeScale;
 
         public OvrMapInfo tmpMappingInfo;
+        public OvrMapInfo defaultMappingInfo;
+
         private bool isSaving;
 
         public Action<OvrMapInfo, Action<bool>> OnSaveMappingBtnClicked;
@@ -83,6 +85,32 @@ namespace OverSDK
             if (data.hasData)
             {
                 tmpMappingInfo.reposition_data = data;
+                SetRepositionData();
+            }
+        }
+
+        public void InitData(string uuid, RepositionData userData, RepositionData defaultData, Vector3 centerReference)
+        {
+            centerReferencePosition = centerReference;
+
+            tmpMappingInfo = new OvrMapInfo();
+            tmpMappingInfo.land_map_uuid = uuid;
+
+            if (userData != null && userData.hasData)
+            {
+                tmpMappingInfo.reposition_data = userData;
+
+                defaultMappingInfo = new OvrMapInfo
+                {
+                    land_map_uuid = uuid,
+                    reposition_data = defaultData
+                };
+
+                SetRepositionData();
+            }
+            else
+            {
+                tmpMappingInfo.reposition_data = defaultData;
                 SetRepositionData();
             }
         }
@@ -145,9 +173,22 @@ namespace OverSDK
             return (transform.position == mapRelativePosition) && (transform.rotation == mapRelativeRotation) && (transform.localScale == mapRelativeScale);
         }
 
-        public void ResetMappingData()
+        public void UndoMappingData()
         {
             SetRepositionData();
+        }
+
+        public void ResetMappingData()
+        {
+            if (defaultMappingInfo != null && defaultMappingInfo.reposition_data.hasData)
+            {
+                tmpMappingInfo.reposition_data = defaultMappingInfo.reposition_data;
+                SetRepositionData();
+            }
+            else
+            {
+                Debug.LogWarning("No default mapping data available to reset.");
+            }
         }
 #endif
 
