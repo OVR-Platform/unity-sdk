@@ -2,7 +2,7 @@
 
 ## Unity Setup
 1. Go to Unity Hub, and download Unity Hub (not the beta version)
-2. After downloading Unity Hub, download Unity version 2022.3.13f1 from the Unity archive.
+2. After downloading Unity Hub, download Unity version 2022.3.62f2 from the Unity archive.
 
 ![Unity Version](https://assets.ovr.ai/images/github-sdk/unity-builder-tutorial-01-2.png)
 _Fig 1.2: Unity Version_
