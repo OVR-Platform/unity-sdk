@@ -25,12 +25,15 @@
  * THE SOFTWARE.
  */
 
-
 using OverSDK.VisualScripting;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
+
+#if (!APP_MAIN && !SDK_NO_VS) || (APP_MAIN && OVR_PLUGIN_VISUALSCRIPTING) 
 using Unity.VisualScripting;
+#endif
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -66,11 +69,15 @@ namespace OverSDK
 
         public static void OnTargetImageFound(string idImageTarget)
         {
+#if (!APP_MAIN && !SDK_NO_VS) || (APP_MAIN && OVR_PLUGIN_VISUALSCRIPTING) 
             EventBus.Trigger(EventNames.OverArImageTargetFoundEvent, idImageTarget);
+#endif
         }
         public static void OnTargetImageLost(string idImageTarget)
         {
+#if (!APP_MAIN && !SDK_NO_VS) || (APP_MAIN && OVR_PLUGIN_VISUALSCRIPTING)
             EventBus.Trigger(EventNames.OverArImageTargetLostEvent, idImageTarget);
+#endif
         }
     }
 }
