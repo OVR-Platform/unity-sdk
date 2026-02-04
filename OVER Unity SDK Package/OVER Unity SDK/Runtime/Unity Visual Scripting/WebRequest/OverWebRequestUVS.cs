@@ -38,7 +38,7 @@ using UnityEngine.Networking;
 namespace OverSDK.VisualScripting
 {
     [UnitTitle("Web Request")]
-    [UnitCategory("Over")]
+    [UnitCategory("OVER")]
     [TypeIcon(typeof(OverBaseType))]
     public class OverWebServiceNodeUVS : Unit
     {

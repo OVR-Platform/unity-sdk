@@ -39,7 +39,9 @@ using UnityEngine.Events;
 
 namespace OverSDK
 {
-    public class OverARImageTargetEventListenerUVS : MonoBehaviour
+    // DEPRECATED: Not needed anymore with the Visual Scripting Event Units.
+    [Obsolete("OverARImageTargetEventListenerUVS is deprecated, not needed anymore with the Visual Scripting Event Units.")]
+    public class OverARImageTargetEventListenerUVS : MonoBehaviour 
     {
         public static event Action<string> TargetImageFound = delegate { };
         public static event Action<string> TargetImageLost = delegate { };

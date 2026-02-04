@@ -32,7 +32,7 @@ namespace OverSDK.VisualScripting
 {
 
     [UnitTitle("Over Ar Camera")]
-    [UnitCategory("Over")]
+    [UnitCategory("OVER")]
     [TypeIcon(typeof(OverBaseType))]
 
     public class OverArCameraUVS : Unit

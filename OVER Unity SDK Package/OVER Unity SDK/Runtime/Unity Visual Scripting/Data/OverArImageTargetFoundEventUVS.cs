@@ -11,8 +11,8 @@ namespace OverSDK.VisualScripting
     }
 
     [UnitTitle("On Ar Image Target Found")]//Custom EventUnit to receive the event. Adding On to the unit title as an event naming convention.
-    [UnitCategory("Over")]//Setting the path to find the unit in the fuzzy finder in Events > My Events.
-
+    [UnitCategory("Events/OVER")]//Setting the path to find the unit in the fuzzy finder in Events > My Events.
+    [TypeIcon(typeof(OverBaseType))]
     public class OverArImageTargetFoundEventUVS : EventUnit<string>
     {
         [DoNotSerialize]// No need to serialize ports.

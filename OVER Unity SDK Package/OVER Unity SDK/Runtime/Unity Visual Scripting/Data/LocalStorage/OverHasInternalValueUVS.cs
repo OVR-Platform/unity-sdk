@@ -32,7 +32,7 @@ using System;
 namespace OverSDK.VisualScripting
 {
     [UnitTitle("Has Local Value")]
-    [UnitCategory("Over/Local Storage")]
+    [UnitCategory("OVER/Local Storage")]
     [TypeIcon(typeof(OverBaseType))]
 
 

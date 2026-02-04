@@ -31,7 +31,7 @@ using System.Collections;
 namespace OverSDK.VisualScripting
 {
     [UnitTitle("Texture from URL")]
-    [UnitCategory("Over")]
+    [UnitCategory("OVER")]
     [TypeIcon(typeof(OverBaseType))]
 
     public class OverUrlToTextureUVS : Unit

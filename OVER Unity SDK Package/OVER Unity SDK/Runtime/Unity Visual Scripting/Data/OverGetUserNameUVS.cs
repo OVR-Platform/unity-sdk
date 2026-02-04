@@ -8,7 +8,7 @@ using UnityEngine;
 namespace OverSDK.VisualScripting
 {
     [UnitTitle("Get User Name")]
-    [UnitCategory("Over")]
+    [UnitCategory("OVER")]
     [TypeIcon(typeof(OverBaseType))]
     public class OverGetUserNameUVS : Unit
     {
