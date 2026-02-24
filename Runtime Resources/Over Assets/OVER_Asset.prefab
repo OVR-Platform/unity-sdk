@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5592041090442090034}
   - component: {fileID: 5592041090442090035}
+  - component: {fileID: 11738197880445408}
   m_Layer: 0
   m_Name: OVER_Asset
   m_TagString: Untagged
@@ -50,6 +51,24 @@ MonoBehaviour:
   ovrCanvas: {fileID: 0}
   ovrPoap: {fileID: 0}
   ovrGeneralSettings: {fileID: 0}
+  mainAppEventListeners: {fileID: 11738197880445408}
+--- !u!114 &11738197880445408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5592041090442090037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72c7b6cddcc23742ab8d124f1e4ca4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testImageTargetEventType: 0
+  testOneTouchEventType: 0
+  testTwoTouchesEventType: 0
+  testClickEventType: 0
+  testDoubleClickEventType: 0
 --- !u!1001 &5158329135618403614
 PrefabInstance:
   m_ObjectHideFlags: 0

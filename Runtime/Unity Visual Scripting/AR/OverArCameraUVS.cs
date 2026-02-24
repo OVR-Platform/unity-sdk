@@ -32,12 +32,21 @@ namespace OverSDK.VisualScripting
 {
 
     [UnitTitle("Over Ar Camera")]
-    [UnitCategory("Over")]
+    [UnitCategory("OVER")]
     [TypeIcon(typeof(OverBaseType))]
 
     public class OverArCameraUVS : Unit
     {
+        // ============================================
+        // FIELDS
+        // ============================================
+
         public Camera mainCamera;
+        public static Camera MainCameraRef { get; private set; }
+
+        // ============================================
+        // PORTS
+        // ============================================
 
         [DoNotSerialize]
         [PortLabel("Output")]
@@ -48,13 +57,22 @@ namespace OverSDK.VisualScripting
         public ValueOutput Up;
         public ValueOutput Right;
 
-
+        // ============================================
+        // DELEGATES
+        // ============================================
 
         public static Func<Vector3> GetArCameraPos = null;
         public static Func<Quaternion> GetArCameraRot = null;
         public static Func<Vector3> GetArCameraForward = null;
         public static Func<Vector3> GetArCameraUp = null;
         public static Func<Vector3> GetArCameraRight = null;
+
+        public static Action<Vector3> SetArCameraPos = null;
+        public static Action<Quaternion> SetArCameraRot = null;
+
+        // ============================================
+        // DEFINITION
+        // ============================================
 
         protected override void Definition()
         {
@@ -65,6 +83,10 @@ namespace OverSDK.VisualScripting
             Up = ValueOutput<Vector3>("Up", GetUp);
             Right = ValueOutput<Vector3>("Right", GetRight);
         }
+
+        // ============================================
+        // CAMERA INITIALIZATION
+        // ============================================
 
         private void GetCamera()
         {
@@ -100,9 +122,49 @@ namespace OverSDK.VisualScripting
             }
 #endif
             mainCamera = _camera;
+            MainCameraRef = _camera;
         }
 
-        private Camera GetCamera(Flow flow)
+        public static void InitMainCamera()
+        {
+#if !APP_MAIN
+            if (MainCameraRef != null) return;
+
+            Camera _camera = null;
+            try
+            {
+                GameObject[] objs = GameObject.FindGameObjectsWithTag(OvrConst.PLAYER_CAMERA_TAG);
+
+                if (objs != null)
+                {
+                    foreach (GameObject obj in objs)
+                    {
+                        if (obj.transform.childCount > 0)
+                        {
+                            _camera = obj.transform.GetChild(0).GetComponent<Camera>();
+                        }
+                    }
+                }
+                else
+                {
+                    _camera = Camera.main;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Transform Missing " + ex.Message);
+                _camera = Camera.main;
+            }
+
+            MainCameraRef = _camera;
+#endif
+}
+
+// ============================================
+// GET METHODS
+// ============================================
+
+private Camera GetCamera(Flow flow)
         {
             if (mainCamera == null)
                 GetCamera();
@@ -222,6 +284,88 @@ namespace OverSDK.VisualScripting
         }
 #endif
             return vector3;
+        }
+    }
+
+    // ============================================
+    // SET AR CAMERA NODES
+    // ============================================
+
+    [UnitTitle("Set Ar Camera Pos")]
+    [UnitCategory("OVER")]
+    [TypeIcon(typeof(OverBaseType))]
+    public class OverSetArCameraPosUVS : Unit
+    {
+        [DoNotSerialize]
+        public ControlInput inputTrigger;
+
+        [DoNotSerialize]
+        public ValueInput position;
+
+        protected override void Definition()
+        {
+            position = ValueInput<Vector3>("Position", Vector3.zero);
+
+            inputTrigger = ControlInput("", (flow) =>
+            {
+                Vector3 _position = flow.GetValue<Vector3>(position);
+
+#if !APP_MAIN
+                if (OverArCameraUVS.MainCameraRef == null)
+                    OverArCameraUVS.InitMainCamera();
+
+                if (OverArCameraUVS.MainCameraRef != null)
+                {
+                    OverArCameraUVS.MainCameraRef.transform.position = _position;
+                }
+#else
+                if (OverArCameraUVS.SetArCameraPos != null)
+                {
+                    OverArCameraUVS.SetArCameraPos(_position);
+                }
+#endif
+
+                return null;
+            });
+        }
+    }
+
+    [UnitTitle("Set Ar Camera Rot")]
+    [UnitCategory("OVER")]
+    [TypeIcon(typeof(OverBaseType))]
+    public class OverSetArCameraRotUVS : Unit
+    {
+        [DoNotSerialize]
+        public ControlInput inputTrigger;
+
+        [DoNotSerialize]
+        public ValueInput rotation;
+
+        protected override void Definition()
+        {
+            rotation = ValueInput<Quaternion>("Rotation", Quaternion.identity);
+
+            inputTrigger = ControlInput("", (flow) =>
+            {
+                Quaternion _rotation = flow.GetValue<Quaternion>(rotation);
+
+#if !APP_MAIN
+                if (OverArCameraUVS.MainCameraRef == null)
+                    OverArCameraUVS.InitMainCamera();
+
+                if (OverArCameraUVS.MainCameraRef != null)
+                {
+                    OverArCameraUVS.MainCameraRef.transform.rotation = _rotation;
+                }
+#else
+                if (OverArCameraUVS.SetArCameraRot != null)
+                {
+                    OverArCameraUVS.SetArCameraRot(_rotation);
+                }
+#endif
+
+                return null;
+            });
         }
     }
 }

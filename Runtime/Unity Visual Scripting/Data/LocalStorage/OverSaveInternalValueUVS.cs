@@ -30,7 +30,7 @@ using System;
 namespace OverSDK.VisualScripting
 {
     [UnitTitle("Save Local Value")]
-    [UnitCategory("Over/Local Storage")]
+    [UnitCategory("OVER/Local Storage")]
     [TypeIcon(typeof(OverBaseType))]
 
     public class OverSaveInternalValueUVS : Unit

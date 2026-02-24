@@ -33,7 +33,7 @@ using UnityEngine;
 namespace OverSDK.VisualScripting
 {
     [UnitTitle("Open External URL")]
-    [UnitCategory("Over")]
+    [UnitCategory("OVER")]
     [TypeIcon(typeof(OverBaseType))]
     public class OverOpenExternalUrlUVS : Unit
     {
