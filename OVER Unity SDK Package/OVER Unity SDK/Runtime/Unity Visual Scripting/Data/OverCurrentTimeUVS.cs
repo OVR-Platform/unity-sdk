@@ -7,7 +7,7 @@ using UnityEngine;
 namespace OverSDK.VisualScripting
 {
     [UnitTitle("Get Current Datetime")]
-    [UnitCategory("Over")]
+    [UnitCategory("OVER")]
     [TypeIcon(typeof(OverBaseType))]
     public class OverCurrentTimeUVS : Unit
     {

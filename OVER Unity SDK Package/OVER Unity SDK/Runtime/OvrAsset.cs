@@ -27,6 +27,7 @@
 
 using UnityEngine;
 
+
 namespace OverSDK
 {
     [ExecuteInEditMode]
@@ -36,6 +37,9 @@ namespace OverSDK
         public OvrCanvas ovrCanvas;
         public OvrPoap ovrPoap;
         public OvrGeneralSettings ovrGeneralSettings;
+        public OverAppEventListeners mainAppEventListeners;
+
+        /********************** UNITY METHODS **********************/
 
         protected void OnValidate()
         {
@@ -89,6 +93,16 @@ namespace OverSDK
             //        ovrGeneralSettings = gameObject.AddComponent<OvrGeneralSettings>();
             //} 
             #endregion
+
+            if (mainAppEventListeners == null)
+            {
+                mainAppEventListeners = GetComponentInChildren<OverAppEventListeners>(true);
+                if (mainAppEventListeners == null)
+                    mainAppEventListeners = gameObject.AddComponent<OverAppEventListeners>();
+#if UNITY_EDITOR
+                UnityEditor.EditorUtility.SetDirty(this);
+#endif
+            }
         }
     }
 }

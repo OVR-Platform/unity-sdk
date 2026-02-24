@@ -31,7 +31,7 @@ using System;
 namespace OverSDK.VisualScripting
 {
     [UnitTitle("Get Local Value")]
-    [UnitCategory("Over/Local Storage")]
+    [UnitCategory("OVER/Local Storage")]
     [TypeIcon(typeof(OverBaseType))]
 
 
