@@ -18,6 +18,10 @@ namespace OverSDK
         [HideInInspector]
         public ImageTargetEventType testImageTargetEventType;
 
+        /*************** Camera Events for AR *****************/
+
+        public static event Action ArCameraTeleported = delegate { };
+
         /************** Touch Events for AR/VR *******************/
 
         public enum OneTouchEventType { Enter, EnterOverUI, EnterNotOverUI, Exit, In, InNotOverUI, InOverUI }
@@ -69,6 +73,9 @@ namespace OverSDK
             TargetImageFound += OnTargetImageFound;
             TargetImageLost += OnTargetImageLost;
 
+            //Camera Events for AR
+            ArCameraTeleported += OnArCameraTeleported;
+
             /************** Touch Events for AR/VR *******************/
             OneTouchEnter += OnOneTouchEnter;
             OneTouchEnterOverUI += OnOneTouchEnterOverUI;
@@ -98,6 +105,9 @@ namespace OverSDK
             //Image Target Events for AR
             TargetImageFound -= OnTargetImageFound;
             TargetImageLost -= OnTargetImageLost;
+
+            //Camera Events for AR
+            ArCameraTeleported -= OnArCameraTeleported;
 
             /************** Touch Events for AR/VR *******************/
             OneTouchEnter -= OnOneTouchEnter;
@@ -149,6 +159,22 @@ namespace OverSDK
         {
 #if (!APP_MAIN && !SDK_NO_VS) || (APP_MAIN && OVR_PLUGIN_VISUALSCRIPTING)
             EventBus.Trigger(EventNames.OverArImageTargetLostEvent, idImageTarget);
+#endif
+        }
+
+        /*************** Camera Events for AR *****************/
+
+#if APP_MAIN
+        public static void InvokeArCameraTeleported()
+        {
+            OnArCameraTeleported();
+        }
+#endif
+
+        public static void OnArCameraTeleported()
+        {
+#if (!APP_MAIN && !SDK_NO_VS) || (APP_MAIN && OVR_PLUGIN_VISUALSCRIPTING)
+            EventBus.Trigger(EventNames.ArCameraTeleportedEvent);
 #endif
         }
 
