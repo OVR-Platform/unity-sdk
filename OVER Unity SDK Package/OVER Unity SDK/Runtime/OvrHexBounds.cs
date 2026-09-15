@@ -31,9 +31,58 @@ using UnityEngine;
 namespace OverSDK
 {
     [ExecuteInEditMode]
-    public class OvrHexBounds : MonoBehaviour
+    public class OvrHexBounds : MonoBehaviour, ISerializationCallbackReceiver
     {
+        // Hexagons this perimeter was generated from. Serialized so the SDK window
+        // can tell whether the objects in the open scene still belong to the land
+        // currently selected (the selection lives in the project preferences, the
+        // objects live in the scene: the two drift apart on every scene change).
+        [ReadOnly]
+        public List<string> hexIds = new List<string>();
+
+        // Geographic origin of the scene: the geocenter of the main land, which Unity
+        // (0,0,0) corresponds to. Anything that has to be placed by its coordinates
+        // needs this frame, and it must survive scene saves and domain reloads.
+        [ReadOnly]
+        public bool hasGeoOrigin;
+        [ReadOnly]
+        public double originLatitude;
+        [ReadOnly]
+        public double originLongitude;
+
+        // Unity center of every hexagon, used to place the OVRMaps of a folder.
+        // Unity does not serialize dictionaries: without the two backing lists the
+        // content is lost on every domain reload and scene reopen.
         public Dictionary<string, Vector3> folderCenters = new Dictionary<string, Vector3>();
+
+        [SerializeField, HideInInspector] private List<string> folderCenterKeys = new List<string>();
+        [SerializeField, HideInInspector] private List<Vector3> folderCenterValues = new List<Vector3>();
+
+        public void OnBeforeSerialize()
+        {
+            folderCenterKeys.Clear();
+            folderCenterValues.Clear();
+
+            if (folderCenters == null)
+                return;
+
+            foreach (KeyValuePair<string, Vector3> entry in folderCenters)
+            {
+                folderCenterKeys.Add(entry.Key);
+                folderCenterValues.Add(entry.Value);
+            }
+        }
+
+        public void OnAfterDeserialize()
+        {
+            folderCenters = new Dictionary<string, Vector3>();
+
+            int count = Mathf.Min(folderCenterKeys.Count, folderCenterValues.Count);
+            for (int i = 0; i < count; i++)
+            {
+                folderCenters[folderCenterKeys[i]] = folderCenterValues[i];
+            }
+        }
 
         protected void Update()
         {

@@ -342,7 +342,7 @@ namespace OverSDK.VisualScripting
     public class OverGraph : Graph, IExecutableOverGraph
     {
         [SerializeField, HideInInspector] public string GUID;
-        [SerializeField] public string GraphName => name;
+        public string GraphName => name;
 
         [SerializeField][ReadOnly] OverGraphData data;
         public OverGraphData Data

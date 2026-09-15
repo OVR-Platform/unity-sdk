@@ -138,7 +138,7 @@ namespace OverSDK
                     break;
                 case OvrRigidbodyActionType.ResetVelocity:
 
-                    rigidBody.velocity = new Vector3(0f, 0f, 0f);
+                    rigidBody.linearVelocity = new Vector3(0f, 0f, 0f);
                     rigidBody.angularVelocity = new Vector3(0f, 0f, 0f);
 
                     break;
