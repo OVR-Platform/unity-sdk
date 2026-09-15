@@ -122,7 +122,6 @@ namespace OverSDK.VisualScripting.Editor
 
             if (Target is OverJSONPreviewNode previewJSONNode)
             {
-                Debug.Log(previewJSONNode.GetPort("JSON").GetValue(previewJSONNode.json));
                 JSONNode node = previewJSONNode.GetPort("JSON").GetValue(previewJSONNode.json);
                 if (node != null)
                 {

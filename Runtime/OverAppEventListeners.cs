@@ -1,9 +1,11 @@
-using OverSDK.VisualScripting;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+#if (!APP_MAIN && !SDK_NO_VS) || (APP_MAIN && OVR_PLUGIN_VISUALSCRIPTING)
+using Unity.VisualScripting;
+using OverSDK.VisualScripting;
+#endif
 
 namespace OverSDK
 {
@@ -21,6 +23,10 @@ namespace OverSDK
         /*************** Camera Events for AR *****************/
 
         public static event Action ArCameraTeleported = delegate { };
+
+        /*************** VPS Events *****************/
+
+        public static event Action<int> VPSStatusChanged = delegate { };
 
         /************** Touch Events for AR/VR *******************/
 
@@ -66,6 +72,12 @@ namespace OverSDK
         public static event Action<RaycastHit, Vector2> DoubleClickOnScreen = delegate { };
         public static event Action<RaycastHit, Vector2> DoubleClickOnNotUIScreen = delegate { };
 
+        /************** OverLive Events *******************/
+
+        //OverLive Receive events
+        public static event Action<string, string> ExtraMessageReceived_Room = delegate { };
+        public static event Action<string, byte[]> ExtraBytesReceived_Room = delegate { };
+
 
         public void Awake()
         {
@@ -75,6 +87,9 @@ namespace OverSDK
 
             //Camera Events for AR
             ArCameraTeleported += OnArCameraTeleported;
+
+            //VPS Events
+            VPSStatusChanged += OnVPSStatusChanged;
 
             /************** Touch Events for AR/VR *******************/
             OneTouchEnter += OnOneTouchEnter;
@@ -98,6 +113,10 @@ namespace OverSDK
 
             DoubleClickOnScreen += OnDoubleClickOnScreen;
             DoubleClickOnNotUIScreen += OnDoubleClickOnNotUIScreen;
+
+            //OverLive
+            ExtraMessageReceived_Room += OnExtraMessageReceived_Room;
+            ExtraBytesReceived_Room += OnExtraBytesReceived_Room;
         }
 
         private void OnDestroy()
@@ -108,6 +127,9 @@ namespace OverSDK
 
             //Camera Events for AR
             ArCameraTeleported -= OnArCameraTeleported;
+
+            //VPS Events
+            VPSStatusChanged -= OnVPSStatusChanged;
 
             /************** Touch Events for AR/VR *******************/
             OneTouchEnter -= OnOneTouchEnter;
@@ -131,6 +153,10 @@ namespace OverSDK
 
             DoubleClickOnScreen -= OnDoubleClickOnScreen;
             DoubleClickOnNotUIScreen -= OnDoubleClickOnNotUIScreen;
+
+            //OverLive
+            ExtraMessageReceived_Room -= OnExtraMessageReceived_Room;
+            ExtraBytesReceived_Room -= OnExtraBytesReceived_Room;
         }
 
 
@@ -140,12 +166,12 @@ namespace OverSDK
 #if APP_MAIN
         public static void InvokeTargetImageFound(string id)
         {
-            OnTargetImageFound(id);
+            TargetImageFound.Invoke(id);
         }
 
         public static void InvokeTargetImageLost(string id)
         {
-            OnTargetImageLost(id);
+            TargetImageLost.Invoke(id);
         }
 #endif
 
@@ -167,7 +193,7 @@ namespace OverSDK
 #if APP_MAIN
         public static void InvokeArCameraTeleported()
         {
-            OnArCameraTeleported();
+            ArCameraTeleported.Invoke();
         }
 #endif
 
@@ -175,6 +201,22 @@ namespace OverSDK
         {
 #if (!APP_MAIN && !SDK_NO_VS) || (APP_MAIN && OVR_PLUGIN_VISUALSCRIPTING)
             EventBus.Trigger(EventNames.ArCameraTeleportedEvent);
+#endif
+        }
+
+        /*************** VPS Events *****************/
+
+#if APP_MAIN
+        public static void InvokeVPSStatusChanged(int status)
+        {
+            VPSStatusChanged.Invoke(status);
+        }
+#endif
+
+        public static void OnVPSStatusChanged(int status)
+        {
+#if (!APP_MAIN && !SDK_NO_VS) || (APP_MAIN && OVR_PLUGIN_VISUALSCRIPTING)
+            EventBus.Trigger(EventNames.VPSStatusChangedEvent, status);
 #endif
         }
 
@@ -186,95 +228,106 @@ namespace OverSDK
         //One Touch
         public static void InvokeOneTouchEnter(Vector2 new0)
         {
-            OnOneTouchEnter(new0);
+            OneTouchEnter.Invoke(new0);
         }
 
         public static void InvokeOneTouchEnterOverUI(Vector2 new0)
         {
-            OnOneTouchEnterOverUI(new0);
+            OneTouchEnterOverUI.Invoke(new0);
         }
 
         public static void InvokeOneTouchEnterNotOverUI(Vector2 new0)
         {
-            OnOneTouchEnterNotOverUI(new0);
+            OneTouchEnterNotOverUI.Invoke(new0);
         }
 
         public static void InvokeOneTouchExit(Vector2 old0)
         {
-            OnOneTouchExit(old0);
+            OneTouchExit.Invoke(old0);
         }
 
         public static void InvokeOneTouchIn(Vector2 old0, Vector2 new0)
         {
-            OnOneTouchIn(old0, new0);
+            OneTouchIn.Invoke(old0, new0);
         }
 
         public static void InvokeOneTouchInNotOverUI(Vector2 old0, Vector2 new0)
         {
-            OnOneTouchInNotOverUI(old0, new0);
+            OneTouchInNotOverUI.Invoke(old0, new0);
         }
 
         public static void InvokeOneTouchInOverUI(Vector2 old0, Vector2 new0)
         {
-            OnOneTouchInOverUI(old0, new0);
+            OneTouchInOverUI.Invoke(old0, new0);
         }
 
         //Two Touches
         public static void InvokeTwoTouchesEnter(Vector2 new0, Vector2 new1)
         {
-            OnTwoTouchesEnter(new0, new1);
+            TwoTouchesEnter.Invoke(new0, new1);
         }
 
         public static void InvokeTwoTouchesEnterNotOverUI(Vector2 new0, Vector2 new1)
         {
-            OnTwoTouchesEnterNotOverUI(new0, new1);
+            TwoTouchesEnterNotOverUI.Invoke(new0, new1);
         }
 
         public static void InvokeTwoTouchesEnterOverUI(Vector2 new0, Vector2 new1)
         {
-            OnTwoTouchesEnterOverUI(new0, new1);
+            TwoTouchesEnterOverUI.Invoke(new0, new1);
         }
 
         public static void InvokeTwoTouchesExit(Vector2 old0, Vector2 old1)
         {
-            OnTwoTouchesExit(old0, old1);
+            TwoTouchesExit.Invoke(old0, old1);
         }
 
         public static void InvokeTwoTouchesIn(Vector2 old0, Vector2 old1, Vector2 new0, Vector2 new1)
         {
-            OnTwoTouchesIn(old0, old1, new0, new1);
+            TwoTouchesIn.Invoke(old0, old1, new0, new1);
         }
 
         public static void InvokeTwoTouchesInNotOverUI(Vector2 old0, Vector2 old1, Vector2 new0, Vector2 new1)
         {
-            OnTwoTouchesInNotOverUI(old0, old1, new0, new1);
+            TwoTouchesInNotOverUI.Invoke(old0, old1, new0, new1);
         }
 
         public static void InvokeTwoTouchesInOverUI(Vector2 old0, Vector2 old1, Vector2 new0, Vector2 new1)
         {
-            OnTwoTouchesInOverUI(old0, old1, new0, new1);
+            TwoTouchesInOverUI.Invoke(old0, old1, new0, new1);
         }
 
         //Click
         public static void InvokeClickOnScreen(RaycastHit raycastHit, Vector2 position)
         {
-            OnClickOnScreen(raycastHit, position);
+            ClickOnScreen.Invoke(raycastHit, position);
         }
 
         public static void InvokeClickOnNotUIScreen(RaycastHit raycastHit, Vector2 position)
         {
-            OnClickOnNotUIScreen(raycastHit, position);
+            ClickOnNotUIScreen.Invoke(raycastHit, position);
         }
 
         //Double Click
         public static void InvokeDoubleClickOnScreen(RaycastHit raycastHit, Vector2 position)
         {
-            OnDoubleClickOnScreen(raycastHit, position);
+            DoubleClickOnScreen.Invoke(raycastHit, position);
         }
 
         public static void InvokeDoubleClickOnNotUIScreen(RaycastHit raycastHit, Vector2 position)
         {
-            OnDoubleClickOnNotUIScreen(raycastHit, position);
+            DoubleClickOnNotUIScreen.Invoke(raycastHit, position);
+        }
+
+        //OverLive
+        public static void InvokeExtraMessageReceived_Room(string senderId, string message)
+        {
+            ExtraMessageReceived_Room.Invoke(senderId, message);
+        }
+
+        public static void InvokeExtraBytesReceived_Room(string senderId, byte[] bytes)
+        {
+            ExtraBytesReceived_Room.Invoke(senderId, bytes);
         }
 #endif
 
@@ -405,6 +458,23 @@ namespace OverSDK
         {
 #if (!APP_MAIN && !SDK_NO_VS) || (APP_MAIN && OVR_PLUGIN_VISUALSCRIPTING)
             EventBus.Trigger(EventNames.DoubleClickOnNotUIScreenEvent, (raycastHit, position));
+#endif
+        }
+
+        /************** OverLive Events *******************/
+
+        //OverLive
+        public static void OnExtraMessageReceived_Room(string senderId, string message)
+        {
+#if (!APP_MAIN && !SDK_NO_VS) || (APP_MAIN && OVR_PLUGIN_VISUALSCRIPTING)
+            EventBus.Trigger(EventNames.ExtraMessageReceivedRoomEvent, (senderId, message));
+#endif
+        }
+
+        public static void OnExtraBytesReceived_Room(string senderId, byte[] bytes)
+        {
+#if (!APP_MAIN && !SDK_NO_VS) || (APP_MAIN && OVR_PLUGIN_VISUALSCRIPTING)
+            EventBus.Trigger(EventNames.ExtraBytesReceivedRoomEvent, (senderId, bytes));
 #endif
         }
     }
