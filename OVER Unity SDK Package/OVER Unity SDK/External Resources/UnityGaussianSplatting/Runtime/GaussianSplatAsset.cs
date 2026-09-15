@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 
 using System;
+using System.Runtime.InteropServices;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.Mathematics;
 using UnityEngine;
@@ -127,6 +128,17 @@ namespace GaussianSplatting.Runtime
             m_SHData = dataSh;
         }
 
+        //OVER: self-contained variant — stores the data as raw byte[] embedded in the asset
+        // (no external .bytes files, no SH). Kept alongside the TextAsset variant above so the
+        // existing editor/creator/renderer flows are untouched.
+        public void SetAssetFiles(byte[] dataChunk, byte[] dataPos, byte[] dataOther, byte[] dataColor)
+        {
+            chunkDataRaw = dataChunk;
+            posDataRaw = dataPos;
+            otherDataRaw = dataOther;
+            colorDataRaw = dataColor;
+        }
+
         public static int GetOtherSizeNoSHIndex(VectorFormat scaleFormat)
         {
             return 4 + GetVectorSize(scaleFormat);
@@ -214,6 +226,12 @@ namespace GaussianSplatting.Runtime
         // Chunk data is optional (if data formats are fully lossless then there's no chunking)
         [SerializeField] TextAsset m_ChunkData;
 
+        //OVER: raw byte[] data embedded in the asset (self-contained variant, no SH)
+        [SerializeField] byte[] posDataRaw;
+        [SerializeField] byte[] colorDataRaw;
+        [SerializeField] byte[] otherDataRaw;
+        [SerializeField] byte[] chunkDataRaw;
+
         [SerializeField] CameraInfo[] m_Cameras;
 
         public VectorFormat posFormat => m_PosFormat;
@@ -227,6 +245,43 @@ namespace GaussianSplatting.Runtime
         public TextAsset shData => m_SHData;
         public TextAsset chunkData => m_ChunkData;
         public CameraInfo[] cameras => m_Cameras;
+
+        //OVER: accessors over the embedded byte[] data (consumed by the runtime app renderer)
+        uint[] posDataArray;
+        public uint[] PosData
+        {
+            get
+            {
+                if (posDataArray == null)
+                    posDataArray = ConvertByteArrayPrimitives<uint>(posDataRaw);
+                return posDataArray;
+            }
+        }
+        uint[] colorDataArray;
+        public uint[] ColorData
+        {
+            get
+            {
+                if (colorDataArray == null)
+                    colorDataArray = ConvertByteArrayPrimitives<uint>(colorDataRaw);
+                return colorDataArray;
+            }
+        }
+        public byte[] OtherData => otherDataRaw;
+        ChunkInfo[] chunkDataArray;
+        public ChunkInfo[] ChunkData
+        {
+            get
+            {
+                if (chunkDataArray == null)
+                    chunkDataArray = ConvertByteArray<ChunkInfo>(chunkDataRaw);
+                return chunkDataArray;
+            }
+        }
+        public int PosDataDataSize => posDataRaw.Length;
+        public int ColorDataDataSize => colorDataRaw.Length;
+        public int OtherDataDataSize => otherDataRaw.Length;
+        public int ChunkDataDataSize => chunkDataRaw.Length;
 
         public struct ChunkInfo
         {
@@ -242,6 +297,59 @@ namespace GaussianSplatting.Runtime
             public Vector3 pos;
             public Vector3 axisX, axisY, axisZ;
             public float fov;
+        }
+
+        //OVER: helpers to reinterpret the embedded byte[] as typed arrays.
+        private T[] ConvertByteArrayPrimitives<T>(byte[] byteArray) where T : struct
+        {
+            int sizeOfType = Marshal.SizeOf(typeof(T));
+            int arrayLength = byteArray.Length / sizeOfType;
+            T[] resultArray = new T[arrayLength];
+            Buffer.BlockCopy(byteArray, 0, resultArray, 0, byteArray.Length);
+            return resultArray;
+        }
+
+        public static T[] ConvertByteArray<T>(byte[] byteArray) where T : struct
+        {
+            int sizeOfType = Marshal.SizeOf(typeof(T));
+            int arrayLength = byteArray.Length / sizeOfType;
+            T[] resultArray = new T[arrayLength];
+
+            for (int i = 0; i < arrayLength; i++)
+            {
+                T structure = ByteArrayToStructure<T>(byteArray, i * sizeOfType);
+                resultArray[i] = structure;
+            }
+
+            return resultArray;
+        }
+
+        private static T ByteArrayToStructure<T>(byte[] bytes, int startIndex) where T : struct
+        {
+            T structure;
+            GCHandle handle = GCHandle.Alloc(bytes, GCHandleType.Pinned);
+            try
+            {
+                IntPtr ptr = IntPtr.Zero;
+                try
+                {
+                    ptr = Marshal.UnsafeAddrOfPinnedArrayElement(bytes, startIndex);
+                    structure = (T)Marshal.PtrToStructure(ptr, typeof(T));
+                }
+                finally
+                {
+                    if (ptr != IntPtr.Zero)
+                    {
+                        Marshal.DestroyStructure(ptr, typeof(T));
+                    }
+                }
+            }
+            finally
+            {
+                handle.Free();
+            }
+
+            return structure;
         }
     }
 }

@@ -66,7 +66,7 @@ namespace OverSDK.VisualScripting
                     rot = _rigidbody.rotation;
                     return rot;
                 case "Velocity":
-                    velocity = _rigidbody.velocity;
+                    velocity = _rigidbody.linearVelocity;
                     return velocity;
                 case "Ang. Velocity":
                     angularVelocity = _rigidbody.angularVelocity;
@@ -279,7 +279,7 @@ namespace OverSDK.VisualScripting
             Rigidbody _target = GetInputValue("Rigidbody", rigidbody);
             Vector3 _velocity = GetInputValue("Velocity", velocity);
 
-            _target.velocity = _velocity;
+            _target.linearVelocity = _velocity;
 
             return base.Execute(data);
         }

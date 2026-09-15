@@ -90,10 +90,20 @@ namespace GaussianSplatting.Runtime
             if (m_ActiveSplats.Count == 0)
                 return false;
 
-            // sort them by depth from camera
+            // sort them: first by explicit render order, then by depth from camera for
+            // renderers sharing the same order.
+            // NOTE: gaussian splatting composites front-to-back, so whatever is drawn
+            // FIRST ends up IN FRONT. To make a LOWER render order mean "behind", higher
+            // orders must be drawn first -> sort DESCENDING by order (e.g. OVRMap at -1
+            // is drawn last and stays behind everything else).
             var camTr = cam.transform;
             m_ActiveSplats.Sort((a, b) =>
             {
+                int orderA = a.Item1.m_RenderOrder;
+                int orderB = b.Item1.m_RenderOrder;
+                if (orderA != orderB)
+                    return orderB.CompareTo(orderA);
+
                 var trA = a.Item1.transform;
                 var trB = b.Item1.transform;
                 var posA = camTr.InverseTransformPoint(trA.position);
@@ -230,6 +240,11 @@ namespace GaussianSplatting.Runtime
         public bool m_SHOnly;
         [Range(1,30)] [Tooltip("Sort splats only every N frames")]
         public int m_SortNthFrame = 1;
+
+        [Tooltip("Render order across splat renderers: LOWER values render behind, HIGHER values " +
+                 "in front (on top). Renderers with the same order are sorted by distance from the " +
+                 "camera. E.g. the OVRMap uses -1 to always stay behind the other splats.")]
+        public int m_RenderOrder = 0;
 
         public RenderMode m_RenderMode = RenderMode.Splats;
         [Range(1.0f,15.0f)] public float m_PointDisplaySize = 3.0f;
