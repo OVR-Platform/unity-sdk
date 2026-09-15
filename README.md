@@ -11,7 +11,7 @@ _Fig 1.2: Unity Version_
 3.1	Select Mac platform for Over Console support. (Optional)
 3.2	Select WebGL platform for Instant App support . (Optional)
 
-![Unity platforms](https://ovr-assets.s3.eu-central-1.amazonaws.com/images/github-sdk/unity-builder-tutorial-02-1-2___.png)
+![Unity platforms](https://ovr-assets.s3.eu-central-1.amazonaws.com/images/github-sdk/unity-builder-tutorial-02-1-2____.png)
 _Fig 1.3: Unity platforms_
 
 3.	{For Mac) Select Android and iOS platform.
@@ -22,6 +22,7 @@ _Fig 1.3: Unity platforms_
 _Fig 1.3: Unity platforms_
 
 4.	Create new project in unity with the download version.
+4.1	Select the 3D (Built-In Render Pipeline) template. Other templates (URP, HDRP) are not supported.
 
 
 ## Install OVER Editor Package
