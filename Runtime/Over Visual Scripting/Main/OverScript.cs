@@ -733,6 +733,10 @@ namespace OverSDK.VisualScripting
 
                 foreach (OverGraphVariableData variableNode in variableNodes)
                 {
+                    // Kept in the graph by the automatic update: not added to the script either
+                    if (OverGraph.KeepMissingVariables && OverGraph.KeptVariables.Contains(variableNode.GUID))
+                        continue;
+
                     OverVariableData data = variableNode.ToScriptData();
 
                     if (!Data.ContainsVariable(data.GUID) && !data.isGlobal)
@@ -823,8 +827,19 @@ namespace OverSDK.VisualScripting
 
                     if (result > 0)
                     {
-                        SetVariablesToGraph(forceUpdate: true);  //Change graph variables
-                        ReloadVariableFormGraph();//Reload from graph to align
+                        // Automatic update of an old variable list (it runs just by opening the scene): the graph
+                        // keeps the variables this script does not have, nothing else is changed, the error stays
+                        OverGraph.KeepMissingVariables = true;
+                        try
+                        {
+                            SetVariablesToGraph(forceUpdate: true);  //Change graph variables
+                            ReloadVariableFormGraph();//Reload from graph to align
+                        }
+                        finally
+                        {
+                            OverGraph.KeepMissingVariables = false;
+                            OverGraph.KeptVariables.Clear();
+                        }
                         Data.RebuildLookupDictionary();
                     }
                 }

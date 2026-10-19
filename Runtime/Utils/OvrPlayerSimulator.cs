@@ -66,6 +66,10 @@ namespace OverSDK
 
         private void Awake()
         {
+            // Scenes created before the pointer existed: add it, so clicks can be simulated everywhere
+            if (Application.isEditor && GetComponent<OvrSimulatorPointer>() == null)
+                gameObject.AddComponent<OvrSimulatorPointer>();
+
             if (skyBoxCamera == null)
             {
                 foreach (Transform child in transform)
