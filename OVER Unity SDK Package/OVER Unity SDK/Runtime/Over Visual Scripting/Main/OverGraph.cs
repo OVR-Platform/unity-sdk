@@ -467,8 +467,22 @@ namespace OverSDK.VisualScripting
             }
         }
 
+        /// <summary>
+        /// Set while an OverScript updates an old variable list by itself (on scene open): the graph does not lose
+        /// the local variables the script does not have, and the other scripts of the graph are not changed.
+        /// </summary>
+        public static bool KeepMissingVariables;
+        public static readonly HashSet<string> KeptVariables = new HashSet<string>();
+
         public void UpdateDataFromScript(OverScript script)
         {
+            List<OverGraphVariableData> kept = KeepMissingVariables
+                // the old-format list too: graphs of older SDKs still have their variables there (not in the sublists)
+                ? Data.GetVariablesList().Concat(Data.variables).Where(v => v != null && !v.isGlobal && !script.Data.ContainsVariable(v.GUID))
+                      .GroupBy(v => v.GUID).Select(g => g.First()).ToList()
+                : new List<OverGraphVariableData>();
+            KeptVariables.Clear();
+
             // Clear the variables of the graph
             Data.ClearLists();
             Data.RebuildLookupDictionary();
@@ -495,11 +509,20 @@ namespace OverSDK.VisualScripting
             //remove surplus
             //RemoveSurplusLocalVariables(script);
 
+            // Kept before the globals: their validation then finds them, and only the clearer error below is logged
+            foreach (OverGraphVariableData variable in kept)
+            {
+                Data.AddNewVariableToSubList(variable, rebuildAndNotify: false);
+                KeptVariables.Add(variable.GUID);
+            }
+            if (kept.Count > 0)
+                Data.RebuildLookupDictionary();
+
             //Reset all globals as well.
             UpdateDataFromManager();
 
             //Notify to other scripts that use the same graph (serve quando vengono aggiunte variabili)
-            if(Application.isEditor && !Application.isPlaying)
+            if(Application.isEditor && !Application.isPlaying && !KeepMissingVariables)
             {
                 OverScriptManager scriptManager = OverScriptManager.Main;
                 string graphGuid = GUID;
@@ -573,7 +596,51 @@ namespace OverSDK.VisualScripting
             }
         }
 
+        // Local variables of the graph that no OverScript using it has (kept by the automatic update of an old
+        // variable list): their nodes read the default value / change nothing in the app. Checked at every validation,
+        // so the error does not go away after the first scene open
+        private void ReportVariablesMissingInScripts()
+        {
+            OverScriptManager manager = OverScriptManager.Main;
+            if (manager == null || Application.isPlaying)
+                return;
+
+            List<OverScript> scripts = manager.managedScripts.Where(s => s != null && s.OverGraph == this).ToList();
+            if (scripts.Count == 0)
+                return;
+
+            List<OverGraphVariableData> missing = Data.GetVariablesList()
+                .Where(v => !v.isGlobal && !scripts.Any(s => s.Data.ContainsVariable(v.GUID))).ToList();
+            if (missing.Count > 0)
+                ReportMissingInScript(scripts[0], missing);
+        }
+
+        // Nodes of variables the graph has but its OverScript does not: in the app they read the default value
+        private void ReportMissingInScript(OverScript script, List<OverGraphVariableData> missing)
+        {
+            if (missing.Count == 0 || Application.isPlaying)
+                return;
+
+            var guids = new HashSet<string>(missing.Select(v => v.GUID));
+            foreach (OverGetVariable node in GetGraphNodes<OverGetVariable>().Where(n => guids.Contains(n.guid)))
+            {
+                Debug.LogError($"[OVER] Node Removed\nSource: [GET] {node.Name} ({node.guid})\nThe variable is not in the OverScript of '{script.name}': in the app this node reads the default value.\nTo avoid inconsistencies erase this node from the OverGraph or add the variable to the OverScript.", this);
+                node.Error = "[Error] Variable not in the OverScript (Node GUID mismatch)";
+            }
+            foreach (OverSetVariable node in GetGraphNodes<OverSetVariable>().Where(n => guids.Contains(n.guid)))
+            {
+                Debug.LogError($"[OVER] Node Removed\nSource: [SET] {node.Name} ({node.guid})\nThe variable is not in the OverScript of '{script.name}': in the app this node changes nothing.\nTo avoid inconsistencies erase this node from the OverGraph or add the variable to the OverScript.", this);
+                node.Error = "[Error] Variable not in the OverScript (Node GUID mismatch)";
+            }
+        }
+
         private void ValidateInternalNodes()
+        {
+            ValidateNodesAgainstData();
+            ReportVariablesMissingInScripts();
+        }
+
+        private void ValidateNodesAgainstData()
         {
             if (Application.isPlaying)
             {
