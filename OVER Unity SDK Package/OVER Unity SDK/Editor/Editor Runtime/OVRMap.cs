@@ -123,12 +123,53 @@ namespace OverSDK
         }
 
 #if !APP_MAIN
+        // Raised whenever the pose of an OVRMap changes, moved by hand or by a script.
+        // The editor keeps the pose in the data of the scene: this component cannot
+        // reach it, it lives in another assembly.
+        public static Action<OVRMap> OnScenePoseChanged;
+
+        // Last pose reported, not serialized: after a domain reload the first Update
+        // reports the pose again, which is harmless.
+        [NonSerialized] private bool hasReportedPose;
+        [NonSerialized] private Vector3 reportedPosition;
+        [NonSerialized] private Quaternion reportedRotation;
+        [NonSerialized] private Vector3 reportedScale;
+
         private void Update()
         {
             if (transform.parent != null)
                 transform.SetParent(null);
 
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), -Mathf.Abs(transform.localScale.y), Mathf.Abs(transform.localScale.z));
+
+            ReportPoseIfChanged();
+        }
+
+        // A spawned OVRMap is moved while still inactive and activated once in place:
+        // its pose is reported again on activation, it may be the first one that counts.
+        private void OnEnable()
+        {
+            hasReportedPose = false;
+            ReportPoseIfChanged();
+        }
+
+        // In edit mode Update only runs when something in the scene changes, and the
+        // methods here that move the object call it themselves: every move ends up here.
+        private void ReportPoseIfChanged()
+        {
+            Vector3 position = transform.localPosition;
+            Quaternion rotation = transform.localRotation;
+            Vector3 scale = transform.localScale;
+
+            if (hasReportedPose && position == reportedPosition && rotation == reportedRotation && scale == reportedScale)
+                return;
+
+            hasReportedPose = true;
+            reportedPosition = position;
+            reportedRotation = rotation;
+            reportedScale = scale;
+
+            OnScenePoseChanged?.Invoke(this);
         }
 
         public void InitData(string uuid, RepositionData data, Vector3 centerReference)

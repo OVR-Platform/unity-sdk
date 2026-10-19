@@ -27,7 +27,8 @@ public class OvrPlayerSimulatorController : MonoBehaviour
 
     private void Rotate()
     {        
-        if (Input.GetKey(KeyCode.Space))
+        // Right mouse button + mouse = look around (left button is the tap, see OvrSimulatorPointer)
+        if (Input.GetMouseButton(1))
         {
 
             transform.Rotate(Vector3.up * sensitivity * Time.deltaTime * Input.GetAxis("Mouse X"));
