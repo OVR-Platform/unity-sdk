@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4255464243814215580}
   - component: {fileID: 1771514164966217997}
   m_Layer: 0
-  m_Name: OverArImageTargetListener
+  m_Name: OVER_ArImageTargetListener
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

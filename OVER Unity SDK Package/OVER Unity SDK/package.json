@@ -1,6 +1,6 @@
 {
   "name": "com.over.over-unity-sdk",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "displayName": "OVER Unity SDK",
   "description": "Thanks to our plugin, you can take advantage of all the Unity Engine features as it is the same development environment used in the OVR app. You can integrate major 3D model formats like fbx, dae, 3ds, dxf and obj, create interactions, animations and take advantage of physics rules directly from Unity, activating them through triggers or buttons\u2026",
   "unity": "6000.3",
@@ -54,6 +54,31 @@
       "displayName": "WebRequest",
       "description": "The WebRequest asset is an example of how a game using WebRequests can be implemented using OVER's SDK",
       "path": "Samples~/WebRequest"
+    },
+    {
+      "displayName": "ARNavigation",
+      "description": "The ARNavigation asset is an example of how AR wayfinding with a NavMesh and guiding arrows can be implemented using OVER's SDK",
+      "path": "Samples~/ARNavigation"
+    },
+    {
+      "displayName": "ClickableObject",
+      "description": "The ClickableObject asset is an example of how Click, Press and Long Press events on an object can be handled using OVER's SDK",
+      "path": "Samples~/ClickableObject"
+    },
+    {
+      "displayName": "ImageTarget",
+      "description": "The ImageTarget asset is an example of how AR Image Target Found and Lost events can be handled using OVER's SDK",
+      "path": "Samples~/ImageTarget"
+    },
+    {
+      "displayName": "UserEvent",
+      "description": "The UserEvent asset is an example of how the current user's name can be read using OVER's SDK",
+      "path": "Samples~/UserEvent"
+    },
+    {
+      "displayName": "Zebra",
+      "description": "The Zebra asset is an example of how an animated character can move on a NavMesh using OVER's SDK",
+      "path": "Samples~/Zebra"
     }
   ]
 }

@@ -79,7 +79,7 @@ namespace OverSDK.VisualScripting
         private ControlOutput Restart(Flow flow)
         {
 #if !APP_MAIN
-            Debug.LogWarning("VPS Restart is only available in the main app");
+            Debug.Log("[OVER][VPS] Restart is only available in the OVER app");
 #else
             if (RestartVPS != null)
             {
@@ -87,7 +87,7 @@ namespace OverSDK.VisualScripting
             }
             else
             {
-                Debug.LogWarning("RestartVPS delegate is not assigned");
+                Debug.LogError("[OVER][VPS] RestartVPS delegate is not assigned");
             }
 #endif
             return RestartOutput;
