@@ -1,36 +1,32 @@
 # OVER Unity SDK
 
 ## Unity Setup
-1. Go to Unity Hub, and download Unity Hub (not the beta version)
+
+1. Download Unity Hub (not the beta version).
 2. After downloading Unity Hub, download Unity version 6000.3.18f1 from the Unity archive.
 
-![Unity Version](https://ovr-assets.s3.eu-central-1.amazonaws.com/images/github-sdk/unity-builder-tutorial-01-2.png)
-_Fig 1.2: Unity Version_
+![Unity Hub archive](.github/images/unity-hub-archive.png)
+_Fig 1.1: Unity Hub archive_
 
-3.	{For Windows} Select Android and iOS platform.
-3.1	Select Mac platform for Over Console support. (Optional)
-3.2	Select WebGL platform for Instant App support . (Optional)
+3. **On Windows**: install Android, iOS and WebGL Build Support (required). Add Mac Build Support (Mono) for OVER Console support (optional).
 
-![Unity platforms](https://ovr-assets.s3.eu-central-1.amazonaws.com/images/github-sdk/unity-builder-tutorial-02-1-2____.png)
-_Fig 1.3: Unity platforms_
+![Unity modules on Windows](.github/images/unity-modules-windows.png)
+_Fig 1.2: Unity modules on Windows_
 
-3.	{For Mac) Select Android and iOS platform.
-3.1	Select Mac platform for Over Windows support. (Optional)
-3.2	Select WebGL platform for Instant App support . (Optional)
+4. **On Mac**: install Android, iOS and WebGL Build Support (required). Add Windows Build Support (Mono) for OVER Console support (optional).
 
-![Unity platforms](https://ovr-assets.s3.eu-central-1.amazonaws.com/github-sdk/unity-builder-tutorial-02-2___.png)
-_Fig 1.3: Unity platforms_
+![Unity modules on Mac](.github/images/unity-modules-mac.png)
+_Fig 1.3: Unity modules on Mac_
 
-4.	Create new project in unity with the download version.
-4.1	Select the 3D (Built-In Render Pipeline) template. Other templates (URP, HDRP) are not supported.
-
+5. Create a new project with Unity 6000.3.18f1, using the 3D (Built-In Render Pipeline) template. URP and HDRP are not supported.
 
 ## Install OVER Editor Package
- The OVER Editor Package can be installed, via Unity Package Manager, by following these steps:
 
-- Open `Window > Package Manager`
+The OVER Editor Package can be installed via the Unity Package Manager, by following these steps:
+
+- Open `Window > Package Management > Package Manager`
 - Click the `+` button
-- You can either choose to install the package from a Git URL (Recommended), by pasting the following git url `https://github.com/OVR-Platform/unity-sdk.git#upm`, or from a tarball file (You can download the last version [here](https://github.com/OVR-Platform/unity-sdk/releases)).
+- You can either install the package from a Git URL (Recommended), by pasting the following git url `https://github.com/OVR-Platform/unity-sdk.git#upm`, or from a tarball file (You can download the latest version [here](https://github.com/OVR-Platform/unity-sdk/releases)).
 
 ##### If you have problems downloading the package from git, try the following steps
 ###### For Mac Users:
@@ -41,32 +37,29 @@ _Fig 1.3: Unity platforms_
 - (Important) `sudo ln -s "$(which git-lfs)" /usr/local/bin/`
 - (Otherwise) `sudo ln -s "$(which git-lfs)" "$(git --exec-path)/git-lfs"`
 ###### For Windows Users:
-- install git (https://git-scm.com/download/win)
-
-##### For Glb and Gltf support in Unity
-- install glTFast package (https://github.com/atteneder/glTFast)
+- Install git (https://git-scm.com/download/win)
 
 ## Create and use your OVER API Keys
-1.	Login on the OVER Web Builder https://builder.ovr.ai using your credentials or your Metamask wallet and click on "Unity SDK" from the menu.
 
-![Create new project](https://ovr-assets.s3.eu-central-1.amazonaws.com/images/github-sdk/Slayt1.PNG)
-_Fig 3.1: Click on API Keys_
+1. Log in to the OVER Web Builder using your credentials or your Metamask wallet and click on "Unity SDK" in the left menu (or go directly to [builder.ovr.ai/dash/unity-sdk](https://builder.ovr.ai/dash/unity-sdk)).
+2. In the Access Tokens section, click on the "New Token" button.
 
-2. Click on the the button "Create new".
+![Unity SDK page in the Web Builder](.github/images/webbuilder-unity-sdk.png)
+_Fig 2.1: Unity SDK page and New Token button_
 
-![Create new project](https://ovr-assets.s3.eu-central-1.amazonaws.com/images/github-sdk/Slayt2.PNG)
-_Fig 3.2: Click on Create new_
+3. Type a name as a reference. The expiration date is optional: leave it empty for a token that does not expire.
 
-3.	Type a name as a reference and select an expiration date.
+![New Access Token](.github/images/webbuilder-new-token.png)
+_Fig 2.2: Create your token_
 
-![Create new project](https://ovr-assets.s3.eu-central-1.amazonaws.com/images/github-sdk/Slayt3.PNG)
-_Fig 3.3: Create your token_
+4. Select and copy the newly created token to use it in Unity.
 
-4.	Select and copy the newly created token to use it in Unity .
+![Copy your token](.github/images/webbuilder-copy-token.png)
+_Fig 2.3: Copy your token_
 
-![Create new project](https://ovr-assets.s3.eu-central-1.amazonaws.com/images/github-sdk/Slayt4.PNG)
-_Fig 3.4: Get and use your token_
+## Getting Started
+
+To create a new experience, follow the Getting Started steps in the [Quick Start](https://docs.overthereality.ai/over-sdk-manual/setting-up/quick-start), or start from one of the [Jump Start Samples](https://docs.overthereality.ai/over-sdk-manual/setting-up/jump-start-samples).
 
 # OVER SDK MANUAL
-[Visit SDK Manual](https://docs.overthereality.ai/over-sdk-manual/
-)
+[Visit SDK Manual](https://docs.overthereality.ai/over-sdk-manual/)
