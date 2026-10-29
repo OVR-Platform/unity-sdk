@@ -37,7 +37,7 @@ namespace OverSDK
     {
         static double renameTime;
 
-        [MenuItem("GameObject/OVER/Over Visual Scripting/Over Script", isValidateFunction: false, priority: 2, secondaryPriority = 1)]
+        [MenuItem("GameObject/OVER/Over Visual Scripting (Legacy)/Over Script", isValidateFunction: false, priority: 50, secondaryPriority = 1)]
         public static OverScript InstantiateOverScript()
         {
             if (OverScriptManager.Main == null)
@@ -60,7 +60,7 @@ namespace OverSDK
             return newScript;
         }
 
-        [MenuItem("GameObject/OVER/Over Visual Scripting/Over Script Manager", isValidateFunction: false, priority: 2, secondaryPriority = 1)]
+        [MenuItem("GameObject/OVER/Over Visual Scripting (Legacy)/Over Script Manager", isValidateFunction: false, priority: 50, secondaryPriority = 2)]
         public static OverScriptManager InstantiateOverScriptManager()
         {
             OverSDK.OvrAsset asset = FindObjectOfType<OverSDK.OvrAsset>() ?? OvrPrefabInstantiator.InstantiateOvrAsset();

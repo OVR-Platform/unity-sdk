@@ -126,12 +126,9 @@ namespace OverSDK.VisualScripting
 
                 if (File.Exists(localSaveFilePath))
                 {
-                    using (FileStream fileStream = File.OpenWrite(localSaveFilePath))
-                    {
-                        byte[] byteArray = Encoding.UTF8.GetBytes(SaveFileJSON.ToString());
-                        fileStream.Write(byteArray, 0, byteArray.Length);
-                        fileStream.Close();
-                    }
+                    // Riscrive il file da zero: File.OpenWrite non lo troncava e, se il nuovo JSON era
+                    // più corto, restavano byte vecchi in coda che rendevano il file illeggibile
+                    File.WriteAllText(localSaveFilePath, SaveFileJSON.ToString(), new UTF8Encoding(false));
                     return true;
                 }
             }

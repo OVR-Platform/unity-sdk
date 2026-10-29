@@ -116,7 +116,7 @@ namespace OverSDK.VisualScripting
             }
             catch (Exception ex)
             {
-                Debug.LogError("Transform Missing " + ex.Message);
+                Debug.LogError("[OVER][ArCamera] Transform missing: " + ex.Message);
 
                 _camera = Camera.main;
             }
@@ -152,7 +152,7 @@ namespace OverSDK.VisualScripting
             }
             catch (Exception ex)
             {
-                Debug.LogError("Transform Missing " + ex.Message);
+                Debug.LogError("[OVER][ArCamera] Transform missing: " + ex.Message);
                 _camera = Camera.main;
             }
 
@@ -300,11 +300,16 @@ private Camera GetCamera(Flow flow)
         public ControlInput inputTrigger;
 
         [DoNotSerialize]
+        public ControlOutput outputTrigger;
+
+        [DoNotSerialize]
         public ValueInput position;
 
         protected override void Definition()
         {
             position = ValueInput<Vector3>("Position", Vector3.zero);
+            // Uscita del flusso: permette di collegare altri nodi dopo questo
+            outputTrigger = ControlOutput("");
 
             inputTrigger = ControlInput("", (flow) =>
             {
@@ -325,8 +330,10 @@ private Camera GetCamera(Flow flow)
                 }
 #endif
 
-                return null;
+                return outputTrigger;
             });
+
+            Succession(inputTrigger, outputTrigger);
         }
     }
 
@@ -339,11 +346,16 @@ private Camera GetCamera(Flow flow)
         public ControlInput inputTrigger;
 
         [DoNotSerialize]
+        public ControlOutput outputTrigger;
+
+        [DoNotSerialize]
         public ValueInput rotation;
 
         protected override void Definition()
         {
             rotation = ValueInput<Quaternion>("Rotation", Quaternion.identity);
+            // Uscita del flusso: permette di collegare altri nodi dopo questo
+            outputTrigger = ControlOutput("");
 
             inputTrigger = ControlInput("", (flow) =>
             {
@@ -364,8 +376,10 @@ private Camera GetCamera(Flow flow)
                 }
 #endif
 
-                return null;
+                return outputTrigger;
             });
+
+            Succession(inputTrigger, outputTrigger);
         }
     }
 }
