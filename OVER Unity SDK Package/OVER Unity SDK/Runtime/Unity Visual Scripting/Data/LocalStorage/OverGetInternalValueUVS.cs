@@ -69,7 +69,9 @@ namespace OverSDK.VisualScripting
                     }
                     else
                     {
-                        Debug.LogError($"Key {_key} was not found...");
+                        // Chiave assente: svuota l'uscita, altrimenti resterebbe il valore della lettura precedente
+                        resultValue = string.Empty;
+                        Debug.Log($"[OVER][LocalStorage] Key \"{_key}\" was not found, returning an empty value");
                     }
 
                 
